@@ -4,9 +4,9 @@ import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
-    <div className="flex h-screen flex-col bg-background overflow-y-auto">
+    <div className="flex min-h-screen flex-col bg-background">
       <Header />
-      <main className="flex flex-1 flex-col">
+      <main className="flex flex-col" style={{ minHeight: 'calc(100vh - 64px)' }}>
         <Hero />
       </main>
       <Footer />

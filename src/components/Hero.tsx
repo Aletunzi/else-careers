@@ -7,7 +7,7 @@ const Hero = () => {
       <p className="mt-4 text-sm text-muted-foreground sm:mt-5 sm:text-base md:text-lg 2xl:text-xl lg:whitespace-nowrap">
         Else is here to help you find your next product job at the top tech companies worldwide.
       </p>
-      <div className="mt-8 flex w-full max-w-3xl flex-col gap-3 rounded-2xl bg-card px-6 py-5 shadow-sm border border-border sm:mt-12 sm:flex-row sm:items-center sm:px-8 sm:py-6 2xl:max-w-4xl 2xl:px-10 2xl:py-7">
+      <div className="mt-8 flex w-full max-w-3xl flex-col gap-3 rounded-2xl bg-card px-6 py-5 shadow-sm sm:mt-12 sm:flex-row sm:items-center sm:px-8 sm:py-6 2xl:max-w-4xl 2xl:px-10 2xl:py-7">
         <input
           type="text"
           placeholder="Product manager role in Paris"
