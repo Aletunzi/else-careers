@@ -1,6 +1,6 @@
 const Header = () => {
   return (
-    <header className="flex items-center justify-between px-5 py-5 sm:px-8 sm:py-6 md:px-16 lg:px-24">
+    <header className="animate-fade-in flex items-center justify-between px-5 py-5 sm:px-8 sm:py-6 md:px-16 lg:px-24">
       <span className="text-xl font-normal tracking-tight text-foreground sm:text-2xl">
         else
       </span>
