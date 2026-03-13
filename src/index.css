@@ -41,7 +41,11 @@
   * {
     @apply border-border;
   }
+  html {
+    overscroll-behavior: none;
+  }
   body {
     @apply bg-background text-foreground font-sans antialiased;
+    overscroll-behavior: none;
   }
 }
