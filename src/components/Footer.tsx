@@ -2,8 +2,8 @@ import footerBg from "@/assets/footer-bg.jpg";
 
 const Footer = () => {
   return (
-    <footer className="animate-fade-in relative bg-cover bg-center brightness-[0.95]" style={{ backgroundImage: `url(${footerBg})`, animationDelay: '450ms', animationFillMode: 'both' }}>
-      <div className="absolute inset-0 bg-black/[0.08]" />
+    <footer className="animate-fade-in relative bg-cover bg-center" style={{ backgroundImage: `url(${footerBg})`, animationDelay: '450ms', animationFillMode: 'both' }}>
+      <div className="absolute inset-0 bg-black/40" />
       <div className="relative px-5 pb-12 pt-16 sm:px-8 sm:pb-16 sm:pt-20 md:px-16 md:pb-20 md:pt-24 lg:px-24 lg:pb-24 lg:pt-28 2xl:px-32 2xl:pt-32 2xl:pb-28">
         <div className="flex flex-col gap-10 sm:gap-12 md:flex-row md:justify-between">
           <div>
