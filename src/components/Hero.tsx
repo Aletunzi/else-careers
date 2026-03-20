@@ -2,7 +2,7 @@ const Hero = () => {
   return (
     <section className="flex flex-1 flex-col items-center justify-start px-5 pt-20 pb-16 text-center sm:px-8 md:pt-28">
       <h1 className="animate-fade-in text-2xl font-normal leading-tight text-foreground sm:text-3xl md:text-4xl lg:text-[2.75rem] xl:text-5xl 2xl:text-6xl lg:whitespace-nowrap" style={{ animationDelay: '150ms', animationFillMode: 'both' }}>
-        1 out of 7 product role is on Linkedin. Where are the other 6?
+        Find your next product role, <span className="italic" style={{ fontFamily: "'Lora', serif" }}>today.</span>
       </h1>
       <p className="animate-fade-in mt-4 text-sm text-muted-foreground sm:mt-5 sm:text-base md:text-lg 2xl:text-xl lg:whitespace-nowrap" style={{ animationDelay: '300ms', animationFillMode: 'both' }}>
         Else is here to help you find your next product job at the top tech companies worldwide.
