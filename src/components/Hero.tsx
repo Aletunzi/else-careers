@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const placeholders = [
   "I'm looking for a senior product manager role in Paris",
@@ -8,16 +8,17 @@ const placeholders = [
 
 const Hero = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [fade, setFade] = useState(true);
+  const [visible, setVisible] = useState(true);
+  const [inputValue, setInputValue] = useState("");
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setFade(false);
+      setVisible(false);
       setTimeout(() => {
         setCurrentIndex((prev) => (prev + 1) % placeholders.length);
-        setFade(true);
-      }, 400);
-    }, 3500);
+        setVisible(true);
+      }, 600);
+    }, 4000);
     return () => clearInterval(interval);
   }, []);
 
@@ -30,11 +31,22 @@ const Hero = () => {
 
       </p>
       <div className="animate-fade-in mt-8 flex w-full max-w-4xl flex-col gap-3 rounded-2xl bg-card px-8 py-7 shadow-sm sm:mt-12 sm:flex-row sm:items-center sm:px-10 sm:py-8 2xl:max-w-5xl 2xl:px-12 2xl:py-9" style={{ animationDelay: '450ms', animationFillMode: 'both' }}>
-        <input
-          type="text"
-          placeholder={placeholders[currentIndex]}
-          className={`flex-1 bg-transparent text-sm text-foreground placeholder:text-muted-foreground outline-none md:text-base 2xl:text-lg transition-opacity duration-400 ${fade ? "placeholder:opacity-100" : "placeholder:opacity-0"}`}
-        />
+        <div className="relative flex-1">
+          <input
+            type="text"
+            value={inputValue}
+            onChange={(e) => setInputValue(e.target.value)}
+            className="w-full bg-transparent text-sm text-foreground outline-none md:text-base 2xl:text-lg"
+          />
+          {!inputValue && (
+            <span
+              className="pointer-events-none absolute inset-0 flex items-center text-sm text-muted-foreground md:text-base 2xl:text-lg transition-opacity duration-500 ease-in-out"
+              style={{ opacity: visible ? 1 : 0 }}
+            >
+              {placeholders[currentIndex]}
+            </span>
+          )}
+        </div>
         
         <button className="rounded-lg bg-primary px-8 py-3 text-sm font-normal text-primary-foreground transition-colors hover:opacity-90 sm:ml-4 2xl:px-10 2xl:py-3.5 2xl:text-base">
           Search
