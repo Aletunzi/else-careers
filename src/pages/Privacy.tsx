@@ -16,7 +16,7 @@ const Privacy = () => {
           to="/"
           className="inline-flex items-center gap-1 text-sm text-foreground hover:opacity-70 transition-opacity mb-12"
         >
-          \u2190 Back to home
+          ← Back to home
         </Link>
 
         <div className="flex flex-col gap-8 md:flex-row md:gap-16 lg:gap-24">
