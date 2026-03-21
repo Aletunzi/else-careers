@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import footerBg from "@/assets/footer-bg.jpg";
 
 const Footer = () => {
@@ -21,8 +22,8 @@ const Footer = () => {
             <div>
               <h4 className="mb-3 text-sm font-normal text-white sm:mb-4 sm:text-base 2xl:text-lg">Legal</h4>
               <ul className="space-y-2 text-sm text-white/80 sm:space-y-3 2xl:text-base">
-                <li><a href="#" className="hover:text-white transition-colors">Terms and conditions</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Privacy policy</a></li>
+                <li><Link to="/terms" className="hover:text-white transition-colors">Terms and conditions</Link></li>
+                <li><Link to="/privacy" className="hover:text-white transition-colors">Privacy policy</Link></li>
               </ul>
             </div>
           </div>
