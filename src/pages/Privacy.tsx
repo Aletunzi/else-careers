@@ -1,8 +1,13 @@
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 const Privacy = () => {
+  useEffect(() => {
+    document.title = "Else | Privacy policy";
+  }, []);
+
   return (
     <div className="flex min-h-screen flex-col bg-background">
       <Header />
