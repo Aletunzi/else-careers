@@ -18,7 +18,7 @@ const Hero = () => {
         setCurrentIndex((prev) => (prev + 1) % placeholders.length);
         setVisible(true);
       }, 600);
-    }, 4000);
+    }, 5000);
     return () => clearInterval(interval);
   }, []);
 
@@ -40,7 +40,7 @@ const Hero = () => {
           />
           {!inputValue && (
             <span
-              className="pointer-events-none absolute inset-0 flex items-center text-sm text-muted-foreground md:text-base 2xl:text-lg transition-opacity duration-500 ease-in-out"
+              className="pointer-events-none absolute inset-0 flex items-center text-sm text-muted-foreground/60 md:text-base 2xl:text-lg transition-opacity duration-700 ease-in-out"
               style={{ opacity: visible ? 1 : 0 }}
             >
               {placeholders[currentIndex]}
