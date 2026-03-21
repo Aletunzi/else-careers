@@ -48,9 +48,9 @@ const Hero = () => {
           )}
         </div>
         
-        <button className="rounded-lg bg-primary px-8 py-3 text-sm font-normal text-primary-foreground transition-colors hover:opacity-90 sm:ml-4 2xl:px-10 2xl:py-3.5 2xl:text-base">
+        <a href="https://app.tryelse.xyz/register" className="rounded-lg bg-primary px-8 py-3 text-sm font-normal text-primary-foreground transition-colors hover:opacity-90 sm:ml-4 2xl:px-10 2xl:py-3.5 2xl:text-base text-center">
           Search
-        </button>
+        </a>
       </div>
     </section>);
 
