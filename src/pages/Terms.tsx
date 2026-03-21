@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 const Terms = () => {
   useEffect(() => {
     document.title = "Else | Terms and conditions";
+    window.scrollTo(0, 0);
   }, []);
 
   return (
@@ -21,7 +22,7 @@ const Terms = () => {
 
         <div className="flex flex-col gap-8 md:flex-row md:gap-16 lg:gap-24">
           <div className="md:w-1/3 md:sticky md:top-8 md:self-start">
-            <h1 className="text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
+            <h1 className="text-4xl font-normal tracking-tight text-foreground sm:text-5xl">
               Terms and conditions
             </h1>
             <p className="mt-4 text-sm text-muted-foreground">
@@ -31,7 +32,7 @@ const Terms = () => {
 
           <div className="md:w-2/3 space-y-10 text-foreground/90 text-[15px] leading-relaxed text-justify">
             <section>
-              <h2 className="mb-4 text-xl font-semibold text-foreground">1. Introduction and acceptance of terms</h2>
+              <h2 className="mb-4 text-xl font-normal text-foreground">1. Introduction and acceptance of terms</h2>
               <p className="mb-4">
                 Welcome to Else. These Terms and Conditions ("Terms") govern your access to and use of Else\u2019s AI-powered career assistant service, including our website at https://tryelse.xyz, any associated applications, and all related services (collectively, the "Service").
               </p>
@@ -47,7 +48,7 @@ const Terms = () => {
             </section>
 
             <section>
-              <h2 className="mb-4 text-xl font-semibold text-foreground">2. Definitions</h2>
+              <h2 className="mb-4 text-xl font-normal text-foreground">2. Definitions</h2>
               <p className="mb-3">For purposes of these Terms:</p>
               <ul className="space-y-2 list-disc pl-5">
                 <li>"User," "you," or "your" refers to any individual or entity accessing or using the Service.</li>
@@ -60,13 +61,13 @@ const Terms = () => {
             </section>
 
             <section>
-              <h2 className="mb-4 text-xl font-semibold text-foreground">3. Eligibility</h2>
+              <h2 className="mb-4 text-xl font-normal text-foreground">3. Eligibility</h2>
               <p className="mb-4">You must be at least 16 years old to use the Service. By using the Service, you represent and warrant that you meet this age requirement and have the legal capacity to enter into these Terms.</p>
               <p>If you are using the Service on behalf of an organization, you represent and warrant that you have the authority to bind that organization to these Terms.</p>
             </section>
 
             <section>
-              <h2 className="mb-4 text-xl font-semibold text-foreground">4. Account registration and security</h2>
+              <h2 className="mb-4 text-xl font-normal text-foreground">4. Account registration and security</h2>
               <p className="mb-3 font-medium">4.1 Account creation</p>
               <p className="mb-3">To access the Service, you must create an account. You agree to:</p>
               <ul className="space-y-2 list-disc pl-5">
@@ -81,7 +82,7 @@ const Terms = () => {
             </section>
 
             <section>
-              <h2 className="mb-4 text-xl font-semibold text-foreground">5. Service description</h2>
+              <h2 className="mb-4 text-xl font-normal text-foreground">5. Service description</h2>
               <p className="mb-3">Else provides an AI-powered assistant designed to support professionals by:</p>
               <ul className="space-y-2 list-disc pl-5">
                 <li>Answering career-related questions and providing guidance.</li>
@@ -93,7 +94,7 @@ const Terms = () => {
             </section>
 
             <section>
-              <h2 className="mb-4 text-xl font-semibold text-foreground">6. Use of the service</h2>
+              <h2 className="mb-4 text-xl font-normal text-foreground">6. Use of the service</h2>
               <p className="mb-3 font-medium">6.1 License grant</p>
               <p className="mb-4">Subject to your compliance with these Terms, we grant you a limited, non-exclusive, non-transferable, revocable license to access and use the Service for your personal and professional purposes.</p>
               <p className="mb-3 font-medium">6.2 Restrictions</p>
@@ -115,7 +116,7 @@ const Terms = () => {
             </section>
 
             <section>
-              <h2 className="mb-4 text-xl font-semibold text-foreground">7. User content and data</h2>
+              <h2 className="mb-4 text-xl font-normal text-foreground">7. User content and data</h2>
               <p className="mb-3 font-medium">7.1 Your content</p>
               <p className="mb-4">You retain ownership of all User Content you submit to the Service. By submitting User Content, you grant us a worldwide, non-exclusive, royalty-free license to use, store, process, and transmit your User Content solely to provide and improve the Service.</p>
               <p className="mb-3 font-medium">7.2 Responsibility for user content</p>
@@ -130,7 +131,7 @@ const Terms = () => {
             </section>
 
             <section>
-              <h2 className="mb-4 text-xl font-semibold text-foreground">8. AI-generated content and disclaimers</h2>
+              <h2 className="mb-4 text-xl font-normal text-foreground">8. AI-generated content and disclaimers</h2>
               <p className="mb-3 font-medium">8.1 Nature of AI responses</p>
               <p className="mb-4">The Service uses artificial intelligence to generate responses and recommendations. While we strive for accuracy, AI-generated content may not always be accurate, complete, or appropriate for your specific situation.</p>
               <p className="mb-3 font-medium">8.2 No professional advice</p>
@@ -140,7 +141,7 @@ const Terms = () => {
             </section>
 
             <section>
-              <h2 className="mb-4 text-xl font-semibold text-foreground">9. Intellectual property rights</h2>
+              <h2 className="mb-4 text-xl font-normal text-foreground">9. Intellectual property rights</h2>
               <p className="mb-3 font-medium">9.1 Else\u2019s intellectual property</p>
               <p className="mb-4">The Service, including its software, algorithms, user interface, design, branding, and all related intellectual property, is owned by Else or our licensors. These Terms do not grant you any rights to our trademarks, logos, or other brand features.</p>
               <p className="mb-3 font-medium">9.2 Feedback</p>
@@ -148,7 +149,7 @@ const Terms = () => {
             </section>
 
             <section>
-              <h2 className="mb-4 text-xl font-semibold text-foreground">10. Subscription and payment terms</h2>
+              <h2 className="mb-4 text-xl font-normal text-foreground">10. Subscription and payment terms</h2>
               <p className="mb-3 font-medium">10.1 Payment</p>
               <ul className="space-y-2 list-disc pl-5">
                 <li>You agree to pay all applicable fees as described at the time of purchase.</li>
@@ -166,7 +167,7 @@ const Terms = () => {
             </section>
 
             <section>
-              <h2 className="mb-4 text-xl font-semibold text-foreground">11. Termination and suspension</h2>
+              <h2 className="mb-4 text-xl font-normal text-foreground">11. Termination and suspension</h2>
               <p className="mb-3 font-medium">11.1 Termination by you</p>
               <p className="mb-4">You may cancel your subscription at any time through your account settings or by contacting us at info@tryelse.xyz. You will continue to have access to the Service until the end of your paid period.</p>
               <p className="mb-3 font-medium">11.2 Termination by us</p>
@@ -188,7 +189,7 @@ const Terms = () => {
             </section>
 
             <section>
-              <h2 className="mb-4 text-xl font-semibold text-foreground">12. Warranties and disclaimers</h2>
+              <h2 className="mb-4 text-xl font-normal text-foreground">12. Warranties and disclaimers</h2>
               <p className="mb-4 font-medium">TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW:</p>
               <p className="mb-4">THE SERVICE IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, AND NON-INFRINGEMENT.</p>
               <p className="mb-3">WE DO NOT WARRANT THAT:</p>
@@ -202,14 +203,14 @@ const Terms = () => {
             </section>
 
             <section>
-              <h2 className="mb-4 text-xl font-semibold text-foreground">13. Limitation of liability</h2>
+              <h2 className="mb-4 text-xl font-normal text-foreground">13. Limitation of liability</h2>
               <p className="mb-4">IN NO EVENT SHALL ELSE, ITS AFFILIATES, DIRECTORS, EMPLOYEES, OR AGENTS BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, ARISING OUT OF OR RELATED TO YOUR USE OF THE SERVICE.</p>
               <p className="mb-4">OUR TOTAL LIABILITY TO YOU SHALL NOT EXCEED THE AMOUNT YOU PAID US IN THE TWELVE (12) MONTHS PRECEDING THE CLAIM, OR \u20ac100, WHICHEVER IS GREATER.</p>
               <p>SOME JURISDICTIONS DO NOT ALLOW THE EXCLUSION OR LIMITATION OF CERTAIN DAMAGES. IN SUCH JURISDICTIONS, OUR LIABILITY WILL BE LIMITED TO THE MAXIMUM EXTENT PERMITTED BY LAW.</p>
             </section>
 
             <section>
-              <h2 className="mb-4 text-xl font-semibold text-foreground">14. Indemnification</h2>
+              <h2 className="mb-4 text-xl font-normal text-foreground">14. Indemnification</h2>
               <p className="mb-3">You agree to indemnify, defend, and hold harmless Else, its affiliates, and their respective directors, officers, employees, and agents from and against any claims arising out of or related to:</p>
               <ul className="space-y-2 list-disc pl-5">
                 <li>Your use of the Service.</li>
@@ -221,7 +222,7 @@ const Terms = () => {
             </section>
 
             <section>
-              <h2 className="mb-4 text-xl font-semibold text-foreground">15. Data processing and compliance</h2>
+              <h2 className="mb-4 text-xl font-normal text-foreground">15. Data processing and compliance</h2>
               <p className="mb-3 font-medium">15.1 Data controller and processor</p>
               <p className="mb-4">When you use the Service, Else acts as the data controller for your personal information. For User Content you submit that contains personal data of third parties, you act as the data controller and Else acts as a data processor.</p>
               <p className="mb-3 font-medium">15.2 Sub-processors</p>
@@ -231,7 +232,7 @@ const Terms = () => {
             </section>
 
             <section>
-              <h2 className="mb-4 text-xl font-semibold text-foreground">16. Confidentiality</h2>
+              <h2 className="mb-4 text-xl font-normal text-foreground">16. Confidentiality</h2>
               <p className="mb-3">We understand that your User Content may contain confidential information. We will:</p>
               <ul className="space-y-2 list-disc pl-5">
                 <li>Treat your User Content as confidential.</li>
@@ -241,12 +242,12 @@ const Terms = () => {
             </section>
 
             <section>
-              <h2 className="mb-4 text-xl font-semibold text-foreground">17. Third-party services and links</h2>
+              <h2 className="mb-4 text-xl font-normal text-foreground">17. Third-party services and links</h2>
               <p>The Service may contain links to third-party websites, services, or resources. We do not endorse and are not responsible for the content, products, or services provided by third parties.</p>
             </section>
 
             <section>
-              <h2 className="mb-4 text-xl font-semibold text-foreground">18. Modifications to terms</h2>
+              <h2 className="mb-4 text-xl font-normal text-foreground">18. Modifications to terms</h2>
               <p className="mb-3">We may modify these Terms at any time. We will notify you of material changes by:</p>
               <ul className="space-y-2 list-disc pl-5">
                 <li>Posting the updated Terms on our website.</li>
@@ -257,7 +258,7 @@ const Terms = () => {
             </section>
 
             <section>
-              <h2 className="mb-4 text-xl font-semibold text-foreground">19. Dispute resolution and governing law</h2>
+              <h2 className="mb-4 text-xl font-normal text-foreground">19. Dispute resolution and governing law</h2>
               <p className="mb-3 font-medium">19.1 Governing law</p>
               <p className="mb-4">These Terms shall be governed by and construed in accordance with the laws of the European Union and the applicable laws of the country where Else is established.</p>
               <p className="mb-3 font-medium">19.2 Dispute resolution</p>
@@ -267,7 +268,7 @@ const Terms = () => {
             </section>
 
             <section>
-              <h2 className="mb-4 text-xl font-semibold text-foreground">20. General provisions</h2>
+              <h2 className="mb-4 text-xl font-normal text-foreground">20. General provisions</h2>
               <p className="mb-3 font-medium">20.1 Entire agreement</p>
               <p className="mb-4">These Terms, together with our Privacy Policy, constitute the entire agreement between you and Else regarding the Service.</p>
               <p className="mb-3 font-medium">20.2 Severability</p>
@@ -283,7 +284,7 @@ const Terms = () => {
             </section>
 
             <section>
-              <h2 className="mb-4 text-xl font-semibold text-foreground">21. Contact information</h2>
+              <h2 className="mb-4 text-xl font-normal text-foreground">21. Contact information</h2>
               <p className="mb-3">For any questions, concerns, or notices regarding these Terms, please contact us at:</p>
               <p>Else</p>
               <p>Email: info@tryelse.xyz</p>
@@ -291,7 +292,7 @@ const Terms = () => {
             </section>
 
             <section>
-              <h2 className="mb-4 text-xl font-semibold text-foreground">22. Acknowledgment</h2>
+              <h2 className="mb-4 text-xl font-normal text-foreground">22. Acknowledgment</h2>
               <p>BY USING THE SERVICE, YOU ACKNOWLEDGE THAT YOU HAVE READ THESE TERMS AND CONDITIONS, UNDERSTAND THEM, AND AGREE TO BE BOUND BY THEM. IF YOU DO NOT AGREE TO THESE TERMS, YOU MAY NOT ACCESS OR USE THE SERVICE.</p>
             </section>
           </div>

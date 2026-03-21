@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 const Privacy = () => {
   useEffect(() => {
     document.title = "Else | Privacy policy";
+    window.scrollTo(0, 0);
   }, []);
 
   return (
@@ -21,7 +22,7 @@ const Privacy = () => {
 
         <div className="flex flex-col gap-8 md:flex-row md:gap-16 lg:gap-24">
           <div className="md:w-1/3 md:sticky md:top-8 md:self-start">
-            <h1 className="text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
+            <h1 className="text-4xl font-normal tracking-tight text-foreground sm:text-5xl">
               Privacy policy
             </h1>
             <p className="mt-4 text-sm text-muted-foreground">
@@ -31,7 +32,7 @@ const Privacy = () => {
 
           <div className="md:w-2/3 space-y-10 text-foreground/90 text-[15px] leading-relaxed text-justify">
             <section>
-              <h2 className="mb-4 text-xl font-semibold text-foreground">1. Introduction</h2>
+              <h2 className="mb-4 text-xl font-normal text-foreground">1. Introduction</h2>
               <p className="mb-4">
                 Else ("we," "us," or "our") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our AI-powered career assistant service (the "Service"). The Service is operated by Else, a European company.
               </p>
@@ -47,7 +48,7 @@ const Privacy = () => {
             </section>
 
             <section>
-              <h2 className="mb-4 text-xl font-semibold text-foreground">2. Data controller</h2>
+              <h2 className="mb-4 text-xl font-normal text-foreground">2. Data controller</h2>
               <p className="mb-4">
                 Else is the data controller responsible for your personal data. For any questions or concerns regarding this Privacy Policy or our data practices, you can contact us at:
               </p>
@@ -56,7 +57,7 @@ const Privacy = () => {
             </section>
 
             <section>
-              <h2 className="mb-4 text-xl font-semibold text-foreground">3. Information we collect</h2>
+              <h2 className="mb-4 text-xl font-normal text-foreground">3. Information we collect</h2>
               <p className="mb-4 font-medium">3.1 Information you provide to us</p>
               <p className="mb-3">We collect information that you provide directly to us, including:</p>
               <ul className="space-y-2 list-disc pl-5">
@@ -76,7 +77,7 @@ const Privacy = () => {
             </section>
 
             <section>
-              <h2 className="mb-4 text-xl font-semibold text-foreground">4. How we use your information</h2>
+              <h2 className="mb-4 text-xl font-normal text-foreground">4. How we use your information</h2>
               <p className="mb-3">We use the information we collect for the following purposes:</p>
               <ul className="space-y-2 list-disc pl-5">
                 <li><span className="font-medium">Service Delivery:</span> To provide, maintain, and improve the Service, including processing your queries through our AI agent and managing your subscription.</li>
@@ -91,7 +92,7 @@ const Privacy = () => {
             </section>
 
             <section>
-              <h2 className="mb-4 text-xl font-semibold text-foreground">5. Legal basis for processing</h2>
+              <h2 className="mb-4 text-xl font-normal text-foreground">5. Legal basis for processing</h2>
               <p className="mb-3 font-medium">5.1 For users in the European Economic Area, United Kingdom, and Switzerland</p>
               <p className="mb-3">If you are located in the EEA, UK, or Switzerland, we process your personal data based on the following legal grounds:</p>
               <ul className="space-y-2 list-disc pl-5">
@@ -111,7 +112,7 @@ const Privacy = () => {
             </section>
 
             <section>
-              <h2 className="mb-4 text-xl font-semibold text-foreground">6. AI processing and third-party service providers</h2>
+              <h2 className="mb-4 text-xl font-normal text-foreground">6. AI processing and third-party service providers</h2>
               <p className="mb-4">Our Service utilizes artificial intelligence and machine learning technologies to provide intelligent career assistance. Your queries and inputs may be processed by third-party AI service providers that power our AI agent.</p>
               <p className="mb-3">Important information about AI processing:</p>
               <ul className="space-y-2 list-disc pl-5">
@@ -124,7 +125,7 @@ const Privacy = () => {
             </section>
 
             <section>
-              <h2 className="mb-4 text-xl font-semibold text-foreground">7. Data sharing and disclosure</h2>
+              <h2 className="mb-4 text-xl font-normal text-foreground">7. Data sharing and disclosure</h2>
               <p className="mb-3">We do not sell your personal data. We may share your information in the following circumstances:</p>
               <ul className="space-y-2 list-disc pl-5">
                 <li><span className="font-medium">Service Providers:</span> We share information with third-party service providers who perform services on our behalf, including AI processing, hosting, analytics, payment processing, and customer support.</li>
@@ -136,7 +137,7 @@ const Privacy = () => {
             </section>
 
             <section>
-              <h2 className="mb-4 text-xl font-semibold text-foreground">8. International data transfers</h2>
+              <h2 className="mb-4 text-xl font-normal text-foreground">8. International data transfers</h2>
               <p className="mb-4">Your information may be transferred to and processed in countries other than your country of residence. These countries may have data protection laws that are different from the laws of your country.</p>
               <p className="mb-3 font-medium">8.1 For users in the European Economic Area, United Kingdom, and Switzerland</p>
               <p className="mb-3">When we transfer personal data from the EEA, UK, or Switzerland to other countries, we implement appropriate safeguards, including:</p>
@@ -150,7 +151,7 @@ const Privacy = () => {
             </section>
 
             <section>
-              <h2 className="mb-4 text-xl font-semibold text-foreground">9. Data retention</h2>
+              <h2 className="mb-4 text-xl font-normal text-foreground">9. Data retention</h2>
               <p className="mb-3">We retain your personal data for as long as necessary to fulfill the purposes outlined in this Privacy Policy, unless a longer retention period is required or permitted by law.</p>
               <ul className="space-y-2 list-disc pl-5">
                 <li><span className="font-medium">Account Information:</span> Retained for the duration of your active subscription and for up to 90 days after subscription termination.</li>
@@ -162,7 +163,7 @@ const Privacy = () => {
             </section>
 
             <section>
-              <h2 className="mb-4 text-xl font-semibold text-foreground">10. Your rights and choices</h2>
+              <h2 className="mb-4 text-xl font-normal text-foreground">10. Your rights and choices</h2>
               <p className="mb-3 font-medium">10.1 Rights under GDPR (EEA, UK, Switzerland)</p>
               <p className="mb-3">If you are located in the EEA, UK, or Switzerland, you have the following rights:</p>
               <ul className="space-y-2 list-disc pl-5">
@@ -187,7 +188,7 @@ const Privacy = () => {
             </section>
 
             <section>
-              <h2 className="mb-4 text-xl font-semibold text-foreground">11. Security</h2>
+              <h2 className="mb-4 text-xl font-normal text-foreground">11. Security</h2>
               <p className="mb-3">We implement appropriate technical and organizational measures to protect your personal data, including:</p>
               <ul className="space-y-2 list-disc pl-5">
                 <li>Encryption of data in transit using TLS 1.2 or higher.</li>
@@ -200,7 +201,7 @@ const Privacy = () => {
             </section>
 
             <section>
-              <h2 className="mb-4 text-xl font-semibold text-foreground">12. Data breach notification</h2>
+              <h2 className="mb-4 text-xl font-normal text-foreground">12. Data breach notification</h2>
               <p className="mb-3">In the event of a data breach that is likely to result in a risk to your rights and freedoms, we will notify you and the relevant supervisory authority as required by applicable law:</p>
               <ul className="space-y-2 list-disc pl-5">
                 <li>For EEA, UK, and Switzerland users: within 72 hours of becoming aware of the breach, as required by GDPR.</li>
@@ -209,12 +210,12 @@ const Privacy = () => {
             </section>
 
             <section>
-              <h2 className="mb-4 text-xl font-semibold text-foreground">13. Children\u2019s privacy</h2>
+              <h2 className="mb-4 text-xl font-normal text-foreground">13. Children\u2019s privacy</h2>
               <p>Our Service is not intended for individuals under the age of 16. We do not knowingly collect personal data from children under 16. If you are a parent or guardian and believe your child has provided us with personal data, please contact us at info@tryelse.xyz, and we will delete such information.</p>
             </section>
 
             <section>
-              <h2 className="mb-4 text-xl font-semibold text-foreground">14. Cookies and tracking technologies</h2>
+              <h2 className="mb-4 text-xl font-normal text-foreground">14. Cookies and tracking technologies</h2>
               <p className="mb-3">We use cookies and similar tracking technologies to collect and track information about your use of our Service. Types of cookies we use:</p>
               <ul className="space-y-2 list-disc pl-5">
                 <li><span className="font-medium">Essential Cookies:</span> Required for the Service to function properly.</li>
@@ -224,7 +225,7 @@ const Privacy = () => {
             </section>
 
             <section>
-              <h2 className="mb-4 text-xl font-semibold text-foreground">15. Changes to this privacy policy</h2>
+              <h2 className="mb-4 text-xl font-normal text-foreground">15. Changes to this privacy policy</h2>
               <p className="mb-3">We may update this Privacy Policy from time to time. We will notify you of any material changes by:</p>
               <ul className="space-y-2 list-disc pl-5">
                 <li>Posting the updated Privacy Policy on our website.</li>
@@ -235,7 +236,7 @@ const Privacy = () => {
             </section>
 
             <section>
-              <h2 className="mb-4 text-xl font-semibold text-foreground">16. Contact us</h2>
+              <h2 className="mb-4 text-xl font-normal text-foreground">16. Contact us</h2>
               <p className="mb-3">If you have any questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact us at:</p>
               <p>Else</p>
               <p>Email: info@tryelse.xyz</p>
@@ -243,7 +244,7 @@ const Privacy = () => {
             </section>
 
             <section>
-              <h2 className="mb-4 text-xl font-semibold text-foreground">17. Supervisory authority</h2>
+              <h2 className="mb-4 text-xl font-normal text-foreground">17. Supervisory authority</h2>
               <p className="mb-4">If you are located in the EEA, UK, or Switzerland, you have the right to lodge a complaint with your local data protection supervisory authority.</p>
               <p>Regardless of your location, any disputes or legal matters arising from our data processing activities will be governed exclusively by European data protection legislation.</p>
             </section>
