@@ -8,10 +8,10 @@ const Header = () => {
         <img src={logo} alt="else" className="h-8 w-8 sm:h-9 sm:w-9" />
       </Link>
       <div className="flex items-center gap-2 sm:gap-3">
-        <a href="https://app.tryelse.xyz/login" className="rounded-lg border border-foreground px-4 py-2 text-xs font-normal text-foreground transition-colors hover:bg-muted sm:px-6 sm:py-2.5 sm:text-sm">
+        <a href="https://app.tryelse.xyz/login" target="_blank" rel="noopener noreferrer" className="rounded-lg border border-foreground px-4 py-2 text-xs font-normal text-foreground transition-colors hover:bg-muted sm:px-6 sm:py-2.5 sm:text-sm">
           Login
         </a>
-        <a href="https://app.tryelse.xyz/register" className="rounded-lg bg-primary px-4 py-2 text-xs font-normal text-primary-foreground transition-colors hover:opacity-90 sm:px-6 sm:py-2.5 sm:text-sm">
+        <a href="https://app.tryelse.xyz/register" target="_blank" rel="noopener noreferrer" className="rounded-lg bg-primary px-4 py-2 text-xs font-normal text-primary-foreground transition-colors hover:opacity-90 sm:px-6 sm:py-2.5 sm:text-sm">
           Try now
         </a>
       </div>
