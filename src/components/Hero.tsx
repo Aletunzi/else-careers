@@ -68,7 +68,7 @@ const Hero = () => {
             className={`rounded-lg px-8 py-3 text-sm font-normal transition-all sm:ml-4 2xl:px-10 2xl:py-3.5 2xl:text-base text-center ${
               hasInput
                 ? "bg-primary text-primary-foreground hover:opacity-90 cursor-pointer"
-                : "bg-muted text-muted-foreground cursor-not-allowed opacity-60"
+                : "bg-muted-foreground/20 text-muted-foreground cursor-not-allowed"
             }`}
           >
             Search
