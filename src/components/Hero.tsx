@@ -6,6 +6,12 @@ const placeholders = [
   "List all the scale up companies in Poland that have junior product roles",
 ];
 
+const suggestionPills = [
+  "Senior PM in London",
+  "Remote PM jobs",
+  "Startup PM in Berlin",
+];
+
 const Hero = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [visible, setVisible] = useState(true);
@@ -64,7 +70,11 @@ const Hero = () => {
 
           <button
             disabled={!hasInput}
-            onClick={() => hasInput && setShowRegister(true)}
+            onClick={() => {
+              if (!hasInput) return;
+              const url = `https://pmjobs-api.onrender.com/?q=${encodeURIComponent(inputValue.trim())}`;
+              window.open(url, "_blank", "noopener,noreferrer");
+            }}
             className={`rounded-lg px-8 py-3 text-sm font-normal transition-all sm:ml-4 2xl:px-10 2xl:py-3.5 2xl:text-base text-center ${
               hasInput
                 ? "bg-primary text-primary-foreground hover:opacity-90 cursor-pointer"
@@ -73,6 +83,18 @@ const Hero = () => {
           >
             Search
           </button>
+        </div>
+        <div className="animate-fade-in mt-5 flex flex-wrap justify-center gap-2 sm:mt-6 sm:gap-3" style={{ animationDelay: '600ms', animationFillMode: 'both' }}>
+          {suggestionPills.map((pill) => (
+            <button
+              key={pill}
+              type="button"
+              onClick={() => setInputValue(pill)}
+              className="rounded-full border border-border bg-card px-4 py-2 text-sm text-foreground/80 transition-colors hover:bg-secondary hover:text-foreground sm:px-5 sm:py-2.5"
+            >
+              {pill}
+            </button>
+          ))}
         </div>
       </section>
 
