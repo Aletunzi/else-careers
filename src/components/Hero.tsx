@@ -20,6 +20,12 @@ const Hero = () => {
 
   const hasInput = inputValue.trim().length > 0;
 
+  const handleSearch = () => {
+    const query = inputValue.trim();
+    if (!query) return;
+    window.location.href = `https://tryelse.xyz/?q=${encodeURIComponent(query)}`;
+  };
+
   useEffect(() => {
     const interval = setInterval(() => {
       setVisible(false);
@@ -56,6 +62,9 @@ const Hero = () => {
               type="text"
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") handleSearch();
+              }}
               className="w-full bg-transparent text-sm text-foreground outline-none md:text-base 2xl:text-lg"
             />
             {!inputValue && (
@@ -70,11 +79,7 @@ const Hero = () => {
 
           <button
             disabled={!hasInput}
-            onClick={() => {
-              if (!hasInput) return;
-              const url = `https://pmjobs-api.onrender.com/?q=${encodeURIComponent(inputValue.trim())}`;
-              window.open(url, "_blank", "noopener,noreferrer");
-            }}
+            onClick={handleSearch}
             className={`rounded-lg px-8 py-3 text-sm font-normal transition-all sm:ml-4 2xl:px-10 2xl:py-3.5 2xl:text-base text-center ${
               hasInput
                 ? "bg-primary text-primary-foreground hover:opacity-90 cursor-pointer"
