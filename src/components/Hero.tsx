@@ -23,7 +23,7 @@ const Hero = () => {
   const handleSearch = () => {
     const query = inputValue.trim();
     if (!query) return;
-    window.location.href = `https://tryelse.xyz/?q=${encodeURIComponent(query)}`;
+    window.location.href = `https://app.tryelse.xyz/?q=${encodeURIComponent(query)}`;
   };
 
   useEffect(() => {
