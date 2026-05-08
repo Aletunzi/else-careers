@@ -34,7 +34,7 @@ const Hero = () => {
       setShowLimitWarning(true);
       return;
     }
-    localStorage.setItem(STORAGE_KEY, String(nextCount));
+    localStorage.setItem(STORAGE_KEY, String(SEARCH_LIMIT - 1));
     window.location.href = `https://app.tryelse.xyz/?q=${encodeURIComponent(query)}`;
   };
 
