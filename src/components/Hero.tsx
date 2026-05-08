@@ -200,12 +200,16 @@ const Hero = () => {
             </p>
             <a
               href="https://app.tryelse.xyz/register"
+              target="_blank"
+              rel="noopener noreferrer"
               className="mt-7 block w-full rounded-lg bg-primary py-3.5 text-sm font-medium text-primary-foreground transition-colors hover:opacity-90"
             >
               Get Started
             </a>
             <a
               href="https://app.tryelse.xyz/login"
+              target="_blank"
+              rel="noopener noreferrer"
               className="mt-4 inline-block text-sm text-muted-foreground hover:text-foreground transition-colors"
             >
               I already have an account
