@@ -17,12 +17,22 @@ const Hero = () => {
   const [visible, setVisible] = useState(true);
   const [inputValue, setInputValue] = useState("");
   const [showRegister, setShowRegister] = useState(false);
+  const [showLimitWarning, setShowLimitWarning] = useState(false);
+
+  const SEARCH_LIMIT = 3;
+  const STORAGE_KEY = "else_search_count";
 
   const hasInput = inputValue.trim().length > 0;
 
   const handleSearch = () => {
     const query = inputValue.trim();
     if (!query) return;
+    const current = parseInt(localStorage.getItem(STORAGE_KEY) || "0", 10) || 0;
+    if (current >= SEARCH_LIMIT) {
+      setShowLimitWarning(true);
+      return;
+    }
+    localStorage.setItem(STORAGE_KEY, String(current + 1));
     window.location.href = `https://app.tryelse.xyz/?q=${encodeURIComponent(query)}`;
   };
 
@@ -39,13 +49,13 @@ const Hero = () => {
 
   // Lock body scroll when modal is open
   useEffect(() => {
-    if (showRegister) {
+    if (showRegister || showLimitWarning) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "";
     }
     return () => { document.body.style.overflow = ""; };
-  }, [showRegister]);
+  }, [showRegister, showLimitWarning]);
 
   return (
     <>
@@ -161,6 +171,45 @@ const Hero = () => {
                 Log in
               </a>
             </p>
+          </div>
+        </div>
+      )}
+
+      {/* Search Limit Warning Modal */}
+      {showLimitWarning && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm animate-fade-in px-4"
+          onClick={() => setShowLimitWarning(false)}
+        >
+          <div
+            className="relative w-full max-w-md rounded-2xl bg-card p-10 text-center shadow-lg animate-fade-in"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setShowLimitWarning(false)}
+              className="absolute top-4 right-4 text-muted-foreground hover:text-foreground transition-colors"
+              aria-label="Close"
+            >
+              ✕
+            </button>
+            <h2 className="text-2xl font-semibold text-foreground leading-tight">
+              Your next role might be<br />one search away
+            </h2>
+            <p className="mt-4 text-sm text-muted-foreground">
+              Get full access to unlimited searches across thousands of product opportunities in Europe.
+            </p>
+            <a
+              href="https://app.tryelse.xyz/register"
+              className="mt-7 block w-full rounded-lg bg-primary py-3.5 text-sm font-medium text-primary-foreground transition-colors hover:opacity-90"
+            >
+              Get Started
+            </a>
+            <a
+              href="https://app.tryelse.xyz/login"
+              className="mt-4 inline-block text-sm text-muted-foreground hover:text-foreground transition-colors"
+            >
+              I already have an account
+            </a>
           </div>
         </div>
       )}
