@@ -28,11 +28,13 @@ const Hero = () => {
     const query = inputValue.trim();
     if (!query) return;
     const current = parseInt(localStorage.getItem(STORAGE_KEY) || "0", 10) || 0;
-    if (current >= SEARCH_LIMIT) {
+    const nextCount = current + 1;
+    if (nextCount >= SEARCH_LIMIT) {
+      localStorage.setItem(STORAGE_KEY, String(SEARCH_LIMIT));
       setShowLimitWarning(true);
       return;
     }
-    localStorage.setItem(STORAGE_KEY, String(current + 1));
+    localStorage.setItem(STORAGE_KEY, String(nextCount));
     window.location.href = `https://app.tryelse.xyz/?q=${encodeURIComponent(query)}`;
   };
 
