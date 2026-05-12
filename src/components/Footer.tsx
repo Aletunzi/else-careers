@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { X } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -8,6 +9,9 @@ const Footer = () => {
           <div>
             <span className="text-2xl font-normal tracking-tight text-white sm:text-3xl 2xl:text-4xl">else</span>
             <p className="mt-2 text-sm text-white/80 2xl:text-base">Your next job is elsewhere</p>
+            <a href="https://x.com/elsecareers" target="_blank" rel="noopener noreferrer" className="mt-3 inline-block text-white hover:text-white/80 transition-colors" aria-label="X (Twitter)">
+              <X size={20} />
+            </a>
           </div>
           <div className="flex gap-12 sm:gap-20">
             <div>
