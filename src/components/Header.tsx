@@ -12,7 +12,7 @@ const Header = () => {
           Login
         </a>
         <a href="https://app.tryelse.xyz/register" target="_blank" rel="noopener noreferrer" className="rounded-lg bg-primary px-4 py-2 text-xs font-normal text-primary-foreground transition-colors hover:opacity-90 sm:px-6 sm:py-2.5 sm:text-sm">
-          Try now
+          Try for free
         </a>
       </div>
     </header>
