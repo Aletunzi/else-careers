@@ -6,6 +6,10 @@ import Footer from "@/components/Footer";
 const Privacy = () => {
   useEffect(() => {
     document.title = "Else | Privacy policy";
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute("content", "Read Else's privacy policy to understand how we collect, use, and protect your personal data when using our AI-powered career assistant.");
+    }
     window.scrollTo(0, 0);
   }, []);
 
