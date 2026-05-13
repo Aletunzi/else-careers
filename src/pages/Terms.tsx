@@ -6,6 +6,10 @@ import Footer from "@/components/Footer";
 const Terms = () => {
   useEffect(() => {
     document.title = "Else | Terms and conditions";
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute("content", "Read Else's terms and conditions governing the use of our AI-powered career assistant service.");
+    }
     window.scrollTo(0, 0);
   }, []);
 
