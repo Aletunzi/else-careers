@@ -7,9 +7,10 @@ const placeholders = [
 ];
 
 const suggestionPills = [
-  "Senior PM in London",
-  "Remote PM jobs",
-  "Startup PM in Berlin",
+  "Remote PM Jobs",
+  "Senior PM Jobs in Europe",
+  "Junior PM Jobs in Europe",
+  "Startup PM Jobs",
 ];
 
 const Hero = () => {
