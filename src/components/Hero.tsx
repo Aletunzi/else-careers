@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { ArrowUp } from "lucide-react";
 
 const placeholders = [
   "I'm looking for a senior product manager role in Paris",
@@ -93,13 +94,13 @@ const Hero = () => {
           <button
             disabled={!hasInput}
             onClick={handleSearch}
-            className={`rounded-lg px-8 py-3 text-sm font-normal transition-all sm:ml-4 2xl:px-10 2xl:py-3.5 2xl:text-base text-center ${
+            className={`rounded-lg px-6 py-3 text-sm font-normal transition-all sm:ml-4 2xl:px-8 2xl:py-3.5 flex items-center justify-center ${
               hasInput
                 ? "bg-primary text-primary-foreground hover:opacity-90 cursor-pointer"
                 : "bg-muted-foreground/20 text-muted-foreground cursor-not-allowed"
             }`}
           >
-            Search
+            <ArrowUp className="w-5 h-5" />
           </button>
         </div>
         <div className="animate-fade-in mt-5 flex flex-wrap justify-center gap-2 sm:mt-6 sm:gap-3" style={{ animationDelay: '600ms', animationFillMode: 'both' }}>
