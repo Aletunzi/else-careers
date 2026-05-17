@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { ArrowUp } from "lucide-react";
 
 const placeholders = [
   "I'm looking for a senior product manager role in Paris",
