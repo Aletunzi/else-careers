@@ -83,7 +83,7 @@ const Hero = () => {
             />
             {!inputValue && (
               <>
-                <span className="pointer-events-none absolute inset-0 flex items-center truncate text-sm text-muted-foreground/60 sm:hidden">
+                <span className="pointer-events-none absolute inset-0 flex items-center truncate text-base text-muted-foreground/60 sm:hidden">
                   Search for roles
                 </span>
                 <span
