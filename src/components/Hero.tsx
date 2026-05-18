@@ -63,15 +63,15 @@ const Hero = () => {
 
   return (
     <>
-      <section className="flex flex-1 flex-col items-center justify-start px-5 pt-20 pb-16 text-center sm:px-8 md:pt-28">
-        <h1 className="animate-fade-in text-2xl font-normal leading-tight text-foreground sm:text-3xl md:text-4xl lg:text-[2.75rem] xl:text-5xl 2xl:text-6xl lg:whitespace-nowrap" style={{ animationDelay: '150ms', animationFillMode: 'both' }}>
+      <section className="flex flex-1 flex-col items-center justify-start px-5 pt-16 pb-10 text-center sm:px-8 sm:pt-20 sm:pb-16 md:pt-28">
+        <h1 className="animate-fade-in whitespace-nowrap text-[clamp(1.1rem,5.2vw,1.5rem)] font-normal leading-tight text-foreground sm:text-3xl md:text-4xl lg:text-[2.75rem] xl:text-5xl 2xl:text-6xl" style={{ animationDelay: '150ms', animationFillMode: 'both' }}>
           Find your next product role, <span className="italic" style={{ fontFamily: "'Lora', serif" }}>today.</span>
         </h1>
         <p className="animate-fade-in mt-4 text-sm text-muted-foreground sm:mt-5 sm:text-base md:text-lg 2xl:text-xl lg:whitespace-nowrap" style={{ animationDelay: '300ms', animationFillMode: 'both' }}>
           Else helps you find your next product role at the top tech companies in Europe.
         </p>
-        <div className="animate-fade-in mt-8 flex w-full max-w-4xl flex-col gap-3 rounded-2xl bg-card px-8 py-7 shadow-sm sm:mt-12 sm:flex-row sm:items-center sm:px-10 sm:py-8 2xl:max-w-5xl 2xl:px-12 2xl:py-9" style={{ animationDelay: '450ms', animationFillMode: 'both' }}>
-          <div className="relative flex-1">
+        <div className="animate-fade-in mt-8 flex w-full max-w-4xl flex-row items-center gap-3 rounded-2xl bg-card px-5 py-4 shadow-sm sm:mt-12 sm:px-10 sm:py-8 2xl:max-w-5xl 2xl:px-12 2xl:py-9" style={{ animationDelay: '450ms', animationFillMode: 'both' }}>
+          <div className="relative min-w-0 flex-1">
             <input
               type="text"
               value={inputValue}
@@ -82,19 +82,24 @@ const Hero = () => {
               className="w-full bg-transparent text-sm text-foreground outline-none md:text-base 2xl:text-lg"
             />
             {!inputValue && (
-              <span
-                className="pointer-events-none absolute inset-0 flex items-center text-sm text-muted-foreground/60 md:text-base 2xl:text-lg transition-opacity duration-700 ease-in-out"
-                style={{ opacity: visible ? 1 : 0 }}
-              >
-                {placeholders[currentIndex]}
-              </span>
+              <>
+                <span className="pointer-events-none absolute inset-0 flex items-center truncate text-sm text-muted-foreground/60 sm:hidden">
+                  Search for roles
+                </span>
+                <span
+                  className="pointer-events-none absolute inset-0 hidden items-center text-sm text-muted-foreground/60 transition-opacity duration-700 ease-in-out sm:flex md:text-base 2xl:text-lg"
+                  style={{ opacity: visible ? 1 : 0 }}
+                >
+                  {placeholders[currentIndex]}
+                </span>
+              </>
             )}
           </div>
 
           <button
             disabled={!hasInput}
             onClick={handleSearch}
-            className={`rounded-lg aspect-square w-9 h-9 sm:w-10 sm:h-10 2xl:w-11 2xl:h-11 flex items-center justify-center transition-all sm:ml-4 ${
+            className={`rounded-lg aspect-square w-9 h-9 sm:w-10 sm:h-10 2xl:w-11 2xl:h-11 flex shrink-0 items-center justify-center transition-all sm:ml-4 ${
               hasInput
                 ? "bg-primary text-primary-foreground hover:opacity-90 cursor-pointer"
                 : "bg-muted-foreground/20 text-muted-foreground cursor-not-allowed"
