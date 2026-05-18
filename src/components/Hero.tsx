@@ -79,7 +79,7 @@ const Hero = () => {
               onKeyDown={(e) => {
                 if (e.key === "Enter") handleSearch();
               }}
-              className="w-full bg-transparent text-sm text-foreground outline-none md:text-base 2xl:text-lg"
+              className="w-full bg-transparent text-base text-foreground outline-none md:text-base 2xl:text-lg"
             />
             {!inputValue && (
               <>
