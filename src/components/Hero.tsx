@@ -79,11 +79,11 @@ const Hero = () => {
               onKeyDown={(e) => {
                 if (e.key === "Enter") handleSearch();
               }}
-              className="w-full bg-transparent text-sm text-foreground outline-none md:text-base 2xl:text-lg"
+              className="w-full bg-transparent text-base text-foreground outline-none md:text-base 2xl:text-lg"
             />
             {!inputValue && (
               <>
-                <span className="pointer-events-none absolute inset-0 flex items-center truncate text-sm text-muted-foreground/60 sm:hidden">
+                <span className="pointer-events-none absolute inset-0 flex items-center truncate text-base text-muted-foreground/60 sm:hidden">
                   Search for roles
                 </span>
                 <span
