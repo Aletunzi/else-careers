@@ -63,14 +63,14 @@ const Hero = () => {
 
   return (
     <>
-      <section className="flex flex-1 flex-col items-center justify-start px-5 pt-16 pb-10 text-center sm:px-8 sm:pt-20 sm:pb-16 md:pt-28">
+      <section className="flex flex-1 flex-col items-center justify-center px-5 pb-10 text-center sm:justify-start sm:px-8 sm:pt-20 sm:pb-16 md:pt-28">
         <h1 className="animate-fade-in whitespace-nowrap text-[clamp(1.1rem,5.2vw,1.5rem)] font-normal leading-tight text-foreground sm:text-3xl md:text-4xl lg:text-[2.75rem] xl:text-5xl 2xl:text-6xl" style={{ animationDelay: '150ms', animationFillMode: 'both' }}>
           Find your next product role, <span className="italic" style={{ fontFamily: "'Lora', serif" }}>today.</span>
         </h1>
         <p className="animate-fade-in mt-4 text-sm text-muted-foreground sm:mt-5 sm:text-base md:text-lg 2xl:text-xl lg:whitespace-nowrap" style={{ animationDelay: '300ms', animationFillMode: 'both' }}>
           Else helps you find your next product role at the top tech companies in Europe.
         </p>
-        <div className="animate-fade-in mt-8 flex w-full max-w-4xl flex-row items-center gap-3 rounded-2xl bg-card px-5 py-4 shadow-sm sm:mt-12 sm:px-10 sm:py-8 2xl:max-w-5xl 2xl:px-12 2xl:py-9" style={{ animationDelay: '450ms', animationFillMode: 'both' }}>
+        <div className="animate-fade-in mt-6 flex w-full max-w-4xl flex-row items-center gap-2 rounded-2xl bg-card px-4 py-2.5 shadow-sm sm:mt-12 sm:gap-3 sm:px-10 sm:py-8 2xl:max-w-5xl 2xl:px-12 2xl:py-9" style={{ animationDelay: '450ms', animationFillMode: 'both' }}>
           <div className="relative min-w-0 flex-1">
             <input
               type="text"
