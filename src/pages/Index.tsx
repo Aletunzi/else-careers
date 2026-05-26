@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
+import Reality from "@/components/Reality";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -12,6 +13,7 @@ const Index = () => {
         </main>
       </div>
       <div className="hidden md:block">
+        <Reality />
         <Footer />
       </div>
     </>
