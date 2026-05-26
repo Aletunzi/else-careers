@@ -29,7 +29,7 @@ const faqs = [
 ];
 
 const FAQ = () => {
-  const [open, setOpen] = useState<number | null>(0);
+  const [open, setOpen] = useState<number | null>(null);
 
   return (
     <section className="bg-background px-5 py-20 sm:px-8 sm:py-24 md:px-16 md:py-28 lg:px-24 lg:py-32 2xl:px-32">
@@ -39,7 +39,7 @@ const FAQ = () => {
             <span className="h-px w-8 bg-muted-foreground/50" />
             <span>FAQ</span>
           </div>
-          <h2 className="mt-8 text-4xl font-normal leading-[1.05] text-foreground sm:text-5xl md:text-6xl">
+          <h2 className="mt-3 text-4xl font-normal leading-[1.05] text-foreground sm:text-5xl md:text-6xl">
             Things you probably want to ask.
           </h2>
           <p className="mt-8 text-base text-muted-foreground">
