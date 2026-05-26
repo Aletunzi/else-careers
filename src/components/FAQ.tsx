@@ -39,7 +39,7 @@ const FAQ = () => {
             <span className="h-px w-8 bg-muted-foreground/50" />
             <span>FAQ</span>
           </div>
-          <h2 className="mt-8 text-4xl font-semibold leading-[1.05] text-foreground sm:text-5xl md:text-6xl">
+          <h2 className="mt-8 text-4xl font-normal leading-[1.05] text-foreground sm:text-5xl md:text-6xl">
             Things you probably want to ask.
           </h2>
           <p className="mt-8 text-base text-muted-foreground">
