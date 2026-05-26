@@ -47,12 +47,12 @@ const Reality = () => {
       <div className="mx-auto max-w-7xl">
         <div className="flex items-center gap-3 text-xs uppercase tracking-[0.2em] text-muted-foreground">
           <span className="h-px w-8 bg-muted-foreground/50" />
-          <span>The Reality</span>
+          <span>The Problem</span>
         </div>
 
         <div className="mt-16 flex flex-col items-center text-center sm:mt-20 md:mt-24">
           <div className="flex items-start justify-center leading-none">
-            <span className="text-[clamp(6rem,22vw,18rem)] font-semibold tracking-tight text-foreground tabular-nums">{main}</span>
+            <span className="text-[clamp(6rem,22vw,18rem)] font-medium tracking-tight text-foreground tabular-nums">{main}</span>
             <span className="mt-2 text-[clamp(3rem,11vw,9rem)] font-semibold leading-none" style={{ color: '#ff6b1a' }}>%</span>
           </div>
 

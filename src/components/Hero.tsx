@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { ArrowUp, ChevronDown } from "lucide-react";
+import { ArrowUp } from "lucide-react";
 
 const placeholders = [
   "I'm looking for a senior product manager role in Paris",
@@ -124,10 +124,12 @@ const Hero = () => {
           type="button"
           aria-label="Scroll down"
           onClick={() => window.scrollBy({ top: window.innerHeight, behavior: 'smooth' })}
-          className="animate-fade-in mt-10 hidden md:inline-flex text-muted-foreground/70 hover:text-foreground transition-colors"
+          className="animate-fade-in mt-12 hidden md:inline-flex text-muted-foreground/70 hover:text-foreground transition-colors"
           style={{ animationDelay: '750ms', animationFillMode: 'both' }}
         >
-          <ChevronDown className="h-6 w-6 animate-pulse" strokeWidth={1.5} />
+          <svg width="22" height="56" viewBox="0 0 22 56" fill="none" className="animate-pulse">
+            <path d="M11 2 L11 50 M2 41 L11 50 L20 41" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
         </button>
       </section>
 
