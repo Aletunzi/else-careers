@@ -34,12 +34,12 @@ const FAQ = () => {
   return (
     <section className="bg-background px-5 py-20 sm:px-8 sm:py-24 md:px-16 md:py-28 lg:px-24 lg:py-32 2xl:px-32">
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 md:grid-cols-2 md:gap-16 lg:gap-24">
-        <div>
-          <div className="flex items-center gap-3 text-xs uppercase tracking-[0.2em] text-muted-foreground">
+        <div className="relative md:pt-0">
+          <div className="flex items-center gap-3 text-xs uppercase tracking-[0.2em] text-muted-foreground md:absolute md:-top-10 md:left-0">
             <span className="h-px w-8 bg-muted-foreground/50" />
             <span>FAQ</span>
           </div>
-          <h2 className="mt-3 text-4xl font-normal leading-[1.05] text-foreground sm:text-5xl md:text-6xl">
+          <h2 className="mt-6 text-4xl font-normal leading-[1.05] text-foreground sm:text-5xl md:mt-0 md:text-6xl">
             Things you probably want to ask.
           </h2>
           <p className="mt-8 text-base text-muted-foreground">
