@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { ArrowUp } from "lucide-react";
+import { ArrowUp, ChevronDown } from "lucide-react";
 
 const placeholders = [
   "I'm looking for a senior product manager role in Paris",
@@ -120,6 +120,15 @@ const Hero = () => {
             </button>
           ))}
         </div>
+        <button
+          type="button"
+          aria-label="Scroll down"
+          onClick={() => window.scrollBy({ top: window.innerHeight, behavior: 'smooth' })}
+          className="animate-fade-in mt-10 hidden md:inline-flex text-muted-foreground/70 hover:text-foreground transition-colors"
+          style={{ animationDelay: '750ms', animationFillMode: 'both' }}
+        >
+          <ChevronDown className="h-6 w-6 animate-pulse" strokeWidth={1.5} />
+        </button>
       </section>
 
       {/* Registration Modal */}
