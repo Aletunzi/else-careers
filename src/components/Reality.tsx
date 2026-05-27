@@ -43,9 +43,6 @@ const Reality = () => {
   }, []);
 
   const main = useCountUp(78, 1800, inView, () => setMainDone(true));
-  const s1 = useCountUp(9, 1500, mainDone);
-  const s2 = useCountUp(15000, 2000, mainDone);
-  const s3 = useCountUp(27, 1500, mainDone);
 
   return (
     <section ref={ref} className="bg-background px-5 py-20 sm:px-8 sm:py-24 md:px-16 md:py-28 lg:px-24 lg:py-32 2xl:px-32">
@@ -73,9 +70,9 @@ const Reality = () => {
           className={`mt-20 grid grid-cols-1 gap-10 border-t border-border pt-10 sm:mt-24 sm:grid-cols-3 sm:gap-6 transition-all duration-700 ease-out delay-150 ${mainDone ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-3'}`}
         >
           {[
-            { value: s1.toLocaleString('en-US'), label: 'Avg sources per role' },
-            { value: `${s2.toLocaleString('en-US')}+`, label: 'Companies tracked' },
-            { value: s3.toLocaleString('en-US'), label: 'European states covered' },
+            { value: '9', label: 'Avg sources per role' },
+            { value: '15,000+', label: 'Companies tracked' },
+            { value: '27', label: 'European states covered' },
           ].map((stat) => (
             <div key={stat.label} className="flex flex-col gap-3 sm:px-6">
               <span className="text-4xl font-semibold text-foreground sm:text-5xl tabular-nums">{stat.value}</span>
