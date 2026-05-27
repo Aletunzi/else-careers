@@ -42,7 +42,7 @@ const Reality = () => {
     return () => obs.disconnect();
   }, []);
 
-  const main = useCountUp(78, 1800, inView, () => setMainDone(true));
+  const main = useCountUp(78, 1300, inView, () => setMainDone(true));
 
   return (
     <section ref={ref} className="bg-background px-5 py-20 sm:px-8 sm:py-24 md:px-16 md:py-28 lg:px-24 lg:py-32 2xl:px-32">
