@@ -22,30 +22,10 @@ const SCRIPT: Msg[] = [
 ];
 
 const RESULTS = [
-  {
-    company: "AUTO1 Group",
-    title: "Senior Product Manager, Conversational AI for Customer Service (f/m/d)",
-    location: "Remote",
-    type: "Remote",
-  },
-  {
-    company: "Klarna",
-    title: "Head of Product, Climate Impact (f/m/d)",
-    location: "Berlin, Germany",
-    type: "Hybrid · 2 days/week",
-  },
-  {
-    company: "Ecosia",
-    title: "Senior Product Manager, Green Search Experience",
-    location: "Berlin, Germany",
-    type: "Remote",
-  },
-  {
-    company: "1Komma5°",
-    title: "Lead Product Manager, Energy Platform (f/m/d)",
-    location: "Hamburg, Germany",
-    type: "Hybrid · 1 day/week",
-  },
+  { company: "Ecosia", title: "Head of Product, Climate", type: "Remote" },
+  { company: "1Komma5°", title: "Senior PM, Energy Platform", type: "Hybrid" },
+  { company: "Klarna", title: "Lead PM, Green Payments", type: "Remote" },
+  { company: "Auto1", title: "Senior PM, Conversational AI", type: "Hybrid" },
 ];
 
 const TryIt = () => {
