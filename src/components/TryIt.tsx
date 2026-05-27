@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import elseMark from "@/assets/else-mark-white.svg";
-import userIcon from "@/assets/user-icon.png";
+import userAvatar from "@/assets/user-avatar.jpg";
 
 type Tag = string;
 type Msg =
@@ -103,9 +103,7 @@ const TryIt = () => {
                       <div className="max-w-[80%] rounded-[22px] bg-[#201c1b] px-5 py-3 text-sm text-white sm:text-base">
                         {m.text}
                       </div>
-                      <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#f1ece4]">
-                        <img src={userIcon} alt="you" className="h-4 w-4" />
-                      </div>
+                      <img src={userAvatar} alt="you" loading="lazy" width={32} height={32} className="h-8 w-8 shrink-0 rounded-full object-cover" />
                     </div>
                   );
                 }
@@ -175,9 +173,7 @@ const TryIt = () => {
                     ))}
                   </div>
                   {typing === "you" && (
-                    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#f1ece4]">
-                      <img src={userIcon} alt="you" className="h-4 w-4" />
-                    </div>
+                    <img src={userAvatar} alt="you" loading="lazy" width={32} height={32} className="h-8 w-8 shrink-0 rounded-full object-cover" />
                   )}
                 </div>
               )}
