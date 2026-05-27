@@ -44,15 +44,20 @@
   }
   html {
     overscroll-behavior: none;
-    background-color: hsl(var(--footer-background));
+    background-color: hsl(var(--background));
   }
   body {
     @apply text-foreground font-sans antialiased;
-    background-color: hsl(var(--footer-background));
+    background-color: hsl(var(--background));
     overscroll-behavior: none;
   }
   #root {
     min-height: 100%;
+    background-color: hsl(var(--background));
+  }
+  html.footer-dark,
+  html.footer-dark body,
+  html.footer-dark #root {
     background-color: hsl(var(--footer-background));
   }
 }
