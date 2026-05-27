@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import elseMark from "@/assets/else-mark-white.svg";
+import userIcon from "@/assets/user-icon.png";
 
 type Tag = string;
 type Msg =
@@ -95,27 +96,27 @@ const TryIt = () => {
                   return (
                     <div
                       key={i}
-                      className={`flex items-center justify-end gap-2 transition-all duration-500 ease-out ${
+                      className={`flex items-end justify-end gap-3 transition-all duration-500 ease-out ${
                         shown ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2 pointer-events-none h-0 overflow-hidden"
                       }`}
                     >
                       <div className="max-w-[80%] rounded-[22px] bg-[#201c1b] px-5 py-3 text-sm text-white sm:text-base">
                         {m.text}
                       </div>
-                      <span className="rounded-full bg-[#f1ece4] px-2.5 py-1 text-[11px] text-foreground/70">
-                        You
-                      </span>
+                      <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#f1ece4]">
+                        <img src={userIcon} alt="you" className="h-4 w-4" />
+                      </div>
                     </div>
                   );
                 }
                 return (
                   <div
                     key={i}
-                    className={`flex items-start gap-3 transition-all duration-500 ease-out ${
+                    className={`flex items-end gap-3 transition-all duration-500 ease-out ${
                       shown ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2 pointer-events-none h-0 overflow-hidden"
                     }`}
                   >
-                    <div className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full" style={{ backgroundColor: "#ff6b1a" }}>
+                    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full" style={{ backgroundColor: "#ff6b1a" }}>
                       <img src={elseMark} alt="else" className="h-3.5 w-3.5" />
                     </div>
                     <div className="flex-1 rounded-[22px] bg-[#f5efe6] px-5 py-3">
@@ -145,7 +146,7 @@ const TryIt = () => {
 
               {typing && visibleCount < SCRIPT.length && (
                 <div
-                  className={`flex items-center gap-2 ${
+                  className={`flex items-end gap-3 ${
                     typing === "you" ? "justify-end" : "justify-start"
                   }`}
                 >
@@ -173,6 +174,11 @@ const TryIt = () => {
                       />
                     ))}
                   </div>
+                  {typing === "you" && (
+                    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#f1ece4]">
+                      <img src={userIcon} alt="you" className="h-4 w-4" />
+                    </div>
+                  )}
                 </div>
               )}
             </div>
