@@ -11,14 +11,12 @@ const SCRIPT: Msg[] = [
   { from: "you", text: "Find me a Head of Product role at climate-tech startups in Berlin" },
   {
     from: "else",
-    text: "Found 47 matches across 9 sources. 3 are stealth-stage, 12 are Series B+.",
-    tags: ["climate", "berlin", "47 results"],
+    text: "I've found 8 matches, with 3 stealth-stage startups and 5 from Series B on. Do you want to narrow the search?",
   },
   { from: "you", text: "Only the ones that are remote-friendly, please." },
   {
     from: "else",
-    text: "Narrowed to 19. Eight are fully remote, eleven are hybrid 1–2 days/week.",
-    tags: ["remote", "19 results"],
+    text: "Narrowed to 4, 2 of them remote friendly and 2 hybrid 1-2 days/week.",
   },
 ];
 
