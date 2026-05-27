@@ -90,7 +90,7 @@ const TryIt = () => {
           }}
         >
           <span className="h-px w-8 bg-muted-foreground/50" />
-          <span>Try it</span>
+          <span>How it works</span>
         </div>
 
         <h2
