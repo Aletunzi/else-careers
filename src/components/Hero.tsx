@@ -128,7 +128,7 @@ const Hero = () => {
           style={{ animationDelay: '750ms', animationFillMode: 'both' }}
         >
           <svg width="22" height="56" viewBox="0 0 22 56" fill="none" className="animate-bounce-down">
-            <path d="M11 2 L11 50 M2 41 L11 50 L20 41" stroke="currentColor" strokeWidth="1.275" strokeLinecap="round" strokeLinejoin="round" />
+            <path d="M11 2 L11 50 M2 41 L11 50 L20 41" stroke="currentColor" strokeWidth="1.084" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </button>
       </section>
