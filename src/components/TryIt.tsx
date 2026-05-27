@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import elseMark from "@/assets/else-mark-white.svg";
 
 type Tag = string;
 type Msg =
@@ -114,8 +115,8 @@ const TryIt = () => {
                       shown ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2 pointer-events-none h-0 overflow-hidden"
                     }`}
                   >
-                    <div className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-sm font-medium text-white" style={{ backgroundColor: "#ff6b1a" }}>
-                      e
+                    <div className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full" style={{ backgroundColor: "#ff6b1a" }}>
+                      <img src={elseMark} alt="else" className="h-3.5 w-3.5" />
                     </div>
                     <div className="flex-1 rounded-[22px] bg-[#f5efe6] px-5 py-3">
                       <div className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-wider text-foreground/50">
@@ -150,10 +151,10 @@ const TryIt = () => {
                 >
                   {typing === "else" && (
                     <div
-                      className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-sm font-medium text-white"
+                      className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full"
                       style={{ backgroundColor: "#ff6b1a" }}
                     >
-                      e
+                      <img src={elseMark} alt="else" className="h-3.5 w-3.5" />
                     </div>
                   )}
                   <div
@@ -179,7 +180,9 @@ const TryIt = () => {
 
           <div className="mt-10 flex justify-center">
             <a
-              href="https://app.tryelse.xyz"
+              href="https://app.tryelse.xyz/register"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-full bg-[#201c1b] px-6 py-3.5 text-sm text-white transition-opacity hover:opacity-90 sm:text-base"
             >
               Run this search
