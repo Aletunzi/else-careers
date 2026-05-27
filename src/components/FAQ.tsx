@@ -42,7 +42,7 @@ const FAQ = () => {
           obs.disconnect();
         }
       },
-      { threshold: 0.15 }
+      { threshold: 0, rootMargin: '-25% 0px -15% 0px' }
     );
     obs.observe(sectionRef.current);
     return () => obs.disconnect();
