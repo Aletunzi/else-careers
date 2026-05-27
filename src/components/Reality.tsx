@@ -74,7 +74,7 @@ const Reality = () => {
             { value: '15,000+', label: 'Companies tracked' },
             { value: '27', label: 'European states covered' },
           ].map((stat) => (
-            <div key={stat.label} className="flex flex-col gap-3 sm:px-6">
+            <div key={stat.label} className="flex flex-col gap-3 text-center sm:px-6 sm:text-left">
               <span className="text-4xl font-semibold text-foreground sm:text-5xl tabular-nums">{stat.value}</span>
               <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground">{stat.label}</span>
             </div>
