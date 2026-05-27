@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 
-const useCountUp = (end: number, duration = 1800, start = false) => {
+const useCountUp = (end: number, duration = 1800, start = false, onDone?: () => void) => {
   const [value, setValue] = useState(0);
   useEffect(() => {
     if (!start) return;
@@ -10,7 +10,11 @@ const useCountUp = (end: number, duration = 1800, start = false) => {
       const p = Math.min((t - t0) / duration, 1);
       const eased = 1 - Math.pow(1 - p, 3);
       setValue(Math.round(eased * end));
-      if (p < 1) raf = requestAnimationFrame(tick);
+      if (p < 1) {
+        raf = requestAnimationFrame(tick);
+      } else {
+        onDone?.();
+      }
     };
     raf = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(raf);
@@ -21,6 +25,7 @@ const useCountUp = (end: number, duration = 1800, start = false) => {
 const Reality = () => {
   const ref = useRef<HTMLElement>(null);
   const [inView, setInView] = useState(false);
+  const [mainDone, setMainDone] = useState(false);
 
   useEffect(() => {
     if (!ref.current) return;
@@ -37,10 +42,10 @@ const Reality = () => {
     return () => obs.disconnect();
   }, []);
 
-  const main = useCountUp(78, 1800, inView);
-  const s1 = useCountUp(9, 1500, inView);
-  const s2 = useCountUp(15000, 2000, inView);
-  const s3 = useCountUp(27, 1500, inView);
+  const main = useCountUp(78, 1800, inView, () => setMainDone(true));
+  const s1 = useCountUp(9, 1500, mainDone);
+  const s2 = useCountUp(15000, 2000, mainDone);
+  const s3 = useCountUp(27, 1500, mainDone);
 
   return (
     <section ref={ref} className="bg-background px-5 py-20 sm:px-8 sm:py-24 md:px-16 md:py-28 lg:px-24 lg:py-32 2xl:px-32">
@@ -56,13 +61,17 @@ const Reality = () => {
             <span className="mt-2 text-[clamp(3rem,11vw,9rem)] font-semibold leading-none" style={{ color: '#ff6b1a' }}>%</span>
           </div>
 
-          <p className="mt-8 max-w-3xl text-xl text-foreground sm:text-2xl md:text-3xl lg:text-4xl">
+          <p
+            className={`mt-8 max-w-3xl text-xl text-foreground sm:text-2xl md:text-3xl lg:text-4xl transition-all duration-700 ease-out ${mainDone ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-3'}`}
+          >
             of product roles in Europe are <span style={{ color: '#ff6b1a' }}>not</span> on LinkedIn.
             <br className="hidden sm:block" /> We fixed that.
           </p>
         </div>
 
-        <div className="mt-20 grid grid-cols-1 gap-10 border-t border-border pt-10 sm:mt-24 sm:grid-cols-3 sm:gap-6">
+        <div
+          className={`mt-20 grid grid-cols-1 gap-10 border-t border-border pt-10 sm:mt-24 sm:grid-cols-3 sm:gap-6 transition-all duration-700 ease-out delay-150 ${mainDone ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-3'}`}
+        >
           {[
             { value: s1.toLocaleString('en-US'), label: 'Avg sources per role' },
             { value: `${s2.toLocaleString('en-US')}+`, label: 'Companies tracked' },
