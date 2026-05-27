@@ -99,61 +99,17 @@ const TryIt = () => {
             <div className="flex flex-col gap-6">
               {SCRIPT.map((m, i) => {
                 const shown = i < visibleCount;
-                if (m.from === "you") {
-                  return (
-                    <div
-                      key={i}
-                      className={`flex items-start justify-end gap-3 transition-all duration-500 ease-out ${
-                        shown ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2 pointer-events-none h-0 overflow-hidden"
-                      }`}
-                    >
-                      <div className="max-w-[80%] rounded-[22px] bg-[#201c1b] px-5 py-3 text-sm text-white sm:text-base">
-                        {m.text}
-                      </div>
-                      <img src={userAvatar} alt="you" loading="lazy" width={32} height={32} className="h-8 w-8 shrink-0 rounded-full object-cover" />
-                    </div>
-                  );
-                }
-                return (
-                  <div
-                    key={i}
-                    className={`flex items-start gap-3 transition-all duration-500 ease-out ${
-                      shown ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2 pointer-events-none h-0 overflow-hidden"
-                    }`}
-                  >
-                    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full" style={{ backgroundColor: "#ff6b1a" }}>
-                      <img src={elseMark} alt="else" className="h-3.5 w-3.5" />
-                    </div>
-                    <div className="flex-1 rounded-[22px] bg-[#f5efe6] px-5 py-3">
-                      <p className="text-sm text-foreground sm:text-base">{m.text}</p>
-                    </div>
-                  </div>
-                );
-              })}
+                const isTyping = typing === m.from && i === visibleCount;
+                if (!shown && !isTyping) return null;
 
-              {typing && visibleCount < SCRIPT.length && (
-                <div
-                  className={`flex items-start gap-3 ${
-                    typing === "you" ? "justify-end" : "justify-start"
-                  }`}
-                >
-                  {typing === "else" && (
-                    <div
-                      className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full"
-                      style={{ backgroundColor: "#ff6b1a" }}
-                    >
-                      <img src={elseMark} alt="else" className="h-3.5 w-3.5" />
-                    </div>
-                  )}
-                  <div
-                    className={`flex items-center gap-1 rounded-full px-4 py-3 ${
-                      typing === "you" ? "bg-[#201c1b]" : "bg-[#f5efe6]"
-                    }`}
-                  >
+                const dots = (
+                  <div className="flex items-center gap-1 py-1">
                     {[0, 150, 300].map((d) => (
                       <span
                         key={d}
-                        className={`h-1.5 w-1.5 rounded-full ${typing === "you" ? "bg-white/70" : "bg-foreground/40"}`}
+                        className={`h-1.5 w-1.5 rounded-full ${
+                          m.from === "you" ? "bg-white/70" : "bg-foreground/40"
+                        }`}
                         style={{
                           animation: "tryit-bounce 1s ease-in-out infinite",
                           animationDelay: `${d}ms`,
@@ -161,11 +117,41 @@ const TryIt = () => {
                       />
                     ))}
                   </div>
-                  {typing === "you" && (
-                    <img src={userAvatar} alt="you" loading="lazy" width={32} height={32} className="h-8 w-8 shrink-0 rounded-full object-cover" />
-                  )}
-                </div>
-              )}
+                );
+
+                if (m.from === "you") {
+                  return (
+                    <div key={i} className="flex items-start justify-end gap-3">
+                      <div className="max-w-[80%] rounded-[22px] bg-[#201c1b] px-5 py-3 text-sm text-white sm:text-base">
+                        {isTyping ? dots : m.text}
+                      </div>
+                      <img
+                        src={userAvatar}
+                        alt="you"
+                        loading="lazy"
+                        width={32}
+                        height={32}
+                        className="h-8 w-8 shrink-0 rounded-full object-cover"
+                      />
+                    </div>
+                  );
+                }
+                return (
+                  <div key={i} className="flex items-start gap-3">
+                    <div
+                      className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full"
+                      style={{ backgroundColor: "#ff6b1a" }}
+                    >
+                      <img src={elseMark} alt="else" className="h-3.5 w-3.5" />
+                    </div>
+                    <div className="flex-1 rounded-[22px] bg-[#f5efe6] px-5 py-3">
+                      {isTyping ? dots : (
+                        <p className="text-sm text-foreground sm:text-base">{m.text}</p>
+                      )}
+                    </div>
+                  </div>
+                );
+              })}
             </div>
 
               {showResults && visibleCount >= SCRIPT.length && (
