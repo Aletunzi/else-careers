@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { MapPin, X } from "lucide-react";
+import { MapPin } from "lucide-react";
 import elseMark from "@/assets/else-mark-white.svg";
 import userAvatar from "@/assets/user-avatar.jpg";
 
@@ -96,8 +96,6 @@ const TryIt = () => {
     };
   }, [inView]);
 
-  // sheet is scoped to the chat box; no page scroll lock needed
-
   return (
     <section
       ref={ref}
@@ -118,7 +116,7 @@ const TryIt = () => {
         </p>
 
         <div className="mt-12 sm:mt-16 md:mt-20">
-          <div className="relative mx-auto w-full max-w-3xl overflow-hidden rounded-3xl bg-white p-5 shadow-[0_10px_40px_-12px_rgba(32,28,27,0.15)] sm:p-8 md:p-10">
+          <div className="relative mx-auto flex w-full max-w-3xl min-h-[640px] flex-col rounded-3xl bg-white p-5 shadow-[0_10px_40px_-12px_rgba(32,28,27,0.15)] sm:min-h-[720px] sm:p-8 md:min-h-[780px] md:p-10">
             <div className="flex flex-col gap-6">
               {SCRIPT.map((m, i) => {
                 const shown = i < visibleCount;
@@ -191,29 +189,22 @@ const TryIt = () => {
               )}
             </div>
 
-            {showResults && (
-              <div
-                className="absolute inset-0 z-10 flex items-end justify-center rounded-3xl bg-black/30"
-                style={{ animation: "tryit-overlay-in 300ms ease-out both" }}
-                onClick={() => setShowResults(false)}
-              >
+              {showResults && (
                 <div
-                  className="relative w-full rounded-t-3xl bg-background p-5 shadow-[0_-10px_40px_-12px_rgba(32,28,27,0.25)] sm:p-6"
-                  style={{ animation: "tryit-sheet-up 450ms cubic-bezier(0.22, 1, 0.36, 1) both", maxHeight: "92%" }}
-                  onClick={(e) => e.stopPropagation()}
+                  className="flex gap-3"
+                  style={{ animation: "tryit-overlay-in 400ms ease-out both" }}
                 >
-                  <div className="mx-auto mb-3 h-1.5 w-12 rounded-full bg-foreground/15" />
-                  <button
-                    onClick={() => setShowResults(false)}
-                    className="absolute right-3 top-3 flex h-8 w-8 items-center justify-center rounded-full text-foreground/60 transition-colors hover:bg-foreground/5 hover:text-foreground"
-                    aria-label="Close"
-                  >
-                    <X className="h-4 w-4" />
-                  </button>
-                  <h3 className="mb-3 text-base font-medium text-foreground sm:text-lg">4 matches found</h3>
-                  <div className="flex max-h-[55vh] flex-col gap-2.5 overflow-y-auto pr-1 sm:max-h-[60vh]">
+                  <div className="h-8 w-8 shrink-0" aria-hidden />
+                  <div className="flex flex-1 flex-col gap-2.5">
                     {RESULTS.map((r, i) => (
-                      <div key={i} className="rounded-2xl border border-foreground/10 bg-white p-4 sm:p-5">
+                      <div
+                        key={i}
+                        className="rounded-2xl border border-foreground/10 bg-[#faf7f1] p-4 sm:p-5"
+                        style={{
+                          animation: "tryit-card-in 500ms ease-out both",
+                          animationDelay: `${i * 120}ms`,
+                        }}
+                      >
                         <div className="flex items-start justify-between gap-3">
                           <span className="text-xs text-muted-foreground sm:text-sm">{r.company}</span>
                           <a
@@ -236,8 +227,7 @@ const TryIt = () => {
                     ))}
                   </div>
                 </div>
-              </div>
-            )}
+              )}
           </div>
 
           <div className="mt-10 flex justify-center">
@@ -247,7 +237,7 @@ const TryIt = () => {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-full bg-[#201c1b] px-6 py-3.5 text-sm text-white transition-opacity hover:opacity-90 sm:text-base"
             >
-              Run this search
+              Try for free
               <span aria-hidden>→</span>
             </a>
           </div>
@@ -259,13 +249,13 @@ const TryIt = () => {
           0%, 80%, 100% { transform: translateY(0); opacity: 0.4; }
           40% { transform: translateY(-4px); opacity: 1; }
         }
-        @keyframes tryit-sheet-up {
-          from { transform: translateY(100%); }
-          to { transform: translateY(0); }
-        }
         @keyframes tryit-overlay-in {
           from { opacity: 0; }
           to { opacity: 1; }
+        }
+        @keyframes tryit-card-in {
+          from { opacity: 0; transform: translateY(8px); }
+          to { opacity: 1; transform: translateY(0); }
         }
       `}</style>
 
