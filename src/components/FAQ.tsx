@@ -7,7 +7,7 @@ const faqs = [
     a: "Right now Else is laser-focused on product & tech roles in Europe — it's the market we know best, and where most of our coverage advantage exists. Other regions are on the roadmap.",
   },
   {
-    q: "How is this different from Otta, Wellfound or LinkedIn?",
+    q: "How is this different from tools like Linkedin?",
     a: "Else aggregates roles from thousands of company career pages directly, surfacing positions you won't find on traditional job boards. We focus on quality and freshness over volume.",
   },
   {
