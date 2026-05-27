@@ -103,7 +103,7 @@ const TryIt = () => {
                   return (
                     <div
                       key={i}
-                      className={`flex items-end justify-end gap-3 transition-all duration-500 ease-out ${
+                      className={`flex items-start justify-end gap-3 transition-all duration-500 ease-out ${
                         shown ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2 pointer-events-none h-0 overflow-hidden"
                       }`}
                     >
@@ -117,7 +117,7 @@ const TryIt = () => {
                 return (
                   <div
                     key={i}
-                    className={`flex items-end gap-3 transition-all duration-500 ease-out ${
+                    className={`flex items-start gap-3 transition-all duration-500 ease-out ${
                       shown ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2 pointer-events-none h-0 overflow-hidden"
                     }`}
                   >
@@ -133,7 +133,7 @@ const TryIt = () => {
 
               {typing && visibleCount < SCRIPT.length && (
                 <div
-                  className={`flex items-end gap-3 ${
+                  className={`flex items-start gap-3 ${
                     typing === "you" ? "justify-end" : "justify-start"
                   }`}
                 >
