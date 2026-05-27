@@ -3,7 +3,15 @@ import logoWhite from "@/assets/else-logo-white.svg";
 
 const Footer = () => {
   return (
-    <footer className="animate-fade-in relative" style={{ backgroundColor: '#201c1b', animationDelay: '450ms', animationFillMode: 'both' }}>
+    <footer
+      className="animate-fade-in relative"
+      style={{
+        backgroundColor: '#201c1b',
+        animationDelay: '450ms',
+        animationFillMode: 'both',
+        paddingBottom: 'env(safe-area-inset-bottom)',
+      }}
+    >
       <div className="relative px-5 pb-8 pt-10 sm:px-8 sm:pb-10 sm:pt-12 md:px-16 md:pb-12 md:pt-14 lg:px-24 lg:pb-14 lg:pt-16 2xl:px-32 2xl:pt-18 2xl:pb-16">
         <div className="flex flex-col gap-10 sm:gap-12 md:flex-row md:justify-between">
           <div>
