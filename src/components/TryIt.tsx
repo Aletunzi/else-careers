@@ -172,7 +172,7 @@ const TryIt = () => {
                     >
                       <img src={elseMark} alt="else" className="h-3.5 w-3.5" />
                     </div>
-                    <div className="flex-1 rounded-[22px] bg-[#f5efe6] px-5 py-3">
+                    <div className={`rounded-[22px] bg-[#f5efe6] px-5 py-3 ${isTyping ? "" : "flex-1"}`}>
                       {isTyping ? dots : (
                         <p className="text-sm text-foreground sm:text-base">{m.text}</p>
                       )}
