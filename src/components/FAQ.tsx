@@ -64,10 +64,12 @@ const FAQ = () => {
           <p className="mt-8 text-base text-muted-foreground">
             Still curious?{" "}
             <a
-              href="mailto:hello@tryelse.xyz"
+              href="https://x.com/elsecareers"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-foreground underline decoration-[#ff6b1a] decoration-2 underline-offset-4 transition-colors hover:text-[#ff6b1a]"
             >
-              hello@tryelse.xyz
+              Reach out
             </a>
           </p>
         </div>
