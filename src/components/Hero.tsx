@@ -228,7 +228,7 @@ const Hero = () => {
               href="https://app.tryelse.xyz/register"
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-7 block w-full rounded-lg bg-primary py-3.5 text-sm font-medium text-primary-foreground transition-colors hover:opacity-90"
+              className="mt-7 block w-full rounded-lg bg-primary py-3.5 text-sm font-medium text-primary-foreground transition-colors duration-300 ease-out hover:bg-[#ff6b1a]"
             >
               Get Started
             </a>
