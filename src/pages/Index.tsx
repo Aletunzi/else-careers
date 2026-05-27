@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Reality from "@/components/Reality";
+import TryIt from "@/components/TryIt";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 
@@ -14,6 +15,7 @@ const Index = () => {
         </main>
       </div>
       <Reality />
+      <TryIt />
       <FAQ />
       <Footer />
     </>
