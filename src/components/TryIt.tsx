@@ -234,7 +234,7 @@ const TryIt = () => {
               href="https://app.tryelse.xyz/register"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-[#201c1b] px-6 py-3.5 text-sm text-white transition-opacity hover:opacity-90 sm:text-base"
+              className="inline-flex items-center gap-2 rounded-full bg-[#201c1b] px-6 py-3.5 text-sm text-white transition-colors duration-300 ease-out hover:bg-[#ff6b1a] sm:text-base"
             >
               Try for free
               <span aria-hidden>→</span>
