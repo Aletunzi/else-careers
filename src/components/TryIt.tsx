@@ -67,7 +67,7 @@ const TryIt = () => {
       }, t);
       t += m.from === "you" ? 700 : 1400;
     });
-    schedule(() => setShowResults(true), t + 200);
+    schedule(() => setShowResults(true), t + 600);
 
     return () => {
       cancelled = true;
@@ -95,7 +95,7 @@ const TryIt = () => {
         </p>
 
         <div className="mt-12 sm:mt-16 md:mt-20">
-          <div className="relative mx-auto flex w-full max-w-3xl min-h-[640px] flex-col rounded-3xl bg-white p-5 shadow-[0_10px_40px_-12px_rgba(32,28,27,0.15)] sm:min-h-[720px] sm:p-8 md:min-h-[780px] md:p-10">
+          <div className="relative mx-auto flex w-full max-w-3xl flex-col rounded-3xl bg-white p-5 shadow-[0_10px_40px_-12px_rgba(32,28,27,0.15)] sm:p-8 md:p-10">
             <div className="flex flex-col gap-6">
               {SCRIPT.map((m, i) => {
                 const shown = i < visibleCount;
@@ -168,9 +168,9 @@ const TryIt = () => {
               )}
             </div>
 
-              {showResults && (
+              {showResults && visibleCount >= SCRIPT.length && (
                 <div
-                  className="flex gap-3"
+                  className="mt-3 flex gap-3"
                   style={{ animation: "tryit-overlay-in 400ms ease-out both" }}
                 >
                   <div className="h-8 w-8 shrink-0" aria-hidden />
@@ -178,7 +178,7 @@ const TryIt = () => {
                     {RESULTS.map((r, i) => (
                       <div
                         key={i}
-                        className="group flex items-center justify-between gap-3 rounded-xl border border-foreground/10 bg-[#faf7f1] px-3.5 py-2.5"
+                        className="group flex items-center justify-between gap-3 rounded-[22px] bg-[#f5efe6] px-4 py-3"
                         style={{
                           animation: "tryit-card-in 400ms ease-out both",
                           animationDelay: `${i * 100}ms`,
