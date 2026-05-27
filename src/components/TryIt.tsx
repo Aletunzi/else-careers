@@ -149,7 +149,7 @@ const TryIt = () => {
 
                 if (m.from === "you") {
                   return (
-                    <div key={i} className="flex items-start justify-end gap-3">
+                    <div key={i} className="flex items-end justify-end gap-3">
                       <div className="max-w-[80%] rounded-[22px] bg-[#201c1b] px-5 py-3 text-sm text-white sm:text-base">
                         {isTyping ? dots : m.text}
                       </div>
@@ -165,7 +165,7 @@ const TryIt = () => {
                   );
                 }
                 return (
-                  <div key={i} className="flex items-start gap-3">
+                  <div key={i} className="flex items-end gap-3">
                     <div
                       className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full"
                       style={{ backgroundColor: "#ff6b1a" }}
