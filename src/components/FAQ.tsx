@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Plus, X } from "lucide-react";
+import { Plus } from "lucide-react";
 
 const faqs = [
   {
@@ -64,11 +64,10 @@ const FAQ = () => {
                   className={`flex w-full items-center justify-between gap-6 ${i === 0 ? 'pb-6 md:pt-0' : 'py-6'} text-left`}
                 >
                   <span className="text-base font-medium text-foreground sm:text-lg">{f.q}</span>
-                  {isOpen ? (
-                    <X className="h-5 w-5 shrink-0 text-foreground" strokeWidth={1.5} />
-                  ) : (
-                    <Plus className="h-5 w-5 shrink-0 text-foreground" strokeWidth={1.5} />
-                  )}
+                  <Plus
+                    className={`h-5 w-5 shrink-0 text-foreground transition-transform duration-300 ease-out ${isOpen ? 'rotate-45' : 'rotate-0'}`}
+                    strokeWidth={1.5}
+                  />
                 </button>
                 <div
                   className="grid overflow-hidden transition-all duration-300 ease-out"
