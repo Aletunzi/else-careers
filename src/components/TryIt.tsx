@@ -96,24 +96,7 @@ const TryIt = () => {
     };
   }, [inView]);
 
-  useEffect(() => {
-    if (!showResults) return;
-    const scrollY = window.scrollY;
-    document.body.style.position = "fixed";
-    document.body.style.top = `-${scrollY}px`;
-    document.body.style.left = "0";
-    document.body.style.right = "0";
-    document.body.style.width = "100%";
-    return () => {
-      const y = document.body.style.top;
-      document.body.style.position = "";
-      document.body.style.top = "";
-      document.body.style.left = "";
-      document.body.style.right = "";
-      document.body.style.width = "";
-      window.scrollTo(0, parseInt(y || "0", 10) * -1);
-    };
-  }, [showResults]);
+  // sheet is scoped to the chat box; no page scroll lock needed
 
   return (
     <section
@@ -135,7 +118,7 @@ const TryIt = () => {
         </p>
 
         <div className="mt-12 sm:mt-16 md:mt-20">
-          <div className="mx-auto w-full max-w-3xl rounded-3xl bg-white p-5 shadow-[0_10px_40px_-12px_rgba(32,28,27,0.15)] sm:p-8 md:p-10">
+          <div className="relative mx-auto w-full max-w-3xl overflow-hidden rounded-3xl bg-white p-5 shadow-[0_10px_40px_-12px_rgba(32,28,27,0.15)] sm:p-8 md:p-10">
             <div className="flex flex-col gap-6">
               {SCRIPT.map((m, i) => {
                 const shown = i < visibleCount;
@@ -207,6 +190,54 @@ const TryIt = () => {
                 </div>
               )}
             </div>
+
+            {showResults && (
+              <div
+                className="absolute inset-0 z-10 flex items-end justify-center rounded-3xl bg-black/30"
+                style={{ animation: "tryit-overlay-in 300ms ease-out both" }}
+                onClick={() => setShowResults(false)}
+              >
+                <div
+                  className="relative w-full rounded-t-3xl bg-background p-5 shadow-[0_-10px_40px_-12px_rgba(32,28,27,0.25)] sm:p-6"
+                  style={{ animation: "tryit-sheet-up 450ms cubic-bezier(0.22, 1, 0.36, 1) both", maxHeight: "92%" }}
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <div className="mx-auto mb-3 h-1.5 w-12 rounded-full bg-foreground/15" />
+                  <button
+                    onClick={() => setShowResults(false)}
+                    className="absolute right-3 top-3 flex h-8 w-8 items-center justify-center rounded-full text-foreground/60 transition-colors hover:bg-foreground/5 hover:text-foreground"
+                    aria-label="Close"
+                  >
+                    <X className="h-4 w-4" />
+                  </button>
+                  <h3 className="mb-3 text-base font-medium text-foreground sm:text-lg">4 matches found</h3>
+                  <div className="flex max-h-[55vh] flex-col gap-2.5 overflow-y-auto pr-1 sm:max-h-[60vh]">
+                    {RESULTS.map((r, i) => (
+                      <div key={i} className="rounded-2xl border border-foreground/10 bg-white p-4 sm:p-5">
+                        <div className="flex items-start justify-between gap-3">
+                          <span className="text-xs text-muted-foreground sm:text-sm">{r.company}</span>
+                          <a
+                            href="https://app.tryelse.xyz/register"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex shrink-0 items-center gap-1 rounded-full border border-foreground/30 px-3 py-1 text-xs text-foreground transition-colors hover:bg-foreground hover:text-white sm:px-4 sm:py-1.5 sm:text-sm"
+                          >
+                            Apply <span aria-hidden>↗</span>
+                          </a>
+                        </div>
+                        <h4 className="mt-2 text-sm font-semibold text-foreground sm:text-base">{r.title}</h4>
+                        <div className="mt-1.5 flex items-center gap-1.5 text-xs text-muted-foreground sm:text-sm">
+                          <MapPin className="h-3.5 w-3.5" />
+                          <span>{r.location}</span>
+                        </div>
+                        <div className="my-3 h-px bg-foreground/10" />
+                        <div className="text-xs text-muted-foreground sm:text-sm">{r.type}</div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
 
           <div className="mt-10 flex justify-center">
@@ -238,58 +269,6 @@ const TryIt = () => {
         }
       `}</style>
 
-      {showResults && (
-        <div
-          className="fixed inset-0 z-50 flex items-end justify-center bg-black/40"
-          style={{ animation: "tryit-overlay-in 300ms ease-out both" }}
-          onClick={() => setShowResults(false)}
-        >
-          <div
-            className="relative w-full max-w-3xl rounded-t-3xl bg-background p-5 shadow-[0_-10px_40px_-12px_rgba(32,28,27,0.25)] sm:p-8"
-            style={{ animation: "tryit-sheet-up 450ms cubic-bezier(0.22, 1, 0.36, 1) both", maxHeight: "90vh" }}
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="mx-auto mb-4 h-1.5 w-12 rounded-full bg-foreground/15" />
-            <button
-              onClick={() => setShowResults(false)}
-              className="absolute right-4 top-4 flex h-9 w-9 items-center justify-center rounded-full text-foreground/60 transition-colors hover:bg-foreground/5 hover:text-foreground"
-              aria-label="Close"
-            >
-              <X className="h-5 w-5" />
-            </button>
-            <h3 className="mb-5 text-lg font-medium text-foreground sm:text-xl">4 matches found</h3>
-            <div className="flex flex-col gap-3 overflow-y-auto pr-1" style={{ maxHeight: "calc(90vh - 8rem)" }}>
-              {RESULTS.map((r, i) => (
-                <div
-                  key={i}
-                  className="rounded-2xl border border-foreground/10 bg-white p-5 sm:p-6"
-                >
-                  <div className="flex items-start justify-between gap-4">
-                    <span className="text-sm text-muted-foreground">{r.company}</span>
-                    <a
-                      href="https://app.tryelse.xyz/register"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex shrink-0 items-center gap-1 rounded-full border border-foreground/30 px-4 py-1.5 text-sm text-foreground transition-colors hover:bg-foreground hover:text-white"
-                    >
-                      Apply <span aria-hidden>↗</span>
-                    </a>
-                  </div>
-                  <h4 className="mt-3 text-base font-semibold text-foreground sm:text-lg">
-                    {r.title}
-                  </h4>
-                  <div className="mt-2 flex items-center gap-1.5 text-sm text-muted-foreground">
-                    <MapPin className="h-4 w-4" />
-                    <span>{r.location}</span>
-                  </div>
-                  <div className="my-4 h-px bg-foreground/10" />
-                  <div className="text-sm text-muted-foreground">{r.type}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      )}
     </section>
   );
 };
