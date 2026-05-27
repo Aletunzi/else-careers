@@ -99,11 +99,12 @@ const Hero = () => {
           <button
             disabled={!hasInput}
             onClick={handleSearch}
-            className={`rounded-lg aspect-square w-9 h-9 sm:w-10 sm:h-10 2xl:w-11 2xl:h-11 flex shrink-0 items-center justify-center transition-all sm:ml-4 ${
+            className={`rounded-lg aspect-square w-9 h-9 sm:w-10 sm:h-10 2xl:w-11 2xl:h-11 flex shrink-0 items-center justify-center transition-colors sm:ml-4 text-white ${
               hasInput
-                ? "bg-primary text-primary-foreground hover:opacity-90 cursor-pointer"
-                : "bg-muted-foreground/20 text-muted-foreground cursor-not-allowed"
+                ? "hover:opacity-90 cursor-pointer"
+                : "cursor-not-allowed"
             }`}
+            style={{ backgroundColor: hasInput ? '#ff6b1a' : '#312C29' }}
           >
             <ArrowUp className="w-5 h-5" />
           </button>
@@ -124,7 +125,7 @@ const Hero = () => {
           type="button"
           aria-label="Scroll down"
           onClick={() => window.scrollBy({ top: window.innerHeight, behavior: 'smooth' })}
-          className="animate-fade-in mt-12 hidden md:inline-flex text-primary hover:opacity-80 transition-opacity"
+          className="animate-fade-in mt-12 inline-flex text-primary hover:opacity-80 transition-opacity"
           style={{ animationDelay: '750ms', animationFillMode: 'both' }}
         >
           <svg width="22" height="56" viewBox="0 0 22 56" fill="none" className="animate-bounce-down">
