@@ -43,6 +43,7 @@
   }
   html {
     overscroll-behavior: none;
+    background-color: #201c1b;
   }
   body {
     @apply bg-background text-foreground font-sans antialiased;
