@@ -54,8 +54,8 @@ const Reality = () => {
 
         <div className="mt-16 flex flex-col items-center text-center sm:mt-20 md:mt-24">
           <div className="flex items-start justify-center leading-none">
-            <span className="text-[clamp(6rem,22vw,18rem)] font-medium tracking-tight text-foreground tabular-nums">{main}</span>
-            <span className="mt-2 text-[clamp(3rem,11vw,9rem)] font-semibold leading-none" style={{ color: '#ff6b1a' }}>%</span>
+            <span className="text-[clamp(8rem,28vw,18rem)] font-medium tracking-tight text-foreground tabular-nums">{main}</span>
+            <span className="mt-2 text-[clamp(4rem,14vw,9rem)] font-semibold leading-none" style={{ color: '#ff6b1a' }}>%</span>
           </div>
 
           <p

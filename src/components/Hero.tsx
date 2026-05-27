@@ -64,8 +64,8 @@ const Hero = () => {
   return (
     <>
       <section className="flex flex-1 flex-col items-center justify-center px-5 py-10 text-center sm:justify-start sm:px-8 sm:pt-20 sm:pb-16 md:pt-28">
-        <h1 className="animate-fade-in whitespace-nowrap text-[clamp(1.3rem,6.1vw,1.88rem)] font-normal leading-tight text-foreground sm:text-4xl md:text-5xl lg:text-[3.25rem] xl:text-[3.5rem] 2xl:text-7xl" style={{ animationDelay: '150ms', animationFillMode: 'both' }}>
-          Find your next product role, <span className="italic" style={{ fontFamily: "'Lora', serif" }}>today.</span>
+        <h1 className="animate-fade-in text-[clamp(2rem,9vw,2.75rem)] font-normal leading-tight text-foreground sm:whitespace-nowrap sm:text-4xl md:text-5xl lg:text-[3.25rem] xl:text-[3.5rem] 2xl:text-7xl" style={{ animationDelay: '150ms', animationFillMode: 'both' }}>
+          Find your next product role,<br className="sm:hidden" /> <span className="italic" style={{ fontFamily: "'Lora', serif" }}>today.</span>
         </h1>
         <p className="animate-fade-in mt-4 text-base text-muted-foreground sm:mt-5 lg:whitespace-nowrap" style={{ animationDelay: '300ms', animationFillMode: 'both' }}>
           Else helps you find your next product role at the top tech companies in Europe.
