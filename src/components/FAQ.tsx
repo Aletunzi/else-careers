@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Plus } from "lucide-react";
 
 const faqs = [
@@ -30,11 +30,30 @@ const faqs = [
 
 const FAQ = () => {
   const [open, setOpen] = useState<number | null>(null);
+  const sectionRef = useRef<HTMLElement>(null);
+  const [inView, setInView] = useState(false);
+
+  useEffect(() => {
+    if (!sectionRef.current) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setInView(true);
+          obs.disconnect();
+        }
+      },
+      { threshold: 0.15 }
+    );
+    obs.observe(sectionRef.current);
+    return () => obs.disconnect();
+  }, []);
 
   return (
-    <section className="bg-background px-5 py-20 sm:px-8 sm:py-24 md:px-16 md:py-28 lg:px-24 lg:py-32 2xl:px-32">
+    <section ref={sectionRef} className="bg-background px-5 py-20 sm:px-8 sm:py-24 md:px-16 md:py-28 lg:px-24 lg:py-32 2xl:px-32">
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 md:grid-cols-2 md:gap-16 lg:gap-24">
-        <div className="relative md:pt-0">
+        <div
+          className={`relative md:pt-0 transition-all duration-700 ease-out ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-3'}`}
+        >
           <div className="flex items-center gap-3 text-xs uppercase tracking-[0.2em] text-muted-foreground md:absolute md:-top-10 md:left-0">
             <span className="h-px w-8 bg-muted-foreground/50" />
             <span>FAQ</span>
@@ -57,7 +76,11 @@ const FAQ = () => {
           {faqs.map((f, i) => {
             const isOpen = open === i;
             return (
-              <div key={f.q} className={`${i === 0 ? '' : 'border-t'} border-border last:border-b`}>
+              <div
+                key={f.q}
+                className={`${i === 0 ? '' : 'border-t'} border-border last:border-b transition-all duration-700 ease-out ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-3'}`}
+                style={{ transitionDelay: inView ? `${150 + i * 90}ms` : '0ms' }}
+              >
                 <button
                   type="button"
                   onClick={() => setOpen(isOpen ? null : i)}
