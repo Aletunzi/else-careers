@@ -118,25 +118,7 @@ const TryIt = () => {
                       <img src={elseMark} alt="else" className="h-3.5 w-3.5" />
                     </div>
                     <div className="flex-1 rounded-[22px] bg-[#f5efe6] px-5 py-3">
-                      <div className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-wider text-foreground/50">
-                        <span className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: "#ff6b1a" }} />
-                        <span>else</span>
-                        <span>·</span>
-                        <span>just now</span>
-                      </div>
-                      <p className="mt-2 text-sm text-foreground sm:text-base">{m.text}</p>
-                      {m.tags && (
-                        <div className="mt-3 flex flex-wrap gap-2">
-                          {m.tags.map((tag) => (
-                            <span
-                              key={tag}
-                              className="rounded-full bg-white px-3 py-1 font-mono text-[11px] text-foreground/80"
-                            >
-                              {tag}
-                            </span>
-                          ))}
-                        </div>
-                      )}
+                      <p className="text-sm text-foreground sm:text-base">{m.text}</p>
                     </div>
                   </div>
                 );
