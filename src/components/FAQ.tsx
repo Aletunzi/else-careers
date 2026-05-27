@@ -57,11 +57,11 @@ const FAQ = () => {
           {faqs.map((f, i) => {
             const isOpen = open === i;
             return (
-              <div key={f.q} className="border-t border-border last:border-b">
+              <div key={f.q} className={`${i === 0 ? '' : 'border-t'} border-border last:border-b`}>
                 <button
                   type="button"
                   onClick={() => setOpen(isOpen ? null : i)}
-                  className="flex w-full items-center justify-between gap-6 py-6 text-left"
+                  className={`flex w-full items-center justify-between gap-6 ${i === 0 ? 'pb-6 md:pt-0' : 'py-6'} text-left`}
                 >
                   <span className="text-base font-medium text-foreground sm:text-lg">{f.q}</span>
                   {isOpen ? (
