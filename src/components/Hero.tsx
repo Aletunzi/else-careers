@@ -124,7 +124,7 @@ const Hero = () => {
           type="button"
           aria-label="Scroll down"
           onClick={() => window.scrollBy({ top: window.innerHeight, behavior: 'smooth' })}
-          className="animate-fade-in mt-12 hidden md:inline-flex text-muted-foreground/70 hover:text-foreground transition-colors"
+          className="animate-fade-in mt-12 hidden md:inline-flex text-primary hover:opacity-80 transition-opacity"
           style={{ animationDelay: '750ms', animationFillMode: 'both' }}
         >
           <svg width="22" height="56" viewBox="0 0 22 56" fill="none" className="animate-bounce-down">
