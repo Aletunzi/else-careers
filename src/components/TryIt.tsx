@@ -81,21 +81,49 @@ const TryIt = () => {
       className="bg-background px-5 py-20 sm:px-8 sm:py-24 md:px-16 md:py-28 lg:px-24 lg:py-32 2xl:px-32"
     >
       <div className="mx-auto max-w-7xl">
-        <div className="flex items-center gap-3 text-xs uppercase tracking-[0.2em] text-muted-foreground">
+        <div
+          className="flex items-center gap-3 text-xs uppercase tracking-[0.2em] text-muted-foreground"
+          style={{
+            animation: inView ? "tryit-fade-down 700ms ease-out both" : undefined,
+            animationDelay: "0ms",
+            opacity: inView ? undefined : 0,
+          }}
+        >
           <span className="h-px w-8 bg-muted-foreground/50" />
           <span>Try it</span>
         </div>
 
-        <h2 className="mt-8 max-w-5xl text-[clamp(2.25rem,7vw,5rem)] font-medium leading-[1.05] tracking-tight text-foreground md:text-6xl">
+        <h2
+          className="mt-8 max-w-5xl text-[clamp(2.25rem,7vw,5rem)] font-medium leading-[1.05] tracking-tight text-foreground md:text-6xl"
+          style={{
+            animation: inView ? "tryit-fade-down 700ms ease-out both" : undefined,
+            animationDelay: "120ms",
+            opacity: inView ? undefined : 0,
+          }}
+        >
           Search the way you actually{" "}
           <span style={{ color: "#ff6b1a" }}>think</span>.
         </h2>
-        <p className="mt-5 max-w-2xl text-base text-muted-foreground sm:text-lg">
+        <p
+          className="mt-5 max-w-2xl text-base text-muted-foreground sm:text-lg"
+          style={{
+            animation: inView ? "tryit-fade-down 700ms ease-out both" : undefined,
+            animationDelay: "240ms",
+            opacity: inView ? undefined : 0,
+          }}
+        >
           No filter trees. Just talk to Else like you would to a friend.
         </p>
 
         <div className="mt-12 sm:mt-16 md:mt-20">
-          <div className="relative mx-auto flex w-full max-w-3xl flex-col rounded-3xl bg-white p-5 shadow-[0_10px_40px_-12px_rgba(32,28,27,0.15)] sm:p-8 md:p-10">
+          <div
+            className="relative mx-auto flex w-full max-w-3xl flex-col rounded-3xl bg-white p-5 shadow-[0_10px_40px_-12px_rgba(32,28,27,0.15)] sm:p-8 md:p-10"
+            style={{
+              animation: inView ? "tryit-fade-down 700ms ease-out both" : undefined,
+              animationDelay: "360ms",
+              opacity: inView ? undefined : 0,
+            }}
+          >
             <div className="flex flex-col gap-6">
               {SCRIPT.map((m, i) => {
                 const shown = i < visibleCount;
@@ -194,7 +222,14 @@ const TryIt = () => {
               )}
           </div>
 
-          <div className="mt-10 flex justify-center">
+          <div
+            className="mt-10 flex justify-center"
+            style={{
+              animation: inView ? "tryit-fade-down 700ms ease-out both" : undefined,
+              animationDelay: "480ms",
+              opacity: inView ? undefined : 0,
+            }}
+          >
             <a
               href="https://app.tryelse.xyz/register"
               target="_blank"
@@ -212,6 +247,10 @@ const TryIt = () => {
         @keyframes tryit-bounce {
           0%, 80%, 100% { transform: translateY(0); opacity: 0.4; }
           40% { transform: translateY(-4px); opacity: 1; }
+        }
+        @keyframes tryit-fade-down {
+          from { opacity: 0; transform: translateY(-14px); }
+          to { opacity: 1; transform: translateY(0); }
         }
         @keyframes tryit-overlay-in {
           from { opacity: 0; }
