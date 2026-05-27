@@ -55,10 +55,15 @@ const Hero = () => {
   useEffect(() => {
     if (showRegister || showLimitWarning) {
       document.body.style.overflow = "hidden";
+      document.documentElement.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "";
+      document.documentElement.style.overflow = "";
     }
-    return () => { document.body.style.overflow = ""; };
+    return () => {
+      document.body.style.overflow = "";
+      document.documentElement.style.overflow = "";
+    };
   }, [showRegister, showLimitWarning]);
 
   return (
@@ -213,7 +218,7 @@ const Hero = () => {
             >
               ✕
             </button>
-            <h2 className="text-2xl font-semibold text-foreground leading-tight">
+            <h2 className="text-3xl sm:text-4xl font-medium text-foreground leading-[1.05] tracking-tight">
               Your next role might be<br />one search away
             </h2>
             <p className="mt-4 text-sm text-muted-foreground">
