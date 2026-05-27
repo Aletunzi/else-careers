@@ -25,6 +25,7 @@
     --border: 20 10% 85%;
     --input: 20 10% 85%;
     --ring: 18 9% 17%;
+    --footer-background: 12 8% 12%;
     --radius: 0.5rem;
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -43,10 +44,15 @@
   }
   html {
     overscroll-behavior: none;
-    background-color: #201c1b;
+    background-color: hsl(var(--footer-background));
   }
   body {
-    @apply bg-background text-foreground font-sans antialiased;
+    @apply text-foreground font-sans antialiased;
+    background-color: hsl(var(--footer-background));
     overscroll-behavior: none;
+  }
+  #root {
+    min-height: 100%;
+    background-color: hsl(var(--footer-background));
   }
 }
