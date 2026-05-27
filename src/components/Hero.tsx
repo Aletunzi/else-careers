@@ -63,7 +63,7 @@ const Hero = () => {
 
   return (
     <>
-      <section className="flex flex-1 flex-col items-center justify-center px-5 pb-10 text-center sm:justify-start sm:px-8 sm:pt-20 sm:pb-16 md:pt-28">
+      <section className="flex flex-1 flex-col items-center justify-center px-5 py-10 text-center sm:justify-start sm:px-8 sm:pt-20 sm:pb-16 md:pt-28">
         <h1 className="animate-fade-in whitespace-nowrap text-[clamp(1.3rem,6.1vw,1.88rem)] font-normal leading-tight text-foreground sm:text-4xl md:text-5xl lg:text-[3.25rem] xl:text-[3.5rem] 2xl:text-7xl" style={{ animationDelay: '150ms', animationFillMode: 'both' }}>
           Find your next product role, <span className="italic" style={{ fontFamily: "'Lora', serif" }}>today.</span>
         </h1>
