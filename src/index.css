@@ -58,6 +58,12 @@
   html.footer-dark,
   html.footer-dark body,
   html.footer-dark #root {
+    background-color: hsl(var(--background));
+  }
+  html.footer-dark body {
+    background:
+      linear-gradient(to bottom, hsl(var(--background)) 0, hsl(var(--background)) 50vh, hsl(var(--footer-background)) 50vh) no-repeat;
+    background-attachment: fixed;
     background-color: hsl(var(--footer-background));
   }
 }
