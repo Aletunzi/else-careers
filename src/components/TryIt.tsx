@@ -27,6 +27,23 @@ const RESULTS = [
   { company: "Auto1", title: "Senior PM, Conversational AI", type: "Hybrid" },
 ];
 
+const TYPE_SPEED = 22; // ms per char
+
+const Typewriter = ({ text, className }: { text: string; className?: string }) => {
+  const [n, setN] = useState(0);
+  useEffect(() => {
+    setN(0);
+    let i = 0;
+    const id = setInterval(() => {
+      i += 1;
+      setN(i);
+      if (i >= text.length) clearInterval(id);
+    }, TYPE_SPEED);
+    return () => clearInterval(id);
+  }, [text]);
+  return <p className={className}>{text.slice(0, n)}<span className="opacity-0">{text.slice(n)}</span></p>;
+};
+
 const TryIt = () => {
   const ref = useRef<HTMLElement>(null);
   const [inView, setInView] = useState(false);
@@ -65,7 +82,7 @@ const TryIt = () => {
         setTyping(null);
         setVisibleCount(i + 1);
       }, t);
-      t += m.from === "you" ? 700 : 1400;
+      t += m.text.length * TYPE_SPEED + (m.from === "you" ? 500 : 800);
     });
     schedule(() => setShowResults(true), t + 600);
 
@@ -151,7 +168,7 @@ const TryIt = () => {
                   return (
                     <div key={i} className="flex items-end justify-end gap-3">
                       <div className="max-w-[80%] rounded-[22px] bg-[#201c1b] px-5 py-3 text-sm text-white sm:text-base">
-                        {isTyping ? dots : m.text}
+                        {isTyping ? dots : <Typewriter text={m.text} />}
                       </div>
                       <img
                         src={userAvatar}
@@ -174,7 +191,7 @@ const TryIt = () => {
                     </div>
                     <div className={`rounded-[22px] bg-[#f5efe6] px-5 py-3 ${isTyping ? "" : "flex-1"}`}>
                       {isTyping ? dots : (
-                        <p className="text-sm text-foreground sm:text-base">{m.text}</p>
+                        <Typewriter text={m.text} className="text-sm text-foreground sm:text-base" />
                       )}
                     </div>
                   </div>
