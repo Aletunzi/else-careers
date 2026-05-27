@@ -77,7 +77,7 @@ const TryIt = () => {
           <span>Try it</span>
         </div>
 
-        <h2 className="mt-8 max-w-5xl text-[clamp(2.25rem,7vw,5rem)] font-medium leading-[1.05] tracking-tight text-foreground">
+        <h2 className="mt-8 max-w-5xl text-[clamp(2.25rem,7vw,5rem)] font-medium leading-[1.05] tracking-tight text-foreground md:text-6xl">
           Search the way you actually{" "}
           <span style={{ color: "#ff6b1a" }}>think</span>.
         </h2>
