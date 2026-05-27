@@ -218,7 +218,7 @@ const Hero = () => {
             >
               ✕
             </button>
-            <h2 className="text-3xl sm:text-4xl font-medium text-foreground leading-[1.05] tracking-tight">
+            <h2 className="text-[1.75rem] sm:text-3xl font-medium text-foreground leading-[1.1] tracking-tight">
               Your next role might be<br />one search away
             </h2>
             <p className="mt-4 text-sm text-muted-foreground">
