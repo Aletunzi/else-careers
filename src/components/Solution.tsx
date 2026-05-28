@@ -114,7 +114,9 @@ const Solution = () => {
           }}
         >
           <Column items={COLUMN_A} direction="up" />
-          <Column items={COLUMN_B} direction="down" />
+          <div className="hidden sm:block">
+            <Column items={COLUMN_B} direction="down" />
+          </div>
         </div>
       </div>
 
