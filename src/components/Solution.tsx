@@ -23,16 +23,16 @@ const COLUMN_B: Source[] = [
 ];
 
 const Card = ({ s }: { s: Source }) => (
-  <div className="rounded-2xl bg-white px-6 py-5 shadow-[0_4px_20px_-8px_rgba(32,28,27,0.08)]">
-    <div className="text-lg font-semibold text-foreground sm:text-xl">{s.name}</div>
-    <div className="mt-1 text-sm text-muted-foreground sm:text-base">{s.desc}</div>
+  <div className="rounded-2xl bg-white px-5 py-4 shadow-[0_4px_20px_-8px_rgba(32,28,27,0.08)]">
+    <div className="text-base font-semibold text-foreground sm:text-lg">{s.name}</div>
+    <div className="mt-1 text-xs text-muted-foreground sm:text-sm">{s.desc}</div>
   </div>
 );
 
 const Column = ({ items, direction }: { items: Source[]; direction: "up" | "down" }) => {
   const loop = [...items, ...items];
   return (
-    <div className="relative overflow-hidden" style={{ height: "560px" }}>
+    <div className="relative overflow-hidden" style={{ height: "520px" }}>
       <div
         className="flex flex-col gap-4"
         style={{
@@ -45,11 +45,11 @@ const Column = ({ items, direction }: { items: Source[]; direction: "up" | "down
       </div>
       <div
         className="pointer-events-none absolute inset-x-0 top-0 h-24"
-        style={{ background: "linear-gradient(to bottom, hsl(var(--background)), transparent)" }}
+        style={{ background: "linear-gradient(to bottom, #f3f1e9, transparent)" }}
       />
       <div
         className="pointer-events-none absolute inset-x-0 bottom-0 h-24"
-        style={{ background: "linear-gradient(to top, hsl(var(--background)), transparent)" }}
+        style={{ background: "linear-gradient(to top, #f3f1e9, transparent)" }}
       />
     </div>
   );
@@ -77,7 +77,8 @@ const Solution = () => {
   return (
     <section
       ref={ref}
-      className="bg-background px-5 py-20 sm:px-8 sm:py-24 md:px-16 md:py-28 lg:px-24 lg:py-32 2xl:px-32"
+      className="px-5 py-20 sm:px-8 sm:py-24 md:px-16 md:py-28 lg:px-24 lg:py-32 2xl:px-32"
+      style={{ backgroundColor: "#f3f1e9" }}
     >
       <div className="mx-auto max-w-7xl">
         <div
@@ -92,7 +93,7 @@ const Solution = () => {
         </div>
 
         <h2
-          className="mx-auto mt-8 max-w-5xl text-center text-[clamp(2.25rem,7vw,5rem)] font-medium leading-[1.05] tracking-tight text-foreground"
+          className="mx-auto mt-8 max-w-5xl text-center text-[clamp(2.25rem,7vw,5rem)] font-medium leading-[1.05] tracking-tight text-foreground md:text-6xl"
           style={{
             animation: inView ? "solution-fade-down 700ms ease-out both" : undefined,
             animationDelay: "120ms",
