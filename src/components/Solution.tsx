@@ -100,7 +100,7 @@ const Solution = () => {
             opacity: inView ? undefined : 0,
           }}
         >
-          Our agent scans <em className="font-serif italic font-normal">thousands</em>
+          Our agent scans thousands
           <br className="hidden sm:block" /> of sources,{" "}
           <span style={{ color: "#ff6b1a" }}>non-stop.</span>
         </h2>
