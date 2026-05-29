@@ -7,7 +7,7 @@ const COLUMN_A: Source[] = [
   { name: "Hacker News", desc: '"Who is hiring?" threads' },
   { name: "Lenny's newsletter", desc: "Operator-led postings" },
   { name: "X / Twitter", desc: "Founder posts & DMs" },
-  { name: "Welcome to the Jungle", desc: "FR & EU coverage" },
+  { name: "Welcome to the Jungle", desc: "European coverage" },
   { name: "AngelList", desc: "Early-stage startups" },
   { name: "Product Hunt", desc: "Launches & makers" },
 ];
@@ -15,8 +15,7 @@ const COLUMN_A: Source[] = [
 const COLUMN_B: Source[] = [
   { name: "Otta", desc: "Curated tech roles, EU focus" },
   { name: "Wellfound", desc: "Startup & seed-stage roles" },
-  { name: "Career pages", desc: "Direct from 2,400+ companies" },
-  { name: "LinkedIn", desc: "Public job listings" },
+  { name: "Career pages", desc: "Direct from +20000 career pages" },
   { name: "Stealth networks", desc: "Pre-launch & confidential" },
   { name: "Reddit", desc: "r/forhire & niche subs" },
   { name: "Slack communities", desc: "Operator-only channels" },
