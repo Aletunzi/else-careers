@@ -12,9 +12,9 @@ type Plan = {
 
 const plans: Plan[] = [
   {
-    name: "Free",
+    name: "Starter",
     tagline: "Dip in and see what's out there.",
-    price: "€0",
+    price: "Free",
     period: "forever",
     cta: "Start free",
     href: "https://app.tryelse.xyz/register",
