@@ -209,7 +209,7 @@ const TryIt = () => {
                     >
                       <img src={elseMark} alt="else" className="h-3.5 w-3.5" />
                     </div>
-                    <div className={`rounded-[22px] bg-[#f5efe6] px-5 py-3 ${isTyping ? "" : "flex-1"}`}>
+                    <div className={`rounded-[22px] bg-[#faf5ec] px-5 py-3 ${isTyping ? "" : "flex-1"}`}>
                       {isTyping ? dots : (
                         <Typewriter text={m.text} className="text-sm text-foreground sm:text-base" />
                       )}
@@ -229,7 +229,7 @@ const TryIt = () => {
                     {RESULTS.map((r, i) => (
                       <div
                         key={i}
-                        className="group flex items-center justify-between gap-3 rounded-[22px] bg-[#f5efe6] px-4 py-3"
+                        className="group flex items-center justify-between gap-3 rounded-[22px] bg-[#faf5ec] px-4 py-3"
                         style={{
                           animation: "tryit-card-in 400ms ease-out both",
                           animationDelay: `${i * 100}ms`,
@@ -248,9 +248,9 @@ const TryIt = () => {
                           target="_blank"
                           rel="noopener noreferrer"
                           aria-label={`Apply to ${r.title}`}
-                          className="inline-flex shrink-0 items-center gap-1 rounded-full border border-foreground/25 px-2.5 py-1 text-[11px] text-foreground transition-colors hover:bg-foreground hover:text-white"
+                          className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-foreground/25 text-foreground transition-colors hover:bg-foreground hover:text-white"
                         >
-                          Apply <span aria-hidden>↗</span>
+                          <span className="text-base leading-none" aria-hidden>↗</span>
                         </a>
                       </div>
                     ))}
