@@ -4,15 +4,15 @@ import { Plus } from "lucide-react";
 const faqs = [
   {
     q: "Do you cover roles outside Europe?",
-    a: "Right now Else is laser-focused on product & tech roles in Europe — it's the market we know best, and where most of our coverage advantage exists. Other regions are on the roadmap.",
+    a: "Right now Else is laser-focused on product & tech roles in Europe, so we can provide the widest and most capillary coverage possible across the region.",
   },
   {
     q: "How is this different from tools like Linkedin?",
-    a: "Else aggregates roles from thousands of company career pages directly, surfacing positions you won't find on traditional job boards. We focus on quality and freshness over volume.",
+    a: "We do a selective, hand-curated job on the list of companies we track, so we can offer the broadest coverage that other platforms simply don't have.",
   },
   {
     q: "How fresh are the listings?",
-    a: "We re-scan our company sources continuously, so most listings are updated within 24-48 hours of being posted or removed.",
+    a: "Our agents continuously monitor the companies and their career pages, reaching a near real-time level of freshness on every listing.",
   },
   {
     q: "Do you only show product roles?",
@@ -20,11 +20,11 @@ const faqs = [
   },
   {
     q: "How does the search actually work?",
-    a: "You describe what you're looking for in natural language and our search engine matches it against our indexed roles, considering title, seniority, location, industry and company stage.",
+    a: "You describe what you're looking for in natural language and our search engine matches it against our indexed roles, considering criteria such as title, seniority, location, industry and company stage.",
   },
   {
     q: "Is it free?",
-    a: "Else is free to use with a limited number of searches. For unlimited access, create an account.",
+    a: "Else is free to use with a limited number of searches. We also offer several paid plans to get the most out of Else.",
   },
 ];
 
