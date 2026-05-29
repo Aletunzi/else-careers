@@ -4,7 +4,7 @@ import { Plus } from "lucide-react";
 const faqs = [
   {
     q: "Do you cover roles outside Europe?",
-    a: "Right now Else is laser-focused on product & tech roles in Europe, so we can provide the widest and most capillary coverage possible across the region.",
+    a: "Right now Else is laser-focused on product & tech roles in Europe, so we can provide the widest and most in-depth coverage possible across the region.",
   },
   {
     q: "How is this different from tools like Linkedin?",
@@ -24,7 +24,7 @@ const faqs = [
   },
   {
     q: "Is it free?",
-    a: "Else is free to use with a limited number of searches. We also offer several paid plans to get the most out of Else.",
+    a: "Else is free to use with a limited number of searches. We also offer paid plans to get the most out of Else.",
   },
 ];
 
