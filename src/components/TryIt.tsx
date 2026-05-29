@@ -273,10 +273,11 @@ const TryIt = () => {
               href="https://app.tryelse.xyz/register"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-[#000000] px-6 py-3.5 text-sm text-white transition-colors duration-300 ease-out hover:bg-[#ff6b1a] sm:text-base"
+              className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-[#000000] px-6 py-3.5 text-sm text-white sm:text-base"
             >
-              Try for free
-              <span aria-hidden>→</span>
+              <span className="absolute inset-y-0 left-0 w-0 bg-[#ff6b1a] transition-[width] duration-500 ease-out group-hover:w-full" aria-hidden />
+              <span className="relative z-10">Try for free</span>
+              <span className="relative z-10" aria-hidden>→</span>
             </a>
           </div>
         </div>
