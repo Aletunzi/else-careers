@@ -248,9 +248,9 @@ const TryIt = () => {
                           target="_blank"
                           rel="noopener noreferrer"
                           aria-label={`Apply to ${r.title}`}
-                          className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-foreground/25 text-foreground transition-colors hover:bg-foreground hover:text-white"
+                          className="inline-flex shrink-0 items-center justify-center text-foreground transition-opacity hover:opacity-70"
                         >
-                          <span className="text-base leading-none" aria-hidden>↗</span>
+                          <span className="text-lg leading-none" aria-hidden>↗</span>
                         </a>
                       </div>
                     ))}
