@@ -92,7 +92,7 @@ const Pricing = () => {
                     : "shadow-[0_4px_24px_-12px_rgba(32,28,27,0.12)]"
                 } ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
                 style={{
-                  backgroundColor: isFeatured ? "#201c1b" : "#ffffff",
+                  backgroundColor: isFeatured ? "#000000" : "#ffffff",
                   color: isFeatured ? "#ffffff" : undefined,
                   transitionDelay: inView ? `${150 + i * 120}ms` : "0ms",
                 }}
@@ -133,7 +133,7 @@ const Pricing = () => {
                   className={`mt-8 inline-flex items-center justify-center rounded-xl px-6 py-4 text-sm font-medium transition-colors sm:text-base ${
                     isFeatured
                       ? "text-white hover:opacity-90"
-                      : "bg-[#201c1b] text-white hover:bg-[#312c29]"
+                      : "bg-black text-white hover:bg-black/90"
                   }`}
                   style={isFeatured ? { backgroundColor: "#ff6b1a" } : undefined}
                 >
