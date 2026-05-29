@@ -90,7 +90,7 @@ const Pricing = () => {
             return (
               <div
                 key={p.name}
-                className={`relative flex flex-col items-center text-center rounded-3xl px-6 py-10 transition-all duration-700 ease-out sm:px-7 sm:py-12 ${
+                className={`relative flex flex-col items-center text-center rounded-3xl px-5 py-8 transition-all duration-700 ease-out sm:px-6 sm:py-10 ${
                   isFeatured
                     ? "shadow-[0_30px_60px_-20px_rgba(32,28,27,0.35)] md:scale-[1.04]"
                     : "shadow-[0_4px_24px_-12px_rgba(32,28,27,0.12)]"
@@ -110,7 +110,7 @@ const Pricing = () => {
                   </div>
                 )}
 
-                <h3 className="text-lg font-semibold sm:text-xl">{p.name}</h3>
+                <h3 className="text-xl font-semibold sm:text-2xl">{p.name}</h3>
                 <p
                   className={`mt-1.5 text-xs sm:text-sm ${isFeatured ? "text-white/70" : "text-muted-foreground"}`}
                 >
@@ -134,7 +134,7 @@ const Pricing = () => {
                   href={p.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`mt-6 inline-flex w-full items-center justify-center rounded-xl px-5 py-3 text-sm font-medium transition-colors ${
+                  className={`mt-6 inline-flex w-[85%] items-center justify-center rounded-xl px-5 py-3 text-sm font-medium transition-colors ${
                     isFeatured
                       ? "text-white hover:opacity-90"
                       : "bg-black text-white hover:bg-black/90"
