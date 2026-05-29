@@ -115,7 +115,7 @@ const Hero = () => {
                 ? "hover:opacity-90 cursor-pointer"
                 : "cursor-not-allowed"
             }`}
-            style={{ backgroundColor: hasInput ? '#ff6b1a' : '#312C29' }}
+            style={{ backgroundColor: hasInput ? '#ff6b1a' : '#000000' }}
           >
             <ArrowUp className="w-5 h-5" />
           </button>
