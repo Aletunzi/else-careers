@@ -82,23 +82,16 @@ const Solution = () => {
     >
       <div className="mx-auto max-w-7xl">
         <div
-          className="flex items-center justify-center gap-3 text-xs uppercase tracking-[0.2em] text-muted-foreground"
-          style={{
-            animation: inView ? "solution-fade-down 700ms ease-out both" : undefined,
-            opacity: inView ? undefined : 0,
-          }}
+          className={`flex items-center justify-center gap-3 text-xs uppercase tracking-[0.2em] text-muted-foreground ${inView ? "animate-fade-in" : "opacity-0"}`}
+          style={{ animationFillMode: "both" }}
         >
           <span className="h-px w-8 bg-muted-foreground/50" />
           <span>The Solution</span>
         </div>
 
         <h2
-          className="mx-auto mt-8 max-w-5xl text-center text-[clamp(2.25rem,7vw,5rem)] font-medium leading-[1.05] tracking-tight text-foreground md:text-6xl"
-          style={{
-            animation: inView ? "solution-fade-down 700ms ease-out both" : undefined,
-            animationDelay: "120ms",
-            opacity: inView ? undefined : 0,
-          }}
+          className={`mx-auto mt-8 max-w-5xl text-center text-[clamp(2.25rem,7vw,5rem)] font-medium leading-[1.05] tracking-tight text-foreground md:text-6xl ${inView ? "animate-fade-in" : "opacity-0"}`}
+          style={{ animationDelay: "150ms", animationFillMode: "both" }}
         >
           Our agent scans thousands
           <br className="hidden sm:block" /> of sources,{" "}
@@ -106,12 +99,8 @@ const Solution = () => {
         </h2>
 
         <div
-          className="mx-auto mt-16 grid max-w-3xl grid-cols-1 gap-4 sm:mt-20 sm:grid-cols-2 sm:gap-6"
-          style={{
-            animation: inView ? "solution-fade-down 700ms ease-out both" : undefined,
-            animationDelay: "240ms",
-            opacity: inView ? undefined : 0,
-          }}
+          className={`mx-auto mt-16 grid max-w-3xl grid-cols-1 gap-4 sm:mt-20 sm:grid-cols-2 sm:gap-6 ${inView ? "animate-fade-in" : "opacity-0"}`}
+          style={{ animationDelay: "300ms", animationFillMode: "both" }}
         >
           <Column items={COLUMN_A} direction="up" />
           <div className="hidden sm:block">
