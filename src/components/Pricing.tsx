@@ -79,13 +79,13 @@ const Pricing = () => {
           </p>
         </div>
 
-        <div className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-3 md:items-center">
+        <div className="mt-20 grid grid-cols-1 gap-6 md:mt-24 md:grid-cols-3 md:items-center">
           {plans.map((p, i) => {
             const isFeatured = !!p.featured;
             return (
               <div
                 key={p.name}
-                className={`relative flex flex-col rounded-3xl px-6 py-6 transition-all duration-700 ease-out sm:px-7 sm:py-8 ${
+                className={`relative flex flex-col rounded-3xl px-6 py-10 transition-all duration-700 ease-out sm:px-7 sm:py-12 ${
                   isFeatured
                     ? "shadow-[0_30px_60px_-20px_rgba(32,28,27,0.35)] md:scale-[1.04]"
                     : "shadow-[0_4px_24px_-12px_rgba(32,28,27,0.12)]"
