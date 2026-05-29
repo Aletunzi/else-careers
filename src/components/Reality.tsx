@@ -67,14 +67,14 @@ const Reality = () => {
         </div>
 
         <div
-          className={`mt-20 grid grid-cols-1 gap-10 border-t border-border pt-10 sm:mt-24 sm:grid-cols-3 sm:gap-6 transition-all duration-700 ease-out delay-150 ${mainDone ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-3'}`}
+          className={`mx-auto mt-20 grid max-w-4xl grid-cols-1 gap-10 border-t border-border pt-10 sm:mt-24 sm:grid-cols-3 sm:gap-6 transition-all duration-700 ease-out delay-150 ${mainDone ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-3'}`}
         >
           {[
             { value: '9', label: 'Avg sources per role' },
             { value: '15,000+', label: 'Companies tracked' },
             { value: '27', label: 'European states covered' },
           ].map((stat) => (
-            <div key={stat.label} className="flex flex-col gap-3 text-center sm:px-6 sm:text-left">
+            <div key={stat.label} className="flex flex-col items-center gap-3 text-center sm:px-6">
               <span className="text-4xl font-semibold text-foreground sm:text-5xl tabular-nums">{stat.value}</span>
               <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground">{stat.label}</span>
             </div>
