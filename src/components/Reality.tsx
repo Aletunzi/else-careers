@@ -67,7 +67,7 @@ const Reality = () => {
         </div>
 
         <div
-          className={`mx-auto mt-20 grid max-w-4xl grid-cols-1 gap-10 border-t border-border pt-10 sm:mt-24 sm:grid-cols-3 sm:gap-6 transition-all duration-700 ease-out delay-150 ${mainDone ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-3'}`}
+          className={`mx-auto mt-20 grid max-w-5xl grid-cols-1 gap-10 border-t border-border pt-10 sm:mt-24 sm:grid-cols-3 sm:gap-6 transition-all duration-700 ease-out delay-150 ${mainDone ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-3'}`}
         >
           {[
             { value: '9', label: 'Avg sources per role' },
