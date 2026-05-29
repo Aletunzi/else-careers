@@ -187,7 +187,7 @@ const TryIt = () => {
                 if (m.from === "you") {
                   return (
                     <div key={i} className="flex items-end justify-end gap-3">
-                      <div className="max-w-[80%] rounded-[22px] bg-[#201c1b] px-5 py-3 text-sm text-white sm:text-base">
+                      <div className="max-w-[80%] rounded-[22px] bg-[#000000] px-5 py-3 text-sm text-white sm:text-base">
                         {isTyping ? dots : <Typewriter text={m.text} />}
                       </div>
                       <img
@@ -273,7 +273,7 @@ const TryIt = () => {
               href="https://app.tryelse.xyz/register"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-[#201c1b] px-6 py-3.5 text-sm text-white transition-colors duration-300 ease-out hover:bg-[#ff6b1a] sm:text-base"
+              className="inline-flex items-center gap-2 rounded-full bg-[#000000] px-6 py-3.5 text-sm text-white transition-colors duration-300 ease-out hover:bg-[#ff6b1a] sm:text-base"
             >
               Try for free
               <span aria-hidden>→</span>

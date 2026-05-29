@@ -6,7 +6,7 @@ const Footer = () => {
     <footer
       className="animate-fade-in relative"
       style={{
-        backgroundColor: '#201c1b',
+        backgroundColor: '#000000',
         animationDelay: '450ms',
         animationFillMode: 'both',
         paddingBottom: 'env(safe-area-inset-bottom)',
