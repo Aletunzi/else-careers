@@ -49,7 +49,7 @@ const FAQ = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} style={{ backgroundColor: "#f3f1e9" }} className="px-5 py-20 sm:px-8 sm:py-24 md:px-16 md:py-28 lg:px-24 lg:py-32 2xl:px-32">
+    <section ref={sectionRef} className="bg-background px-5 py-20 sm:px-8 sm:py-24 md:px-16 md:py-28 lg:px-24 lg:py-32 2xl:px-32">
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 md:grid-cols-2 md:gap-16 lg:gap-24">
         <div
           className={`relative md:pt-0 transition-all duration-700 ease-out ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-3'}`}
