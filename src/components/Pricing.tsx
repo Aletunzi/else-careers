@@ -90,7 +90,7 @@ const Pricing = () => {
             return (
               <div
                 key={p.name}
-                className={`relative flex flex-col rounded-3xl px-6 py-10 transition-all duration-700 ease-out sm:px-7 sm:py-12 ${
+                className={`relative flex flex-col items-center text-center rounded-3xl px-6 py-10 transition-all duration-700 ease-out sm:px-7 sm:py-12 ${
                   isFeatured
                     ? "shadow-[0_30px_60px_-20px_rgba(32,28,27,0.35)] md:scale-[1.04]"
                     : "shadow-[0_4px_24px_-12px_rgba(32,28,27,0.12)]"
@@ -103,7 +103,7 @@ const Pricing = () => {
               >
                 {isFeatured && (
                   <div
-                    className="absolute -top-3 left-7 rounded-full px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-white"
+                    className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-white"
                     style={{ backgroundColor: "#ff6b1a" }}
                   >
                     Most popular
@@ -117,7 +117,7 @@ const Pricing = () => {
                   {p.tagline}
                 </p>
 
-                <div className="mt-6 flex items-baseline gap-2">
+                <div className="mt-6 flex items-baseline justify-center gap-2">
                   <span className="text-4xl font-semibold tracking-tight sm:text-5xl">{p.price}</span>
                   <span
                     className={`text-[10px] uppercase tracking-wider sm:text-xs ${isFeatured ? "text-white/60" : "text-muted-foreground"}`}
@@ -134,7 +134,7 @@ const Pricing = () => {
                   href={p.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`mt-6 inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-medium transition-colors ${
+                  className={`mt-6 inline-flex w-full items-center justify-center rounded-xl px-5 py-3 text-sm font-medium transition-colors ${
                     isFeatured
                       ? "text-white hover:opacity-90"
                       : "bg-black text-white hover:bg-black/90"
