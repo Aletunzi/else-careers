@@ -44,6 +44,24 @@ const Typewriter = ({ text, className }: { text: string; className?: string }) =
   return <p className={className}>{text.slice(0, n)}<span className="opacity-0">{text.slice(n)}</span></p>;
 };
 
+const TypingDots = ({ text, dotClassName, textClassName }: { text: string; dotClassName: string; textClassName?: string }) => (
+  <div className="relative">
+    <p className={`${textClassName ?? ""} invisible`}>{text}</p>
+    <div className="absolute inset-0 flex items-center gap-1 py-1">
+      {[0, 150, 300].map((d) => (
+        <span
+          key={d}
+          className={`h-1.5 w-1.5 rounded-full ${dotClassName}`}
+          style={{
+            animation: "tryit-bounce 1s ease-in-out infinite",
+            animationDelay: `${d}ms`,
+          }}
+        />
+      ))}
+    </div>
+  </div>
+);
+
 const TryIt = () => {
   const ref = useRef<HTMLElement>(null);
   const innerRef = useRef<HTMLDivElement>(null);
@@ -167,28 +185,15 @@ const TryIt = () => {
                 const isTyping = typing === m.from && i === visibleCount;
                 if (!shown && !isTyping) return null;
 
-                const dots = (
-                  <div className="flex items-center gap-1 py-1">
-                    {[0, 150, 300].map((d) => (
-                      <span
-                        key={d}
-                        className={`h-1.5 w-1.5 rounded-full ${
-                          m.from === "you" ? "bg-white/70" : "bg-foreground/40"
-                        }`}
-                        style={{
-                          animation: "tryit-bounce 1s ease-in-out infinite",
-                          animationDelay: `${d}ms`,
-                        }}
-                      />
-                    ))}
-                  </div>
-                );
-
                 if (m.from === "you") {
                   return (
                     <div key={i} className="flex items-end justify-end gap-3">
                       <div className="max-w-[80%] rounded-[22px] bg-[#000000] px-5 py-3 text-sm text-white sm:text-base">
-                        {isTyping ? dots : <Typewriter text={m.text} />}
+                        {isTyping ? (
+                          <TypingDots text={m.text} dotClassName="bg-white/70" />
+                        ) : (
+                          <Typewriter text={m.text} />
+                        )}
                       </div>
                       <img
                         src={userAvatar}
@@ -210,7 +215,9 @@ const TryIt = () => {
                       <img src={elseMark} alt="else" className="h-3.5 w-3.5" />
                     </div>
                     <div className="flex-1 rounded-[22px] bg-[#faf5ec] px-5 py-3">
-                      {isTyping ? dots : (
+                      {isTyping ? (
+                        <TypingDots text={m.text} dotClassName="bg-foreground/40" textClassName="text-sm text-foreground sm:text-base" />
+                      ) : (
                         <Typewriter text={m.text} className="text-sm text-foreground sm:text-base" />
                       )}
                     </div>
