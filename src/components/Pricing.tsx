@@ -65,19 +65,24 @@ const Pricing = () => {
     >
       <div className="mx-auto max-w-7xl">
         <div
-          className={`transition-all duration-700 ease-out ${inView ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-3"}`}
+          className={`flex items-center gap-3 text-xs uppercase tracking-[0.2em] text-muted-foreground transition-all duration-700 ease-out ${inView ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-3"}`}
+          style={{ transitionDelay: inView ? "0ms" : "0ms" }}
         >
-          <div className="flex items-center gap-3 text-xs uppercase tracking-[0.2em] text-muted-foreground">
-            <span className="h-px w-8 bg-muted-foreground/50" />
-            <span>Pricing</span>
-          </div>
-          <h2 className="mt-6 max-w-4xl text-4xl font-medium leading-[1.05] text-foreground sm:text-5xl md:text-6xl">
-            A plan for <span style={{ color: "#ff6b1a" }}>every</span> kind of search.
-          </h2>
-          <p className="mt-6 text-base text-muted-foreground sm:text-lg">
-            We know that when looking for a job, some weeks are intense, others quiet. So we offer plans that adapt to all cases.
-          </p>
+          <span className="h-px w-8 bg-muted-foreground/50" />
+          <span>Pricing</span>
         </div>
+        <h2
+          className={`mt-6 max-w-4xl text-4xl font-medium leading-[1.05] text-foreground transition-all duration-700 ease-out sm:text-5xl md:text-6xl ${inView ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-3"}`}
+          style={{ transitionDelay: inView ? "120ms" : "0ms" }}
+        >
+          A plan for <span style={{ color: "#ff6b1a" }}>every</span> kind of search.
+        </h2>
+        <p
+          className={`mt-6 text-base text-muted-foreground transition-all duration-700 ease-out sm:text-lg ${inView ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-3"}`}
+          style={{ transitionDelay: inView ? "240ms" : "0ms" }}
+        >
+          We know that when looking for a job, some weeks are intense, others quiet. So we offer plans that adapt to all cases.
+        </p>
 
         <div className="mt-20 grid grid-cols-1 gap-6 md:mt-24 md:grid-cols-3 md:items-center">
           {plans.map((p, i) => {
@@ -89,11 +94,11 @@ const Pricing = () => {
                   isFeatured
                     ? "shadow-[0_30px_60px_-20px_rgba(32,28,27,0.35)] md:scale-[1.04]"
                     : "shadow-[0_4px_24px_-12px_rgba(32,28,27,0.12)]"
-                } ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
+                } ${inView ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-3"}`}
                 style={{
                   backgroundColor: isFeatured ? "#000000" : "#ffffff",
                   color: isFeatured ? "#ffffff" : undefined,
-                  transitionDelay: inView ? `${150 + i * 120}ms` : "0ms",
+                  transitionDelay: inView ? `${360 + i * 120}ms` : "0ms",
                 }}
               >
                 {isFeatured && (
