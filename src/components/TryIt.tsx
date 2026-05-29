@@ -209,7 +209,7 @@ const TryIt = () => {
                     >
                       <img src={elseMark} alt="else" className="h-3.5 w-3.5" />
                     </div>
-                    <div className={`rounded-[22px] bg-[#faf5ec] px-5 py-3 ${isTyping ? "" : "flex-1"}`}>
+                    <div className="flex-1 rounded-[22px] bg-[#faf5ec] px-5 py-3">
                       {isTyping ? dots : (
                         <Typewriter text={m.text} className="text-sm text-foreground sm:text-base" />
                       )}
