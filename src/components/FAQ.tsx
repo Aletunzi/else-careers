@@ -58,7 +58,7 @@ const FAQ = () => {
             <span className="h-px w-8 bg-muted-foreground/50" />
             <span>FAQ</span>
           </div>
-          <h2 className="mt-6 text-4xl font-normal leading-[1.05] text-foreground sm:text-5xl md:mt-0 md:text-6xl md:font-medium">
+          <h2 className="mt-6 text-4xl font-medium leading-[1.05] text-foreground sm:text-5xl md:mt-0 md:text-6xl md:font-medium">
             Things you probably want to ask.
           </h2>
           <p className="mt-8 text-base text-muted-foreground">
