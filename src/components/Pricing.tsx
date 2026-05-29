@@ -85,7 +85,7 @@ const Pricing = () => {
             return (
               <div
                 key={p.name}
-                className={`relative flex flex-col rounded-3xl px-7 py-8 transition-all duration-700 ease-out sm:px-8 sm:py-10 ${
+                className={`relative flex flex-col rounded-3xl px-6 py-6 transition-all duration-700 ease-out sm:px-7 sm:py-8 ${
                   isFeatured
                     ? "shadow-[0_30px_60px_-20px_rgba(32,28,27,0.35)] md:scale-[1.04]"
                     : "shadow-[0_4px_24px_-12px_rgba(32,28,27,0.12)]"
@@ -105,31 +105,31 @@ const Pricing = () => {
                   </div>
                 )}
 
-                <h3 className="text-xl font-semibold sm:text-2xl">{p.name}</h3>
+                <h3 className="text-lg font-semibold sm:text-xl">{p.name}</h3>
                 <p
-                  className={`mt-2 text-sm sm:text-base ${isFeatured ? "text-white/70" : "text-muted-foreground"}`}
+                  className={`mt-1.5 text-xs sm:text-sm ${isFeatured ? "text-white/70" : "text-muted-foreground"}`}
                 >
                   {p.tagline}
                 </p>
 
-                <div className="mt-8 flex items-baseline gap-2">
-                  <span className="text-5xl font-semibold tracking-tight sm:text-6xl">{p.price}</span>
+                <div className="mt-6 flex items-baseline gap-2">
+                  <span className="text-4xl font-semibold tracking-tight sm:text-5xl">{p.price}</span>
                   <span
-                    className={`text-xs uppercase tracking-wider ${isFeatured ? "text-white/60" : "text-muted-foreground"}`}
+                    className={`text-[10px] uppercase tracking-wider sm:text-xs ${isFeatured ? "text-white/60" : "text-muted-foreground"}`}
                   >
                     {p.period}
                   </span>
                 </div>
 
                 <div
-                  className={`mt-8 h-px w-full ${isFeatured ? "bg-white/15" : "bg-border"}`}
+                  className={`mt-6 h-px w-full ${isFeatured ? "bg-white/15" : "bg-border"}`}
                 />
 
                 <a
                   href={p.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`mt-8 inline-flex items-center justify-center rounded-xl px-6 py-4 text-sm font-medium transition-colors sm:text-base ${
+                  className={`mt-6 inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-medium transition-colors ${
                     isFeatured
                       ? "text-white hover:opacity-90"
                       : "bg-black text-white hover:bg-black/90"
