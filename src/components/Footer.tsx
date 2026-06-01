@@ -4,9 +4,9 @@ import logoWhite from "@/assets/else-logo-white.svg";
 const Footer = () => {
   return (
     <footer
-      className="animate-fade-in relative"
+      className="animate-fade-in relative overflow-visible after:fixed after:inset-x-0 after:bottom-0 after:z-[-1] after:h-[max(env(safe-area-inset-bottom),2rem)] after:bg-footer-background"
       style={{
-        backgroundColor: '#000000',
+        backgroundColor: 'hsl(var(--footer-background))',
         animationDelay: '450ms',
         animationFillMode: 'both',
         paddingBottom: 'env(safe-area-inset-bottom)',
