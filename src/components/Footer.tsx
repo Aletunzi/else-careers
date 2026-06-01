@@ -12,16 +12,23 @@ const Footer = () => {
     const pageThemeColor = "#FAF9F5";
     const footerThemeColor = "#000000";
     const setThemeColor = (color: string) => themeMeta.setAttribute("content", color);
+    const setFooterSafeArea = (isActive: boolean) => {
+      document.body.classList.toggle("footer-safe-area-active", isActive);
+    };
 
     const observer = new IntersectionObserver(
-      ([entry]) => setThemeColor(entry.isIntersecting ? footerThemeColor : pageThemeColor),
-      { threshold: 0.08 }
+      ([entry]) => {
+        setThemeColor(entry.isIntersecting ? footerThemeColor : pageThemeColor);
+        setFooterSafeArea(entry.isIntersecting);
+      },
+      { rootMargin: "0px 0px -1px 0px", threshold: 0 }
     );
 
     observer.observe(footerRef.current);
     return () => {
       observer.disconnect();
       setThemeColor(pageThemeColor);
+      setFooterSafeArea(false);
     };
   }, []);
 
