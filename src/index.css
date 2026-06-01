@@ -44,12 +44,16 @@
   }
   html {
     overscroll-behavior: none;
-    background-color: hsl(var(--footer-background));
+    background-color: hsl(var(--background));
   }
   body {
     @apply text-foreground font-sans antialiased;
-    background-color: hsl(var(--footer-background));
+    background-color: hsl(var(--background));
     overscroll-behavior: none;
+  }
+  body.footer-safe-area-active,
+  html:has(body.footer-safe-area-active) {
+    background-color: hsl(var(--footer-background));
   }
   body.footer-safe-area-active::after {
     content: "";
@@ -64,6 +68,6 @@
   }
   #root {
     min-height: 100%;
-    background-color: hsl(var(--footer-background));
+    background-color: hsl(var(--background));
   }
 }
