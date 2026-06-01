@@ -92,7 +92,7 @@ const Solution = () => {
           className={`mx-auto mt-8 max-w-5xl text-center text-[clamp(2.25rem,7vw,5rem)] font-medium leading-[1.05] tracking-tight text-foreground md:text-6xl ${inView ? "animate-fade-in" : "opacity-0"}`}
           style={{ animationDelay: "150ms", animationFillMode: "both" }}
         >
-          Our agent scans thousands
+          Our agents scan thousands
           <br className="hidden sm:block" /> of sources,{" "}
           <span style={{ color: "#ff6b1a" }}>non-stop.</span>
         </h2>
