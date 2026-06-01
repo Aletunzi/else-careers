@@ -44,7 +44,7 @@
   }
   html {
     overscroll-behavior: none;
-    background-color: hsl(var(--background));
+    background-color: hsl(var(--footer-background));
   }
   body {
     @apply text-foreground font-sans antialiased;
