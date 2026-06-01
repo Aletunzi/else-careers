@@ -3,12 +3,7 @@ import logoWhite from "@/assets/else-logo-white.svg";
 
 const Footer = () => {
   return (
-    <footer
-      className="relative bg-footer-background"
-      style={{
-        paddingBottom: 'max(env(safe-area-inset-bottom), 0px)',
-      }}
-    >
+    <footer className="relative bg-footer-background">
       <div className="relative px-5 pb-10 pt-12 sm:px-8 sm:pb-10 sm:pt-12 md:px-16 md:pb-12 md:pt-14 lg:px-24 lg:pb-14 lg:pt-16 2xl:px-32 2xl:pt-18 2xl:pb-16">
         {/* Mobile layout */}
         <div className="md:hidden">
