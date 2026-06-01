@@ -1,15 +1,45 @@
+import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import logoWhite from "@/assets/else-logo-white.svg";
 
 const Footer = () => {
+  const footerRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const themeMeta = document.querySelector<HTMLMetaElement>('meta[name="theme-color"]');
+    if (!themeMeta || !footerRef.current) return;
+
+    const pageThemeColor = "#FAF9F5";
+    const footerThemeColor = "#000000";
+    const setThemeColor = (color: string) => themeMeta.setAttribute("content", color);
+    const setFooterSafeArea = (isActive: boolean) => {
+      document.body.classList.toggle("footer-safe-area-active", isActive);
+    };
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setThemeColor(entry.isIntersecting ? footerThemeColor : pageThemeColor);
+        setFooterSafeArea(entry.isIntersecting);
+      },
+      { rootMargin: "0px 0px -1px 0px", threshold: 0 }
+    );
+
+    observer.observe(footerRef.current);
+    return () => {
+      observer.disconnect();
+      setThemeColor(pageThemeColor);
+      setFooterSafeArea(false);
+    };
+  }, []);
+
   return (
     <footer
-      className="animate-fade-in relative overflow-visible after:fixed after:inset-x-0 after:bottom-0 after:z-[-1] after:h-[max(env(safe-area-inset-bottom),2rem)] after:bg-footer-background"
+      ref={footerRef}
+      className="animate-fade-in relative bg-footer-background"
       style={{
-        backgroundColor: 'hsl(var(--footer-background))',
         animationDelay: '450ms',
         animationFillMode: 'both',
-        paddingBottom: 'env(safe-area-inset-bottom)',
+        paddingBottom: 'max(env(safe-area-inset-bottom), 0px)',
       }}
     >
       <div className="relative px-5 pb-8 pt-10 sm:px-8 sm:pb-10 sm:pt-12 md:px-16 md:pb-12 md:pt-14 lg:px-24 lg:pb-14 lg:pt-16 2xl:px-32 2xl:pt-18 2xl:pb-16">

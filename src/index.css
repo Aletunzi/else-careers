@@ -48,11 +48,22 @@
   }
   body {
     @apply text-foreground font-sans antialiased;
-    background-color: hsl(var(--background));
+    background-color: hsl(var(--footer-background));
     overscroll-behavior: none;
+  }
+  body.footer-safe-area-active::after {
+    content: "";
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 2147483647;
+    height: max(env(safe-area-inset-bottom), 24px);
+    pointer-events: none;
+    background-color: hsl(var(--footer-background));
   }
   #root {
     min-height: 100%;
-    background-color: hsl(var(--background));
+    background-color: hsl(var(--footer-background));
   }
 }
