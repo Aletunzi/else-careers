@@ -8,7 +8,7 @@ const Header = () => {
         <img src={logo} alt="else" className="h-10 w-10 sm:h-12 sm:w-12" />
       </Link>
       <div className="flex items-center gap-2 sm:gap-3">
-        <a href="https://app.tryelse.xyz/login" target="_blank" rel="noopener noreferrer" className="rounded-lg border border-foreground px-4 py-2 text-xs font-normal text-foreground transition-colors hover:bg-muted sm:px-6 sm:py-2.5 sm:text-sm">
+        <a href="https://app.tryelse.xyz/login" target="_blank" rel="noopener noreferrer" className="rounded-lg px-4 py-2 text-xs font-normal text-foreground transition-colors hover:bg-muted sm:px-6 sm:py-2.5 sm:text-sm">
           Login
         </a>
         <a
