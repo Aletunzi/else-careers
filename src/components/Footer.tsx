@@ -1,9 +1,33 @@
+import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import logoWhite from "@/assets/else-logo-white.svg";
 
 const Footer = () => {
+  const footerRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const themeMeta = document.querySelector<HTMLMetaElement>('meta[name="theme-color"]');
+    if (!themeMeta || !footerRef.current) return;
+
+    const pageThemeColor = "#FAF9F5";
+    const footerThemeColor = "#000000";
+    const setThemeColor = (color: string) => themeMeta.setAttribute("content", color);
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setThemeColor(entry.isIntersecting ? footerThemeColor : pageThemeColor),
+      { threshold: 0.08 }
+    );
+
+    observer.observe(footerRef.current);
+    return () => {
+      observer.disconnect();
+      setThemeColor(pageThemeColor);
+    };
+  }, []);
+
   return (
     <footer
+      ref={footerRef}
       className="animate-fade-in relative bg-footer-background"
       style={{
         animationDelay: '450ms',
