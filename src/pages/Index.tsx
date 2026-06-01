@@ -10,7 +10,7 @@ import Footer from "@/components/Footer";
 const Index = () => {
   return (
     <>
-      <div className="flex h-[100dvh] flex-col bg-background md:h-auto md:min-h-screen">
+      <div className="flex min-h-svh flex-col bg-background md:min-h-screen">
         <Header />
         <main className="flex flex-1 flex-col">
           <Hero />
