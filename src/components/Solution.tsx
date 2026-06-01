@@ -6,7 +6,7 @@ const COLUMN_A: Source[] = [
   { name: "Y Combinator", desc: "Work at a Startup board" },
   { name: "Hacker News", desc: '"Who is hiring?" threads' },
   { name: "Lenny's newsletter", desc: "Operator-led postings" },
-  { name: "X / Twitter", desc: "Founder posts & DMs" },
+  { name: "X", desc: "Founder posts & DMs" },
   { name: "Welcome to the Jungle", desc: "European coverage" },
   { name: "AngelList", desc: "Early-stage startups" },
   { name: "Product Hunt", desc: "Launches & makers" },
