@@ -62,7 +62,7 @@
     bottom: 0;
     left: 0;
     z-index: 2147483647;
-    height: max(env(safe-area-inset-bottom), 24px);
+    height: env(safe-area-inset-bottom);
     pointer-events: none;
     background-color: hsl(var(--footer-background));
   }
