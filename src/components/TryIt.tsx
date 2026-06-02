@@ -64,8 +64,6 @@ const TypingDots = ({ text, dotClassName, textClassName }: { text: string; dotCl
 
 const TryIt = () => {
   const ref = useRef<HTMLElement>(null);
-  const innerRef = useRef<HTMLDivElement>(null);
-  const [chatHeight, setChatHeight] = useState<number | undefined>(undefined);
   const [inView, setInView] = useState(false);
   const [visibleCount, setVisibleCount] = useState(0);
   const [typing, setTyping] = useState<null | "you" | "else">(null);
@@ -111,16 +109,6 @@ const TryIt = () => {
       timeouts.forEach(clearTimeout);
     };
   }, [inView]);
-
-  useEffect(() => {
-    if (!innerRef.current) return;
-    const ro = new ResizeObserver((entries) => {
-      const h = entries[0].contentRect.height;
-      setChatHeight(h);
-    });
-    ro.observe(innerRef.current);
-    return () => ro.disconnect();
-  }, []);
 
   return (
     <section
@@ -171,14 +159,8 @@ const TryIt = () => {
               opacity: inView ? undefined : 0,
             }}
           >
-            <div
-              style={{
-                height: chatHeight !== undefined ? `${chatHeight}px` : undefined,
-                transition: "height 600ms cubic-bezier(0.22, 1, 0.36, 1)",
-                overflow: "hidden",
-              }}
-            >
-              <div ref={innerRef}>
+            <div className="min-h-[620px] sm:min-h-[560px] md:min-h-[540px]">
+              <div>
                 <div className="flex flex-col gap-6">
               {SCRIPT.map((m, i) => {
                 const shown = i < visibleCount;
