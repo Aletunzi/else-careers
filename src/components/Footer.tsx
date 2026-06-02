@@ -26,7 +26,7 @@ const Footer = () => {
             </div>
           </div>
           <div className="mt-10 flex items-center gap-3">
-            <span className="text-lg text-white/60">Follow</span>
+            <span className="text-lg text-white/60">More on</span>
             <a href="https://x.com/elsecareers" target="_blank" rel="noopener noreferrer" className="inline-block text-white hover:text-white/80 transition-colors" aria-label="X (Twitter)">
               <svg role="img" viewBox="0 0 24 24" width="22" height="22" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
             </a>
@@ -42,7 +42,7 @@ const Footer = () => {
               <img src={logoWhite} alt="else" className="h-6 w-6 2xl:h-7 2xl:w-7" />
               <p className="mt-3 text-base text-white/80 2xl:text-lg">Your next job is elsewhere</p>
               <div className="mt-6 flex items-center gap-3">
-                <span className="text-base text-white/60 2xl:text-lg">Follow</span>
+                <span className="text-base text-white/60 2xl:text-lg">More on</span>
                 <a href="https://x.com/elsecareers" target="_blank" rel="noopener noreferrer" className="inline-block text-white hover:text-white/80 transition-colors" aria-label="X (Twitter)">
                   <svg role="img" viewBox="0 0 24 24" width="22" height="22" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
                 </a>
