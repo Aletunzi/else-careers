@@ -159,7 +159,7 @@ const TryIt = () => {
               opacity: inView ? undefined : 0,
             }}
           >
-            <div className="min-h-[620px] sm:min-h-[560px] md:min-h-[540px]">
+            <div className="min-h-[520px] sm:min-h-[460px] md:min-h-[440px]">
               <div>
                 <div className="flex flex-col gap-6">
               {SCRIPT.map((m, i) => {
