@@ -25,7 +25,7 @@ const plans: Plan[] = [
     price: "€4.99",
     period: "per week",
     cta: "Get the weekly pass",
-    href: "https://app.tryelse.xyz/register",
+    href: "https://app.tryelse.xyz/register?plan=pass_7d",
     featured: true,
   },
   {
@@ -34,7 +34,7 @@ const plans: Plan[] = [
     price: "€15.99",
     period: "per month",
     cta: "Get the monthly pass",
-    href: "https://app.tryelse.xyz/register",
+    href: "https://app.tryelse.xyz/register?plan=pass_30d",
   },
 ];
 
