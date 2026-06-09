@@ -14,27 +14,26 @@ const Privacy = () => {
   }, []);
 
   return (
-    <div className="flex min-h-screen flex-col bg-background">
+    <div className="flex h-screen flex-col overflow-hidden bg-background">
       <Header />
-      <main className="flex-1 px-5 pb-16 pt-8 sm:px-8 md:px-16 lg:px-24 2xl:px-32">
-        <Link
-          to="/"
-          className="inline-flex items-center gap-1 text-sm text-foreground hover:opacity-70 transition-opacity mb-12"
-        >
-          ← Back to home
-        </Link>
+      <main className="flex flex-1 min-h-0 flex-col px-5 pt-8 sm:px-8 md:flex-row md:gap-16 md:px-16 md:pt-12 lg:gap-24 lg:px-24 2xl:px-32">
+        <div className="md:w-1/3 md:shrink-0 md:overflow-hidden">
+          <Link
+            to="/"
+            className="inline-flex items-center gap-1 text-sm text-foreground hover:opacity-70 transition-opacity mb-12"
+          >
+            ← Back to home
+          </Link>
+          <h1 className="text-4xl font-medium tracking-tight text-foreground sm:text-5xl">
+            Privacy policy
+          </h1>
+          <p className="mt-4 text-sm text-muted-foreground">
+            Last updated: March 21st, 2026
+          </p>
+        </div>
 
-        <div className="flex flex-col gap-8 md:flex-row md:gap-16 lg:gap-24">
-          <div className="md:w-1/3 md:sticky md:top-8 md:self-start">
-            <h1 className="text-4xl font-normal tracking-tight text-foreground sm:text-5xl">
-              Privacy policy
-            </h1>
-            <p className="mt-4 text-sm text-muted-foreground">
-              Last updated: March 21st, 2026
-            </p>
-          </div>
-
-          <div className="md:w-2/3 space-y-10 text-foreground/90 text-[15px] leading-relaxed text-justify">
+        <div className="flex-1 min-h-0 overflow-y-auto pb-16 pt-8 md:w-2/3 md:pt-0">
+          <div className="space-y-10 text-foreground/90 text-[15px] leading-relaxed text-justify">
             <section>
               <h2 className="mb-4 text-xl font-normal text-foreground">1. Introduction</h2>
               <p className="mb-4">
@@ -253,9 +252,9 @@ const Privacy = () => {
               <p>Regardless of your location, any disputes or legal matters arising from our data processing activities will be governed exclusively by European data protection legislation.</p>
             </section>
           </div>
+          <Footer />
         </div>
       </main>
-      <Footer />
     </div>
   );
 };
