@@ -72,7 +72,7 @@ const Reality = () => {
           {[
             { value: '100+', label: 'new roles per week' },
             { value: '20,000+', label: 'Companies tracked' },
-            { value: '9', label: 'AVG SOURCE PER COMPANY' },
+            { value: '15', label: 'AVG SOURCE PER COMPANY' },
           ].map((stat) => (
             <div key={stat.label} className="flex flex-col items-center gap-3 text-center sm:px-6">
               <span className="text-4xl font-semibold text-foreground sm:text-5xl tabular-nums">{stat.value}</span>
