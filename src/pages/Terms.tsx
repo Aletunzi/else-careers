@@ -14,10 +14,12 @@ const Terms = () => {
   }, []);
 
   return (
-    <div className="flex h-screen flex-col overflow-hidden bg-background">
-      <Header />
-      <main className="flex flex-1 min-h-0 flex-col px-5 pt-8 sm:px-8 md:flex-row md:gap-16 md:px-16 md:pt-12 lg:gap-24 lg:px-24 2xl:px-32">
-        <div className="md:w-1/3 md:shrink-0 md:overflow-hidden">
+    <div className="flex min-h-screen flex-col bg-background">
+      <div className="sticky top-0 z-40 bg-background">
+        <Header />
+      </div>
+      <main className="flex flex-1 flex-col px-5 pt-8 sm:px-8 md:flex-row md:gap-16 md:px-16 md:pt-12 lg:gap-24 lg:px-24 2xl:px-32">
+        <div className="md:w-1/3 md:sticky md:top-32 md:self-start">
           <Link
             to="/"
             className="inline-flex items-center gap-1 text-sm text-foreground hover:opacity-70 transition-opacity mb-12"
@@ -32,7 +34,7 @@ const Terms = () => {
           </p>
         </div>
 
-        <div className="flex-1 min-h-0 overflow-y-auto pb-16 pt-8 md:w-2/3 md:pt-0">
+        <div className="pb-16 pt-8 md:w-2/3 md:pt-0">
           <div className="space-y-10 text-foreground/90 text-[15px] leading-relaxed text-justify">
             <section>
               <h2 className="mb-4 text-xl font-normal text-foreground">1. Introduction and acceptance of terms</h2>
@@ -299,9 +301,9 @@ const Terms = () => {
               <p>BY USING THE SERVICE, YOU ACKNOWLEDGE THAT YOU HAVE READ THESE TERMS AND CONDITIONS, UNDERSTAND THEM, AND AGREE TO BE BOUND BY THEM. IF YOU DO NOT AGREE TO THESE TERMS, YOU MAY NOT ACCESS OR USE THE SERVICE.</p>
             </section>
           </div>
-          <Footer />
         </div>
       </main>
+      <Footer />
     </div>
   );
 };
