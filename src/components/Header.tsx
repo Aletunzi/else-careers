@@ -8,14 +8,14 @@ const Header = () => {
         <img src={logo} alt="else" className="h-10 w-10 sm:h-12 sm:w-12" />
       </Link>
       <div className="flex items-center gap-2 sm:gap-3">
-        <a href="https://app.tryelse.xyz/login" target="_blank" rel="noopener noreferrer" className="rounded-lg px-4 py-2 text-xs font-normal text-foreground transition-opacity hover:opacity-70 sm:px-6 sm:py-2.5 sm:text-sm">
+        <a href="https://app.tryelse.xyz/login" target="_blank" rel="noopener noreferrer" className="rounded-lg px-5 py-2.5 text-sm font-normal text-foreground transition-opacity hover:opacity-70 sm:px-6 sm:py-2.5 sm:text-sm">
           Login
         </a>
         <a
           href="https://app.tryelse.xyz/register"
           target="_blank"
           rel="noopener noreferrer"
-          className="group relative overflow-hidden rounded-lg bg-primary px-4 py-2 text-xs font-normal text-white sm:px-6 sm:py-2.5 sm:text-sm"
+          className="group relative overflow-hidden rounded-lg bg-primary px-5 py-2.5 text-sm font-normal text-white sm:px-6 sm:py-2.5 sm:text-sm"
         >
           <span className="absolute inset-y-0 left-0 w-0 bg-[#ff6b1a] transition-[width] duration-500 ease-out group-hover:w-full" aria-hidden />
           <span className="relative z-10">Try for free</span>
