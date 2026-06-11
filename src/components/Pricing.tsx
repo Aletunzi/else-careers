@@ -13,7 +13,7 @@ type Plan = {
 const plans: Plan[] = [
   {
     name: "Starter",
-    tagline: "Dip in and see what's out there.",
+    tagline: "Explore daily with 3 free searches.",
     price: "Free",
     period: "forever",
     cta: "Start free",
