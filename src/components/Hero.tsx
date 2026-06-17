@@ -109,7 +109,7 @@ const Hero = () => {
 
           <button
             disabled={!hasInput}
-            onClick={handleSearch}
+            onClick={() => handleSearch()}
             className={`rounded-lg aspect-square w-9 h-9 sm:w-10 sm:h-10 2xl:w-11 2xl:h-11 flex shrink-0 items-center justify-center transition-colors sm:ml-4 text-white ${
               hasInput
                 ? "hover:opacity-90 cursor-pointer"
