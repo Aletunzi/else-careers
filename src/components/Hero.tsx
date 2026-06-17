@@ -8,10 +8,10 @@ const placeholders = [
 ];
 
 const suggestionPills = [
-  "Remote PM Jobs",
+  "Remote roles in Europe",
+  "Mid PM Jobs in Europe",
   "Senior PM Jobs in Europe",
-  "Junior PM Jobs in Europe",
-  "Startup PM Jobs",
+  "Product Manager Jobs in Europe",
 ];
 
 const Hero = () => {
@@ -26,8 +26,8 @@ const Hero = () => {
 
   const hasInput = inputValue.trim().length > 0;
 
-  const handleSearch = () => {
-    const query = inputValue.trim();
+  const handleSearch = (overrideQuery?: string) => {
+    const query = (overrideQuery ?? inputValue).trim();
     if (!query) return;
     const current = parseInt(localStorage.getItem(STORAGE_KEY) || "0", 10) || 0;
     const nextCount = current + 1;
@@ -125,7 +125,10 @@ const Hero = () => {
             <button
               key={pill}
               type="button"
-              onClick={() => setInputValue(pill)}
+              onClick={() => {
+                setInputValue(pill);
+                handleSearch(pill);
+              }}
               className="rounded-full bg-card shadow-sm px-4 py-2 text-sm text-foreground/80 transition-colors hover:bg-secondary hover:text-foreground sm:px-5 sm:py-2.5"
             >
               {pill}
