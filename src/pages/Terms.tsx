@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { formatCurrentDate } from "@/lib/formatDate";
 
 const Terms = () => {
   useEffect(() => {
@@ -30,7 +31,7 @@ const Terms = () => {
             Terms and conditions
           </h1>
           <p className="mt-4 text-sm text-muted-foreground">
-            Last updated: March 21st, 2026
+            Last updated: {formatCurrentDate()}
           </p>
         </div>
 
