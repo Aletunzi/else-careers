@@ -227,7 +227,7 @@ const Hero = () => {
             >
               ✕
             </button>
-            <h2 className="text-[1.75rem] sm:text-3xl font-medium text-foreground leading-[1.1] tracking-tight">
+            <h2 className="text-[1.75rem] sm:text-3xl font-medium leading-[1.05] text-foreground">
               Your next role might be<br />one search away
             </h2>
             <p className="mt-4 text-sm text-muted-foreground">
@@ -237,9 +237,10 @@ const Hero = () => {
               href="https://app.tryelse.xyz/register"
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-7 block w-full rounded-lg bg-primary py-3.5 text-sm font-medium text-primary-foreground transition-colors duration-300 ease-out hover:bg-[#ff6b1a]"
+              className="group relative mt-7 block w-full overflow-hidden rounded-lg bg-primary py-3.5 text-sm font-medium text-primary-foreground"
             >
-              Get Started
+              <span className="absolute inset-y-0 left-0 w-0 bg-[#ff6b1a] transition-[width] duration-500 ease-out group-hover:w-full" aria-hidden />
+              <span className="relative z-10">Get Started</span>
             </a>
             <a
               href="https://app.tryelse.xyz/login"
