@@ -13,7 +13,12 @@ const Footer = () => {
             <div>
               <h4 className="mb-4 text-lg font-normal text-white/60">Company</h4>
               <ul className="space-y-3 text-lg text-white">
-                <li><a href="https://x.com/elsecareers" target="_blank" rel="noopener noreferrer" className="hover:text-white/80 transition-colors">Careers</a></li>
+                <li>
+                  <a href="https://x.com/elsecareers" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 hover:text-white/80 transition-colors">
+                    Careers
+                    <span className="rounded-full bg-[#ff6b1a] px-2 py-0.5 text-xs font-medium text-white">Hiring!</span>
+                  </a>
+                </li>
                 <li><a href="https://x.com/elsecareers" target="_blank" rel="noopener noreferrer" className="hover:text-white/80 transition-colors">Blog</a></li>
               </ul>
             </div>
@@ -52,7 +57,12 @@ const Footer = () => {
               <div>
                 <h4 className="mb-6 text-base font-normal text-white/60 2xl:text-lg">Company</h4>
                 <ul className="space-y-3 text-base text-white 2xl:text-lg">
-                  <li><a href="https://x.com/elsecareers" target="_blank" rel="noopener noreferrer" className="hover:text-white/80 transition-colors">Careers</a></li>
+                  <li>
+                    <a href="https://x.com/elsecareers" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 hover:text-white/80 transition-colors">
+                      Careers
+                      <span className="rounded-full bg-[#ff6b1a] px-2 py-0.5 text-xs font-medium text-white">Hiring!</span>
+                    </a>
+                  </li>
                   <li><a href="https://x.com/elsecareers" target="_blank" rel="noopener noreferrer" className="hover:text-white/80 transition-colors">Blog</a></li>
                 </ul>
               </div>
