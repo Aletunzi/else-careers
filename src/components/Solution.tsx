@@ -1,30 +1,44 @@
 import { useEffect, useRef, useState } from "react";
 
-type Source = { name: string; desc: string };
+type Source = { name: string; desc: string; domain?: string };
 
 const COLUMN_A: Source[] = [
-  { name: "Y Combinator", desc: "Work at a Startup board" },
-  { name: "Hacker News", desc: '"Who is hiring?" threads' },
-  { name: "Lenny's newsletter", desc: "Operator-led postings" },
-  { name: "X", desc: "Founder posts & DMs" },
-  { name: "Welcome to the Jungle", desc: "European coverage" },
-  { name: "AngelList", desc: "Early-stage startups" },
-  { name: "Product Hunt", desc: "Launches & makers" },
+  { name: "Y Combinator", desc: "Work at a Startup board", domain: "ycombinator.com" },
+  { name: "Hacker News", desc: '"Who is hiring?" threads', domain: "news.ycombinator.com" },
+  { name: "Lenny's newsletter", desc: "Operator-led postings", domain: "lennysnewsletter.com" },
+  { name: "X", desc: "Founder posts & DMs", domain: "x.com" },
+  { name: "Welcome to the Jungle", desc: "European coverage", domain: "welcometothejungle.com" },
+  { name: "AngelList", desc: "Early-stage startups", domain: "angellist.com" },
+  { name: "Product Hunt", desc: "Launches & makers", domain: "producthunt.com" },
 ];
 
 const COLUMN_B: Source[] = [
-  { name: "Otta", desc: "Curated tech roles, EU focus" },
-  { name: "Wellfound", desc: "Startup & seed-stage roles" },
+  { name: "Otta", desc: "Curated tech roles, EU focus", domain: "otta.com" },
+  { name: "Wellfound", desc: "Startup & seed-stage roles", domain: "wellfound.com" },
   { name: "Career pages", desc: "Direct from +20000 career pages" },
   { name: "Stealth networks", desc: "Pre-launch & confidential" },
-  { name: "Reddit", desc: "r/forhire & niche subs" },
-  { name: "Slack communities", desc: "Operator-only channels" },
+  { name: "Reddit", desc: "r/forhire & niche subs", domain: "reddit.com" },
+  { name: "Slack communities", desc: "Operator-only channels", domain: "slack.com" },
 ];
 
 const Card = ({ s }: { s: Source }) => (
-  <div className="rounded-2xl bg-white px-5 py-4 shadow-[0_4px_20px_-8px_rgba(32,28,27,0.08)]">
-    <div className="text-base font-semibold text-foreground sm:text-lg">{s.name}</div>
-    <div className="mt-1 text-xs text-muted-foreground sm:text-sm">{s.desc}</div>
+  <div className="flex items-center gap-3 rounded-2xl bg-white px-5 py-4 shadow-[0_4px_20px_-8px_rgba(32,28,27,0.08)]">
+    <div className="flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-lg bg-[#f3f1e9]">
+      {s.domain ? (
+        <img
+          src={`https://www.google.com/s2/favicons?domain=${s.domain}&sz=64`}
+          alt={`${s.name} logo`}
+          className="h-6 w-6 object-contain"
+          loading="lazy"
+        />
+      ) : (
+        <span className="text-base font-semibold text-foreground/70">{s.name.charAt(0)}</span>
+      )}
+    </div>
+    <div className="min-w-0">
+      <div className="truncate text-base font-semibold text-foreground sm:text-lg">{s.name}</div>
+      <div className="mt-0.5 truncate text-xs text-muted-foreground sm:text-sm">{s.desc}</div>
+    </div>
   </div>
 );
 
