@@ -5,22 +5,38 @@ import stealthIcon from "@/assets/stealth-icon.jpeg.asset.json";
 type Source = { name: string; desc: string; domain?: string; icon?: "globe" | "stealth" };
 
 const COLUMN_A: Source[] = [
-  { name: "Y Combinator", desc: "Work at a Startup board", domain: "ycombinator.com" },
-  { name: "Lenny's newsletter", desc: "Operator-led postings", domain: "lennysnewsletter.com" },
-  { name: "X", desc: "Founder posts & DMs", domain: "x.com" },
+  { name: "Teamtailor", desc: "Nordic & EU roles", domain: "teamtailor.com" },
+  { name: "Greenhouse", desc: "Company career pages", domain: "greenhouse.io" },
+  { name: "Workday", desc: "Enterprise listings", domain: "workday.com" },
   { name: "Welcome to the Jungle", desc: "European coverage", domain: "welcometothejungle.com" },
-  { name: "AngelList", desc: "Early-stage startups", domain: "angellist.com" },
-  { name: "Product Hunt", desc: "Launches & makers", domain: "producthunt.com" },
+  { name: "EU-Startups", desc: "EU startup board", domain: "eu-startups.com" },
+  { name: "Y Combinator", desc: "Work at a Startup board", domain: "ycombinator.com" },
+  { name: "Built In", desc: "US tech hubs", domain: "builtin.com" },
+  { name: "We Work Remotely", desc: "Remote-first roles", domain: "weworkremotely.com" },
+  { name: "Remotive", desc: "Curated remote", domain: "remotive.com" },
+  { name: "Indeed", desc: "High-volume listings", domain: "indeed.com" },
+  { name: "Lenny's Job Board", desc: "PM-specific roles", domain: "lennysnewsletter.com" },
+  { name: "X", desc: "#hiring & founder posts", domain: "x.com" },
+  { name: "Slack communities", desc: "Operator-only channels", domain: "slack.com" },
+  { name: "Telegram", desc: "Regional job channels", domain: "telegram.org" },
+  { name: "Career pages", desc: "Direct from companies", icon: "globe" },
 ];
 
 const COLUMN_B: Source[] = [
-  { name: "Otta", desc: "Curated tech roles, EU focus", domain: "otta.com" },
+  { name: "Personio", desc: "Career pages (DACH)", domain: "personio.com" },
+  { name: "Recruitee", desc: "European SMEs", domain: "recruitee.com" },
+  { name: "Lever", desc: "Applicant tracking feeds", domain: "lever.co" },
+  { name: "Ashby", desc: "Modern ATS roles", domain: "ashbyhq.com" },
+  { name: "Sifted", desc: "European startup jobs", domain: "sifted.eu" },
+  { name: "Landing.jobs", desc: "Southern Europe tech", domain: "landing.jobs" },
   { name: "Wellfound", desc: "Startup & seed-stage roles", domain: "wellfound.com" },
   { name: "Hacker News", desc: '"Who is hiring?" threads', domain: "news.ycombinator.com" },
-  { name: "Career pages", desc: "Direct from +20000 career pages", icon: "globe" },
-  { name: "Stealth networks", desc: "Pre-launch & confidential", icon: "stealth" },
+  { name: "RemoteOK", desc: "Remote tech jobs", domain: "remoteok.com" },
+  { name: "LinkedIn", desc: "Jobs & hiring posts", domain: "linkedin.com" },
+  { name: "Mind the Product", desc: "Product community", domain: "mindtheproduct.com" },
+  { name: "Product Hunt", desc: "Maker & launch signals", domain: "producthunt.com" },
   { name: "Reddit", desc: "r/forhire & niche subs", domain: "reddit.com" },
-  { name: "Slack communities", desc: "Operator-only channels", domain: "slack.com" },
+  { name: "Discord communities", desc: "Product & tech servers", domain: "discord.com" },
 ];
 
 const Card = ({ s }: { s: Source }) => (
