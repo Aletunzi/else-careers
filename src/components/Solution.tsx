@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Globe, Building2 } from "lucide-react";
+import { Globe } from "lucide-react";
 
 type Source = { name: string; desc: string; domain?: string; icon?: "globe" | "stealth" };
 
@@ -35,7 +35,14 @@ const Card = ({ s }: { s: Source }) => (
       ) : s.icon === "globe" ? (
         <Globe className="h-5 w-5 text-foreground/70" strokeWidth={2} />
       ) : s.icon === "stealth" ? (
-        <Building2 className="h-5 w-5 text-foreground/70" strokeWidth={2} />
+        <svg
+          viewBox="0 0 24 24"
+          className="h-5 w-5 text-foreground/80"
+          fill="currentColor"
+          aria-hidden="true"
+        >
+          <path d="M12 5 L2 18.5 L7 17 L12 15 L17 17 L22 18.5 Z" />
+        </svg>
       ) : (
         <span className="text-base font-semibold text-foreground/70">{s.name.charAt(0)}</span>
       )}
