@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from "react";
+import { Globe, Building2 } from "lucide-react";
 
-type Source = { name: string; desc: string; domain?: string };
+type Source = { name: string; desc: string; domain?: string; icon?: "globe" | "stealth" };
 
 const COLUMN_A: Source[] = [
   { name: "Y Combinator", desc: "Work at a Startup board", domain: "ycombinator.com" },
-  { name: "Hacker News", desc: '"Who is hiring?" threads', domain: "news.ycombinator.com" },
   { name: "Lenny's newsletter", desc: "Operator-led postings", domain: "lennysnewsletter.com" },
   { name: "X", desc: "Founder posts & DMs", domain: "x.com" },
   { name: "Welcome to the Jungle", desc: "European coverage", domain: "welcometothejungle.com" },
@@ -15,8 +15,9 @@ const COLUMN_A: Source[] = [
 const COLUMN_B: Source[] = [
   { name: "Otta", desc: "Curated tech roles, EU focus", domain: "otta.com" },
   { name: "Wellfound", desc: "Startup & seed-stage roles", domain: "wellfound.com" },
-  { name: "Career pages", desc: "Direct from +20000 career pages" },
-  { name: "Stealth networks", desc: "Pre-launch & confidential" },
+  { name: "Hacker News", desc: '"Who is hiring?" threads', domain: "news.ycombinator.com" },
+  { name: "Career pages", desc: "Direct from +20000 career pages", icon: "globe" },
+  { name: "Stealth networks", desc: "Pre-launch & confidential", icon: "stealth" },
   { name: "Reddit", desc: "r/forhire & niche subs", domain: "reddit.com" },
   { name: "Slack communities", desc: "Operator-only channels", domain: "slack.com" },
 ];
@@ -31,6 +32,10 @@ const Card = ({ s }: { s: Source }) => (
           className="h-6 w-6 object-contain"
           loading="lazy"
         />
+      ) : s.icon === "globe" ? (
+        <Globe className="h-5 w-5 text-foreground/70" strokeWidth={2} />
+      ) : s.icon === "stealth" ? (
+        <Building2 className="h-5 w-5 text-foreground/70" strokeWidth={2} />
       ) : (
         <span className="text-base font-semibold text-foreground/70">{s.name.charAt(0)}</span>
       )}
