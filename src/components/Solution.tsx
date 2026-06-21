@@ -39,7 +39,7 @@ const Card = ({ s }: { s: Source }) => (
         <img
           src={stealthIcon.url}
           alt="Stealth"
-          className="h-full w-full object-cover"
+          className="h-6 w-6 object-contain"
           loading="lazy"
         />
       ) : (
