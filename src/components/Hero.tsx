@@ -120,7 +120,7 @@ const Hero = () => {
             <ArrowUp className="w-5 h-5" />
           </button>
         </div>
-        <div className="animate-fade-in mt-5 flex flex-wrap justify-center gap-2 sm:mt-6 sm:gap-3" style={{ animationDelay: '600ms', animationFillMode: 'both' }}>
+        <div className="animate-fade-in mt-5 flex flex-col items-center gap-2 sm:mt-6 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-3" style={{ animationDelay: '600ms', animationFillMode: 'both' }}>
           {suggestionPills.map((pill) => (
             <button
               key={pill}
