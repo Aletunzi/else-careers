@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { ArrowUp } from "lucide-react";
+import { ArrowUp, ArrowUpRight } from "lucide-react";
 
 const placeholders = [
   "I'm looking for a senior product manager role in Paris",
@@ -120,20 +120,24 @@ const Hero = () => {
             <ArrowUp className="w-5 h-5" />
           </button>
         </div>
-        <div className="animate-fade-in mt-5 flex flex-col items-center gap-2 sm:mt-6 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-3" style={{ animationDelay: '600ms', animationFillMode: 'both' }}>
-          {suggestionPills.map((pill) => (
-            <button
-              key={pill}
-              type="button"
-              onClick={() => {
-                setInputValue(pill);
-                handleSearch(pill);
-              }}
-              className="rounded-full bg-card shadow-sm px-4 py-2 text-sm text-foreground/80 transition-colors hover:bg-secondary hover:text-foreground sm:px-5 sm:py-2.5"
-            >
-              {pill}
-            </button>
-          ))}
+        <div className="animate-fade-in mt-5 flex flex-col items-center gap-2 sm:mt-6" style={{ animationDelay: '600ms', animationFillMode: 'both' }}>
+          <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Popular searches</span>
+          <div className="flex flex-col items-center gap-3 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-6">
+            {suggestionPills.map((pill) => (
+              <button
+                key={pill}
+                type="button"
+                onClick={() => {
+                  setInputValue(pill);
+                  handleSearch(pill);
+                }}
+                className="group flex items-center gap-1.5 text-sm text-foreground transition-opacity hover:opacity-80"
+              >
+                {pill}
+                <ArrowUpRight className="h-3.5 w-3.5" style={{ color: '#ff6b1a' }} />
+              </button>
+            ))}
+          </div>
         </div>
         <button
           type="button"
