@@ -131,7 +131,7 @@ const Hero = () => {
                   setInputValue(pill);
                   handleSearch(pill);
                 }}
-                className="group flex w-full items-center justify-between gap-1 text-sm text-foreground transition-opacity hover:opacity-80 xl:w-auto xl:justify-start xl:gap-2.5"
+                className="group flex w-full items-center justify-start gap-1 text-sm text-foreground transition-opacity hover:opacity-80 xl:w-auto xl:gap-3"
               >
                 {pill}
                 <ArrowUpRight className="h-3.5 w-3.5" style={{ color: '#ff6b1a' }} />
