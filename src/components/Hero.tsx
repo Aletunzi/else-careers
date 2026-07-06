@@ -120,9 +120,9 @@ const Hero = () => {
             <ArrowUp className="w-5 h-5" />
           </button>
         </div>
-        <div className="animate-fade-in mt-8 flex w-full flex-col items-start gap-8 xl:mt-10 xl:flex-row xl:items-center xl:justify-center xl:gap-12" style={{ animationDelay: '600ms', animationFillMode: 'both' }}>
-          <span className="self-center text-xs uppercase tracking-[0.2em] text-muted-foreground xl:self-auto">Popular searches</span>
-          <div className="flex w-full flex-col items-start gap-4 xl:w-auto xl:flex-row xl:flex-wrap xl:items-center xl:justify-center xl:gap-6">
+        <div className="animate-fade-in mt-8 flex w-full flex-col items-start gap-8 sm:mt-10 sm:flex-row sm:items-center sm:justify-center sm:gap-12" style={{ animationDelay: '600ms', animationFillMode: 'both' }}>
+          <span className="self-center text-xs uppercase tracking-[0.2em] text-muted-foreground sm:self-auto">Popular searches</span>
+          <div className="flex w-full flex-col items-start gap-3 sm:w-auto sm:flex-row sm:flex-wrap sm:items-center sm:justify-center sm:gap-6">
             {suggestionPills.map((pill) => (
               <button
                 key={pill}
@@ -131,7 +131,7 @@ const Hero = () => {
                   setInputValue(pill);
                   handleSearch(pill);
                 }}
-                className="group flex w-full items-center justify-start gap-1 text-sm text-foreground transition-opacity hover:opacity-80 xl:w-auto xl:gap-3"
+                className="group flex w-full items-center justify-between text-sm text-foreground transition-opacity hover:opacity-80 sm:w-auto sm:justify-start"
               >
                 {pill}
                 <ArrowUpRight className="h-3.5 w-3.5" style={{ color: '#ff6b1a' }} />
