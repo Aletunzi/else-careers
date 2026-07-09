@@ -75,7 +75,7 @@ const Hero = () => {
   return (
     <>
       <section className="flex flex-1 flex-col items-center justify-center px-5 py-10 text-center sm:justify-start sm:px-8 sm:pt-20 sm:pb-16 md:pt-28">
-       <h1 className="animate-fade-in text-[clamp(2.25rem,7vw,5rem)] font-medium leading-[1.05] text-foreground sm:whitespace-nowrap sm:text-4xl md:text-6xl md:font-medium md:leading-[1.05] lg:text-6xl xl:text-6xl 2xl:text-6xl" style={{ animationDelay: '150ms', animationFillMode: 'both', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+       <h1 className="animate-fade-in text-[clamp(2.25rem,7vw,5rem)] font-medium leading-[1.05] tracking-[-0.02em] text-foreground sm:whitespace-nowrap sm:text-4xl md:text-6xl md:font-medium md:leading-[1.05] lg:text-6xl xl:text-6xl 2xl:text-6xl" style={{ animationDelay: '150ms', animationFillMode: 'both', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
           Find your next <span className="whitespace-nowrap">product role, <span className="italic font-medium" style={{ fontFamily: "'Lora', serif", color: '#ff6b1a' }}>today.</span></span>
         </h1>
         <p className="animate-fade-in mt-4 text-base text-muted-foreground sm:mt-5 lg:whitespace-nowrap" style={{ animationDelay: '300ms', animationFillMode: 'both' }}>
