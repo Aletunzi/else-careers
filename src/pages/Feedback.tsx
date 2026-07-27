@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { toast } from "@/hooks/use-toast";
@@ -12,6 +12,10 @@ const Feedback = () => {
   const [message, setMessage] = useState("");
   const [submitting, setSubmitting] = useState(false);
 
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   useEffect(() => {
     document.title = "Else | Feedback";
     const metaDescription = document.querySelector('meta[name="description"]');
@@ -21,12 +25,21 @@ const Feedback = () => {
         "Share your feedback about Else. Tell us what works, what doesn't, and what you'd love to see next.",
       );
     }
-    window.scrollTo(0, 0);
   }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    const trimmedName = name.trim();
+    const trimmedEmail = email.trim();
     const trimmedMessage = message.trim();
+    if (!trimmedName) {
+      toast({ title: "Please enter your name." });
+      return;
+    }
+    if (!trimmedEmail || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmedEmail)) {
+      toast({ title: "Please enter a valid email." });
+      return;
+    }
     if (!trimmedMessage) {
       toast({ title: "Please write your feedback before sending." });
       return;
@@ -37,14 +50,9 @@ const Feedback = () => {
     }
     setSubmitting(true);
 
-    const subject = `Else feedback${name.trim() ? ` — ${name.trim()}` : ""}`;
-    const bodyLines = [
-      name.trim() ? `Name: ${name.trim()}` : null,
-      email.trim() ? `Email: ${email.trim()}` : null,
-      "",
-      trimmedMessage,
-    ].filter((l) => l !== null);
-    const mailto = `mailto:${FEEDBACK_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join("\n"))}`;
+    const subject = `Else feedback — ${trimmedName}`;
+    const body = `Name: ${trimmedName}\nEmail: ${trimmedEmail}\n\n${trimmedMessage}`;
+    const mailto = `mailto:${FEEDBACK_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     window.location.href = mailto;
 
     setTimeout(() => {
@@ -79,11 +87,12 @@ const Feedback = () => {
             <div className="grid gap-6 sm:grid-cols-2">
               <div className="flex flex-col gap-2">
                 <label htmlFor="fb-name" className="text-sm font-medium text-foreground">
-                  Name <span className="text-muted-foreground">(optional)</span>
+                  Name
                 </label>
                 <input
                   id="fb-name"
                   type="text"
+                  required
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   maxLength={100}
@@ -93,11 +102,12 @@ const Feedback = () => {
               </div>
               <div className="flex flex-col gap-2">
                 <label htmlFor="fb-email" className="text-sm font-medium text-foreground">
-                  Email <span className="text-muted-foreground">(optional)</span>
+                  Email
                 </label>
                 <input
                   id="fb-email"
                   type="email"
+                  required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   maxLength={255}
@@ -133,9 +143,6 @@ const Feedback = () => {
               />
               <span className="relative z-10">{submitting ? "Sending…" : "Send feedback"}</span>
             </button>
-            <p className="text-xs text-muted-foreground">
-              Your message will be sent to {FEEDBACK_EMAIL}.
-            </p>
           </form>
         </div>
       </main>
