@@ -69,8 +69,12 @@ const Feedback = () => {
     setName("");
     setEmail("");
     setMessage("");
+    setSubmitted(true);
     toast({ title: "Thanks! Your feedback has been sent." });
   };
+
+  const handleReset = () => setSubmitted(false);
+
 
   return (
     <div className="flex min-h-screen flex-col bg-background">
