@@ -20,6 +20,7 @@ const Footer = () => {
                   </a>
                 </li>
                 <li><a href="https://x.com/elsecareers" target="_blank" rel="noopener noreferrer" className="hover:text-white/80 transition-colors">Blog</a></li>
+                <li><Link to="/feedback" className="hover:text-white/80 transition-colors">Feedback</Link></li>
               </ul>
             </div>
             <div>
@@ -64,6 +65,7 @@ const Footer = () => {
                     </a>
                   </li>
                   <li><a href="https://x.com/elsecareers" target="_blank" rel="noopener noreferrer" className="hover:text-white/80 transition-colors">Blog</a></li>
+                <li><Link to="/feedback" className="hover:text-white/80 transition-colors">Feedback</Link></li>
                 </ul>
               </div>
               <div>
