@@ -98,68 +98,95 @@ const Feedback = () => {
         </div>
 
         <div className="pb-16 pt-8 md:w-2/3 md:pt-0">
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="grid gap-6 sm:grid-cols-2">
-              <div className="flex flex-col gap-2">
-                <label htmlFor="fb-name" className="text-sm font-medium text-foreground">
-                  Name
-                </label>
-                <input
-                  id="fb-name"
-                  type="text"
-                  required
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  maxLength={100}
-                  className="rounded-xl bg-card px-4 py-3 text-[15px] text-foreground shadow-sm outline-none ring-0 transition placeholder:text-muted-foreground focus:ring-2 focus:ring-foreground/10"
-                  placeholder="Your name"
-                />
-              </div>
-              <div className="flex flex-col gap-2">
-                <label htmlFor="fb-email" className="text-sm font-medium text-foreground">
-                  Email
-                </label>
-                <input
-                  id="fb-email"
-                  type="email"
-                  required
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  maxLength={255}
-                  className="rounded-xl bg-card px-4 py-3 text-[15px] text-foreground shadow-sm outline-none ring-0 transition placeholder:text-muted-foreground focus:ring-2 focus:ring-foreground/10"
-                  placeholder="you@example.com"
-                />
+          {submitted ? (
+            <div className="animate-fade-in rounded-2xl bg-card p-8 shadow-sm sm:p-10">
+              <div className="flex flex-col items-center text-center">
+                <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-full bg-[#ff6b1a]/10">
+                  <Check className="h-7 w-7 text-[#ff6b1a]" strokeWidth={2.5} />
+                </div>
+                <h2 className="text-2xl font-medium tracking-tight text-foreground sm:text-3xl">
+                  Feedback sent!
+                </h2>
+                <p className="mt-3 max-w-md text-sm text-muted-foreground">
+                  Thanks for sharing your thoughts. We read every message and use it to make Else better.
+                </p>
+                <button
+                  onClick={handleReset}
+                  className="group relative mt-8 inline-flex items-center justify-center overflow-hidden rounded-lg bg-primary px-6 py-3 text-sm text-white transition"
+                >
+                  <span
+                    aria-hidden
+                    className="absolute inset-y-0 left-0 w-0 bg-[#ff6b1a] transition-[width] duration-500 ease-out group-hover:w-full"
+                  />
+                  <span className="relative z-10">Send another feedback</span>
+                </button>
               </div>
             </div>
-            <div className="flex flex-col gap-2">
-              <label htmlFor="fb-message" className="text-sm font-medium text-foreground">
-                What do you want to see on the platform?
-              </label>
-              <textarea
-                id="fb-message"
-                required
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-                maxLength={5000}
-                rows={8}
-                className="resize-y rounded-xl bg-card px-4 py-3 text-[15px] text-foreground shadow-sm outline-none ring-0 transition placeholder:text-muted-foreground focus:ring-2 focus:ring-foreground/10"
-                placeholder="Every little detail counts!"
-              />
-              <span className="text-xs text-muted-foreground">{message.length}/5000</span>
-            </div>
-            <button
-              type="submit"
-              disabled={submitting}
-              className="group relative inline-flex items-center justify-center overflow-hidden rounded-lg bg-primary px-6 py-3 text-sm text-white transition disabled:opacity-60"
-            >
-              <span
-                aria-hidden
-                className="absolute inset-y-0 left-0 w-0 bg-[#ff6b1a] transition-[width] duration-500 ease-out group-hover:w-full"
-              />
-              <span className="relative z-10">{submitting ? "Sending…" : "Send feedback"}</span>
-            </button>
-          </form>
+          ) : (
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="grid gap-6 sm:grid-cols-2">
+                <div className="flex flex-col gap-2">
+                  <label htmlFor="fb-name" className="text-sm font-medium text-foreground">
+                    Name
+                  </label>
+                  <input
+                    id="fb-name"
+                    type="text"
+                    required
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    maxLength={100}
+                    className="rounded-xl bg-card px-4 py-3 text-[15px] text-foreground shadow-sm outline-none ring-0 transition placeholder:text-muted-foreground focus:ring-2 focus:ring-foreground/10"
+                    placeholder="Your name"
+                  />
+                </div>
+                <div className="flex flex-col gap-2">
+                  <label htmlFor="fb-email" className="text-sm font-medium text-foreground">
+                    Email
+                  </label>
+                  <input
+                    id="fb-email"
+                    type="email"
+                    required
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    maxLength={255}
+                    className="rounded-xl bg-card px-4 py-3 text-[15px] text-foreground shadow-sm outline-none ring-0 transition placeholder:text-muted-foreground focus:ring-2 focus:ring-foreground/10"
+                    placeholder="you@example.com"
+                  />
+                </div>
+              </div>
+              <div className="flex flex-col gap-2">
+                <label htmlFor="fb-message" className="text-sm font-medium text-foreground">
+                  What do you want to see on the platform?
+                </label>
+                <textarea
+                  id="fb-message"
+                  required
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                  maxLength={5000}
+                  rows={8}
+                  className="resize-y rounded-xl bg-card px-4 py-3 text-[15px] text-foreground shadow-sm outline-none ring-0 transition placeholder:text-muted-foreground focus:ring-2 focus:ring-foreground/10"
+                  placeholder="Every little detail counts!"
+                />
+                <span className="text-xs text-muted-foreground">{message.length}/5000</span>
+              </div>
+              <button
+                type="submit"
+                disabled={submitting}
+                className="group relative inline-flex items-center justify-center overflow-hidden rounded-lg bg-primary px-6 py-3 text-sm text-white transition disabled:opacity-60"
+              >
+                <span
+                  aria-hidden
+                  className="absolute inset-y-0 left-0 w-0 bg-[#ff6b1a] transition-[width] duration-500 ease-out group-hover:w-full"
+                />
+                <span className="relative z-10">{submitting ? "Sending…" : "Send feedback"}</span>
+              </button>
+            </form>
+          )}
         </div>
+
       </main>
       <Footer />
     </div>
