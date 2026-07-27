@@ -118,7 +118,7 @@ const Feedback = () => {
             </div>
             <div className="flex flex-col gap-2">
               <label htmlFor="fb-message" className="text-sm font-medium text-foreground">
-                Your feedback
+                What do you want to see on the platform?
               </label>
               <textarea
                 id="fb-message"
@@ -128,7 +128,7 @@ const Feedback = () => {
                 maxLength={5000}
                 rows={8}
                 className="resize-y rounded-xl bg-card px-4 py-3 text-[15px] text-foreground shadow-sm outline-none ring-0 transition placeholder:text-muted-foreground focus:ring-2 focus:ring-foreground/10"
-                placeholder="What's on your mind?"
+                placeholder="Every little detail counts!"
               />
               <span className="text-xs text-muted-foreground">{message.length}/5000</span>
             </div>
