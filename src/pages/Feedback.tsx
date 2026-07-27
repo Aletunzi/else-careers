@@ -12,6 +12,8 @@ const Feedback = () => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [submitting, setSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+
 
   useLayoutEffect(() => {
     window.scrollTo(0, 0);
