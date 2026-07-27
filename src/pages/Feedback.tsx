@@ -4,6 +4,8 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { toast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
+import { Check } from "lucide-react";
+
 
 const Feedback = () => {
   const [name, setName] = useState("");
