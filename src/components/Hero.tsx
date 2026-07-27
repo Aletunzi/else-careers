@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { ArrowUp, ArrowUpRight } from "lucide-react";
+import { ArrowUp } from "lucide-react";
 
 const placeholders = [
   "I'm looking for a senior product manager role in Paris",
@@ -75,7 +75,7 @@ const Hero = () => {
   return (
     <>
       <section className="flex flex-1 flex-col items-center justify-center px-5 py-10 text-center sm:justify-start sm:px-8 sm:pt-20 sm:pb-16 md:pt-28">
-       <h1 className="animate-fade-in text-[clamp(2.25rem,7vw,5rem)] font-medium leading-[1.05] tracking-[-0.02em] text-foreground sm:whitespace-nowrap sm:text-4xl md:text-6xl md:font-medium md:leading-[1.05] lg:text-6xl xl:text-6xl 2xl:text-6xl" style={{ animationDelay: '150ms', animationFillMode: 'both', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+       <h1 className="animate-fade-in text-[clamp(2.25rem,7vw,5rem)] font-medium leading-[1.05] text-foreground sm:whitespace-nowrap sm:text-4xl md:text-6xl md:font-medium md:leading-[1.05] lg:text-6xl xl:text-6xl 2xl:text-6xl" style={{ animationDelay: '150ms', animationFillMode: 'both' }}>
           Find your next <span className="whitespace-nowrap">product role, <span className="italic font-medium" style={{ fontFamily: "'Lora', serif", color: '#ff6b1a' }}>today.</span></span>
         </h1>
         <p className="animate-fade-in mt-4 text-base text-muted-foreground sm:mt-5 lg:whitespace-nowrap" style={{ animationDelay: '300ms', animationFillMode: 'both' }}>
@@ -120,24 +120,20 @@ const Hero = () => {
             <ArrowUp className="w-5 h-5" />
           </button>
         </div>
-        <div className="animate-fade-in mt-8 flex w-full flex-col items-start gap-8 sm:mt-10 sm:flex-row sm:items-center sm:justify-center sm:gap-12" style={{ animationDelay: '600ms', animationFillMode: 'both' }}>
-          <span className="self-center text-xs uppercase tracking-[0.2em] text-muted-foreground sm:self-auto">Popular searches</span>
-          <div className="flex w-full flex-col items-start gap-3 sm:w-auto sm:flex-row sm:flex-wrap sm:items-center sm:justify-center sm:gap-6">
-            {suggestionPills.map((pill) => (
-              <button
-                key={pill}
-                type="button"
-                onClick={() => {
-                  setInputValue(pill);
-                  handleSearch(pill);
-                }}
-                className="group flex w-full items-center justify-between text-sm text-foreground transition-opacity hover:opacity-80 sm:w-auto sm:justify-start"
-              >
-                {pill}
-                <ArrowUpRight className="h-3.5 w-3.5" style={{ color: '#ff6b1a' }} />
-              </button>
-            ))}
-          </div>
+        <div className="animate-fade-in mt-5 flex flex-col items-center gap-2 sm:mt-6 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-3" style={{ animationDelay: '600ms', animationFillMode: 'both' }}>
+          {suggestionPills.map((pill) => (
+            <button
+              key={pill}
+              type="button"
+              onClick={() => {
+                setInputValue(pill);
+                handleSearch(pill);
+              }}
+              className="rounded-full bg-card shadow-sm px-4 py-2 text-sm text-foreground/80 transition-colors hover:bg-secondary hover:text-foreground sm:px-5 sm:py-2.5"
+            >
+              {pill}
+            </button>
+          ))}
         </div>
         <button
           type="button"
