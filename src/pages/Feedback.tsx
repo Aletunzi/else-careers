@@ -3,8 +3,7 @@ import { useEffect, useLayoutEffect, useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { toast } from "@/hooks/use-toast";
-
-const FEEDBACK_EMAIL = "alessandro.tunzi6@gmail.com";
+import { supabase } from "@/integrations/supabase/client";
 
 const Feedback = () => {
   const [name, setName] = useState("");
@@ -27,7 +26,7 @@ const Feedback = () => {
     }
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const trimmedName = name.trim();
     const trimmedEmail = email.trim();
@@ -50,15 +49,23 @@ const Feedback = () => {
     }
     setSubmitting(true);
 
-    const subject = `Else feedback — ${trimmedName}`;
-    const body = `Name: ${trimmedName}\nEmail: ${trimmedEmail}\n\n${trimmedMessage}`;
-    const mailto = `mailto:${FEEDBACK_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    window.location.href = mailto;
+    const { error } = await supabase.from("feedback").insert({
+      name: trimmedName,
+      email: trimmedEmail,
+      message: trimmedMessage,
+    });
 
-    setTimeout(() => {
-      setSubmitting(false);
-      toast({ title: "Thanks! Your mail client should now be open." });
-    }, 400);
+    setSubmitting(false);
+
+    if (error) {
+      toast({ title: "Something went wrong. Please try again." });
+      return;
+    }
+
+    setName("");
+    setEmail("");
+    setMessage("");
+    toast({ title: "Thanks! Your feedback has been sent." });
   };
 
   return (
