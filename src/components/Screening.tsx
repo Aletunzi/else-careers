@@ -43,6 +43,14 @@ const VACANCIES: Vacancy[] = [
     favicon: "https://www.google.com/s2/favicons?domain=personio.com&sz=64",
     score: 61,
   },
+  {
+    id: "revolut",
+    role: "Product Lead, Payments",
+    company: "Revolut",
+    location: "London · Hybrid",
+    favicon: "https://www.google.com/s2/favicons?domain=revolut.com&sz=64",
+    score: 54,
+  },
 ];
 
 const DETAILS: Record<string, VacancyDetails> = {
@@ -82,6 +90,18 @@ const DETAILS: Record<string, VacancyDetails> = {
       { text: "Munich onsite does not match preferred location" },
     ],
   },
+  revolut: {
+    commentary:
+      "Payments expertise is a strong match, but the London hybrid model and lower stage-stage fit pull the score down.",
+    strengths: [
+      { text: "Deep experience in payments and card product strategy" },
+      { text: "Proven ability to launch in regulated European markets" },
+    ],
+    gaps: [
+      { text: "Limited London-based stakeholder exposure" },
+      { text: "Less hands-on growth marketing experimentation background" },
+    ],
+  },
 };
 
 const useCountUp = (end: number, duration = 1400, start = false) => {
@@ -103,6 +123,28 @@ const useCountUp = (end: number, duration = 1400, start = false) => {
     return () => cancelAnimationFrame(raf);
   }, [end, duration, start]);
   return value;
+};
+
+const scoreBadgeClasses = (score: number) => {
+  if (score > 85) {
+    return {
+      bg: "bg-green-500/10",
+      dot: "bg-green-500",
+      text: "text-green-600",
+    };
+  }
+  if (score > 60) {
+    return {
+      bg: "bg-[#ff6b1a]/10",
+      dot: "bg-[#ff6b1a]",
+      text: "text-[#ff6b1a]",
+    };
+  }
+  return {
+    bg: "bg-red-500/10",
+    dot: "bg-red-500",
+    text: "text-red-600",
+  };
 };
 
 const Screening = () => {
@@ -163,9 +205,9 @@ const Screening = () => {
           <span style={{ color: "#ff6b1a" }}>and scored</span> against your profile.
         </h2>
 
-        <div className="mt-14 grid grid-cols-1 gap-8 sm:mt-16 lg:grid-cols-12 lg:gap-12">
+        <div className="mt-14 grid grid-cols-1 items-stretch gap-8 sm:mt-16 lg:grid-cols-12 lg:gap-12">
           {/* List column */}
-          <div className="space-y-4 lg:col-span-5">
+          <div className="flex h-full flex-col gap-4 lg:col-span-5">
             {VACANCIES.map((v, i) => (
               <VacancyRow
                 key={v.id}
@@ -215,10 +257,11 @@ const VacancyRow = ({
   inView: boolean;
   delay: number;
 }) => {
+  const badge = scoreBadgeClasses(vacancy.score);
   return (
     <button
       onClick={onSelect}
-      className={`flex w-full items-center gap-4 rounded-3xl bg-white p-5 text-left shadow-[0_10px_40px_-15px_rgba(32,28,27,0.12)] transition-all sm:p-6 ${
+      className={`flex flex-1 w-full items-center gap-4 rounded-3xl bg-white p-5 text-left shadow-[0_10px_40px_-15px_rgba(32,28,27,0.12)] transition-all sm:p-6 ${
         selected
           ? "ring-2 ring-[#ff6b1a] ring-offset-2 ring-offset-[#FAF9F5]"
           : "hover:shadow-[0_14px_48px_-12px_rgba(32,28,27,0.18)]"
@@ -240,12 +283,9 @@ const VacancyRow = ({
           {vacancy.company} · {vacancy.location}
         </div>
       </div>
-      <div className="hidden items-center gap-2 rounded-full bg-[#ff6b1a]/10 px-3 py-1 sm:flex">
-        <span
-          className="h-2 w-2 rounded-full"
-          style={{ backgroundColor: "#ff6b1a" }}
-        />
-        <span className="text-sm font-semibold" style={{ color: "#ff6b1a" }}>
+      <div className={`hidden items-center gap-2 rounded-full px-3 py-1 sm:flex ${badge.bg}`}>
+        <span className={`h-2 w-2 rounded-full ${badge.dot}`} />
+        <span className={`text-sm font-semibold ${badge.text}`}>
           {vacancy.score}% fit
         </span>
       </div>
