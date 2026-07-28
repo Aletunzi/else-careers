@@ -5,13 +5,11 @@ type Point = { text: string };
 
 const STRENGTHS: Point[] = [
   { text: "8+ years leading product at Series B climate-tech scale-ups" },
-  { text: "Shipped 0-to-1 platforms with cross-functional teams of 20+" },
   { text: "Based in Berlin, fluent in English and German" },
 ];
 
 const GAPS: Point[] = [
   { text: "Limited exposure to hardware-integrated products" },
-  { text: "No direct experience with carbon accounting frameworks" },
 ];
 
 const useCountUp = (end: number, duration = 1400, start = false) => {
@@ -35,7 +33,8 @@ const useCountUp = (end: number, duration = 1400, start = false) => {
 const Screening = () => {
   const ref = useRef<HTMLElement>(null);
   const [inView, setInView] = useState(false);
-  const score = useCountUp(92, 1500, inView);
+  const [scoreStart, setScoreStart] = useState(false);
+  const score = useCountUp(92, 1400, scoreStart);
 
   useEffect(() => {
     if (!ref.current) return;
@@ -52,9 +51,22 @@ const Screening = () => {
     return () => obs.disconnect();
   }, []);
 
+  useEffect(() => {
+    if (!inView) return;
+    const t = setTimeout(() => setScoreStart(true), 700);
+    return () => clearTimeout(t);
+  }, [inView]);
+
   const radius = 44;
   const circumference = 2 * Math.PI * radius;
   const offset = circumference - (score / 100) * circumference;
+
+  const reveal = (delay: number) =>
+    `${inView ? "animate-fade-in" : "opacity-0"}`;
+  const delayStyle = (delay: number) => ({
+    animationDelay: `${delay}ms`,
+    animationFillMode: "both" as const,
+  });
 
   return (
     <section
@@ -64,36 +76,28 @@ const Screening = () => {
     >
       <div className="mx-auto max-w-6xl">
         <div
-          className={`flex items-center justify-center gap-3 text-xs uppercase tracking-[0.2em] text-muted-foreground ${inView ? "animate-fade-in" : "opacity-0"}`}
-          style={{ animationFillMode: "both" }}
+          className={`flex items-center justify-center gap-3 text-xs uppercase tracking-[0.2em] text-muted-foreground ${reveal(0)}`}
+          style={delayStyle(0)}
         >
           <span className="h-px w-8 bg-muted-foreground/50" />
           <span>The Screening</span>
         </div>
 
         <h2
-          className={`mx-auto mt-8 max-w-5xl text-center text-[clamp(2.25rem,7vw,5rem)] font-medium leading-[1.05] tracking-tight text-foreground md:text-6xl ${inView ? "animate-fade-in" : "opacity-0"}`}
-          style={{ animationDelay: "150ms", animationFillMode: "both" }}
+          className={`mx-auto mt-8 max-w-5xl text-center text-[clamp(2.25rem,7vw,5rem)] font-medium leading-[1.05] tracking-tight text-foreground md:text-6xl ${reveal(150)}`}
+          style={delayStyle(150)}
         >
           Every role, screened{" "}
           <span style={{ color: "#ff6b1a" }}>and scored</span> against your profile.
         </h2>
 
-        <p
-          className={`mx-auto mt-6 max-w-2xl text-center text-base text-muted-foreground sm:text-lg ${inView ? "animate-fade-in" : "opacity-0"}`}
-          style={{ animationDelay: "250ms", animationFillMode: "both" }}
-        >
-          For each vacancy, our agents read your CV and profile, then explain in plain
-          language where you shine and where you might fall short.
-        </p>
-
         <div
-          className={`mx-auto mt-14 max-w-3xl rounded-3xl bg-white p-6 shadow-[0_10px_40px_-15px_rgba(32,28,27,0.15)] sm:mt-16 sm:p-10 ${inView ? "animate-fade-in" : "opacity-0"}`}
-          style={{ animationDelay: "400ms", animationFillMode: "both" }}
+          className={`mx-auto mt-14 max-w-3xl rounded-3xl bg-white p-6 shadow-[0_10px_40px_-15px_rgba(32,28,27,0.15)] sm:mt-16 sm:p-10 ${reveal(300)}`}
+          style={delayStyle(300)}
         >
           {/* Header */}
           <div className="flex flex-col gap-6 border-b border-black/5 pb-6 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
-            <div className="flex items-center gap-4">
+            <div className={`flex items-center gap-4 ${reveal(500)}`} style={delayStyle(500)}>
               <div className="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-[#f3f1e9]">
                 <img
                   src="https://www.google.com/s2/favicons?domain=ecosia.org&sz=64"
@@ -112,7 +116,7 @@ const Screening = () => {
             </div>
 
             {/* Score */}
-            <div className="flex items-center gap-4 sm:gap-3">
+            <div className={`flex items-center gap-4 sm:gap-3 ${reveal(700)}`} style={delayStyle(700)}>
               <div className="relative h-24 w-24 shrink-0">
                 <svg className="h-full w-full -rotate-90" viewBox="0 0 100 100">
                   <circle
@@ -133,7 +137,7 @@ const Screening = () => {
                     strokeLinecap="round"
                     strokeDasharray={circumference}
                     strokeDashoffset={offset}
-                    style={{ transition: "stroke-dashoffset 100ms linear" }}
+                    style={{ transition: "stroke-dashoffset 120ms linear" }}
                   />
                 </svg>
                 <div className="absolute inset-0 flex flex-col items-center justify-center">
@@ -145,16 +149,18 @@ const Screening = () => {
           </div>
 
           {/* Comment */}
-          <div className="mt-6 rounded-2xl bg-[#faf5ec] p-5 text-sm leading-relaxed text-foreground sm:text-base">
+          <div
+            className={`mt-6 rounded-2xl bg-[#faf5ec] p-5 text-sm leading-relaxed text-foreground sm:text-base ${reveal(1100)}`}
+            style={delayStyle(1100)}
+          >
             <span className="font-semibold">Why this fits: </span>
-            Your track record scaling product orgs at climate-tech startups strongly
-            matches Ecosia's growth stage. The remote setup and Berlin base align with
-            the team, and your bilingual background is a plus for pan-European hiring.
+            Your climate-tech product leadership and Berlin base align tightly with
+            Ecosia's stage and remote setup.
           </div>
 
           {/* Strengths & gaps */}
           <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-8">
-            <div>
+            <div className={reveal(1300)} style={delayStyle(1300)}>
               <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.15em] text-foreground">
                 <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#ff6b1a]/15">
                   <Check className="h-3 w-3" style={{ color: "#ff6b1a" }} strokeWidth={3} />
@@ -162,15 +168,19 @@ const Screening = () => {
                 Strengths
               </div>
               <ul className="mt-3 space-y-2.5">
-                {STRENGTHS.map((p) => (
-                  <li key={p.text} className="flex items-start gap-2 text-sm text-foreground/80">
+                {STRENGTHS.map((p, i) => (
+                  <li
+                    key={p.text}
+                    className={`flex items-start gap-2 text-sm text-foreground/80 ${reveal(1450 + i * 150)}`}
+                    style={delayStyle(1450 + i * 150)}
+                  >
                     <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-foreground/40" />
                     <span>{p.text}</span>
                   </li>
                 ))}
               </ul>
             </div>
-            <div>
+            <div className={reveal(1500)} style={delayStyle(1500)}>
               <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.15em] text-foreground">
                 <span className="flex h-5 w-5 items-center justify-center rounded-full bg-foreground/10">
                   <Minus className="h-3 w-3 text-foreground/70" strokeWidth={3} />
@@ -178,8 +188,12 @@ const Screening = () => {
                 Gaps to consider
               </div>
               <ul className="mt-3 space-y-2.5">
-                {GAPS.map((p) => (
-                  <li key={p.text} className="flex items-start gap-2 text-sm text-foreground/80">
+                {GAPS.map((p, i) => (
+                  <li
+                    key={p.text}
+                    className={`flex items-start gap-2 text-sm text-foreground/80 ${reveal(1650 + i * 150)}`}
+                    style={delayStyle(1650 + i * 150)}
+                  >
                     <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-foreground/40" />
                     <span>{p.text}</span>
                   </li>
