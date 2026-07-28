@@ -43,6 +43,14 @@ const VACANCIES: Vacancy[] = [
     favicon: "https://www.google.com/s2/favicons?domain=personio.com&sz=64",
     score: 61,
   },
+  {
+    id: "revolut",
+    role: "Product Lead, Payments",
+    company: "Revolut",
+    location: "London · Hybrid",
+    favicon: "https://www.google.com/s2/favicons?domain=revolut.com&sz=64",
+    score: 54,
+  },
 ];
 
 const DETAILS: Record<string, VacancyDetails> = {
@@ -80,6 +88,18 @@ const DETAILS: Record<string, VacancyDetails> = {
     gaps: [
       { text: "No direct HR/HCM product experience" },
       { text: "Munich onsite does not match preferred location" },
+    ],
+  },
+  revolut: {
+    commentary:
+      "Payments expertise is a strong match, but the London hybrid model and lower stage-stage fit pull the score down.",
+    strengths: [
+      { text: "Deep experience in payments and card product strategy" },
+      { text: "Proven ability to launch in regulated European markets" },
+    ],
+    gaps: [
+      { text: "Limited London-based stakeholder exposure" },
+      { text: "Less hands-on growth marketing experimentation background" },
     ],
   },
 };
