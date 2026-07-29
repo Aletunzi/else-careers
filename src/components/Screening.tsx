@@ -141,6 +141,8 @@ const scoreBadgeClasses = (score: number) => {
 
 const Screening = () => {
   const ref = useRef<HTMLElement>(null);
+  const listRef = useRef<HTMLDivElement>(null);
+  const [listHeight, setListHeight] = useState<number | null>(null);
   const [inView, setInView] = useState(false);
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [cursorStage, setCursorStage] = useState<
@@ -209,7 +211,11 @@ const Screening = () => {
           Every role, scored against your profile.
         </h2>
 
-        <div className="relative mx-auto mt-14 flex max-w-3xl flex-col gap-4 sm:mt-16">
+        <div
+          ref={listRef}
+          className="relative mx-auto mt-14 flex max-w-3xl flex-col gap-4 sm:mt-16"
+          style={listHeight ? { minHeight: `${listHeight}px` } : undefined}
+        >
           {VACANCIES.map((v, i) => {
             const isSelected = selectedId === v.id;
             const hidden = selectedId !== null && !isSelected;
