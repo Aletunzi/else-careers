@@ -134,8 +134,7 @@ const Solution = () => {
           style={{ animationDelay: "150ms", animationFillMode: "both" }}
         >
           Our agents scan thousands
-          <br className="hidden sm:block" /> of sources,{" "}
-          <span style={{ color: "#ff6b1a" }}>non-stop.</span>
+          <br className="hidden sm:block" /> of sources, non-stop.
         </h2>
 
         <div

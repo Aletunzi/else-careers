@@ -136,8 +136,7 @@ const TryIt = () => {
             opacity: inView ? undefined : 0,
           }}
         >
-          Search the way you actually{" "}
-          <span style={{ color: "#ff6b1a" }}>think</span>.
+          Search the way you actually think.
         </h2>
         <p
           className="mt-5 max-w-2xl text-base text-muted-foreground sm:text-lg"

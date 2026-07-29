@@ -201,8 +201,7 @@ const Screening = () => {
           className={`mx-auto mt-8 max-w-5xl text-center text-[clamp(2.25rem,7vw,5rem)] font-medium leading-[1.05] tracking-tight text-foreground md:text-6xl ${reveal(150)}`}
           style={delayStyle(150)}
         >
-          Every role, screened{" "}
-          <span style={{ color: "#ff6b1a" }}>and scored</span> against your profile.
+          Every role, screened and scored against your profile.
         </h2>
 
         <div className="mt-14 grid grid-cols-1 items-stretch gap-8 sm:mt-16 lg:grid-cols-12 lg:gap-12">
