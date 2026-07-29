@@ -89,8 +89,8 @@ export default {
           "50%": { transform: "translateY(10px)", opacity: "1" },
         },
         "loading-dot": {
-          "0%, 80%, 100%": { transform: "translateY(0)", opacity: "0.4" },
-          "40%": { transform: "translateY(-3px)", opacity: "1" },
+          "0%, 80%, 100%": { transform: "translateY(0)", opacity: "0.5" },
+          "40%": { transform: "translateY(-5px)", opacity: "1" },
         },
       },
       animation: {
