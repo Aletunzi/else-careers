@@ -350,6 +350,7 @@ const VacancyRow = ({
           selected ? "opacity-100 rounded-b-3xl animate-fade-in" : "max-h-0 opacity-0"
         }`}
         style={{
+          height: selected && detailHeight ? `${detailHeight}px` : undefined,
           transitionDuration: "500ms",
           transitionTimingFunction: "cubic-bezier(0.33, 1, 0.68, 1)",
           animationDuration: "500ms",
@@ -357,7 +358,7 @@ const VacancyRow = ({
         }}
       >
         {selected && details && (
-          <InlineDetail vacancy={vacancy} details={details} />
+          <InlineDetail vacancy={vacancy} details={details} detailHeight={detailHeight} />
         )}
       </div>
     </div>
