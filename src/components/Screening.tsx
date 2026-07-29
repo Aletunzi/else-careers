@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Check, Minus, ChevronRight } from "lucide-react";
+import { Check, Minus, ChevronDown, ChevronRight } from "lucide-react";
 
 type Point = { text: string };
 
@@ -143,6 +143,9 @@ const Screening = () => {
   const ref = useRef<HTMLElement>(null);
   const [inView, setInView] = useState(false);
   const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [cursorStage, setCursorStage] = useState<
+    "hidden" | "moving" | "clicking" | "done"
+  >("hidden");
 
   useEffect(() => {
     if (!ref.current) return;
@@ -161,9 +164,18 @@ const Screening = () => {
 
   useEffect(() => {
     if (!inView) return;
-    // Show the 4 cards first, then expand the first one into the detail panel.
-    const t = setTimeout(() => setSelectedId(VACANCIES[0].id), 2700);
-    return () => clearTimeout(t);
+    // 1) Cards fade in (0-1800ms). 2) Cursor appears and moves to first arrow.
+    // 3) Cursor clicks. 4) First card expands with details.
+    const timers: number[] = [];
+    timers.push(window.setTimeout(() => setCursorStage("moving"), 1900));
+    timers.push(window.setTimeout(() => setCursorStage("clicking"), 2900));
+    timers.push(
+      window.setTimeout(() => {
+        setSelectedId(VACANCIES[0].id);
+        setCursorStage("done");
+      }, 3150)
+    );
+    return () => timers.forEach((t) => clearTimeout(t));
   }, [inView]);
 
   const reveal = (delay: number) =>
@@ -187,7 +199,7 @@ const Screening = () => {
           style={delayStyle(0)}
         >
           <span className="h-px w-8 bg-muted-foreground/50" />
-          <span>The Screening</span>
+          <span>Screening</span>
         </div>
 
         <h2
@@ -197,43 +209,26 @@ const Screening = () => {
           Every role, scored against your profile.
         </h2>
 
-        <div className="mt-14 flex flex-col items-stretch gap-8 sm:mt-16 lg:flex-row lg:gap-12">
-          {/* List column */}
-          <div
-            className={`flex h-full flex-col gap-4 transition-all ${
-              selectedId ? "lg:w-[45%]" : "lg:w-full"
-            }`}
-            style={{ transitionDuration: "900ms", transitionTimingFunction: "cubic-bezier(0.33, 1, 0.68, 1)" }}
-          >
-            {VACANCIES.map((v, i) => (
+        <div className="relative mx-auto mt-14 flex max-w-3xl flex-col gap-4 sm:mt-16">
+          {VACANCIES.map((v, i) => {
+            const isSelected = selectedId === v.id;
+            const hidden = selectedId !== null && !isSelected;
+            return (
               <VacancyRow
                 key={v.id}
                 vacancy={v}
-                selected={selectedId === v.id}
+                selected={isSelected}
+                hidden={hidden}
                 onSelect={() => setSelectedId(v.id)}
                 inView={inView}
                 delay={350 + i * 300}
+                details={isSelected ? DETAILS[v.id] : undefined}
               />
-            ))}
-          </div>
+            );
+          })}
 
-          {/* Detail panel */}
-          <div
-            className={`flex origin-top lg:origin-left overflow-hidden transition-all ${
-              selectedId
-                ? "max-h-[1200px] opacity-100 scale-100 lg:w-[55%] lg:max-h-[1200px]"
-                : "max-h-0 opacity-0 scale-95 lg:w-0 lg:max-h-0 lg:pointer-events-none"
-            }`}
-            style={{ transitionDuration: "900ms", transitionTimingFunction: "cubic-bezier(0.33, 1, 0.68, 1)" }}
-          >
-            {selected && (
-              <DetailPanel
-                key={selected.id}
-                vacancy={selected}
-                details={DETAILS[selected.id]}
-              />
-            )}
-          </div>
+          {/* Animated cursor pointer */}
+          <AnimatedCursor stage={cursorStage} />
         </div>
       </div>
     </section>
@@ -243,65 +238,88 @@ const Screening = () => {
 const VacancyRow = ({
   vacancy,
   selected,
+  hidden,
   onSelect,
   inView,
   delay,
+  details,
 }: {
   vacancy: Vacancy;
   selected: boolean;
+  hidden: boolean;
   onSelect: () => void;
   inView: boolean;
   delay: number;
+  details?: VacancyDetails;
 }) => {
   const badge = scoreBadgeClasses(vacancy.score);
   return (
-    <button
-      onClick={onSelect}
-      className={`flex flex-1 w-full items-center gap-4 rounded-3xl bg-white p-5 text-left shadow-[0_10px_40px_-15px_rgba(32,28,27,0.12)] transition-all sm:p-6 ${
-        selected
-          ? "ring-2 ring-[#ff6b1a] ring-offset-2 ring-offset-[#FAF9F5]"
-          : "hover:shadow-[0_14px_48px_-12px_rgba(32,28,27,0.18)]"
-      } ${inView ? "animate-fade-in" : "opacity-0"}`}
+    <div
+      className={`overflow-hidden transition-all ${inView ? "animate-fade-in" : "opacity-0"} ${
+        hidden ? "pointer-events-none max-h-0 -translate-y-1 opacity-0 my-0" : "max-h-[1400px] opacity-100"
+      }`}
       style={{
         animationDelay: `${delay}ms`,
         animationDuration: "800ms",
         animationFillMode: "both",
         animationTimingFunction: "cubic-bezier(0.33, 1, 0.68, 1)",
+        transitionDuration: "700ms",
+        transitionTimingFunction: "cubic-bezier(0.33, 1, 0.68, 1)",
       }}
     >
-      <div className="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-[#f3f1e9]">
-        <img
-          src={vacancy.favicon}
-          alt={vacancy.company}
-          className="h-7 w-7 object-contain"
-        />
-      </div>
-      <div className="min-w-0 flex-1">
-        <div className="truncate text-base font-semibold text-foreground sm:text-lg">
-          {vacancy.role}
-        </div>
-        <div className="mt-0.5 truncate text-sm text-muted-foreground">
-          {vacancy.company} · {vacancy.location}
-        </div>
-      </div>
-      <div className={`hidden items-center gap-2 rounded-full px-3 py-1 sm:flex ${badge.bg}`}>
-        <span className={`h-2 w-2 rounded-full ${badge.dot}`} />
-        <span className={`text-sm font-semibold ${badge.text}`}>
-          {vacancy.score}% fit
-        </span>
-      </div>
-      <div
-        className={`flex shrink-0 items-center justify-center rounded-full p-2 transition-colors ${
-          selected ? "bg-[#ff6b1a] text-white" : "bg-foreground text-background"
+      <button
+        onClick={onSelect}
+        className={`flex w-full items-center gap-4 rounded-t-3xl bg-white p-5 text-left shadow-[0_10px_40px_-15px_rgba(32,28,27,0.12)] transition-all sm:p-6 ${
+          selected ? "rounded-b-none" : "rounded-b-3xl hover:shadow-[0_14px_48px_-12px_rgba(32,28,27,0.18)]"
         }`}
       >
-        <ChevronRight className="h-4 w-4" />
+        <div className="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-[#f3f1e9]">
+          <img
+            src={vacancy.favicon}
+            alt={vacancy.company}
+            className="h-7 w-7 object-contain"
+          />
+        </div>
+        <div className="min-w-0 flex-1">
+          <div className="truncate text-base font-semibold text-foreground sm:text-lg">
+            {vacancy.role}
+          </div>
+          <div className="mt-0.5 truncate text-sm text-muted-foreground">
+            {vacancy.company} · {vacancy.location}
+          </div>
+        </div>
+        <div className={`hidden items-center gap-2 rounded-full px-3 py-1 sm:flex ${badge.bg}`}>
+          <span className={`h-2 w-2 rounded-full ${badge.dot}`} />
+          <span className={`text-sm font-semibold ${badge.text}`}>
+            {vacancy.score}% fit
+          </span>
+        </div>
+        <div
+          data-arrow
+          className={`flex shrink-0 items-center justify-center rounded-full p-2 transition-all ${
+            selected ? "bg-[#ff6b1a] text-white rotate-90" : "bg-foreground text-background"
+          }`}
+        >
+          <ChevronRight className="h-4 w-4" />
+        </div>
+      </button>
+
+      {/* Inline expanded detail */}
+      <div
+        className={`overflow-hidden bg-white shadow-[0_10px_40px_-15px_rgba(32,28,27,0.12)] transition-all ${
+          selected ? "max-h-[1200px] opacity-100 rounded-b-3xl" : "max-h-0 opacity-0"
+        }`}
+        style={{ transitionDuration: "900ms", transitionTimingFunction: "cubic-bezier(0.33, 1, 0.68, 1)" }}
+      >
+        {selected && details && (
+          <InlineDetail vacancy={vacancy} details={details} />
+        )}
       </div>
-    </button>
+    </div>
   );
 };
 
-const DetailPanel = ({
+const InlineDetail = ({
   vacancy,
   details,
 }: {
@@ -315,31 +333,9 @@ const DetailPanel = ({
   const scoreColor = "#ff6b1a";
 
   return (
-    <div
-      className="flex h-full w-full flex-col overflow-hidden rounded-3xl bg-white shadow-[0_10px_40px_-15px_rgba(32,28,27,0.12)]"
-    >
-      <div className="flex h-full flex-col p-6 sm:p-8">
-        {/* Header */}
-        <div className="flex items-start gap-4">
-          <div className="flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden rounded-2xl bg-[#f3f1e9]">
-            <img
-              src={vacancy.favicon}
-              alt={vacancy.company}
-              className="h-8 w-8 object-contain"
-            />
-          </div>
-          <div className="min-w-0 flex-1">
-            <div className="text-lg font-semibold text-foreground sm:text-xl">
-              {vacancy.role}
-            </div>
-            <div className="mt-0.5 text-sm text-muted-foreground">
-              {vacancy.company} · {vacancy.location}
-            </div>
-          </div>
-        </div>
-
+    <div className="border-t border-foreground/5 px-5 pb-6 pt-6 sm:px-8 sm:pb-8">
         {/* Score gauge */}
-        <div className="mt-10 flex items-center gap-6">
+        <div className="flex items-center gap-6">
           <div className="relative h-28 w-28 shrink-0">
             <svg className="h-full w-full -rotate-90" viewBox="0 0 100 100">
               <circle
@@ -381,7 +377,7 @@ const DetailPanel = ({
         </div>
 
         {/* Strengths & gaps */}
-        <div className="mt-auto grid grid-cols-1 gap-6 pt-10 sm:grid-cols-2 sm:gap-8">
+        <div className="grid grid-cols-1 gap-6 pt-8 sm:grid-cols-2 sm:gap-8">
           <div
             className="animate-fade-in"
             style={{ animationDelay: "650ms", animationFillMode: "both", animationDuration: "600ms", animationTimingFunction: "cubic-bezier(0.33, 1, 0.68, 1)" }}
@@ -443,7 +439,76 @@ const DetailPanel = ({
             </ul>
           </div>
         </div>
+    </div>
+  );
+};
+
+const AnimatedCursor = ({
+  stage,
+}: {
+  stage: "hidden" | "moving" | "clicking" | "done";
+}) => {
+  // Approximate top-right arrow position of the first card (~28px from top,
+  // ~28px from right on desktop / mobile).
+  const targetRight = 28;
+  const targetTop = 36;
+
+  const visible = stage !== "hidden" && stage !== "done";
+  // Start position: below and to the left of the target
+  const startRight = 180;
+  const startTop = 220;
+
+  const isMoving = stage === "moving" || stage === "clicking";
+  const right = isMoving ? targetRight : startRight;
+  const top = isMoving ? targetTop : startTop;
+
+  return (
+    <div
+      aria-hidden
+      className="pointer-events-none absolute z-20 hidden sm:block"
+      style={{
+        right: `${right}px`,
+        top: `${top}px`,
+        opacity: visible ? 1 : 0,
+        transition:
+          "right 900ms cubic-bezier(0.33, 1, 0.68, 1), top 900ms cubic-bezier(0.33, 1, 0.68, 1), opacity 300ms ease",
+      }}
+    >
+      <div className="relative">
+        {stage === "clicking" && (
+          <span
+            className="absolute -left-2 -top-2 h-8 w-8 rounded-full border-2 border-foreground/50"
+            style={{
+              animation: "cursor-ping 400ms cubic-bezier(0, 0, 0.2, 1)",
+            }}
+          />
+        )}
+        <svg
+          width="22"
+          height="22"
+          viewBox="0 0 24 24"
+          fill="none"
+          style={{
+            filter: "drop-shadow(0 4px 6px rgba(0,0,0,0.25))",
+            transform: stage === "clicking" ? "scale(0.9)" : "scale(1)",
+            transition: "transform 120ms ease",
+          }}
+        >
+          <path
+            d="M4 3l7 17 2.5-7L20 10.5 4 3z"
+            fill="#201C1B"
+            stroke="#FAF9F5"
+            strokeWidth="1.5"
+            strokeLinejoin="round"
+          />
+        </svg>
       </div>
+      <style>{`
+        @keyframes cursor-ping {
+          0% { transform: scale(0.4); opacity: 0.9; }
+          100% { transform: scale(1.6); opacity: 0; }
+        }
+      `}</style>
     </div>
   );
 };
