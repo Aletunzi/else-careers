@@ -390,7 +390,7 @@ const InlineDetail = ({
                 r={radius}
                 fill="none"
                 stroke="#f3f1e9"
-                strokeWidth="8"
+                strokeWidth="12"
               />
               <circle
                 cx="50"
@@ -398,7 +398,7 @@ const InlineDetail = ({
                 r={radius}
                 fill="none"
                 stroke={scoreColor}
-                strokeWidth="8"
+                strokeWidth="12"
                 strokeLinecap="round"
                 strokeDasharray={circumference}
                 strokeDashoffset={offset}
