@@ -238,9 +238,7 @@ const Screening = () => {
           ref={listRef}
           className="relative mx-auto mt-14 flex max-w-3xl flex-col gap-4 sm:mt-16"
           style={
-            selectedId
-              ? { minHeight: `${listHeight - firstCardHeight - gap}px` }
-              : listHeight
+            listHeight
               ? { minHeight: `${listHeight}px` }
               : undefined
           }
@@ -258,6 +256,11 @@ const Screening = () => {
                 inView={inView}
                 delay={350 + i * 300}
                 details={isSelected ? DETAILS[v.id] : undefined}
+                detailHeight={
+                  isSelected && listHeight && firstCardHeight
+                    ? listHeight - firstCardHeight - gap
+                    : undefined
+                }
               />
             );
           })}
