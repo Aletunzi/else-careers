@@ -120,7 +120,7 @@ const AutoApply = () => {
             opacity: inView ? undefined : 0,
           }}
         >
-          You click Apply.<br className="hidden sm:block" /> We do the rest.
+          You click Apply. We handle the rest.
         </h2>
         <p
           className="mx-auto mt-5 max-w-2xl text-center text-base text-muted-foreground sm:text-lg"
