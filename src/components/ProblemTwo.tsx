@@ -47,12 +47,11 @@ const ProblemTwo = () => {
   return (
     <section
       ref={ref}
-      className="px-5 py-20 sm:px-8 sm:py-24 md:px-16 md:py-28 lg:px-24 lg:py-32 2xl:px-32"
-      style={{ backgroundColor: "#f3f1e9" }}
+      className="bg-background px-5 py-20 sm:px-8 sm:py-24 md:px-16 md:py-28 lg:px-24 lg:py-32 2xl:px-32"
     >
       <div className="mx-auto max-w-7xl">
         <div
-          className={`flex items-center gap-3 text-xs uppercase tracking-[0.2em] text-muted-foreground ${inView ? "animate-fade-in" : "opacity-0"}`}
+          className={`flex items-center gap-3 text-xs uppercase tracking-[0.2em] text-muted-foreground ${inView ? "animate-fade-down" : "opacity-0"}`}
           style={{ animationFillMode: "both" }}
         >
           <span className="h-px w-8 bg-muted-foreground/50" />
@@ -60,7 +59,7 @@ const ProblemTwo = () => {
         </div>
 
         <h2
-          className={`mt-8 max-w-5xl text-left text-[clamp(2.25rem,7vw,5rem)] font-medium leading-[1.05] tracking-tight text-foreground md:text-6xl ${inView ? "animate-fade-in" : "opacity-0"}`}
+          className={`mt-8 max-w-5xl text-left text-[clamp(2.25rem,7vw,5rem)] font-medium leading-[1.05] tracking-tight text-foreground md:text-6xl ${inView ? "animate-fade-down" : "opacity-0"}`}
           style={{ animationDelay: "150ms", animationFillMode: "both" }}
         >
           Have you noticed that the job market is broken?
@@ -72,7 +71,7 @@ const ProblemTwo = () => {
             return (
               <div
                 key={item.headline}
-                className={`group flex flex-col items-start rounded-2xl bg-white p-7 shadow-[0_4px_24px_-8px_rgba(32,28,27,0.08)] transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_12px_32px_-12px_rgba(32,28,27,0.12)] sm:p-8 lg:p-10 ${inView ? "animate-fade-in" : "opacity-0"}`}
+                className={`group flex flex-col items-start rounded-2xl bg-white p-7 shadow-[0_4px_24px_-8px_rgba(32,28,27,0.08)] transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_12px_32px_-12px_rgba(32,28,27,0.12)] sm:p-8 lg:p-10 ${inView ? "animate-fade-down" : "opacity-0"}`}
                 style={{ animationDelay: item.delay, animationFillMode: "both" }}
               >
                 <div
