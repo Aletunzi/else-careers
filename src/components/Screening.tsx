@@ -367,11 +367,9 @@ const VacancyRow = ({
 const InlineDetail = ({
   vacancy,
   details,
-  detailHeight,
 }: {
   vacancy: Vacancy;
   details: VacancyDetails;
-  detailHeight?: number;
 }) => {
   const score = useCountUp(vacancy.score, 1200, true);
   const radius = 38;
