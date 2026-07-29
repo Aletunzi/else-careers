@@ -314,8 +314,7 @@ const DetailPanel = ({
 
   return (
     <div
-      className="flex w-full flex-col overflow-hidden rounded-3xl bg-white shadow-[0_10px_40px_-15px_rgba(32,28,27,0.12)] animate-scale-in origin-left"
-      style={{ animationFillMode: "both", animationDuration: "420ms" }}
+      className="flex h-full w-full flex-col overflow-hidden rounded-3xl bg-white shadow-[0_10px_40px_-15px_rgba(32,28,27,0.12)]"
     >
       <div className="flex h-full flex-col p-6 sm:p-8">
         {/* Header */}
