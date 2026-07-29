@@ -1,6 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 
-export const useStickyFooterStop = () => {
+interface UseStickyFooterStopOptions {
+  stickyTop?: number;
+}
+
+export const useStickyFooterStop = ({ stickyTop = 128 }: UseStickyFooterStopOptions = {}) => {
   const stickyRef = useRef<HTMLDivElement>(null);
   const footerRef = useRef<HTMLElement>(null);
   const [offset, setOffset] = useState(0);
@@ -11,14 +15,16 @@ export const useStickyFooterStop = () => {
     if (!sticky || !footer) return;
 
     const handleScroll = () => {
+      const stickyRect = sticky.getBoundingClientRect();
       const footerRect = footer.getBoundingClientRect();
       const viewportHeight = window.innerHeight;
 
-      // When the footer enters the viewport, push the sticky element up by the
-      // amount of footer that is visible so it scrolls with the page instead of
-      // staying fixed above the footer.
+      // Only push the sticky element up once it is actually in its sticky position
+      // and the footer has entered the viewport. This keeps the title visible on
+      // short pages where the footer is already in view without scrolling.
+      const isSticky = stickyRect.top <= stickyTop + 1;
       const visibleFooter = Math.max(0, viewportHeight - footerRect.top);
-      setOffset(visibleFooter > 0 ? -visibleFooter : 0);
+      setOffset(isSticky && visibleFooter > 0 ? -visibleFooter : 0);
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -29,8 +35,9 @@ export const useStickyFooterStop = () => {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", handleScroll);
     };
-  }, []);
+  }, [stickyTop]);
 
   return { stickyRef, footerRef, offset };
 };
+
 
