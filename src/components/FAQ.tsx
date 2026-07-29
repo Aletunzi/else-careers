@@ -3,27 +3,27 @@ import { Plus } from "lucide-react";
 
 const faqs = [
   {
+    q: "How does Else find jobs?",
+    a: "Else watches 50,000+ company career pages directly. The moment a role fits your résumé and preferences, it lands in your match feed within seconds, with a clear breakdown of why it matched.",
+  },
+  {
+    q: "How do I know if Else applied correctly?",
+    a: "Every submitted application gets a receipt: the exact fields filled, the answers given, and a confirmation back from the ATS. You can review every application after the submission.",
+  },
+  {
+    q: "Will recruiters know I used Else?",
+    a: "No. Applications go through the same standard forms a manual applicant would. Your résumé and cover letter are tailored to the role, and there's no automated flag in the submission.",
+  },
+  {
     q: "Do you cover roles outside Europe?",
     a: "Right now Else is laser-focused on product & tech roles in Europe, so we can provide the widest and most in-depth coverage possible across the region.",
-  },
-  {
-    q: "How is this different from tools like Linkedin?",
-    a: "We do a selective, hand-curated job on the list of companies we track, so we can offer the broadest coverage that other platforms simply don't have.",
-  },
-  {
-    q: "How fresh are the listings?",
-    a: "Our agents continuously monitor the companies and their career pages, reaching a near real-time level of freshness on every listing.",
   },
   {
     q: "Do you only show product roles?",
     a: "Today our coverage is centered on product, design and adjacent tech roles. Expanding to more functions is on the roadmap.",
   },
   {
-    q: "How does the search actually work?",
-    a: "You describe what you're looking for in natural language and our search engine matches it against our indexed roles, considering criteria such as title, seniority, location, industry and company stage.",
-  },
-  {
-    q: "Is it free?",
+    q: "Is there a free plan?",
     a: "Else is free to use with a limited number of searches. We also offer paid plans to get the most out of Else.",
   },
 ];
