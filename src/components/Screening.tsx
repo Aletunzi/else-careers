@@ -59,9 +59,11 @@ const DETAILS: Record<string, VacancyDetails> = {
       "Your climate-tech product leadership and Berlin base align tightly with the stage and remote setup.",
     strengths: [
       { text: "8+ years leading product at Series B climate-tech scale-ups" },
+      { text: "Deep expertise in climate and sustainability product metrics" },
     ],
     gaps: [
       { text: "Limited exposure to hardware-integrated products" },
+      { text: "Less experience with remote-first team leadership at scale" },
     ],
   },
   qonto: {
@@ -69,9 +71,11 @@ const DETAILS: Record<string, VacancyDetails> = {
       "Strong fintech product experience matches the role, though hybrid setup in Paris is less ideal than remote.",
     strengths: [
       { text: "Proven track record in B2B SaaS fintech products" },
+      { text: "Experience with regulated financial services and compliance" },
     ],
     gaps: [
       { text: "Limited French language fluency for Paris stakeholder management" },
+      { text: "Less direct exposure to SMB banking go-to-market motions" },
     ],
   },
   personio: {
@@ -79,9 +83,11 @@ const DETAILS: Record<string, VacancyDetails> = {
       "HR tech domain is adjacent to your background, but onsite requirement in Munich reduces overall fit.",
     strengths: [
       { text: "Deep expertise in workflow automation and platform products" },
+      { text: "Strong background in enterprise SaaS and integrations" },
     ],
     gaps: [
       { text: "No direct HR/HCM product experience" },
+      { text: "Onsite requirement in Munich conflicts with remote preference" },
     ],
   },
   revolut: {
@@ -89,9 +95,11 @@ const DETAILS: Record<string, VacancyDetails> = {
       "Payments expertise is a strong match, but the London hybrid model and lower stage-stage fit pull the score down.",
     strengths: [
       { text: "Deep experience in payments and card product strategy" },
+      { text: "Track record of launching financial products across Europe" },
     ],
     gaps: [
       { text: "Limited London-based stakeholder exposure" },
+      { text: "Less experience with high-volume consumer payments growth" },
     ],
   },
 };
@@ -143,6 +151,8 @@ const Screening = () => {
   const ref = useRef<HTMLElement>(null);
   const listRef = useRef<HTMLDivElement>(null);
   const [listHeight, setListHeight] = useState<number | null>(null);
+  const [firstCardHeight, setFirstCardHeight] = useState<number>(0);
+  const [gap, setGap] = useState<number>(0);
   const [inView, setInView] = useState(false);
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [cursorStage, setCursorStage] = useState<
@@ -169,7 +179,15 @@ const Screening = () => {
     // Capture the natural height of the 4-card stack before we swap in the
     // detail view, so the section keeps the exact same overall height.
     if (listRef.current) {
-      setListHeight(listRef.current.getBoundingClientRect().height);
+      const list = listRef.current;
+      setListHeight(list.getBoundingClientRect().height);
+      const header = list.querySelector("[data-card-header]");
+      if (header) {
+        setFirstCardHeight(header.getBoundingClientRect().height);
+      }
+      const style = window.getComputedStyle(list);
+      const rowGap = parseFloat(style.rowGap || style.gap || "0");
+      setGap(Number.isNaN(rowGap) ? 0 : rowGap);
     }
     // 1) Cards fade in (0-1800ms). 2) Cursor appears and moves to first arrow.
     // 3) Cursor clicks. 4) First card expands with details.
@@ -219,7 +237,11 @@ const Screening = () => {
         <div
           ref={listRef}
           className="relative mx-auto mt-14 flex max-w-3xl flex-col gap-4 sm:mt-16"
-          style={listHeight ? { minHeight: `${listHeight}px` } : undefined}
+          style={
+            listHeight
+              ? { minHeight: `${listHeight}px` }
+              : undefined
+          }
         >
           {VACANCIES.map((v, i) => {
             const isSelected = selectedId === v.id;
@@ -234,6 +256,11 @@ const Screening = () => {
                 inView={inView}
                 delay={350 + i * 300}
                 details={isSelected ? DETAILS[v.id] : undefined}
+                detailHeight={
+                  isSelected && listHeight && firstCardHeight
+                    ? listHeight - firstCardHeight - gap
+                    : undefined
+                }
               />
             );
           })}
@@ -254,6 +281,7 @@ const VacancyRow = ({
   inView,
   delay,
   details,
+  detailHeight,
 }: {
   vacancy: Vacancy;
   selected: boolean;
@@ -262,14 +290,14 @@ const VacancyRow = ({
   inView: boolean;
   delay: number;
   details?: VacancyDetails;
+  detailHeight?: number;
 }) => {
   const badge = scoreBadgeClasses(vacancy.score);
   if (hidden) return null;
   return (
     <div
-      className={`flex flex-col overflow-hidden ${inView ? "animate-fade-in" : "opacity-0"} ${
-        selected ? "flex-1" : ""
-      }`}
+      data-card="true"
+      className={`flex flex-col overflow-hidden ${inView ? "animate-fade-in" : "opacity-0"}`}
       style={{
         animationDelay: `${delay}ms`,
         animationDuration: "800ms",
@@ -278,6 +306,7 @@ const VacancyRow = ({
       }}
     >
       <button
+        data-card-header="true"
         onClick={onSelect}
         className={`flex w-full items-center gap-4 rounded-t-3xl bg-white p-5 text-left shadow-[0_10px_40px_-15px_rgba(32,28,27,0.12)] transition-all sm:p-6 ${
           selected ? "rounded-b-none" : "rounded-b-3xl hover:shadow-[0_14px_48px_-12px_rgba(32,28,27,0.18)]"
@@ -316,10 +345,11 @@ const VacancyRow = ({
 
       {/* Inline expanded detail */}
       <div
-        className={`flex-1 overflow-hidden bg-white shadow-[0_10px_40px_-15px_rgba(32,28,27,0.12)] transition-all ${
+        className={`overflow-hidden bg-white shadow-[0_10px_40px_-15px_rgba(32,28,27,0.12)] transition-all ${
           selected ? "opacity-100 rounded-b-3xl animate-fade-in" : "max-h-0 opacity-0"
         }`}
         style={{
+          height: selected && detailHeight ? `${detailHeight}px` : undefined,
           transitionDuration: "500ms",
           transitionTimingFunction: "cubic-bezier(0.33, 1, 0.68, 1)",
           animationDuration: "500ms",
@@ -342,17 +372,17 @@ const InlineDetail = ({
   details: VacancyDetails;
 }) => {
   const score = useCountUp(vacancy.score, 1200, true);
-  const radius = 44;
+  const radius = 38;
   const circumference = 2 * Math.PI * radius;
   const offset = circumference - (score / 100) * circumference;
   const scoreColor =
     vacancy.score > 85 ? "#22c55e" : vacancy.score > 60 ? "#ff6b1a" : "#ef4444";
 
   return (
-    <div className="border-t border-foreground/5 px-5 pb-6 pt-6 sm:px-8 sm:pb-8">
+    <div className="border-t border-foreground/5 px-3 pb-3 pt-3 sm:px-8 sm:pb-5 sm:pt-5">
         {/* Score gauge */}
-        <div className="flex items-center gap-6">
-          <div className="relative h-28 w-28 shrink-0">
+        <div className="flex items-center gap-2 sm:gap-6">
+          <div className="relative h-16 w-16 shrink-0 sm:h-24 sm:w-24">
             <svg className="h-full w-full -rotate-90" viewBox="0 0 100 100">
               <circle
                 cx="50"
@@ -376,16 +406,16 @@ const InlineDetail = ({
               />
             </svg>
             <div className="absolute inset-0 flex flex-col items-center justify-center">
-              <span className="text-3xl font-semibold text-foreground">
+              <span className="text-lg font-semibold text-foreground sm:text-2xl">
                 {score}%
               </span>
-              <span className="text-[10px] uppercase tracking-[0.15em] text-muted-foreground">
+              <span className="text-[9px] uppercase tracking-[0.15em] text-muted-foreground sm:text-[10px]">
                 Fit
               </span>
             </div>
           </div>
           <div
-            className="flex-1 text-sm leading-relaxed text-foreground/80 sm:text-base animate-fade-in"
+            className="flex-1 text-xs leading-snug text-foreground/80 sm:text-base sm:leading-relaxed animate-fade-in"
             style={{ animationDelay: "500ms", animationFillMode: "both", animationDuration: "600ms", animationTimingFunction: "cubic-bezier(0.33, 1, 0.68, 1)" }}
           >
             {details.commentary}
@@ -393,26 +423,26 @@ const InlineDetail = ({
         </div>
 
         {/* Strengths & gaps */}
-        <div className="grid grid-cols-1 gap-6 pt-8 sm:grid-cols-2 sm:gap-8">
+        <div className="grid grid-cols-1 gap-2 pt-2 sm:grid-cols-2 sm:gap-6 sm:pt-5">
           <div
             className="animate-fade-in"
             style={{ animationDelay: "650ms", animationFillMode: "both", animationDuration: "600ms", animationTimingFunction: "cubic-bezier(0.33, 1, 0.68, 1)" }}
           >
-            <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.15em] text-foreground">
-              <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#ff6b1a]/15">
+            <div className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.15em] text-foreground sm:text-xs">
+              <span className="flex h-4 w-4 items-center justify-center rounded-full bg-[#ff6b1a]/15 sm:h-5 sm:w-5">
                 <Check
-                  className="h-3 w-3"
+                  className="h-2.5 w-2.5 sm:h-3 sm:w-3"
                   style={{ color: "#ff6b1a" }}
                   strokeWidth={3}
                 />
               </span>
               Strengths
             </div>
-            <ul className="mt-3 space-y-2.5">
+            <ul className="mt-1 space-y-0.5 sm:mt-2 sm:space-y-1.5">
               {details.strengths.map((p, i) => (
                 <li
                   key={p.text}
-                  className="flex items-start gap-2 text-sm text-foreground/80 animate-fade-in"
+                  className="flex items-start gap-2 text-xs text-foreground/80 animate-fade-in sm:text-sm"
                   style={{
                     animationDelay: `${750 + i * 120}ms`,
                     animationFillMode: "both",
@@ -420,8 +450,8 @@ const InlineDetail = ({
                     animationTimingFunction: "cubic-bezier(0.33, 1, 0.68, 1)",
                   }}
                 >
-                  <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-foreground/40" />
-                  <span>{p.text}</span>
+                  <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-foreground/40 sm:mt-2" />
+                  <span className="leading-tight sm:leading-relaxed">{p.text}</span>
                 </li>
               ))}
             </ul>
@@ -430,17 +460,17 @@ const InlineDetail = ({
             className="animate-fade-in"
             style={{ animationDelay: "800ms", animationFillMode: "both", animationDuration: "600ms", animationTimingFunction: "cubic-bezier(0.33, 1, 0.68, 1)" }}
           >
-            <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.15em] text-foreground">
-              <span className="flex h-5 w-5 items-center justify-center rounded-full bg-foreground/10">
-                <Minus className="h-3 w-3 text-foreground/70" strokeWidth={3} />
+            <div className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.15em] text-foreground sm:text-xs">
+              <span className="flex h-4 w-4 items-center justify-center rounded-full bg-foreground/10 sm:h-5 sm:w-5">
+                <Minus className="h-2.5 w-2.5 text-foreground/70 sm:h-3 sm:w-3" strokeWidth={3} />
               </span>
               Gaps to consider
             </div>
-            <ul className="mt-3 space-y-2.5">
+            <ul className="mt-1 space-y-0.5 sm:mt-2 sm:space-y-1.5">
               {details.gaps.map((p, i) => (
                 <li
                   key={p.text}
-                  className="flex items-start gap-2 text-sm text-foreground/80 animate-fade-in"
+                  className="flex items-start gap-2 text-xs text-foreground/80 animate-fade-in sm:text-sm"
                   style={{
                     animationDelay: `${900 + i * 120}ms`,
                     animationFillMode: "both",
@@ -448,8 +478,8 @@ const InlineDetail = ({
                     animationTimingFunction: "cubic-bezier(0.33, 1, 0.68, 1)",
                   }}
                 >
-                  <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-foreground/40" />
-                  <span>{p.text}</span>
+                  <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-foreground/40 sm:mt-2" />
+                  <span className="leading-tight sm:leading-relaxed">{p.text}</span>
                 </li>
               ))}
             </ul>
