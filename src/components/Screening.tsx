@@ -347,12 +347,6 @@ const InlineDetail = ({
   const offset = circumference - (score / 100) * circumference;
   const scoreColor =
     vacancy.score > 85 ? "#22c55e" : vacancy.score > 60 ? "#ff6b1a" : "#ef4444";
-  const scoreTintBg =
-    vacancy.score > 85
-      ? "rgba(34,197,94,0.15)"
-      : vacancy.score > 60
-      ? "rgba(255,107,26,0.15)"
-      : "rgba(239,68,68,0.15)";
 
   return (
     <div className="border-t border-foreground/5 px-5 pb-6 pt-6 sm:px-8 sm:pb-8">
