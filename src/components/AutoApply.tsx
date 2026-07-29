@@ -224,32 +224,54 @@ const AutoApply = () => {
                     const pending = phase < i || !started;
 
                     return (
-                      <div
+                    <div
                         key={step.label}
-                        className="flex items-center gap-4 rounded-2xl border border-border/50 bg-secondary/50 px-4 py-3.5 transition-all duration-500"
+                        className="flex items-center justify-between gap-4 rounded-2xl border border-border/50 bg-secondary/50 px-4 py-3.5 transition-all duration-500"
                         style={{
                           opacity: pending ? 0.5 : 1,
                           transform: pending ? "translateX(-12px)" : "translateX(0)",
                           transitionDelay: started ? `${i * 200}ms` : "0ms",
                         }}
                       >
-                        <div
-                          className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-sm font-medium text-white transition-colors duration-500"
-                          style={{
-                            backgroundColor: completed ? COMPLETED_GREEN : "#000000",
-                          }}
-                        >
-
-                          {completed ? <Check className="h-4 w-4 text-white" /> : <span>{i + 1}</span>}
-                        </div>
-                        <div>
-                          <p className="text-sm font-medium text-foreground">
-                            {step.label}
-                            {active && (
-                              <span className="ml-1 inline-flex h-1.5 w-1.5 animate-pulse rounded-full bg-[#ff6b1a]" />
+                        <div className="flex items-center gap-4">
+                          <div
+                            className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-sm font-medium text-white transition-colors duration-500"
+                            style={{
+                              backgroundColor: completed ? COMPLETED_GREEN : "#000000",
+                              transitionDelay: started ? `${i * 200}ms` : "0ms",
+                            }}
+                          >
+                            {completed ? (
+                              <Check className="h-4 w-4 text-white" />
+                            ) : (
+                              <span>{i + 1}</span>
                             )}
-                          </p>
-                          <p className="text-xs text-muted-foreground">{step.description}</p>
+                          </div>
+                          <div>
+                            <p className="text-sm font-medium text-foreground">
+                              {step.label}
+                            </p>
+                            <p className="text-xs text-muted-foreground">{step.description}</p>
+                          </div>
+                        </div>
+                        <div className="flex h-8 w-8 shrink-0 items-center justify-center">
+                          {completed ? (
+                            <Check
+                              className="h-5 w-5 transition-all duration-500"
+                              style={{
+                                color: COMPLETED_GREEN,
+                                transitionDelay: started ? `${i * 200}ms` : "0ms",
+                              }}
+                              strokeWidth={3}
+                            />
+                          ) : active ? (
+                            <span
+                              className="inline-flex h-2 w-2 animate-pulse rounded-full bg-[#ff6b1a] transition-all duration-500"
+                              style={{
+                                transitionDelay: started ? `${i * 200}ms` : "0ms",
+                              }}
+                            />
+                          ) : null}
                         </div>
                       </div>
                     );
