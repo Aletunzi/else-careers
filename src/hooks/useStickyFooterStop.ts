@@ -11,16 +11,14 @@ export const useStickyFooterStop = () => {
     if (!sticky || !footer) return;
 
     const handleScroll = () => {
-      const stickyRect = sticky.getBoundingClientRect();
       const footerRect = footer.getBoundingClientRect();
+      const viewportHeight = window.innerHeight;
 
-      // If the sticky element would overlap the footer, push it up by the overlap amount.
-      if (stickyRect.bottom > footerRect.top) {
-        const overlap = stickyRect.bottom - footerRect.top;
-        setOffset(-overlap);
-      } else {
-        setOffset(0);
-      }
+      // When the footer enters the viewport, push the sticky element up by the
+      // amount of footer that is visible so it scrolls with the page instead of
+      // staying fixed above the footer.
+      const visibleFooter = Math.max(0, viewportHeight - footerRect.top);
+      setOffset(visibleFooter > 0 ? -visibleFooter : 0);
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -35,3 +33,4 @@ export const useStickyFooterStop = () => {
 
   return { stickyRef, footerRef, offset };
 };
+
