@@ -55,13 +55,13 @@ const Reality = () => {
         <div className="mt-16 flex flex-col items-center text-center sm:mt-20 md:mt-24">
           <div className="flex items-start justify-center leading-none">
             <span className="text-[clamp(8rem,28vw,18rem)] font-medium tracking-tight text-foreground tabular-nums">{main}</span>
-            <span className="mt-2 text-[clamp(4rem,14vw,9rem)] font-semibold leading-none" style={{ color: '#ff6b1a' }}>%</span>
+            <span className="mt-2 text-[clamp(4rem,14vw,9rem)] font-semibold leading-none text-foreground">%</span>
           </div>
 
           <p
             className={`mt-8 max-w-3xl text-xl text-foreground sm:text-2xl md:text-3xl lg:text-4xl transition-all duration-700 ease-out ${mainDone ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-3'}`}
           >
-            of product roles in Europe are <span style={{ color: '#ff6b1a' }}>not</span> on LinkedIn.
+            of product roles in Europe are not on LinkedIn.
             <br className="hidden sm:block" /> We fixed that.
           </p>
         </div>
