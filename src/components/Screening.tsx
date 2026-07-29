@@ -258,7 +258,7 @@ const Screening = () => {
                 details={isSelected ? DETAILS[v.id] : undefined}
                 detailHeight={
                   isSelected && listHeight && firstCardHeight
-                    ? listHeight - firstCardHeight - gap
+                    ? listHeight - firstCardHeight
                     : undefined
                 }
               />
@@ -336,7 +336,7 @@ const VacancyRow = ({
         <div
           data-arrow
           className={`flex shrink-0 items-center justify-center rounded-full p-2 transition-all ${
-            selected ? "bg-[#ff6b1a] text-white rotate-90" : "bg-foreground text-background"
+            selected ? "bg-foreground text-white rotate-90" : "bg-foreground text-background"
           }`}
         >
           <ChevronRight className="h-4 w-4" />
@@ -381,8 +381,8 @@ const InlineDetail = ({
   return (
     <div className="border-t border-foreground/5 px-3 pb-3 pt-3 sm:px-8 sm:pb-5 sm:pt-5">
         {/* Score gauge */}
-        <div className="flex items-center gap-2 sm:gap-6">
-          <div className="relative h-16 w-16 shrink-0 sm:h-24 sm:w-24">
+        <div className="flex items-center gap-3 sm:gap-6">
+          <div className="relative h-20 w-20 shrink-0 sm:h-28 sm:w-28">
             <svg className="h-full w-full -rotate-90" viewBox="0 0 100 100">
               <circle
                 cx="50"
@@ -406,10 +406,10 @@ const InlineDetail = ({
               />
             </svg>
             <div className="absolute inset-0 flex flex-col items-center justify-center">
-              <span className="text-lg font-semibold text-foreground sm:text-2xl">
+              <span className="text-xl font-semibold text-foreground sm:text-3xl">
                 {score}%
               </span>
-              <span className="text-[9px] uppercase tracking-[0.15em] text-muted-foreground sm:text-[10px]">
+              <span className="text-[10px] uppercase tracking-[0.15em] text-muted-foreground sm:text-xs">
                 Fit
               </span>
             </div>
