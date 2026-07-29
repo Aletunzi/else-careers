@@ -10,15 +10,14 @@ const steps = [
 
 const COMPLETED_GREEN = "#16a34a";
 
-const EcosiaLogo = () => (
-  <svg viewBox="0 0 48 48" className="h-8 w-8" aria-label="Ecosia logo">
-    <circle cx="24" cy="24" r="24" fill="#008272" />
+const SpotifyLogo = () => (
+  <svg viewBox="0 0 48 48" className="h-8 w-8" aria-label="Spotify logo">
+    <circle cx="24" cy="24" r="24" fill="#1DB954" />
     <path
-      d="M24 36V26M24 26C20 26 17 23 17 19C17 15 20 12 24 12C28 12 31 15 31 19C31 23 28 26 24 26Z"
-      stroke="white"
+      d="M15 21c7-3 14-2 20 1M14 26c6-3 14-2 19 2M14 31c7-3 13-2 18 2"
+      stroke="#191414"
       strokeWidth="2.5"
       strokeLinecap="round"
-      strokeLinejoin="round"
       fill="none"
     />
   </svg>
@@ -39,6 +38,7 @@ const AutoApply = () => {
   const ref = useRef<HTMLElement>(null);
   const [inView, setInView] = useState(false);
   const [buttonPressed, setButtonPressed] = useState(false);
+  const [buttonHover, setButtonHover] = useState(false);
   const [started, setStarted] = useState(false);
   const [phase, setPhase] = useState(0);
   const [cursorPhase, setCursorPhase] = useState<"hidden" | "entering" | "hovering" | "clicking" | "leaving">("hidden");
@@ -62,7 +62,12 @@ const AutoApply = () => {
     if (!inView) return;
     const timers: number[] = [];
     timers.push(window.setTimeout(() => setCursorPhase("entering"), 200));
-    timers.push(window.setTimeout(() => setCursorPhase("hovering"), 900));
+    timers.push(
+      window.setTimeout(() => {
+        setCursorPhase("hovering");
+        setButtonHover(true);
+      }, 900)
+    );
     timers.push(window.setTimeout(() => setButtonPressed(true), 1200));
     timers.push(
       window.setTimeout(() => {
@@ -71,7 +76,12 @@ const AutoApply = () => {
         setStarted(true);
       }, 1500)
     );
-    timers.push(window.setTimeout(() => setCursorPhase("leaving"), 1800));
+    timers.push(
+      window.setTimeout(() => {
+        setCursorPhase("leaving");
+        setButtonHover(false);
+      }, 1800)
+    );
     timers.push(window.setTimeout(() => setCursorPhase("hidden"), 2500));
     return () => timers.forEach(clearTimeout);
   }, [inView]);
@@ -154,23 +164,26 @@ const AutoApply = () => {
 
             <div className="flex items-start gap-4">
               <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white">
-                <EcosiaLogo />
+                <SpotifyLogo />
               </div>
               <div className="min-w-0 flex-1">
                 <div className="flex items-center justify-between gap-3">
                   <div>
                     <h3 className="truncate text-lg font-medium text-foreground">Senior Product Manager</h3>
-                    <p className="text-sm text-muted-foreground">Ecosia · Berlin · Hybrid</p>
+                    <p className="text-sm text-muted-foreground">Spotify · Stockholm · Hybrid</p>
                   </div>
                   <button
                     type="button"
-                    className="group relative inline-flex shrink-0 items-center gap-2 overflow-hidden rounded-full px-4 py-2 text-sm text-white transition-all duration-200"
-                    style={{
-                      backgroundColor: buttonPressed ? COMPLETED_GREEN : "#000000",
-                      transform: buttonPressed ? "scale(0.95)" : "scale(1)",
-                    }}
+                    className="group relative inline-flex shrink-0 items-center gap-2 overflow-hidden rounded-lg bg-primary px-5 py-2.5 text-sm font-normal text-white transition-all duration-200"
+                    style={{ transform: buttonPressed ? "scale(0.95)" : "scale(1)" }}
+                    onMouseEnter={() => setButtonHover(true)}
+                    onMouseLeave={() => setButtonHover(false)}
                   >
-                    <span className="absolute inset-y-0 left-0 w-0 bg-[#ff6b1a] transition-[width] duration-500 ease-out group-hover:w-full" aria-hidden />
+                    <span
+                      className="absolute inset-y-0 left-0 bg-[#ff6b1a] transition-[width] duration-500 ease-out"
+                      style={{ width: buttonHover ? "100%" : "0%" }}
+                      aria-hidden
+                    />
                     <span className="relative z-10">Apply</span>
                     <span className="relative z-10" aria-hidden>
                       <ArrowRight className="h-3.5 w-3.5" />
@@ -195,17 +208,13 @@ const AutoApply = () => {
                         }}
                       >
                         <div
-                          className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full transition-colors duration-500"
+                          className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-sm font-medium text-white transition-colors duration-500"
                           style={{
                             backgroundColor: completed ? COMPLETED_GREEN : "#000000",
                             transitionDelay: started ? `${i * 200 + 200}ms` : "0ms",
                           }}
                         >
-                          {completed ? (
-                            <Check className="h-4 w-4 text-white" />
-                          ) : (
-                            <step.icon className="h-4 w-4 text-white" />
-                          )}
+                          {completed ? <Check className="h-4 w-4 text-white" /> : <span>{i + 1}</span>}
                         </div>
                         <div>
                           <p className="text-sm font-medium text-foreground">
