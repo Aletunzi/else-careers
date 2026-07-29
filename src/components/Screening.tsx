@@ -281,6 +281,7 @@ const VacancyRow = ({
   inView,
   delay,
   details,
+  detailHeight,
 }: {
   vacancy: Vacancy;
   selected: boolean;
@@ -289,6 +290,7 @@ const VacancyRow = ({
   inView: boolean;
   delay: number;
   details?: VacancyDetails;
+  detailHeight?: number;
 }) => {
   const badge = scoreBadgeClasses(vacancy.score);
   if (hidden) return null;
