@@ -211,9 +211,9 @@ const AutoApply = () => {
                           className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-sm font-medium text-white transition-colors duration-500"
                           style={{
                             backgroundColor: completed ? COMPLETED_GREEN : "#000000",
-                            transitionDelay: started ? `${i * 200 + 200}ms` : "0ms",
                           }}
                         >
+
                           {completed ? <Check className="h-4 w-4 text-white" /> : <span>{i + 1}</span>}
                         </div>
                         <div>
