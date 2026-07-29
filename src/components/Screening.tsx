@@ -162,7 +162,7 @@ const Screening = () => {
   useEffect(() => {
     if (!inView) return;
     // Show the 4 cards first, then expand the first one into the detail panel.
-    const t = setTimeout(() => setSelectedId(VACANCIES[0].id), 1600);
+    const t = setTimeout(() => setSelectedId(VACANCIES[0].id), 2700);
     return () => clearTimeout(t);
   }, [inView]);
 
@@ -197,12 +197,13 @@ const Screening = () => {
           Every role, scored against your profile.
         </h2>
 
-        <div className="mt-14 grid grid-cols-1 items-stretch gap-8 transition-all duration-500 sm:mt-16 lg:grid-cols-12 lg:gap-12">
+        <div className="mt-14 flex flex-col items-stretch gap-8 sm:mt-16 lg:flex-row lg:gap-12">
           {/* List column */}
           <div
-            className={`flex h-full flex-col gap-4 transition-all duration-500 ${
-              selectedId ? "lg:col-span-5" : "lg:col-span-12"
+            className={`flex h-full flex-col gap-4 transition-all ${
+              selectedId ? "lg:w-[45%]" : "lg:w-full"
             }`}
+            style={{ transitionDuration: "900ms", transitionTimingFunction: "cubic-bezier(0.33, 1, 0.68, 1)" }}
           >
             {VACANCIES.map((v, i) => (
               <VacancyRow
@@ -211,21 +212,28 @@ const Screening = () => {
                 selected={selectedId === v.id}
                 onSelect={() => setSelectedId(v.id)}
                 inView={inView}
-                delay={300 + i * 150}
+                delay={350 + i * 300}
               />
             ))}
           </div>
 
           {/* Detail panel */}
-          {selected && (
-            <div className="lg:col-span-7 lg:flex">
+          <div
+            className={`flex origin-top lg:origin-left overflow-hidden transition-all ${
+              selectedId
+                ? "max-h-[1200px] opacity-100 scale-100 lg:w-[55%] lg:max-h-[1200px]"
+                : "max-h-0 opacity-0 scale-95 lg:w-0 lg:max-h-0 lg:pointer-events-none"
+            }`}
+            style={{ transitionDuration: "900ms", transitionTimingFunction: "cubic-bezier(0.33, 1, 0.68, 1)" }}
+          >
+            {selected && (
               <DetailPanel
                 key={selected.id}
                 vacancy={selected}
                 details={DETAILS[selected.id]}
               />
-            </div>
-          )}
+            )}
+          </div>
         </div>
       </div>
     </section>
@@ -254,7 +262,12 @@ const VacancyRow = ({
           ? "ring-2 ring-[#ff6b1a] ring-offset-2 ring-offset-[#FAF9F5]"
           : "hover:shadow-[0_14px_48px_-12px_rgba(32,28,27,0.18)]"
       } ${inView ? "animate-fade-in" : "opacity-0"}`}
-      style={{ animationDelay: `${delay}ms`, animationFillMode: "both" }}
+      style={{
+        animationDelay: `${delay}ms`,
+        animationDuration: "800ms",
+        animationFillMode: "both",
+        animationTimingFunction: "cubic-bezier(0.33, 1, 0.68, 1)",
+      }}
     >
       <div className="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-[#f3f1e9]">
         <img
@@ -303,8 +316,7 @@ const DetailPanel = ({
 
   return (
     <div
-      className="flex w-full flex-col overflow-hidden rounded-3xl bg-white shadow-[0_10px_40px_-15px_rgba(32,28,27,0.12)] animate-scale-in origin-left"
-      style={{ animationFillMode: "both", animationDuration: "420ms" }}
+      className="flex h-full w-full flex-col overflow-hidden rounded-3xl bg-white shadow-[0_10px_40px_-15px_rgba(32,28,27,0.12)]"
     >
       <div className="flex h-full flex-col p-6 sm:p-8">
         {/* Header */}
@@ -362,7 +374,7 @@ const DetailPanel = ({
           </div>
           <div
             className="flex-1 text-sm leading-relaxed text-foreground/80 sm:text-base animate-fade-in"
-            style={{ animationDelay: "200ms", animationFillMode: "both" }}
+            style={{ animationDelay: "500ms", animationFillMode: "both", animationDuration: "600ms", animationTimingFunction: "cubic-bezier(0.33, 1, 0.68, 1)" }}
           >
             {details.commentary}
           </div>
@@ -372,7 +384,7 @@ const DetailPanel = ({
         <div className="mt-auto grid grid-cols-1 gap-6 pt-10 sm:grid-cols-2 sm:gap-8">
           <div
             className="animate-fade-in"
-            style={{ animationDelay: "350ms", animationFillMode: "both" }}
+            style={{ animationDelay: "650ms", animationFillMode: "both", animationDuration: "600ms", animationTimingFunction: "cubic-bezier(0.33, 1, 0.68, 1)" }}
           >
             <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.15em] text-foreground">
               <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#ff6b1a]/15">
@@ -390,8 +402,10 @@ const DetailPanel = ({
                   key={p.text}
                   className="flex items-start gap-2 text-sm text-foreground/80 animate-fade-in"
                   style={{
-                    animationDelay: `${450 + i * 120}ms`,
+                    animationDelay: `${750 + i * 120}ms`,
                     animationFillMode: "both",
+                    animationDuration: "600ms",
+                    animationTimingFunction: "cubic-bezier(0.33, 1, 0.68, 1)",
                   }}
                 >
                   <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-foreground/40" />
@@ -402,7 +416,7 @@ const DetailPanel = ({
           </div>
           <div
             className="animate-fade-in"
-            style={{ animationDelay: "500ms", animationFillMode: "both" }}
+            style={{ animationDelay: "800ms", animationFillMode: "both", animationDuration: "600ms", animationTimingFunction: "cubic-bezier(0.33, 1, 0.68, 1)" }}
           >
             <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.15em] text-foreground">
               <span className="flex h-5 w-5 items-center justify-center rounded-full bg-foreground/10">
@@ -416,8 +430,10 @@ const DetailPanel = ({
                   key={p.text}
                   className="flex items-start gap-2 text-sm text-foreground/80 animate-fade-in"
                   style={{
-                    animationDelay: `${600 + i * 120}ms`,
+                    animationDelay: `${900 + i * 120}ms`,
                     animationFillMode: "both",
+                    animationDuration: "600ms",
+                    animationTimingFunction: "cubic-bezier(0.33, 1, 0.68, 1)",
                   }}
                 >
                   <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-foreground/40" />
