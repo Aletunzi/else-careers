@@ -264,7 +264,7 @@ const Privacy = () => {
           </div>
         </div>
       </main>
-      <Footer />
+      <Footer ref={footerRef} />
     </div>
   );
 };
