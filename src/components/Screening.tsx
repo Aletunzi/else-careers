@@ -162,7 +162,7 @@ const Screening = () => {
   useEffect(() => {
     if (!inView) return;
     // Show the 4 cards first, then expand the first one into the detail panel.
-    const t = setTimeout(() => setSelectedId(VACANCIES[0].id), 2400);
+    const t = setTimeout(() => setSelectedId(VACANCIES[0].id), 2700);
     return () => clearTimeout(t);
   }, [inView]);
 
