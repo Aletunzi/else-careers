@@ -60,7 +60,7 @@ const ProblemTwo = () => {
         </div>
 
         <h2
-          className={`mx-auto mt-8 max-w-5xl text-center text-[clamp(2.25rem,7vw,5rem)] font-medium leading-[1.05] tracking-tight text-foreground md:text-6xl ${inView ? "animate-fade-in" : "opacity-0"}`}
+          className={`mt-8 max-w-5xl text-left text-[clamp(2.25rem,7vw,5rem)] font-medium leading-[1.05] tracking-tight text-foreground md:text-6xl ${inView ? "animate-fade-in" : "opacity-0"}`}
           style={{ animationDelay: "150ms", animationFillMode: "both" }}
         >
           Did you notice that the job market is broken?
@@ -80,7 +80,7 @@ const ProblemTwo = () => {
                 >
                   <Icon className="h-6 w-6" style={{ color: "#ff6b1a" }} strokeWidth={1.8} />
                 </div>
-                <div className="mt-6 flex flex-1 items-end text-2xl font-semibold leading-snug tracking-tight text-foreground sm:text-3xl">
+                <div className="mt-6 flex flex-1 items-end text-2xl font-semibold leading-snug tracking-tight text-foreground sm:text-3xl text-left">
                   <span className="tabular-nums">{item.stat}</span>{" "}{item.headline}
                 </div>
                 <p className="mt-5 text-base leading-relaxed text-muted-foreground">
