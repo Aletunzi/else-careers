@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Reality from "@/components/Reality";
+import ProblemTwo from "@/components/ProblemTwo";
 import Solution from "@/components/Solution";
 import Screening from "@/components/Screening";
 import TryIt from "@/components/TryIt";
@@ -18,6 +19,7 @@ const Index = () => {
         </main>
       </div>
       <Reality />
+      <ProblemTwo />
       <Solution />
       <Screening />
       <TryIt />
