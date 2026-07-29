@@ -90,7 +90,7 @@ export default {
         },
         "loading-dot": {
           "0%, 80%, 100%": { transform: "translateY(0)", opacity: "0.5" },
-          "40%": { transform: "translateY(-5px)", opacity: "1" },
+          "40%": { transform: "translateY(-7px)", opacity: "1" },
         },
       },
       animation: {

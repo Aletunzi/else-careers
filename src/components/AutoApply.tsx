@@ -175,7 +175,7 @@ const AutoApply = () => {
                   </div>
                   <button
                     type="button"
-                    className="group relative inline-flex shrink-0 items-center justify-center gap-2 overflow-hidden rounded-lg bg-primary px-5 py-2.5 text-sm font-normal text-white transition-all duration-200 min-w-[6rem]"
+                    className="group relative inline-flex h-10 w-[6rem] shrink-0 items-center justify-center gap-2 overflow-hidden rounded-lg bg-primary px-5 text-sm font-normal text-white transition-all duration-200"
                     style={{ transform: buttonPressed ? "scale(0.95)" : "scale(1)" }}
                     onMouseEnter={() => setButtonHover(true)}
                     onMouseLeave={() => setButtonHover(false)}
@@ -197,11 +197,8 @@ const AutoApply = () => {
                               {[0, 1, 2].map((i) => (
                                 <span
                                   key={i}
-                                  className="h-1.5 w-1.5 rounded-full bg-white"
-                                  style={{
-                                    animation: "loading-dot 1s ease-in-out infinite",
-                                    animationDelay: `${i * 160}ms`,
-                                  }}
+                                  className="h-1.5 w-1.5 animate-loading-dot rounded-full bg-white"
+                                  style={{ animationDelay: `${i * 160}ms` }}
                                 />
                               ))}
                             </span>
