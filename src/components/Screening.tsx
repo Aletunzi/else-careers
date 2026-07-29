@@ -197,12 +197,13 @@ const Screening = () => {
           Every role, scored against your profile.
         </h2>
 
-        <div className="mt-14 flex flex-col items-stretch gap-8 transition-all duration-700 sm:mt-16 lg:flex-row lg:gap-12">
+        <div className="mt-14 flex flex-col items-stretch gap-8 sm:mt-16 lg:flex-row lg:gap-12">
           {/* List column */}
           <div
-            className={`flex h-full flex-col gap-4 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+            className={`flex h-full flex-col gap-4 transition-all duration-[900ms] ${
               selectedId ? "lg:w-[45%]" : "lg:w-full"
             }`}
+            style={{ transitionTimingFunction: "cubic-bezier(0.33, 1, 0.68, 1)" }}
           >
             {VACANCIES.map((v, i) => (
               <VacancyRow
@@ -211,18 +212,19 @@ const Screening = () => {
                 selected={selectedId === v.id}
                 onSelect={() => setSelectedId(v.id)}
                 inView={inView}
-                delay={350 + i * 260}
+                delay={350 + i * 300}
               />
             ))}
           </div>
 
           {/* Detail panel */}
           <div
-            className={`flex origin-top lg:origin-left overflow-hidden transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+            className={`flex origin-top lg:origin-left overflow-hidden transition-all duration-[900ms] ${
               selectedId
                 ? "max-h-[1200px] opacity-100 scale-100 lg:w-[55%] lg:max-h-[1200px]"
                 : "max-h-0 opacity-0 scale-95 lg:w-0 lg:max-h-0 lg:pointer-events-none"
             }`}
+            style={{ transitionTimingFunction: "cubic-bezier(0.33, 1, 0.68, 1)" }}
           >
             {selected && (
               <DetailPanel
