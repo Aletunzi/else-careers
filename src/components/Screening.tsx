@@ -166,6 +166,11 @@ const Screening = () => {
 
   useEffect(() => {
     if (!inView) return;
+    // Capture the natural height of the 4-card stack before we swap in the
+    // detail view, so the section keeps the exact same overall height.
+    if (listRef.current) {
+      setListHeight(listRef.current.getBoundingClientRect().height);
+    }
     // 1) Cards fade in (0-1800ms). 2) Cursor appears and moves to first arrow.
     // 3) Cursor clicks. 4) First card expands with details.
     const timers: number[] = [];
