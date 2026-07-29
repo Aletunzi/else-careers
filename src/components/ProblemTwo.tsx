@@ -63,7 +63,7 @@ const ProblemTwo = () => {
           className={`mt-8 max-w-5xl text-left text-[clamp(2.25rem,7vw,5rem)] font-medium leading-[1.05] tracking-tight text-foreground md:text-6xl ${inView ? "animate-fade-in" : "opacity-0"}`}
           style={{ animationDelay: "150ms", animationFillMode: "both" }}
         >
-          Did you notice that the job market is broken?
+          Have you noticed that the job market is broken?
         </h2>
 
         <div className="mt-16 grid grid-cols-1 gap-6 sm:mt-20 md:grid-cols-3 lg:gap-8">
@@ -80,8 +80,13 @@ const ProblemTwo = () => {
                 >
                   <Icon className="h-6 w-6" style={{ color: "#ff6b1a" }} strokeWidth={1.8} />
                 </div>
-                <div className="mt-6 flex flex-1 items-end text-2xl font-semibold leading-snug tracking-tight text-foreground sm:text-3xl text-left">
-                  <span className="tabular-nums">{item.stat}</span>{" "}{item.headline}
+                <div className="mt-6 flex flex-1 flex-col justify-end text-left">
+                  <div className="text-4xl font-semibold tracking-tight text-foreground tabular-nums sm:text-5xl">
+                    {item.stat}
+                  </div>
+                  <div className="mt-2 text-xl font-semibold leading-snug text-foreground sm:text-2xl">
+                    {item.headline}
+                  </div>
                 </div>
                 <p className="mt-5 text-base leading-relaxed text-muted-foreground">
                   {item.body}
