@@ -195,7 +195,7 @@ const Feedback = () => {
         </div>
 
       </main>
-      <Footer />
+      <Footer ref={footerRef} />
     </div>
   );
 };

@@ -311,7 +311,7 @@ const Terms = () => {
           </div>
         </div>
       </main>
-      <Footer />
+      <Footer ref={footerRef} />
     </div>
   );
 };
