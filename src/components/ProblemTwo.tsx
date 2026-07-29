@@ -60,10 +60,10 @@ const ProblemTwo = () => {
         </div>
 
         <h2
-          className={`mx-auto mt-8 max-w-4xl text-center text-[clamp(2.25rem,7vw,5rem)] font-medium leading-[1.05] tracking-tight text-foreground ${inView ? "animate-fade-in" : "opacity-0"}`}
+          className={`mx-auto mt-8 max-w-5xl text-center text-[clamp(2.25rem,7vw,5rem)] font-medium leading-[1.05] tracking-tight text-foreground md:text-6xl ${inView ? "animate-fade-in" : "opacity-0"}`}
           style={{ animationDelay: "150ms", animationFillMode: "both" }}
         >
-          The job market is broken.
+          Did you notice that the job market is broken?
         </h2>
 
         <div className="mt-16 grid grid-cols-1 gap-6 sm:mt-20 md:grid-cols-3 lg:gap-8">
@@ -80,10 +80,10 @@ const ProblemTwo = () => {
                 >
                   <Icon className="h-6 w-6" style={{ color: "#ff6b1a" }} strokeWidth={1.8} />
                 </div>
-                <div className="mt-6 text-3xl font-semibold leading-tight tracking-tight text-foreground sm:text-4xl">
+                <div className="mt-6 flex flex-1 items-end text-2xl font-semibold leading-snug tracking-tight text-foreground sm:text-3xl">
                   <span className="tabular-nums">{item.stat}</span>{" "}{item.headline}
                 </div>
-                <p className="mt-3 text-base leading-relaxed text-muted-foreground">
+                <p className="mt-5 text-base leading-relaxed text-muted-foreground">
                   {item.body}
                 </p>
               </div>
