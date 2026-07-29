@@ -3,7 +3,7 @@ import Hero from "@/components/Hero";
 import ProblemTwo from "@/components/ProblemTwo";
 import Solution from "@/components/Solution";
 import Screening from "@/components/Screening";
-import TryIt from "@/components/TryIt";
+import AutoApply from "@/components/AutoApply";
 import Pricing from "@/components/Pricing";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
