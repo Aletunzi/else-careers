@@ -345,7 +345,7 @@ const VacancyRow = ({
 
       {/* Inline expanded detail */}
       <div
-        className={`flex-1 overflow-hidden bg-white shadow-[0_10px_40px_-15px_rgba(32,28,27,0.12)] transition-all ${
+        className={`overflow-hidden bg-white shadow-[0_10px_40px_-15px_rgba(32,28,27,0.12)] transition-all ${
           selected ? "opacity-100 rounded-b-3xl animate-fade-in" : "max-h-0 opacity-0"
         }`}
         style={{
