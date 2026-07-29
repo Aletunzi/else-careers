@@ -67,6 +67,7 @@ const AutoApply = () => {
       window.setTimeout(() => {
         setCursorPhase("clicking");
         setButtonPressed(false);
+        setButtonHover(false);
         setStarted(true);
       }, 1500)
     );
