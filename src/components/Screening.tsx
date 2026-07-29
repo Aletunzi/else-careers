@@ -197,9 +197,13 @@ const Screening = () => {
           Every role, scored against your profile.
         </h2>
 
-        <div className="mt-14 grid grid-cols-1 items-stretch gap-8 sm:mt-16 lg:grid-cols-12 lg:gap-12">
+        <div className="mt-14 grid grid-cols-1 items-stretch gap-8 transition-all duration-500 sm:mt-16 lg:grid-cols-12 lg:gap-12">
           {/* List column */}
-          <div className="flex h-full flex-col gap-4 lg:col-span-5">
+          <div
+            className={`flex h-full flex-col gap-4 transition-all duration-500 ${
+              selectedId ? "lg:col-span-5" : "lg:col-span-12"
+            }`}
+          >
             {VACANCIES.map((v, i) => (
               <VacancyRow
                 key={v.id}
@@ -213,17 +217,15 @@ const Screening = () => {
           </div>
 
           {/* Detail panel */}
-          <div className="lg:col-span-7 lg:flex">
-            {selected ? (
+          {selected && (
+            <div className="lg:col-span-7 lg:flex">
               <DetailPanel
                 key={selected.id}
                 vacancy={selected}
                 details={DETAILS[selected.id]}
               />
-            ) : (
-              <div className="hidden w-full rounded-3xl border border-dashed border-black/10 lg:block" />
-            )}
-          </div>
+            </div>
+          )}
         </div>
       </div>
     </section>
