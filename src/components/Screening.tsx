@@ -384,7 +384,7 @@ const DetailPanel = ({
         <div className="mt-auto grid grid-cols-1 gap-6 pt-10 sm:grid-cols-2 sm:gap-8">
           <div
             className="animate-fade-in"
-            style={{ animationDelay: "350ms", animationFillMode: "both" }}
+            style={{ animationDelay: "650ms", animationFillMode: "both", animationDuration: "600ms", animationTimingFunction: "cubic-bezier(0.33, 1, 0.68, 1)" }}
           >
             <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.15em] text-foreground">
               <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#ff6b1a]/15">
@@ -402,8 +402,10 @@ const DetailPanel = ({
                   key={p.text}
                   className="flex items-start gap-2 text-sm text-foreground/80 animate-fade-in"
                   style={{
-                    animationDelay: `${450 + i * 120}ms`,
+                    animationDelay: `${750 + i * 120}ms`,
                     animationFillMode: "both",
+                    animationDuration: "600ms",
+                    animationTimingFunction: "cubic-bezier(0.33, 1, 0.68, 1)",
                   }}
                 >
                   <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-foreground/40" />
