@@ -416,7 +416,7 @@ const DetailPanel = ({
           </div>
           <div
             className="animate-fade-in"
-            style={{ animationDelay: "500ms", animationFillMode: "both" }}
+            style={{ animationDelay: "800ms", animationFillMode: "both", animationDuration: "600ms", animationTimingFunction: "cubic-bezier(0.33, 1, 0.68, 1)" }}
           >
             <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.15em] text-foreground">
               <span className="flex h-5 w-5 items-center justify-center rounded-full bg-foreground/10">
@@ -430,8 +430,10 @@ const DetailPanel = ({
                   key={p.text}
                   className="flex items-start gap-2 text-sm text-foreground/80 animate-fade-in"
                   style={{
-                    animationDelay: `${600 + i * 120}ms`,
+                    animationDelay: `${900 + i * 120}ms`,
                     animationFillMode: "both",
+                    animationDuration: "600ms",
+                    animationTimingFunction: "cubic-bezier(0.33, 1, 0.68, 1)",
                   }}
                 >
                   <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-foreground/40" />
