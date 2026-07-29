@@ -177,7 +177,7 @@ const AutoApply = () => {
                     if (allDone) {
                       return (
                         <div
-                          className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-white animate-scale-in"
+                          className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-white animate-fade-in"
                           style={{ backgroundColor: COMPLETED_GREEN }}
                           aria-label="Application submitted"
                         >
@@ -188,7 +188,7 @@ const AutoApply = () => {
                     if (started) {
                       return (
                         <div
-                          className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary text-white animate-scale-in"
+                          className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary text-white animate-fade-in"
                           aria-label="Submitting"
                         >
                           <span className="flex items-end gap-1">
