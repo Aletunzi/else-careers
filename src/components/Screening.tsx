@@ -381,10 +381,10 @@ const InlineDetail = ({
     vacancy.score > 85 ? "#22c55e" : vacancy.score > 60 ? "#ff6b1a" : "#ef4444";
 
   return (
-    <div className="border-t border-foreground/5 px-5 pb-5 pt-5 sm:px-8 sm:pb-6 sm:pt-6">
+    <div className="border-t border-foreground/5 px-4 pb-4 pt-4 sm:px-8 sm:pb-5 sm:pt-5">
         {/* Score gauge */}
-        <div className="flex items-center gap-4 sm:gap-6">
-          <div className="relative h-24 w-24 shrink-0">
+        <div className="flex items-center gap-3 sm:gap-6">
+          <div className="relative h-20 w-20 shrink-0 sm:h-24 sm:w-24">
             <svg className="h-full w-full -rotate-90" viewBox="0 0 100 100">
               <circle
                 cx="50"
@@ -408,7 +408,7 @@ const InlineDetail = ({
               />
             </svg>
             <div className="absolute inset-0 flex flex-col items-center justify-center">
-              <span className="text-2xl font-semibold text-foreground">
+              <span className="text-xl font-semibold text-foreground sm:text-2xl">
                 {score}%
               </span>
               <span className="text-[10px] uppercase tracking-[0.15em] text-muted-foreground">
@@ -425,7 +425,7 @@ const InlineDetail = ({
         </div>
 
         {/* Strengths & gaps */}
-        <div className="grid grid-cols-1 gap-4 pt-5 sm:grid-cols-2 sm:gap-6 sm:pt-6">
+        <div className="grid grid-cols-1 gap-3 pt-3 sm:grid-cols-2 sm:gap-6 sm:pt-5">
           <div
             className="animate-fade-in"
             style={{ animationDelay: "650ms", animationFillMode: "both", animationDuration: "600ms", animationTimingFunction: "cubic-bezier(0.33, 1, 0.68, 1)" }}
@@ -440,7 +440,7 @@ const InlineDetail = ({
               </span>
               Strengths
             </div>
-            <ul className="mt-2 space-y-1.5">
+            <ul className="mt-1.5 space-y-1 sm:mt-2 sm:space-y-1.5">
               {details.strengths.map((p, i) => (
                 <li
                   key={p.text}
@@ -453,7 +453,7 @@ const InlineDetail = ({
                   }}
                 >
                   <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-foreground/40" />
-                  <span>{p.text}</span>
+                  <span className="leading-snug sm:leading-relaxed">{p.text}</span>
                 </li>
               ))}
             </ul>
@@ -468,7 +468,7 @@ const InlineDetail = ({
               </span>
               Gaps to consider
             </div>
-            <ul className="mt-2 space-y-1.5">
+            <ul className="mt-1.5 space-y-1 sm:mt-2 sm:space-y-1.5">
               {details.gaps.map((p, i) => (
                 <li
                   key={p.text}
@@ -481,7 +481,7 @@ const InlineDetail = ({
                   }}
                 >
                   <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-foreground/40" />
-                  <span>{p.text}</span>
+                  <span className="leading-snug sm:leading-relaxed">{p.text}</span>
                 </li>
               ))}
             </ul>
