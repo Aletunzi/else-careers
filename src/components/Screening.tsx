@@ -59,11 +59,9 @@ const DETAILS: Record<string, VacancyDetails> = {
       "Your climate-tech product leadership and Berlin base align tightly with the stage and remote setup.",
     strengths: [
       { text: "8+ years leading product at Series B climate-tech scale-ups" },
-      { text: "Based in Berlin, fluent in English and German" },
     ],
     gaps: [
       { text: "Limited exposure to hardware-integrated products" },
-      { text: "No prior experience scaling B2C search products" },
     ],
   },
   qonto: {
@@ -71,11 +69,9 @@ const DETAILS: Record<string, VacancyDetails> = {
       "Strong fintech product experience matches the role, though hybrid setup in Paris is less ideal than remote.",
     strengths: [
       { text: "Proven track record in B2B SaaS fintech products" },
-      { text: "Experience with API-first platforms and banking integrations" },
     ],
     gaps: [
       { text: "Limited French language fluency for Paris stakeholder management" },
-      { text: "Less experience with SMB go-to-market motions" },
     ],
   },
   personio: {
@@ -83,11 +79,9 @@ const DETAILS: Record<string, VacancyDetails> = {
       "HR tech domain is adjacent to your background, but onsite requirement in Munich reduces overall fit.",
     strengths: [
       { text: "Deep expertise in workflow automation and platform products" },
-      { text: "Experience hiring and scaling product teams" },
     ],
     gaps: [
       { text: "No direct HR/HCM product experience" },
-      { text: "Munich onsite does not match preferred location" },
     ],
   },
   revolut: {
@@ -95,11 +89,9 @@ const DETAILS: Record<string, VacancyDetails> = {
       "Payments expertise is a strong match, but the London hybrid model and lower stage-stage fit pull the score down.",
     strengths: [
       { text: "Deep experience in payments and card product strategy" },
-      { text: "Proven ability to launch in regulated European markets" },
     ],
     gaps: [
       { text: "Limited London-based stakeholder exposure" },
-      { text: "Less hands-on growth marketing experimentation background" },
     ],
   },
 };
