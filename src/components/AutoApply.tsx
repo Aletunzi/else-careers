@@ -175,7 +175,7 @@ const AutoApply = () => {
                   </div>
                   <button
                     type="button"
-                    className="group relative inline-flex h-10 w-[5.5rem] shrink-0 items-center justify-center gap-2 overflow-hidden rounded-lg bg-primary px-5 text-sm font-normal text-white transition-all duration-200"
+                    className="group relative inline-flex h-10 w-[6rem] shrink-0 items-center justify-center gap-2 overflow-hidden rounded-lg bg-primary px-5 text-sm font-normal text-white transition-all duration-200"
                     style={{ transform: buttonPressed ? "scale(0.95)" : "scale(1)" }}
                     onMouseEnter={() => setButtonHover(true)}
                     onMouseLeave={() => setButtonHover(false)}
