@@ -255,23 +255,14 @@ const AutoApply = () => {
                           </div>
                         </div>
                         <div className="flex h-8 w-8 shrink-0 items-center justify-center">
-                          {completed ? (
-                            <Check
-                              className="h-5 w-5 transition-all duration-500"
-                              style={{
-                                color: COMPLETED_GREEN,
-                                transitionDelay: started ? `${i * 200}ms` : "0ms",
-                              }}
-                              strokeWidth={3}
-                            />
-                          ) : active ? (
-                            <span
-                              className="inline-flex h-2 w-2 animate-pulse rounded-full bg-[#ff6b1a] transition-all duration-500"
-                              style={{
-                                transitionDelay: started ? `${i * 200}ms` : "0ms",
-                              }}
-                            />
-                          ) : null}
+                          <span
+                            className={`inline-flex h-2 w-2 rounded-full bg-[#ff6b1a] transition-all duration-700 ease-out ${
+                              active ? "animate-soft-pulse opacity-100 scale-100" : "opacity-0 scale-0"
+                            }`}
+                            style={{
+                              transitionDelay: started ? `${i * 200}ms` : "0ms",
+                            }}
+                          />
                         </div>
                       </div>
                     );
