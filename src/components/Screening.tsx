@@ -327,10 +327,11 @@ const VacancyRow = ({
             {vacancy.company} · {vacancy.location}
           </div>
         </div>
-        <div className={`hidden items-center gap-2 rounded-full px-3 py-1 sm:flex ${badge.bg}`}>
-          <span className={`h-2 w-2 rounded-full ${badge.dot}`} />
-          <span className={`text-sm font-semibold ${badge.text}`}>
-            {vacancy.score}% fit
+        <div className={`flex shrink-0 items-center gap-1.5 rounded-full px-2 py-1 sm:gap-2 sm:px-3 ${badge.bg}`}>
+          <span className={`h-1.5 w-1.5 rounded-full sm:h-2 sm:w-2 ${badge.dot}`} />
+          <span className={`text-xs font-semibold sm:text-sm ${badge.text}`}>
+            {vacancy.score}%
+            <span className="hidden sm:inline"> fit</span>
           </span>
         </div>
         <div

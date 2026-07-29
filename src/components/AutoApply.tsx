@@ -128,7 +128,7 @@ const AutoApply = () => {
           You click Apply. We handle the rest.
         </h2>
         <p
-          className="mx-auto mt-5 whitespace-nowrap text-center text-base text-muted-foreground sm:text-lg"
+          className="mx-auto mt-5 max-w-2xl text-center text-base text-muted-foreground sm:whitespace-nowrap sm:text-lg"
           style={{
             animation: inView ? "fade-down 0.6s ease-out both" : undefined,
             animationDelay: "240ms",
@@ -147,9 +147,9 @@ const AutoApply = () => {
             opacity: inView ? undefined : 0,
           }}
         >
-          <div className="relative overflow-hidden rounded-3xl bg-white p-6 shadow-[0_10px_40px_-12px_rgba(32,28,27,0.15)] sm:p-8">
+          <div className="relative overflow-hidden rounded-3xl bg-white p-5 shadow-[0_10px_40px_-12px_rgba(32,28,27,0.15)] sm:p-8">
             <Cursor
-              className="pointer-events-none absolute z-20 drop-shadow-md transition-all duration-700 ease-out"
+              className="pointer-events-none absolute z-20 hidden drop-shadow-md transition-all duration-700 ease-out sm:block"
               style={{
                 top: cursorStyle.top,
                 right: cursorStyle.right,
@@ -158,20 +158,20 @@ const AutoApply = () => {
               }}
             />
 
-            <div className="flex items-start gap-4">
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-white">
+            <div className="flex items-start gap-3 sm:gap-4">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-white sm:h-12 sm:w-12">
                 <img
                   src={`https://www.google.com/s2/favicons?domain=${COMPANY.domain}&sz=64`}
                   alt={`${COMPANY.name} logo`}
-                  className="h-8 w-8 object-contain"
+                  className="h-7 w-7 object-contain sm:h-8 sm:w-8"
                   loading="lazy"
                 />
               </div>
               <div className="min-w-0 flex-1">
                 <div className="flex items-center justify-between gap-3">
-                  <div>
-                    <h3 className="truncate text-lg font-medium text-foreground">{COMPANY.role}</h3>
-                    <p className="text-sm text-muted-foreground">{COMPANY.name} · {COMPANY.location}</p>
+                  <div className="min-w-0 flex-1">
+                    <h3 className="truncate text-base font-medium text-foreground sm:text-lg">{COMPANY.role}</h3>
+                    <p className="truncate text-xs text-muted-foreground sm:text-sm">{COMPANY.name} · {COMPANY.location}</p>
                   </div>
                   <button
                     type="button"
