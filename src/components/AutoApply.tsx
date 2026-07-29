@@ -10,18 +10,12 @@ const steps = [
 
 const COMPLETED_GREEN = "#16a34a";
 
-const SpotifyLogo = () => (
-  <svg viewBox="0 0 48 48" className="h-8 w-8" aria-label="Spotify logo">
-    <circle cx="24" cy="24" r="24" fill="#1DB954" />
-    <path
-      d="M15 21c7-3 14-2 20 1M14 26c6-3 14-2 19 2M14 31c7-3 13-2 18 2"
-      stroke="#191414"
-      strokeWidth="2.5"
-      strokeLinecap="round"
-      fill="none"
-    />
-  </svg>
-);
+const COMPANY = {
+  name: "Notion",
+  role: "Senior Product Manager",
+  location: "San Francisco · Hybrid",
+  domain: "notion.so",
+};
 
 const Cursor = ({ className, style }: { className?: string; style?: React.CSSProperties }) => (
   <svg width="32" height="32" viewBox="0 0 24 24" fill="none" className={className} style={style}>
@@ -163,14 +157,19 @@ const AutoApply = () => {
             />
 
             <div className="flex items-start gap-4">
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white">
-                <SpotifyLogo />
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-white">
+                <img
+                  src={`https://www.google.com/s2/favicons?domain=${COMPANY.domain}&sz=64`}
+                  alt={`${COMPANY.name} logo`}
+                  className="h-8 w-8 object-contain"
+                  loading="lazy"
+                />
               </div>
               <div className="min-w-0 flex-1">
                 <div className="flex items-center justify-between gap-3">
                   <div>
-                    <h3 className="truncate text-lg font-medium text-foreground">Senior Product Manager</h3>
-                    <p className="text-sm text-muted-foreground">Spotify · Stockholm · Hybrid</p>
+                    <h3 className="truncate text-lg font-medium text-foreground">{COMPANY.role}</h3>
+                    <p className="text-sm text-muted-foreground">{COMPANY.name} · {COMPANY.location}</p>
                   </div>
                   <button
                     type="button"
