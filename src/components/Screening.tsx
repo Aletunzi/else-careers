@@ -260,7 +260,12 @@ const VacancyRow = ({
           ? "ring-2 ring-[#ff6b1a] ring-offset-2 ring-offset-[#FAF9F5]"
           : "hover:shadow-[0_14px_48px_-12px_rgba(32,28,27,0.18)]"
       } ${inView ? "animate-fade-in" : "opacity-0"}`}
-      style={{ animationDelay: `${delay}ms`, animationFillMode: "both" }}
+      style={{
+        animationDelay: `${delay}ms`,
+        animationDuration: "700ms",
+        animationFillMode: "both",
+        animationTimingFunction: "cubic-bezier(0.22, 1, 0.36, 1)",
+      }}
     >
       <div className="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-[#f3f1e9]">
         <img
