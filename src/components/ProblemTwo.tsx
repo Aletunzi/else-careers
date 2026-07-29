@@ -71,7 +71,7 @@ const ProblemTwo = () => {
             return (
               <div
                 key={item.headline}
-                className={`group flex flex-col items-start rounded-2xl bg-white p-7 shadow-[0_4px_24px_-8px_rgba(32,28,27,0.08)] transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_12px_32px_-12px_rgba(32,28,27,0.12)] sm:p-8 lg:p-10 ${inView ? "animate-fade-in" : "opacity-0"}`}
+                className={`group flex flex-col items-start rounded-2xl bg-white p-7 shadow-[0_4px_24px_-8px_rgba(32,28,27,0.08)] transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_12px_32px_-12px_rgba(32,28,27,0.12)] sm:p-8 lg:p-10 ${inView ? "animate-fade-down" : "opacity-0"}`}
                 style={{ animationDelay: item.delay, animationFillMode: "both" }}
               >
                 <div
