@@ -10,18 +10,12 @@ const steps = [
 
 const COMPLETED_GREEN = "#16a34a";
 
-const SpotifyLogo = () => (
-  <svg viewBox="0 0 48 48" className="h-8 w-8" aria-label="Spotify logo">
-    <circle cx="24" cy="24" r="24" fill="#1DB954" />
-    <path
-      d="M15 21c7-3 14-2 20 1M14 26c6-3 14-2 19 2M14 31c7-3 13-2 18 2"
-      stroke="#191414"
-      strokeWidth="2.5"
-      strokeLinecap="round"
-      fill="none"
-    />
-  </svg>
-);
+const COMPANY = {
+  name: "Notion",
+  role: "Senior Product Manager",
+  location: "San Francisco · Hybrid",
+  domain: "notion.so",
+};
 
 const Cursor = ({ className, style }: { className?: string; style?: React.CSSProperties }) => (
   <svg width="32" height="32" viewBox="0 0 24 24" fill="none" className={className} style={style}>
