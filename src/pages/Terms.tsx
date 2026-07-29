@@ -25,7 +25,7 @@ const Terms = () => {
       <main className="flex flex-1 flex-col px-5 pt-8 sm:px-8 md:flex-row md:gap-16 md:px-16 md:pt-12 lg:gap-24 lg:px-24 2xl:px-32">
         <div
           ref={stickyRef}
-          className="md:w-1/3 md:sticky md:top-32 md:self-start"
+          className="md:w-1/3 md:sticky md:top-32 md:self-start transition-transform duration-200 ease-out will-change-transform"
           style={{ transform: `translateY(${offset}px)` }}
         >
           <Link
