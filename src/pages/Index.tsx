@@ -19,6 +19,7 @@ const Index = () => {
         </main>
       </div>
       <Reality />
+      <ProblemTwo />
       <Solution />
       <Screening />
       <TryIt />
