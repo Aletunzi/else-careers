@@ -297,9 +297,7 @@ const VacancyRow = ({
   return (
     <div
       data-card="true"
-      className={`flex flex-col overflow-hidden ${inView ? "animate-fade-in" : "opacity-0"} ${
-        selected ? "flex-1" : ""
-      }`}
+      className={`flex flex-col overflow-hidden ${inView ? "animate-fade-in" : "opacity-0"}`}
       style={{
         animationDelay: `${delay}ms`,
         animationDuration: "800ms",
@@ -308,6 +306,7 @@ const VacancyRow = ({
       }}
     >
       <button
+        data-card-header="true"
         onClick={onSelect}
         className={`flex w-full items-center gap-4 rounded-t-3xl bg-white p-5 text-left shadow-[0_10px_40px_-15px_rgba(32,28,27,0.12)] transition-all sm:p-6 ${
           selected ? "rounded-b-none" : "rounded-b-3xl hover:shadow-[0_14px_48px_-12px_rgba(32,28,27,0.18)]"
