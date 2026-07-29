@@ -429,7 +429,7 @@ const InlineDetail = ({
             className="animate-fade-in"
             style={{ animationDelay: "650ms", animationFillMode: "both", animationDuration: "600ms", animationTimingFunction: "cubic-bezier(0.33, 1, 0.68, 1)" }}
           >
-            <div className="flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.15em] text-foreground sm:text-xs">
+            <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.15em] text-foreground sm:text-xs">
               <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#ff6b1a]/15 sm:h-5 sm:w-5">
                 <Check
                   className="h-3.5 w-3.5 sm:h-3 sm:w-3"
@@ -461,7 +461,7 @@ const InlineDetail = ({
             className="animate-fade-in"
             style={{ animationDelay: "800ms", animationFillMode: "both", animationDuration: "600ms", animationTimingFunction: "cubic-bezier(0.33, 1, 0.68, 1)" }}
           >
-            <div className="flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.15em] text-foreground sm:text-xs">
+            <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.15em] text-foreground sm:text-xs">
               <span className="flex h-5 w-5 items-center justify-center rounded-full bg-foreground/10 sm:h-5 sm:w-5">
                 <Minus className="h-3.5 w-3.5 text-foreground/70 sm:h-3 sm:w-3" strokeWidth={3} />
               </span>
