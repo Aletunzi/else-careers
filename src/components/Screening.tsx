@@ -169,7 +169,8 @@ const Screening = () => {
 
   useEffect(() => {
     if (!inView) return;
-    const t = setTimeout(() => setSelectedId(VACANCIES[0].id), 900);
+    // Show the 4 cards first, then expand the first one into the detail panel.
+    const t = setTimeout(() => setSelectedId(VACANCIES[0].id), 1600);
     return () => clearTimeout(t);
   }, [inView]);
 
@@ -201,7 +202,7 @@ const Screening = () => {
           className={`mx-auto mt-8 max-w-5xl text-center text-[clamp(2.25rem,7vw,5rem)] font-medium leading-[1.05] tracking-tight text-foreground md:text-6xl ${reveal(150)}`}
           style={delayStyle(150)}
         >
-          Every role, screened and scored against your profile.
+          Every role, scored against your profile.
         </h2>
 
         <div className="mt-14 grid grid-cols-1 items-stretch gap-8 sm:mt-16 lg:grid-cols-12 lg:gap-12">
@@ -220,22 +221,16 @@ const Screening = () => {
           </div>
 
           {/* Detail panel */}
-          <div className="lg:col-span-7">
-            <div className="lg:sticky lg:top-32">
-              {selected ? (
-                <DetailPanel
-                  key={selected.id}
-                  vacancy={selected}
-                  details={DETAILS[selected.id]}
-                />
-              ) : (
-                <div className="hidden h-full min-h-[360px] items-center justify-center rounded-3xl border border-dashed border-black/10 lg:flex">
-                  <p className="text-sm text-muted-foreground">
-                    Select a vacancy to view the full screening.
-                  </p>
-                </div>
-              )}
-            </div>
+          <div className="lg:col-span-7 lg:flex">
+            {selected ? (
+              <DetailPanel
+                key={selected.id}
+                vacancy={selected}
+                details={DETAILS[selected.id]}
+              />
+            ) : (
+              <div className="hidden w-full rounded-3xl border border-dashed border-black/10 lg:block" />
+            )}
           </div>
         </div>
       </div>
