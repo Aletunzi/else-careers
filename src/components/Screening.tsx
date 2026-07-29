@@ -200,10 +200,10 @@ const Screening = () => {
         <div className="mt-14 flex flex-col items-stretch gap-8 sm:mt-16 lg:flex-row lg:gap-12">
           {/* List column */}
           <div
-            className={`flex h-full flex-col gap-4 transition-all duration-[900ms] ${
+            className={`flex h-full flex-col gap-4 transition-all ${
               selectedId ? "lg:w-[45%]" : "lg:w-full"
             }`}
-            style={{ transitionTimingFunction: "cubic-bezier(0.33, 1, 0.68, 1)" }}
+            style={{ transitionDuration: "900ms", transitionTimingFunction: "cubic-bezier(0.33, 1, 0.68, 1)" }}
           >
             {VACANCIES.map((v, i) => (
               <VacancyRow
