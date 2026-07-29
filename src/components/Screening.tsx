@@ -357,7 +357,7 @@ const VacancyRow = ({
         }}
       >
         {selected && details && (
-          <InlineDetail vacancy={vacancy} details={details} detailHeight={detailHeight} />
+          <InlineDetail vacancy={vacancy} details={details} />
         )}
       </div>
     </div>
