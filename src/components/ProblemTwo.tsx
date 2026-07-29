@@ -59,11 +59,12 @@ const ProblemTwo = () => {
         </div>
 
         <h2
-          className={`mt-8 max-w-5xl text-left text-[clamp(2.25rem,7vw,5rem)] font-medium leading-[1.05] tracking-tight text-foreground md:text-6xl ${inView ? "animate-fade-down" : "opacity-0"}`}
+          className={`mt-8 max-w-7xl text-left text-[clamp(2.25rem,7vw,5rem)] font-medium leading-[1.05] tracking-tight text-foreground md:whitespace-nowrap md:text-[clamp(2.25rem,3.2vw,2.75rem)] xl:text-[clamp(2.5rem,3.2vw,3rem)] ${inView ? "animate-fade-down" : "opacity-0"}`}
           style={{ animationDelay: "150ms", animationFillMode: "both" }}
         >
           Have you noticed that the job market is broken?
         </h2>
+
 
         <div className="mt-16 grid grid-cols-1 gap-6 sm:mt-20 md:grid-cols-3 lg:gap-8">
           {STAT_ITEMS.map((item) => {
