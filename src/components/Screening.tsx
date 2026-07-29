@@ -451,7 +451,7 @@ const InlineDetail = ({
                     animationTimingFunction: "cubic-bezier(0.33, 1, 0.68, 1)",
                   }}
                 >
-                  <span className="mt-2.5 h-1 w-1 shrink-0 rounded-full bg-foreground/40 sm:mt-2" />
+                  <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-foreground/40 sm:mt-2" />
                   <span className="leading-snug sm:leading-relaxed">{p.text}</span>
                 </li>
               ))}
@@ -479,7 +479,7 @@ const InlineDetail = ({
                     animationTimingFunction: "cubic-bezier(0.33, 1, 0.68, 1)",
                   }}
                 >
-                  <span className="mt-2.5 h-1 w-1 shrink-0 rounded-full bg-foreground/40 sm:mt-2" />
+                  <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-foreground/40 sm:mt-2" />
                   <span className="leading-snug sm:leading-relaxed">{p.text}</span>
                 </li>
               ))}
