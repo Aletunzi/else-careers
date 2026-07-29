@@ -59,9 +59,11 @@ const DETAILS: Record<string, VacancyDetails> = {
       "Your climate-tech product leadership and Berlin base align tightly with the stage and remote setup.",
     strengths: [
       { text: "8+ years leading product at Series B climate-tech scale-ups" },
+      { text: "Deep expertise in climate and sustainability product metrics" },
     ],
     gaps: [
       { text: "Limited exposure to hardware-integrated products" },
+      { text: "Less experience with remote-first team leadership at scale" },
     ],
   },
   qonto: {
@@ -69,9 +71,11 @@ const DETAILS: Record<string, VacancyDetails> = {
       "Strong fintech product experience matches the role, though hybrid setup in Paris is less ideal than remote.",
     strengths: [
       { text: "Proven track record in B2B SaaS fintech products" },
+      { text: "Experience with regulated financial services and compliance" },
     ],
     gaps: [
       { text: "Limited French language fluency for Paris stakeholder management" },
+      { text: "Less direct exposure to SMB banking go-to-market motions" },
     ],
   },
   personio: {
@@ -79,9 +83,11 @@ const DETAILS: Record<string, VacancyDetails> = {
       "HR tech domain is adjacent to your background, but onsite requirement in Munich reduces overall fit.",
     strengths: [
       { text: "Deep expertise in workflow automation and platform products" },
+      { text: "Strong background in enterprise SaaS and integrations" },
     ],
     gaps: [
       { text: "No direct HR/HCM product experience" },
+      { text: "Onsite requirement in Munich conflicts with remote preference" },
     ],
   },
   revolut: {
@@ -89,9 +95,11 @@ const DETAILS: Record<string, VacancyDetails> = {
       "Payments expertise is a strong match, but the London hybrid model and lower stage-stage fit pull the score down.",
     strengths: [
       { text: "Deep experience in payments and card product strategy" },
+      { text: "Track record of launching financial products across Europe" },
     ],
     gaps: [
       { text: "Limited London-based stakeholder exposure" },
+      { text: "Less experience with high-volume consumer payments growth" },
     ],
   },
 };
@@ -143,6 +151,8 @@ const Screening = () => {
   const ref = useRef<HTMLElement>(null);
   const listRef = useRef<HTMLDivElement>(null);
   const [listHeight, setListHeight] = useState<number | null>(null);
+  const [firstCardHeight, setFirstCardHeight] = useState<number>(0);
+  const [gap, setGap] = useState<number>(0);
   const [inView, setInView] = useState(false);
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [cursorStage, setCursorStage] = useState<
@@ -169,7 +179,15 @@ const Screening = () => {
     // Capture the natural height of the 4-card stack before we swap in the
     // detail view, so the section keeps the exact same overall height.
     if (listRef.current) {
-      setListHeight(listRef.current.getBoundingClientRect().height);
+      const list = listRef.current;
+      setListHeight(list.getBoundingClientRect().height);
+      const cards = list.querySelectorAll("[data-card]");
+      if (cards.length > 0) {
+        setFirstCardHeight(cards[0].getBoundingClientRect().height);
+      }
+      const style = window.getComputedStyle(list);
+      const rowGap = parseFloat(style.rowGap || style.gap || "0");
+      setGap(Number.isNaN(rowGap) ? 0 : rowGap);
     }
     // 1) Cards fade in (0-1800ms). 2) Cursor appears and moves to first arrow.
     // 3) Cursor clicks. 4) First card expands with details.
@@ -219,7 +237,13 @@ const Screening = () => {
         <div
           ref={listRef}
           className="relative mx-auto mt-14 flex max-w-3xl flex-col gap-4 sm:mt-16"
-          style={listHeight ? { minHeight: `${listHeight}px` } : undefined}
+          style={
+            selectedId
+              ? { minHeight: `${listHeight - firstCardHeight - gap}px` }
+              : listHeight
+              ? { minHeight: `${listHeight}px` }
+              : undefined
+          }
         >
           {VACANCIES.map((v, i) => {
             const isSelected = selectedId === v.id;
@@ -267,6 +291,7 @@ const VacancyRow = ({
   if (hidden) return null;
   return (
     <div
+      data-card="true"
       className={`flex flex-col overflow-hidden ${inView ? "animate-fade-in" : "opacity-0"} ${
         selected ? "flex-1" : ""
       }`}
