@@ -51,7 +51,7 @@ const ProblemTwo = () => {
     >
       <div className="mx-auto max-w-7xl">
         <div
-          className={`flex items-center gap-3 text-xs uppercase tracking-[0.2em] text-muted-foreground ${inView ? "animate-fade-in" : "opacity-0"}`}
+          className={`flex items-center gap-3 text-xs uppercase tracking-[0.2em] text-muted-foreground ${inView ? "animate-fade-down" : "opacity-0"}`}
           style={{ animationFillMode: "both" }}
         >
           <span className="h-px w-8 bg-muted-foreground/50" />
