@@ -80,15 +80,15 @@ const ProblemTwo = () => {
                 >
                   <Icon className="h-6 w-6" style={{ color: "#ff6b1a" }} strokeWidth={1.8} />
                 </div>
-                <div className="mt-6 flex flex-1 flex-col justify-end text-left">
+                <div className="mt-6 flex flex-col text-left">
                   <div className="text-4xl font-semibold tracking-tight text-foreground tabular-nums sm:text-5xl">
                     {item.stat}
                   </div>
-                  <div className="mt-2 text-xl font-semibold leading-snug text-foreground sm:text-2xl">
+                  <div className="mt-2 min-h-[4.25rem] text-xl font-semibold leading-snug text-foreground sm:text-2xl lg:min-h-[4rem]">
                     {item.headline}
                   </div>
                 </div>
-                <p className="mt-5 flex min-h-[5rem] items-end text-base leading-relaxed text-muted-foreground">
+                <p className="mt-5 text-base leading-relaxed text-muted-foreground">
                   {item.body}
                 </p>
               </div>
