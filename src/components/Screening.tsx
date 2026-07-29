@@ -416,7 +416,7 @@ const InlineDetail = ({
             </div>
           </div>
           <div
-            className="flex-1 text-base leading-snug text-foreground/80 sm:text-base sm:leading-relaxed animate-fade-in"
+            className="flex-1 text-sm leading-snug text-foreground/80 sm:text-base sm:leading-relaxed animate-fade-in"
             style={{ animationDelay: "500ms", animationFillMode: "both", animationDuration: "600ms", animationTimingFunction: "cubic-bezier(0.33, 1, 0.68, 1)" }}
           >
             {details.commentary}
