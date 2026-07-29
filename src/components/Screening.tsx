@@ -59,11 +59,9 @@ const DETAILS: Record<string, VacancyDetails> = {
       "Your climate-tech product leadership and Berlin base align tightly with the stage and remote setup.",
     strengths: [
       { text: "8+ years leading product at Series B climate-tech scale-ups" },
-      { text: "Based in Berlin, fluent in English and German" },
     ],
     gaps: [
       { text: "Limited exposure to hardware-integrated products" },
-      { text: "No prior experience scaling B2C search products" },
     ],
   },
   qonto: {
@@ -71,11 +69,9 @@ const DETAILS: Record<string, VacancyDetails> = {
       "Strong fintech product experience matches the role, though hybrid setup in Paris is less ideal than remote.",
     strengths: [
       { text: "Proven track record in B2B SaaS fintech products" },
-      { text: "Experience with API-first platforms and banking integrations" },
     ],
     gaps: [
       { text: "Limited French language fluency for Paris stakeholder management" },
-      { text: "Less experience with SMB go-to-market motions" },
     ],
   },
   personio: {
@@ -83,11 +79,9 @@ const DETAILS: Record<string, VacancyDetails> = {
       "HR tech domain is adjacent to your background, but onsite requirement in Munich reduces overall fit.",
     strengths: [
       { text: "Deep expertise in workflow automation and platform products" },
-      { text: "Experience hiring and scaling product teams" },
     ],
     gaps: [
       { text: "No direct HR/HCM product experience" },
-      { text: "Munich onsite does not match preferred location" },
     ],
   },
   revolut: {
@@ -95,11 +89,9 @@ const DETAILS: Record<string, VacancyDetails> = {
       "Payments expertise is a strong match, but the London hybrid model and lower stage-stage fit pull the score down.",
     strengths: [
       { text: "Deep experience in payments and card product strategy" },
-      { text: "Proven ability to launch in regulated European markets" },
     ],
     gaps: [
       { text: "Limited London-based stakeholder exposure" },
-      { text: "Less hands-on growth marketing experimentation background" },
     ],
   },
 };
@@ -169,7 +161,8 @@ const Screening = () => {
 
   useEffect(() => {
     if (!inView) return;
-    const t = setTimeout(() => setSelectedId(VACANCIES[0].id), 900);
+    // Show the 4 cards first, then expand the first one into the detail panel.
+    const t = setTimeout(() => setSelectedId(VACANCIES[0].id), 1600);
     return () => clearTimeout(t);
   }, [inView]);
 
@@ -201,7 +194,7 @@ const Screening = () => {
           className={`mx-auto mt-8 max-w-5xl text-center text-[clamp(2.25rem,7vw,5rem)] font-medium leading-[1.05] tracking-tight text-foreground md:text-6xl ${reveal(150)}`}
           style={delayStyle(150)}
         >
-          Every role, screened and scored against your profile.
+          Every role, scored against your profile.
         </h2>
 
         <div className="mt-14 grid grid-cols-1 items-stretch gap-8 sm:mt-16 lg:grid-cols-12 lg:gap-12">
@@ -220,22 +213,16 @@ const Screening = () => {
           </div>
 
           {/* Detail panel */}
-          <div className="lg:col-span-7">
-            <div className="lg:sticky lg:top-32">
-              {selected ? (
-                <DetailPanel
-                  key={selected.id}
-                  vacancy={selected}
-                  details={DETAILS[selected.id]}
-                />
-              ) : (
-                <div className="hidden h-full min-h-[360px] items-center justify-center rounded-3xl border border-dashed border-black/10 lg:flex">
-                  <p className="text-sm text-muted-foreground">
-                    Select a vacancy to view the full screening.
-                  </p>
-                </div>
-              )}
-            </div>
+          <div className="lg:col-span-7 lg:flex">
+            {selected ? (
+              <DetailPanel
+                key={selected.id}
+                vacancy={selected}
+                details={DETAILS[selected.id]}
+              />
+            ) : (
+              <div className="hidden w-full rounded-3xl border border-dashed border-black/10 lg:block" />
+            )}
           </div>
         </div>
       </div>
@@ -314,10 +301,10 @@ const DetailPanel = ({
 
   return (
     <div
-      className="overflow-hidden rounded-3xl bg-white shadow-[0_10px_40px_-15px_rgba(32,28,27,0.12)] animate-fade-in"
-      style={{ animationFillMode: "both" }}
+      className="flex w-full flex-col overflow-hidden rounded-3xl bg-white shadow-[0_10px_40px_-15px_rgba(32,28,27,0.12)] animate-scale-in origin-left"
+      style={{ animationFillMode: "both", animationDuration: "420ms" }}
     >
-      <div className="p-5 sm:p-6">
+      <div className="flex h-full flex-col p-6 sm:p-8">
         {/* Header */}
         <div className="flex items-start gap-4">
           <div className="flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden rounded-2xl bg-[#f3f1e9]">
@@ -338,8 +325,8 @@ const DetailPanel = ({
         </div>
 
         {/* Score gauge */}
-        <div className="mt-8 flex items-center gap-5">
-          <div className="relative h-24 w-24 shrink-0">
+        <div className="mt-10 flex items-center gap-6">
+          <div className="relative h-28 w-28 shrink-0">
             <svg className="h-full w-full -rotate-90" viewBox="0 0 100 100">
               <circle
                 cx="50"
@@ -363,7 +350,7 @@ const DetailPanel = ({
               />
             </svg>
             <div className="absolute inset-0 flex flex-col items-center justify-center">
-              <span className="text-2xl font-semibold text-foreground">
+              <span className="text-3xl font-semibold text-foreground">
                 {score}%
               </span>
               <span className="text-[10px] uppercase tracking-[0.15em] text-muted-foreground">
@@ -372,16 +359,15 @@ const DetailPanel = ({
             </div>
           </div>
           <div
-            className="flex-1 rounded-2xl bg-[#faf5ec] p-4 text-sm leading-relaxed text-foreground sm:text-base animate-fade-in"
+            className="flex-1 text-sm leading-relaxed text-foreground/80 sm:text-base animate-fade-in"
             style={{ animationDelay: "200ms", animationFillMode: "both" }}
           >
-            <span className="font-semibold">Why this fits: </span>
             {details.commentary}
           </div>
         </div>
 
         {/* Strengths & gaps */}
-        <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-8">
+        <div className="mt-auto grid grid-cols-1 gap-6 pt-10 sm:grid-cols-2 sm:gap-8">
           <div
             className="animate-fade-in"
             style={{ animationDelay: "350ms", animationFillMode: "both" }}
