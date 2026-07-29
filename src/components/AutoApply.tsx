@@ -8,12 +8,40 @@ const steps = [
   { icon: Check, label: "Application submitted!", description: "You're done. We'll keep you posted." },
 ];
 
+const COMPLETED_GREEN = "#16a34a";
+
+const EcosiaLogo = () => (
+  <svg viewBox="0 0 48 48" className="h-8 w-8" aria-label="Ecosia logo">
+    <circle cx="24" cy="24" r="24" fill="#008272" />
+    <path
+      d="M24 36V26M24 26C20 26 17 23 17 19C17 15 20 12 24 12C28 12 31 15 31 19C31 23 28 26 24 26Z"
+      stroke="white"
+      strokeWidth="2.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      fill="none"
+    />
+  </svg>
+);
+
+const Cursor = ({ className, style }: { className?: string; style?: React.CSSProperties }) => (
+  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" className={className} style={style}>
+    <path
+      d="M5.65376 12.3673H5.46026L5.31717 12.4976L0.500002 16.8829L0.500002 1.19841L11.7841 12.3673H5.65376Z"
+      fill="white"
+      stroke="#201C1B"
+      strokeWidth="1.2"
+    />
+  </svg>
+);
+
 const AutoApply = () => {
   const ref = useRef<HTMLElement>(null);
   const [inView, setInView] = useState(false);
   const [buttonPressed, setButtonPressed] = useState(false);
   const [started, setStarted] = useState(false);
   const [phase, setPhase] = useState(0);
+  const [cursorPhase, setCursorPhase] = useState<"hidden" | "entering" | "hovering" | "clicking" | "leaving">("hidden");
 
   useEffect(() => {
     if (!ref.current) return;
@@ -32,15 +60,20 @@ const AutoApply = () => {
 
   useEffect(() => {
     if (!inView) return;
-    // Simulated click on the Apply button, then the sequence starts.
-    const press = setTimeout(() => setButtonPressed(true), 600);
-    const release = setTimeout(() => setButtonPressed(false), 900);
-    const start = setTimeout(() => setStarted(true), 900);
-    return () => {
-      clearTimeout(press);
-      clearTimeout(release);
-      clearTimeout(start);
-    };
+    const timers: number[] = [];
+    timers.push(window.setTimeout(() => setCursorPhase("entering"), 200));
+    timers.push(window.setTimeout(() => setCursorPhase("hovering"), 900));
+    timers.push(window.setTimeout(() => setButtonPressed(true), 1200));
+    timers.push(
+      window.setTimeout(() => {
+        setCursorPhase("clicking");
+        setButtonPressed(false);
+        setStarted(true);
+      }, 1500)
+    );
+    timers.push(window.setTimeout(() => setCursorPhase("leaving"), 1800));
+    timers.push(window.setTimeout(() => setCursorPhase("hidden"), 2500));
+    return () => timers.forEach(clearTimeout);
   }, [inView]);
 
   useEffect(() => {
@@ -51,6 +84,14 @@ const AutoApply = () => {
     }
     return () => timers.forEach(clearTimeout);
   }, [started]);
+
+  const cursorStyle = {
+    hidden: { top: 20, right: 180, opacity: 0, scale: 1 },
+    entering: { top: 20, right: 180, opacity: 1, scale: 1 },
+    hovering: { top: 58, right: 64, opacity: 1, scale: 1 },
+    clicking: { top: 58, right: 64, opacity: 1, scale: 0.9 },
+    leaving: { top: 140, right: -20, opacity: 0, scale: 0.9 },
+  }[cursorPhase];
 
   return (
     <section
@@ -101,9 +142,19 @@ const AutoApply = () => {
           }}
         >
           <div className="relative overflow-hidden rounded-3xl bg-white p-6 shadow-[0_10px_40px_-12px_rgba(32,28,27,0.15)] sm:p-8">
+            <Cursor
+              className="pointer-events-none absolute z-20 drop-shadow-md transition-all duration-700 ease-out"
+              style={{
+                top: cursorStyle.top,
+                right: cursorStyle.right,
+                opacity: cursorStyle.opacity,
+                transform: `scale(${cursorStyle.scale})`,
+              }}
+            />
+
             <div className="flex items-start gap-4">
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-black text-white">
-                <span className="text-lg font-semibold">E</span>
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white">
+                <EcosiaLogo />
               </div>
               <div className="min-w-0 flex-1">
                 <div className="flex items-center justify-between gap-3">
@@ -113,9 +164,9 @@ const AutoApply = () => {
                   </div>
                   <button
                     type="button"
-                    className="group relative inline-flex shrink-0 items-center gap-2 overflow-hidden rounded-full px-4 py-2 text-sm text-white transition-all duration-200 active:scale-95"
+                    className="group relative inline-flex shrink-0 items-center gap-2 overflow-hidden rounded-full px-4 py-2 text-sm text-white transition-all duration-200"
                     style={{
-                      backgroundColor: buttonPressed ? "#ff6b1a" : "#000000",
+                      backgroundColor: buttonPressed ? COMPLETED_GREEN : "#000000",
                       transform: buttonPressed ? "scale(0.95)" : "scale(1)",
                     }}
                   >
@@ -146,7 +197,7 @@ const AutoApply = () => {
                         <div
                           className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full transition-colors duration-500"
                           style={{
-                            backgroundColor: completed ? "#ff6b1a" : "#000000",
+                            backgroundColor: completed ? COMPLETED_GREEN : "#000000",
                             transitionDelay: started ? `${i * 200 + 200}ms` : "0ms",
                           }}
                         >
