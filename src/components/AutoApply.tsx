@@ -13,7 +13,7 @@ const COMPLETED_GREEN = "#16a34a";
 const COMPANY = {
   name: "Notion",
   role: "Senior Product Manager",
-  location: "San Francisco · Hybrid",
+  location: "London · Hybrid",
   domain: "notion.so",
 };
 
@@ -113,7 +113,7 @@ const AutoApply = () => {
         >
           <span className="h-px w-8 bg-muted-foreground/50" />
           <span>Auto-apply</span>
-          <span className="h-px w-8 bg-muted-foreground/50" />
+
         </div>
 
         <h2
@@ -127,7 +127,7 @@ const AutoApply = () => {
           You click Apply. We handle the rest.
         </h2>
         <p
-          className="mx-auto mt-5 max-w-2xl text-center text-base text-muted-foreground sm:text-lg"
+          className="mx-auto mt-5 whitespace-nowrap text-center text-base text-muted-foreground sm:text-lg"
           style={{
             animation: inView ? "fade-down 0.6s ease-out both" : undefined,
             animationDelay: "240ms",
@@ -136,6 +136,7 @@ const AutoApply = () => {
         >
           No more forms, uploads, or copy-paste. Else completes and submits every application on your behalf.
         </p>
+
 
         <div
           className="mx-auto mt-12 max-w-2xl sm:mt-16"
