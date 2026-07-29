@@ -59,7 +59,7 @@ const ProblemTwo = () => {
         </div>
 
         <h2
-          className={`mt-8 max-w-5xl text-left text-[clamp(2.25rem,7vw,5rem)] font-medium leading-[1.05] tracking-tight text-foreground md:text-6xl ${inView ? "animate-fade-in" : "opacity-0"}`}
+          className={`mt-8 max-w-5xl text-left text-[clamp(2.25rem,7vw,5rem)] font-medium leading-[1.05] tracking-tight text-foreground md:text-6xl ${inView ? "animate-fade-down" : "opacity-0"}`}
           style={{ animationDelay: "150ms", animationFillMode: "both" }}
         >
           Have you noticed that the job market is broken?
