@@ -5,21 +5,21 @@ const STAT_ITEMS = [
   {
     icon: EyeOff,
     stat: "0.4%",
-    headline: "Spraying applications doesn't work",
-    body: "Applying harder and manually is not going to work. Only 0.4% of applications have a chance of being seen.",
+    headline: "of applications have a chance of being seen.",
+    body: "Applying harder and manually is not going to work. Only 0.4% of applications get noticed.",
     delay: "0ms",
   },
   {
     icon: Filter,
     stat: "85%",
-    headline: "ATS filters out most candidates",
+    headline: "of applications are filtered out by ATS.",
     body: "ATS kills 85% of applications. You have to know how to pass the check.",
     delay: "150ms",
   },
   {
     icon: Ghost,
     stat: "1 in 5",
-    headline: "Many job posts aren't even real",
+    headline: "job posts aren't even real.",
     body: "1 in 5 job posts aren't even real. You have to focus on real opportunities.",
     delay: "300ms",
   },
@@ -63,8 +63,7 @@ const ProblemTwo = () => {
           className={`mx-auto mt-8 max-w-4xl text-center text-[clamp(2.25rem,7vw,5rem)] font-medium leading-[1.05] tracking-tight text-foreground ${inView ? "animate-fade-in" : "opacity-0"}`}
           style={{ animationDelay: "150ms", animationFillMode: "both" }}
         >
-          Why applying feels{" "}
-          <span style={{ color: "#ff6b1a" }}>broken.</span>
+          The job market is broken.
         </h2>
 
         <div className="mt-16 grid grid-cols-1 gap-6 sm:mt-20 md:grid-cols-3 lg:gap-8">
@@ -81,12 +80,9 @@ const ProblemTwo = () => {
                 >
                   <Icon className="h-6 w-6" style={{ color: "#ff6b1a" }} strokeWidth={1.8} />
                 </div>
-                <div className="mt-6 text-5xl font-semibold tracking-tight text-foreground sm:text-6xl tabular-nums">
-                  {item.stat}
+                <div className="mt-6 text-3xl font-semibold leading-tight tracking-tight text-foreground sm:text-4xl">
+                  <span className="tabular-nums">{item.stat}</span>{" "}{item.headline}
                 </div>
-                <h3 className="mt-4 text-xl font-semibold text-foreground sm:text-2xl">
-                  {item.headline}
-                </h3>
                 <p className="mt-3 text-base leading-relaxed text-muted-foreground">
                   {item.body}
                 </p>
