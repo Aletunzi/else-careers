@@ -443,7 +443,7 @@ const InlineDetail = ({
               {details.strengths.map((p, i) => (
                 <li
                   key={p.text}
-                  className="flex items-start gap-2 text-base text-foreground/80 animate-fade-in sm:text-sm"
+                  className="flex items-start gap-2 text-sm text-foreground/80 animate-fade-in sm:text-sm"
                   style={{
                     animationDelay: `${750 + i * 120}ms`,
                     animationFillMode: "both",
@@ -471,7 +471,7 @@ const InlineDetail = ({
               {details.gaps.map((p, i) => (
                 <li
                   key={p.text}
-                  className="flex items-start gap-2 text-base text-foreground/80 animate-fade-in sm:text-sm"
+                  className="flex items-start gap-2 text-sm text-foreground/80 animate-fade-in sm:text-sm"
                   style={{
                     animationDelay: `${900 + i * 120}ms`,
                     animationFillMode: "both",
