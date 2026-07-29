@@ -141,6 +141,8 @@ const scoreBadgeClasses = (score: number) => {
 
 const Screening = () => {
   const ref = useRef<HTMLElement>(null);
+  const listRef = useRef<HTMLDivElement>(null);
+  const [listHeight, setListHeight] = useState<number | null>(null);
   const [inView, setInView] = useState(false);
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [cursorStage, setCursorStage] = useState<
@@ -164,6 +166,11 @@ const Screening = () => {
 
   useEffect(() => {
     if (!inView) return;
+    // Capture the natural height of the 4-card stack before we swap in the
+    // detail view, so the section keeps the exact same overall height.
+    if (listRef.current) {
+      setListHeight(listRef.current.getBoundingClientRect().height);
+    }
     // 1) Cards fade in (0-1800ms). 2) Cursor appears and moves to first arrow.
     // 3) Cursor clicks. 4) First card expands with details.
     const timers: number[] = [];
@@ -209,7 +216,11 @@ const Screening = () => {
           Every role, scored against your profile.
         </h2>
 
-        <div className="relative mx-auto mt-14 flex max-w-3xl flex-col gap-4 sm:mt-16">
+        <div
+          ref={listRef}
+          className="relative mx-auto mt-14 flex max-w-3xl flex-col gap-4 sm:mt-16"
+          style={listHeight ? { minHeight: `${listHeight}px` } : undefined}
+        >
           {VACANCIES.map((v, i) => {
             const isSelected = selectedId === v.id;
             const hidden = selectedId !== null && !isSelected;
@@ -253,18 +264,17 @@ const VacancyRow = ({
   details?: VacancyDetails;
 }) => {
   const badge = scoreBadgeClasses(vacancy.score);
+  if (hidden) return null;
   return (
     <div
-      className={`overflow-hidden transition-all ${inView ? "animate-fade-in" : "opacity-0"} ${
-        hidden ? "pointer-events-none max-h-0 -translate-y-1 opacity-0 my-0" : "max-h-[1400px] opacity-100"
+      className={`flex flex-col overflow-hidden ${inView ? "animate-fade-in" : "opacity-0"} ${
+        selected ? "flex-1" : ""
       }`}
       style={{
         animationDelay: `${delay}ms`,
         animationDuration: "800ms",
         animationFillMode: "both",
         animationTimingFunction: "cubic-bezier(0.33, 1, 0.68, 1)",
-        transitionDuration: "700ms",
-        transitionTimingFunction: "cubic-bezier(0.33, 1, 0.68, 1)",
       }}
     >
       <button
@@ -306,10 +316,15 @@ const VacancyRow = ({
 
       {/* Inline expanded detail */}
       <div
-        className={`overflow-hidden bg-white shadow-[0_10px_40px_-15px_rgba(32,28,27,0.12)] transition-all ${
-          selected ? "max-h-[1200px] opacity-100 rounded-b-3xl" : "max-h-0 opacity-0"
+        className={`flex-1 overflow-hidden bg-white shadow-[0_10px_40px_-15px_rgba(32,28,27,0.12)] transition-all ${
+          selected ? "opacity-100 rounded-b-3xl animate-fade-in" : "max-h-0 opacity-0"
         }`}
-        style={{ transitionDuration: "900ms", transitionTimingFunction: "cubic-bezier(0.33, 1, 0.68, 1)" }}
+        style={{
+          transitionDuration: "500ms",
+          transitionTimingFunction: "cubic-bezier(0.33, 1, 0.68, 1)",
+          animationDuration: "500ms",
+          animationFillMode: "both",
+        }}
       >
         {selected && details && (
           <InlineDetail vacancy={vacancy} details={details} />
@@ -330,7 +345,8 @@ const InlineDetail = ({
   const radius = 44;
   const circumference = 2 * Math.PI * radius;
   const offset = circumference - (score / 100) * circumference;
-  const scoreColor = "#ff6b1a";
+  const scoreColor =
+    vacancy.score > 85 ? "#22c55e" : vacancy.score > 60 ? "#ff6b1a" : "#ef4444";
 
   return (
     <div className="border-t border-foreground/5 px-5 pb-6 pt-6 sm:px-8 sm:pb-8">
