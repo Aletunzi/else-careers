@@ -368,22 +368,24 @@ const VacancyRow = ({
 const InlineDetail = ({
   vacancy,
   details,
+  detailHeight,
 }: {
   vacancy: Vacancy;
   details: VacancyDetails;
+  detailHeight?: number;
 }) => {
   const score = useCountUp(vacancy.score, 1200, true);
-  const radius = 44;
+  const radius = 38;
   const circumference = 2 * Math.PI * radius;
   const offset = circumference - (score / 100) * circumference;
   const scoreColor =
     vacancy.score > 85 ? "#22c55e" : vacancy.score > 60 ? "#ff6b1a" : "#ef4444";
 
   return (
-    <div className="border-t border-foreground/5 px-5 pb-6 pt-6 sm:px-8 sm:pb-8">
+    <div className="border-t border-foreground/5 px-5 pb-5 pt-5 sm:px-8 sm:pb-6 sm:pt-6">
         {/* Score gauge */}
-        <div className="flex items-center gap-6">
-          <div className="relative h-28 w-28 shrink-0">
+        <div className="flex items-center gap-4 sm:gap-6">
+          <div className="relative h-24 w-24 shrink-0">
             <svg className="h-full w-full -rotate-90" viewBox="0 0 100 100">
               <circle
                 cx="50"
@@ -407,7 +409,7 @@ const InlineDetail = ({
               />
             </svg>
             <div className="absolute inset-0 flex flex-col items-center justify-center">
-              <span className="text-3xl font-semibold text-foreground">
+              <span className="text-2xl font-semibold text-foreground">
                 {score}%
               </span>
               <span className="text-[10px] uppercase tracking-[0.15em] text-muted-foreground">
@@ -416,7 +418,7 @@ const InlineDetail = ({
             </div>
           </div>
           <div
-            className="flex-1 text-sm leading-relaxed text-foreground/80 sm:text-base animate-fade-in"
+            className="flex-1 text-sm leading-snug text-foreground/80 sm:text-base sm:leading-relaxed animate-fade-in"
             style={{ animationDelay: "500ms", animationFillMode: "both", animationDuration: "600ms", animationTimingFunction: "cubic-bezier(0.33, 1, 0.68, 1)" }}
           >
             {details.commentary}
@@ -424,7 +426,7 @@ const InlineDetail = ({
         </div>
 
         {/* Strengths & gaps */}
-        <div className="grid grid-cols-1 gap-6 pt-8 sm:grid-cols-2 sm:gap-8">
+        <div className="grid grid-cols-1 gap-4 pt-5 sm:grid-cols-2 sm:gap-6 sm:pt-6">
           <div
             className="animate-fade-in"
             style={{ animationDelay: "650ms", animationFillMode: "both", animationDuration: "600ms", animationTimingFunction: "cubic-bezier(0.33, 1, 0.68, 1)" }}
@@ -439,7 +441,7 @@ const InlineDetail = ({
               </span>
               Strengths
             </div>
-            <ul className="mt-3 space-y-2.5">
+            <ul className="mt-2 space-y-1.5">
               {details.strengths.map((p, i) => (
                 <li
                   key={p.text}
@@ -467,7 +469,7 @@ const InlineDetail = ({
               </span>
               Gaps to consider
             </div>
-            <ul className="mt-3 space-y-2.5">
+            <ul className="mt-2 space-y-1.5">
               {details.gaps.map((p, i) => (
                 <li
                   key={p.text}
