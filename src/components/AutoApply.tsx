@@ -186,12 +186,12 @@ const AutoApply = () => {
                       aria-hidden
                     />
                     <span className="relative z-10 flex items-center justify-center">
-                      {(() => {
-                        const allDone = started && phase >= steps.length;
-                        if (allDone) {
-                          return <Check className="h-4 w-4" strokeWidth={3} />;
-                        }
-                        if (started) {
+                        {(() => {
+                          const allDone = started && phase >= steps.length;
+                          if (allDone) {
+                            return <Check className="h-4 w-4" strokeWidth={3} style={{ color: COMPLETED_GREEN }} />;
+                          }
+                          if (started) {
                           return (
                             <span className="flex items-center gap-1">
                               {[0, 1, 2].map((i) => (
