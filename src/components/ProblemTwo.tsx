@@ -88,7 +88,7 @@ const ProblemTwo = () => {
                     {item.headline}
                   </div>
                 </div>
-                <p className="mt-5 text-base leading-relaxed text-muted-foreground">
+                <p className="mt-5 flex min-h-[5rem] items-end text-base leading-relaxed text-muted-foreground">
                   {item.body}
                 </p>
               </div>
