@@ -264,18 +264,17 @@ const VacancyRow = ({
   details?: VacancyDetails;
 }) => {
   const badge = scoreBadgeClasses(vacancy.score);
+  if (hidden) return null;
   return (
     <div
-      className={`overflow-hidden transition-all ${inView ? "animate-fade-in" : "opacity-0"} ${
-        hidden ? "pointer-events-none max-h-0 -translate-y-1 opacity-0 my-0" : "max-h-[1400px] opacity-100"
+      className={`flex flex-col overflow-hidden ${inView ? "animate-fade-in" : "opacity-0"} ${
+        selected ? "flex-1" : ""
       }`}
       style={{
         animationDelay: `${delay}ms`,
         animationDuration: "800ms",
         animationFillMode: "both",
         animationTimingFunction: "cubic-bezier(0.33, 1, 0.68, 1)",
-        transitionDuration: "700ms",
-        transitionTimingFunction: "cubic-bezier(0.33, 1, 0.68, 1)",
       }}
     >
       <button
@@ -317,10 +316,15 @@ const VacancyRow = ({
 
       {/* Inline expanded detail */}
       <div
-        className={`overflow-hidden bg-white shadow-[0_10px_40px_-15px_rgba(32,28,27,0.12)] transition-all ${
-          selected ? "max-h-[1200px] opacity-100 rounded-b-3xl" : "max-h-0 opacity-0"
+        className={`flex-1 overflow-hidden bg-white shadow-[0_10px_40px_-15px_rgba(32,28,27,0.12)] transition-all ${
+          selected ? "opacity-100 rounded-b-3xl animate-fade-in" : "max-h-0 opacity-0"
         }`}
-        style={{ transitionDuration: "900ms", transitionTimingFunction: "cubic-bezier(0.33, 1, 0.68, 1)" }}
+        style={{
+          transitionDuration: "500ms",
+          transitionTimingFunction: "cubic-bezier(0.33, 1, 0.68, 1)",
+          animationDuration: "500ms",
+          animationFillMode: "both",
+        }}
       >
         {selected && details && (
           <InlineDetail vacancy={vacancy} details={details} />
