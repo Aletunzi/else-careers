@@ -372,7 +372,7 @@ const InlineDetail = ({
   details: VacancyDetails;
 }) => {
   const score = useCountUp(vacancy.score, 1200, true);
-  const radius = 38;
+  const radius = 44;
   const circumference = 2 * Math.PI * radius;
   const offset = circumference - (score / 100) * circumference;
   const scoreColor =
@@ -382,7 +382,7 @@ const InlineDetail = ({
     <div className="border-t border-foreground/5 px-3 pb-3 pt-3 sm:px-8 sm:pb-5 sm:pt-5">
         {/* Score gauge */}
         <div className="flex items-center gap-3 sm:gap-6">
-          <div className="relative h-20 w-20 shrink-0 sm:h-28 sm:w-28">
+          <div className="relative h-24 w-24 shrink-0 sm:h-32 sm:w-32">
             <svg className="h-full w-full -rotate-90" viewBox="0 0 100 100">
               <circle
                 cx="50"
@@ -390,7 +390,7 @@ const InlineDetail = ({
                 r={radius}
                 fill="none"
                 stroke="#f3f1e9"
-                strokeWidth="12"
+                strokeWidth="8"
               />
               <circle
                 cx="50"
@@ -398,7 +398,7 @@ const InlineDetail = ({
                 r={radius}
                 fill="none"
                 stroke={scoreColor}
-                strokeWidth="12"
+                strokeWidth="8"
                 strokeLinecap="round"
                 strokeDasharray={circumference}
                 strokeDashoffset={offset}
@@ -406,7 +406,7 @@ const InlineDetail = ({
               />
             </svg>
             <div className="absolute inset-0 flex flex-col items-center justify-center">
-              <span className="text-xl font-semibold text-foreground sm:text-3xl">
+              <span className="text-2xl font-semibold text-foreground sm:text-4xl">
                 {score}%
               </span>
               <span className="text-[10px] uppercase tracking-[0.15em] text-muted-foreground sm:text-xs">
