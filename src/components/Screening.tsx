@@ -181,9 +181,9 @@ const Screening = () => {
     if (listRef.current) {
       const list = listRef.current;
       setListHeight(list.getBoundingClientRect().height);
-      const cards = list.querySelectorAll("[data-card]");
-      if (cards.length > 0) {
-        setFirstCardHeight(cards[0].getBoundingClientRect().height);
+      const header = list.querySelector("[data-card-header]");
+      if (header) {
+        setFirstCardHeight(header.getBoundingClientRect().height);
       }
       const style = window.getComputedStyle(list);
       const rowGap = parseFloat(style.rowGap || style.gap || "0");
