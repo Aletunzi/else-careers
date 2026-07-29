@@ -85,7 +85,11 @@ const Feedback = () => {
         <Header />
       </div>
       <main className="flex flex-1 flex-col px-5 pt-8 sm:px-8 md:flex-row md:gap-16 md:px-16 md:pt-12 lg:gap-24 lg:px-24 2xl:px-32">
-        <div className="md:w-1/3 md:sticky md:top-32 md:self-start">
+        <div
+          ref={stickyRef}
+          className="md:w-1/3 md:sticky md:top-32 md:self-start"
+          style={{ transform: `translateY(${offset}px)` }}
+        >
           <Link
             to="/"
             className="mb-12 inline-flex items-center gap-1 text-sm text-foreground transition-opacity hover:opacity-70"
