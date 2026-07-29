@@ -7,21 +7,21 @@ const STAT_ITEMS = [
     stat: "0.4%",
     headline: "of applications have a chance of being seen.",
     body: "Applying harder and manually is not going to work. Only 0.4% of applications get noticed.",
-    delay: "0ms",
+    delay: "300ms",
   },
   {
     icon: Filter,
     stat: "85%",
     headline: "of applications are filtered out by ATS.",
     body: "ATS kills 85% of applications. You have to know how to pass the check.",
-    delay: "150ms",
+    delay: "450ms",
   },
   {
     icon: Ghost,
     stat: "1 in 5",
     headline: "job posts aren't even real.",
     body: "1 in 5 job posts aren't even real. You have to focus on real opportunities.",
-    delay: "300ms",
+    delay: "600ms",
   },
 ];
 
