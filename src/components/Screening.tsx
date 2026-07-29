@@ -416,7 +416,7 @@ const InlineDetail = ({
             </div>
           </div>
           <div
-            className="flex-1 text-base leading-snug text-foreground/80 sm:text-base sm:leading-relaxed animate-fade-in"
+            className="flex-1 text-sm leading-snug text-foreground/80 sm:text-base sm:leading-relaxed animate-fade-in"
             style={{ animationDelay: "500ms", animationFillMode: "both", animationDuration: "600ms", animationTimingFunction: "cubic-bezier(0.33, 1, 0.68, 1)" }}
           >
             {details.commentary}
@@ -429,7 +429,7 @@ const InlineDetail = ({
             className="animate-fade-in"
             style={{ animationDelay: "650ms", animationFillMode: "both", animationDuration: "600ms", animationTimingFunction: "cubic-bezier(0.33, 1, 0.68, 1)" }}
           >
-            <div className="flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.15em] text-foreground sm:text-xs">
+            <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.15em] text-foreground sm:text-xs">
               <span className="flex h-5 w-5 items-center justify-center rounded-full bg-[#ff6b1a]/15 sm:h-5 sm:w-5">
                 <Check
                   className="h-3.5 w-3.5 sm:h-3 sm:w-3"
@@ -443,7 +443,7 @@ const InlineDetail = ({
               {details.strengths.map((p, i) => (
                 <li
                   key={p.text}
-                  className="flex items-start gap-2 text-base text-foreground/80 animate-fade-in sm:text-sm"
+                  className="flex items-start gap-2 text-sm text-foreground/80 animate-fade-in sm:text-sm"
                   style={{
                     animationDelay: `${750 + i * 120}ms`,
                     animationFillMode: "both",
@@ -451,7 +451,7 @@ const InlineDetail = ({
                     animationTimingFunction: "cubic-bezier(0.33, 1, 0.68, 1)",
                   }}
                 >
-                  <span className="mt-2.5 h-1 w-1 shrink-0 rounded-full bg-foreground/40 sm:mt-2" />
+                  <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-foreground/40 sm:mt-2" />
                   <span className="leading-snug sm:leading-relaxed">{p.text}</span>
                 </li>
               ))}
@@ -461,7 +461,7 @@ const InlineDetail = ({
             className="animate-fade-in"
             style={{ animationDelay: "800ms", animationFillMode: "both", animationDuration: "600ms", animationTimingFunction: "cubic-bezier(0.33, 1, 0.68, 1)" }}
           >
-            <div className="flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.15em] text-foreground sm:text-xs">
+            <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.15em] text-foreground sm:text-xs">
               <span className="flex h-5 w-5 items-center justify-center rounded-full bg-foreground/10 sm:h-5 sm:w-5">
                 <Minus className="h-3.5 w-3.5 text-foreground/70 sm:h-3 sm:w-3" strokeWidth={3} />
               </span>
@@ -471,7 +471,7 @@ const InlineDetail = ({
               {details.gaps.map((p, i) => (
                 <li
                   key={p.text}
-                  className="flex items-start gap-2 text-base text-foreground/80 animate-fade-in sm:text-sm"
+                  className="flex items-start gap-2 text-sm text-foreground/80 animate-fade-in sm:text-sm"
                   style={{
                     animationDelay: `${900 + i * 120}ms`,
                     animationFillMode: "both",
@@ -479,7 +479,7 @@ const InlineDetail = ({
                     animationTimingFunction: "cubic-bezier(0.33, 1, 0.68, 1)",
                   }}
                 >
-                  <span className="mt-2.5 h-1 w-1 shrink-0 rounded-full bg-foreground/40 sm:mt-2" />
+                  <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-foreground/40 sm:mt-2" />
                   <span className="leading-snug sm:leading-relaxed">{p.text}</span>
                 </li>
               ))}
