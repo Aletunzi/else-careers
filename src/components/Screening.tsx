@@ -264,9 +264,9 @@ const VacancyRow = ({
       } ${inView ? "animate-fade-in" : "opacity-0"}`}
       style={{
         animationDelay: `${delay}ms`,
-        animationDuration: "700ms",
+        animationDuration: "800ms",
         animationFillMode: "both",
-        animationTimingFunction: "cubic-bezier(0.22, 1, 0.36, 1)",
+        animationTimingFunction: "cubic-bezier(0.33, 1, 0.68, 1)",
       }}
     >
       <div className="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-[#f3f1e9]">
