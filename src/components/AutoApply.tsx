@@ -157,14 +157,19 @@ const AutoApply = () => {
             />
 
             <div className="flex items-start gap-4">
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white">
-                <SpotifyLogo />
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-white">
+                <img
+                  src={`https://www.google.com/s2/favicons?domain=${COMPANY.domain}&sz=64`}
+                  alt={`${COMPANY.name} logo`}
+                  className="h-8 w-8 object-contain"
+                  loading="lazy"
+                />
               </div>
               <div className="min-w-0 flex-1">
                 <div className="flex items-center justify-between gap-3">
                   <div>
-                    <h3 className="truncate text-lg font-medium text-foreground">Senior Product Manager</h3>
-                    <p className="text-sm text-muted-foreground">Spotify · Stockholm · Hybrid</p>
+                    <h3 className="truncate text-lg font-medium text-foreground">{COMPANY.role}</h3>
+                    <p className="text-sm text-muted-foreground">{COMPANY.name} · {COMPANY.location}</p>
                   </div>
                   <button
                     type="button"
