@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { formatCurrentDate } from "@/lib/formatDate";
+import { useStickyFooterStop } from "@/hooks/useStickyFooterStop";
 
 const Terms = () => {
   useEffect(() => {
@@ -13,6 +14,8 @@ const Terms = () => {
     }
     window.scrollTo(0, 0);
   }, []);
+
+  const { stickyRef, footerRef, offset } = useStickyFooterStop();
 
   return (
     <div className="flex min-h-screen flex-col bg-background">

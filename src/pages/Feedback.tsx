@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import { toast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { Check } from "lucide-react";
+import { useStickyFooterStop } from "@/hooks/useStickyFooterStop";
 
 
 const Feedback = () => {
@@ -13,6 +14,8 @@ const Feedback = () => {
   const [message, setMessage] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+
+  const { stickyRef, footerRef, offset } = useStickyFooterStop();
 
 
   useLayoutEffect(() => {
