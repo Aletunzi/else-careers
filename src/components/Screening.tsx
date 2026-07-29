@@ -197,11 +197,11 @@ const Screening = () => {
           Every role, scored against your profile.
         </h2>
 
-        <div className="mt-14 grid grid-cols-1 items-stretch gap-8 transition-all duration-500 sm:mt-16 lg:grid-cols-12 lg:gap-12">
+        <div className="mt-14 flex flex-col items-stretch gap-8 transition-all duration-700 sm:mt-16 lg:flex-row lg:gap-12">
           {/* List column */}
           <div
-            className={`flex h-full flex-col gap-4 transition-all duration-500 ${
-              selectedId ? "lg:col-span-5" : "lg:col-span-12"
+            className={`flex h-full flex-col gap-4 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+              selectedId ? "lg:w-[45%]" : "lg:w-full"
             }`}
           >
             {VACANCIES.map((v, i) => (
@@ -211,21 +211,27 @@ const Screening = () => {
                 selected={selectedId === v.id}
                 onSelect={() => setSelectedId(v.id)}
                 inView={inView}
-                delay={300 + i * 150}
+                delay={350 + i * 260}
               />
             ))}
           </div>
 
           {/* Detail panel */}
-          {selected && (
-            <div className="lg:col-span-7 lg:flex">
+          <div
+            className={`flex origin-top lg:origin-left overflow-hidden transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+              selectedId
+                ? "max-h-[1200px] opacity-100 scale-100 lg:w-[55%] lg:max-h-[1200px]"
+                : "max-h-0 opacity-0 scale-95 lg:w-0 lg:max-h-0 lg:pointer-events-none"
+            }`}
+          >
+            {selected && (
               <DetailPanel
                 key={selected.id}
                 vacancy={selected}
                 details={DETAILS[selected.id]}
               />
-            </div>
-          )}
+            )}
+          </div>
         </div>
       </div>
     </section>
