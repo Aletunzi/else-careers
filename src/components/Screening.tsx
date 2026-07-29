@@ -301,10 +301,10 @@ const DetailPanel = ({
 
   return (
     <div
-      className="overflow-hidden rounded-3xl bg-white shadow-[0_10px_40px_-15px_rgba(32,28,27,0.12)] animate-fade-in"
-      style={{ animationFillMode: "both" }}
+      className="flex w-full flex-col overflow-hidden rounded-3xl bg-white shadow-[0_10px_40px_-15px_rgba(32,28,27,0.12)] animate-scale-in origin-left"
+      style={{ animationFillMode: "both", animationDuration: "420ms" }}
     >
-      <div className="p-5 sm:p-6">
+      <div className="flex h-full flex-col p-6 sm:p-8">
         {/* Header */}
         <div className="flex items-start gap-4">
           <div className="flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden rounded-2xl bg-[#f3f1e9]">
@@ -325,8 +325,8 @@ const DetailPanel = ({
         </div>
 
         {/* Score gauge */}
-        <div className="mt-8 flex items-center gap-5">
-          <div className="relative h-24 w-24 shrink-0">
+        <div className="mt-10 flex items-center gap-6">
+          <div className="relative h-28 w-28 shrink-0">
             <svg className="h-full w-full -rotate-90" viewBox="0 0 100 100">
               <circle
                 cx="50"
@@ -350,7 +350,7 @@ const DetailPanel = ({
               />
             </svg>
             <div className="absolute inset-0 flex flex-col items-center justify-center">
-              <span className="text-2xl font-semibold text-foreground">
+              <span className="text-3xl font-semibold text-foreground">
                 {score}%
               </span>
               <span className="text-[10px] uppercase tracking-[0.15em] text-muted-foreground">
@@ -359,16 +359,15 @@ const DetailPanel = ({
             </div>
           </div>
           <div
-            className="flex-1 rounded-2xl bg-[#faf5ec] p-4 text-sm leading-relaxed text-foreground sm:text-base animate-fade-in"
+            className="flex-1 text-sm leading-relaxed text-foreground/80 sm:text-base animate-fade-in"
             style={{ animationDelay: "200ms", animationFillMode: "both" }}
           >
-            <span className="font-semibold">Why this fits: </span>
             {details.commentary}
           </div>
         </div>
 
         {/* Strengths & gaps */}
-        <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-8">
+        <div className="mt-auto grid grid-cols-1 gap-6 pt-10 sm:grid-cols-2 sm:gap-8">
           <div
             className="animate-fade-in"
             style={{ animationDelay: "350ms", animationFillMode: "both" }}
