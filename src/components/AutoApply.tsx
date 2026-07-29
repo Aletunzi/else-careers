@@ -67,6 +67,7 @@ const AutoApply = () => {
       window.setTimeout(() => {
         setCursorPhase("clicking");
         setButtonPressed(false);
+        setButtonHover(false);
         setStarted(true);
       }, 1500)
     );
@@ -172,60 +173,51 @@ const AutoApply = () => {
                     <h3 className="truncate text-lg font-medium text-foreground">{COMPANY.role}</h3>
                     <p className="text-sm text-muted-foreground">{COMPANY.name} · {COMPANY.location}</p>
                   </div>
-                  {(() => {
-                    const allDone = started && phase >= steps.length;
-                    if (allDone) {
-                      return (
-                        <div
-                          className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-white animate-fade-in"
-                          style={{ backgroundColor: COMPLETED_GREEN }}
-                          aria-label="Application submitted"
-                        >
-                          <Check className="h-5 w-5" strokeWidth={3} />
-                        </div>
-                      );
-                    }
-                    if (started) {
-                      return (
-                        <div
-                          className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary text-white animate-fade-in"
-                          aria-label="Submitting"
-                        >
-                          <span className="flex items-end gap-1">
-                            {[0, 1, 2].map((i) => (
-                              <span
-                                key={i}
-                                className="h-1.5 w-1.5 rounded-full bg-white"
-                                style={{
-                                  animation: "loading-dot 1s ease-in-out infinite",
-                                  animationDelay: `${i * 160}ms`,
-                                }}
-                              />
-                            ))}
-                          </span>
-                        </div>
-                      );
-                    }
-                    return (
-                      <button
-                        type="button"
-                        className="group relative inline-flex shrink-0 items-center gap-2 overflow-hidden rounded-lg bg-primary px-5 py-2.5 text-sm font-normal text-white transition-all duration-200"
-                        style={{ transform: buttonPressed ? "scale(0.95)" : "scale(1)" }}
-                        onMouseEnter={() => setButtonHover(true)}
-                        onMouseLeave={() => setButtonHover(false)}
-                      >
-                        <span
-                          className="absolute inset-y-0 left-0 bg-[#ff6b1a] transition-[width] duration-500 ease-out"
-                          style={{ width: buttonHover ? "100%" : "0%" }}
-                          aria-hidden
-                        />
-                        <span className="relative z-10">Apply</span>
-                        <span className="relative z-10" aria-hidden>
-                          <ArrowRight className="h-3.5 w-3.5" />
-                        </span>
-                      </button>
-                    );
-                  })()}
+                  <button
+                    type="button"
+                    className="group relative inline-flex shrink-0 items-center justify-center gap-2 overflow-hidden rounded-lg bg-primary px-5 py-2.5 text-sm font-normal text-white transition-all duration-200 min-w-[6rem]"
+                    style={{ transform: buttonPressed ? "scale(0.95)" : "scale(1)" }}
+                    onMouseEnter={() => setButtonHover(true)}
+                    onMouseLeave={() => setButtonHover(false)}
+                  >
+                    <span
+                      className="absolute inset-y-0 left-0 bg-[#ff6b1a] transition-[width] duration-500 ease-out"
+                      style={{ width: buttonHover ? "100%" : "0%" }}
+                      aria-hidden
+                    />
+                    <span className="relative z-10 flex items-center justify-center">
+                      {(() => {
+                        const allDone = started && phase >= steps.length;
+                        if (allDone) {
+                          return <Check className="h-4 w-4" strokeWidth={3} />;
+                        }
+                        if (started) {
+                          return (
+                            <span className="flex items-center gap-1">
+                              {[0, 1, 2].map((i) => (
+                                <span
+                                  key={i}
+                                  className="h-1.5 w-1.5 rounded-full bg-white"
+                                  style={{
+                                    animation: "loading-dot 1s ease-in-out infinite",
+                                    animationDelay: `${i * 160}ms`,
+                                  }}
+                                />
+                              ))}
+                            </span>
+                          );
+                        }
+                        return (
+                          <>
+                            <span>Apply</span>
+                            <span aria-hidden>
+                              <ArrowRight className="h-3.5 w-3.5" />
+                            </span>
+                          </>
+                        );
+                      })()}
+                    </span>
+                  </button>
                 </div>
 
                 <div className="mt-6 flex flex-col gap-3">
