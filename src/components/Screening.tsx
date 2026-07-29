@@ -219,12 +219,12 @@ const Screening = () => {
 
           {/* Detail panel */}
           <div
-            className={`flex origin-top lg:origin-left overflow-hidden transition-all duration-[900ms] ${
+            className={`flex origin-top lg:origin-left overflow-hidden transition-all ${
               selectedId
                 ? "max-h-[1200px] opacity-100 scale-100 lg:w-[55%] lg:max-h-[1200px]"
                 : "max-h-0 opacity-0 scale-95 lg:w-0 lg:max-h-0 lg:pointer-events-none"
             }`}
-            style={{ transitionTimingFunction: "cubic-bezier(0.33, 1, 0.68, 1)" }}
+            style={{ transitionDuration: "900ms", transitionTimingFunction: "cubic-bezier(0.33, 1, 0.68, 1)" }}
           >
             {selected && (
               <DetailPanel
