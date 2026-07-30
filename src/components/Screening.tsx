@@ -424,7 +424,7 @@ const InlineDetail = ({
         </div>
 
         {/* Strengths & gaps */}
-        <div className="grid grid-cols-1 gap-4 pt-5 sm:grid-cols-2 sm:gap-6 sm:pt-5">
+        <div className="grid grid-cols-1 gap-4 pt-8 sm:grid-cols-2 sm:gap-6 sm:pt-10">
           <div
             className="animate-fade-in"
             style={{ animationDelay: "650ms", animationFillMode: "both", animationDuration: "600ms", animationTimingFunction: "cubic-bezier(0.33, 1, 0.68, 1)" }}
