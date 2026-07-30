@@ -92,10 +92,6 @@ export default {
           "0%, 80%, 100%": { transform: "translateY(0)", opacity: "0.5" },
           "40%": { transform: "translateY(-7px)", opacity: "1" },
         },
-        "soft-pulse": {
-          "0%, 100%": { opacity: "0.4", transform: "scale(1)" },
-          "50%": { opacity: "1", transform: "scale(1.5)" },
-        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -104,7 +100,6 @@ export default {
         "fade-down": "fade-down 0.6s ease-out",
         "bounce-down": "bounce-down 1.8s ease-in-out infinite",
         "loading-dot": "loading-dot 1s ease-in-out infinite",
-        "soft-pulse": "soft-pulse 1.8s ease-in-out infinite",
       },
     },
   },
