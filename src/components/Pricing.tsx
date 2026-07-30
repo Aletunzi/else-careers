@@ -15,7 +15,7 @@ const plans: Plan[] = [
     name: "Starter",
     tagline: "Explore with 3 free applications.",
     price: "Free",
-    period: "",
+    period: "\n",
     cta: "Start free",
     href: "https://app.tryelse.xyz/register",
   },
