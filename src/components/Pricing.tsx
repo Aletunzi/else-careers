@@ -22,7 +22,7 @@ const plans: Plan[] = [
   {
     name: "Weekly pass",
     tagline: "For an intense, focused sprint.",
-    price: "€4.99",
+    price: "€9.99",
     period: "per week",
     cta: "Get the weekly pass",
     href: "https://app.tryelse.xyz/register?plan=pass_7d",
@@ -31,7 +31,7 @@ const plans: Plan[] = [
   {
     name: "Monthly pass",
     tagline: "For a longer, steady search.",
-    price: "€15.99",
+    price: "€19.99",
     period: "per month",
     cta: "Get the monthly pass",
     href: "https://app.tryelse.xyz/register?plan=pass_30d",
