@@ -245,9 +245,6 @@ const AutoApply = () => {
                         <div>
                           <p className="text-sm font-medium text-foreground">
                             {step.label}
-                            {active && (
-                              <span className="ml-1 inline-flex h-1.5 w-1.5 animate-pulse rounded-full bg-[#ff6b1a]" />
-                            )}
                           </p>
                           <p className="text-xs text-muted-foreground">{step.description}</p>
                         </div>
