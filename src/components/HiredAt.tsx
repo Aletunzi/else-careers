@@ -41,18 +41,18 @@ const HiredAt = () => {
             Where our users have been hired
           </h2>
 
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-3">
             <div className="flex items-baseline gap-2">
-              <span className="text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">+2000</span>
-              <span className="text-base text-foreground/70 sm:text-lg">jobs added daily</span>
+              <span className="text-lg font-medium tracking-tight text-foreground/60 sm:text-xl">+2000</span>
+              <span className="text-sm text-foreground/50">jobs added daily</span>
             </div>
             <div className="flex items-baseline gap-2">
-              <span className="text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">40000</span>
-              <span className="text-base text-foreground/70 sm:text-lg">verified job listings</span>
+              <span className="text-lg font-medium tracking-tight text-foreground/60 sm:text-xl">40000</span>
+              <span className="text-sm text-foreground/50">verified job listings</span>
             </div>
             <div className="flex items-baseline gap-2">
-              <span className="text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">50000</span>
-              <span className="text-base text-foreground/70 sm:text-lg">tailored applications submitted</span>
+              <span className="text-lg font-medium tracking-tight text-foreground/60 sm:text-xl">50000</span>
+              <span className="text-sm text-foreground/50">tailored applications submitted</span>
             </div>
           </div>
         </div>
