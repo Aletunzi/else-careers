@@ -90,12 +90,8 @@ const AutoApply = () => {
     >
       <div className="mx-auto max-w-7xl">
         <div
-          className="flex items-center justify-center gap-3 text-xs uppercase tracking-[0.2em] text-muted-foreground"
-          style={{
-            animation: inView ? "fade-down 0.6s ease-out both" : undefined,
-            animationDelay: "0ms",
-            opacity: inView ? undefined : 0,
-          }}
+          className={`flex items-center justify-center gap-3 text-xs uppercase tracking-[0.2em] text-muted-foreground ${inView ? "animate-fade-down" : "opacity-0"}`}
+          style={{ animationDelay: "0ms", animationFillMode: "both" }}
         >
           <span className="h-px w-8 bg-muted-foreground/50" />
           <span>Auto-apply</span>
@@ -103,34 +99,22 @@ const AutoApply = () => {
         </div>
 
         <h2
-          className="mx-auto mt-8 max-w-4xl text-center text-[clamp(2.25rem,7vw,5rem)] font-medium leading-[1.05] tracking-tight text-foreground md:text-6xl"
-          style={{
-            animation: inView ? "fade-down 0.6s ease-out both" : undefined,
-            animationDelay: "120ms",
-            opacity: inView ? undefined : 0,
-          }}
+          className={`mx-auto mt-8 max-w-4xl text-center text-[clamp(2.25rem,7vw,5rem)] font-medium leading-[1.05] tracking-tight text-foreground md:text-6xl ${inView ? "animate-fade-down" : "opacity-0"}`}
+          style={{ animationDelay: "180ms", animationFillMode: "both" }}
         >
           You click Apply. We handle the rest.
         </h2>
         <p
-          className="mx-auto mt-5 max-w-2xl text-center text-base text-muted-foreground sm:whitespace-nowrap sm:text-lg"
-          style={{
-            animation: inView ? "fade-down 0.6s ease-out both" : undefined,
-            animationDelay: "240ms",
-            opacity: inView ? undefined : 0,
-          }}
+          className={`mx-auto mt-5 max-w-2xl text-center text-base text-muted-foreground sm:whitespace-nowrap sm:text-lg ${inView ? "animate-fade-down" : "opacity-0"}`}
+          style={{ animationDelay: "360ms", animationFillMode: "both" }}
         >
           No more forms, uploads, or copy-paste. Else completes and submits every application on your behalf.
         </p>
 
 
         <div
-          className="mx-auto mt-12 max-w-2xl sm:mt-16"
-          style={{
-            animation: inView ? "fade-down 0.6s ease-out both" : undefined,
-            animationDelay: "360ms",
-            opacity: inView ? undefined : 0,
-          }}
+          className={`mx-auto mt-12 max-w-2xl sm:mt-16 ${inView ? "animate-fade-down" : "opacity-0"}`}
+          style={{ animationDelay: "540ms", animationFillMode: "both" }}
         >
           <div className="relative overflow-hidden rounded-3xl bg-white p-5 shadow-[0_10px_40px_-12px_rgba(32,28,27,0.15)] sm:p-8">
             <Cursor
