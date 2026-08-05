@@ -22,7 +22,8 @@ const ClosingCTA = () => {
   return (
     <section
       ref={sectionRef}
-      className="bg-background px-5 py-20 sm:px-8 sm:py-24 md:px-16 md:py-28 lg:px-24 lg:py-32 2xl:px-32"
+      className="px-5 py-20 sm:px-8 sm:py-24 md:px-16 md:py-28 lg:px-24 lg:py-32 2xl:px-32"
+      style={{ backgroundColor: "#f3f1e9" }}
     >
       <div className="mx-auto max-w-4xl">
         <div
@@ -31,7 +32,7 @@ const ClosingCTA = () => {
           }`}
         >
           <h2 className="max-w-2xl text-[clamp(2rem,5vw,3.5rem)] font-medium leading-[1.1] tracking-tight text-foreground">
-            Start Auto Applying today.
+            Start auto applying today.
           </h2>
           <p className="max-w-xl text-base text-muted-foreground sm:text-lg">
             Upload your resume, review your matches, and approve tailored applications in minutes.
