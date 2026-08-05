@@ -5,84 +5,67 @@ import avatar3 from "@/assets/reviews/avatar-3.jpg";
 import avatar4 from "@/assets/reviews/avatar-4.jpg";
 import avatar5 from "@/assets/reviews/avatar-5.jpg";
 import avatar6 from "@/assets/reviews/avatar-6.jpg";
+import avatar7 from "@/assets/reviews/avatar-7.jpg";
+import avatar8 from "@/assets/reviews/avatar-8.jpg";
 
 type Post = {
   name: string;
   handle: string;
   avatar: string;
   text: string;
-  date: string;
-  likes: string;
-  reposts: string;
-  replies: string;
+  verified?: boolean;
 };
 
 const posts: Post[] = [
   {
-    name: "Sara Neri",
-    handle: "@saraburnsdown",
+    name: "sara",
+    handle: "@sarane_ri",
     avatar: avatar1,
-    text:
-      "spent 3 months writing cover letters nobody read. tried else, clicked apply on 11 PM roles and woke up to two recruiter replies. genuinely didn't expect that.",
-    date: "Jul 14",
-    likes: "1.2K",
-    reposts: "84",
-    replies: "39",
+    text: "ok i take back what i said abt these apply bots. 3 free ones, 2 recruiters answered. i wrote 40 cover letters this year for nothing lol",
   },
   {
-    name: "Marco Falco",
-    handle: "@mfalco_pm",
+    name: "Marco F.",
+    handle: "@mfalco87",
     avatar: avatar2,
-    text:
-      "the fit score is the part I didn't know I needed. it told me I was a 61% match for a role I was about to spend an hour applying to. skipped it. applied to the 89% instead → onsite next week.",
-    date: "Jun 2",
-    likes: "3.4K",
-    reposts: "212",
-    replies: "77",
+    text: "fit score said 61% and i skipped it. applied to the 89% instead, onsite monday. wish i had this in march tbh",
+    verified: true,
   },
   {
-    name: "Priya Raman",
-    handle: "@priyabuilds",
+    name: "priya \u2601\ufe0f",
+    handle: "@priya_rmn",
     avatar: avatar3,
-    text:
-      "as someone doing a job search while employed: else basically gave me back my evenings. one click, they handle the forms. that's it.",
-    date: "Aug 21",
-    likes: "946",
-    reposts: "58",
-    replies: "24",
+    text: "job hunting while working full time is brutal. this gave me my evenings back. thats it thats the review",
   },
   {
-    name: "Andre Cole",
-    handle: "@andrecole",
+    name: "dre",
+    handle: "@notandrecole",
     avatar: avatar4,
-    text:
-      "47 applications in a week without opening a single Workday form. if you know, you know.",
-    date: "May 9",
-    likes: "5.7K",
-    reposts: "631",
-    replies: "158",
+    text: "47 apps in a week and i did not open workday ONCE. if you know you know",
   },
   {
-    name: "Lena Hoffmann",
-    handle: "@lenahoff",
+    name: "Lena",
+    handle: "@lenahoff.eth",
     avatar: avatar5,
-    text:
-      "was skeptical about an agent applying for me. read the screening report before hitting apply and it was more honest about my gaps than any recruiter has ever been.",
-    date: "Jul 30",
-    likes: "2.1K",
-    reposts: "143",
-    replies: "62",
+    text: "was pretty skeptical. read the screening report before clicking apply and honestly it was more blunt about my gaps than any recruiter has been. respect",
   },
   {
-    name: "Kenji Nakamura",
-    handle: "@kenji_pm",
+    name: "kenji",
+    handle: "@kenji__nkmr",
     avatar: avatar6,
-    text:
-      "3 free applications to test it, no card. did the 3, immediately bought the weekly pass. that's the whole review.",
-    date: "Sep 5",
-    likes: "1.8K",
-    reposts: "97",
-    replies: "31",
+    text: "did the 3 free ones then just bought the weekly. costs less than the lunch i skipped applying to jobs",
+    verified: true,
+  },
+  {
+    name: "tom",
+    handle: "@tomwaitingonhr",
+    avatar: avatar7,
+    text: "not gonna pretend it got me a job in a day. but i stopped dreading sunday nights, which was 90% of the problem",
+  },
+  {
+    name: "Aisha \ud83c\uddf3\ud83c\uddec",
+    handle: "@aisha_does_pm",
+    avatar: avatar8,
+    text: "genuinely the first time i\u2019ve been excited about applying to things?? i just click and go do something else. still weird to me",
   },
 ];
 
@@ -106,9 +89,11 @@ const PostCard = ({ post }: { post: Post }) => (
       <div className="min-w-0 flex-1">
         <div className="flex items-center gap-1.5">
           <span className="truncate text-sm font-semibold text-foreground">{post.name}</span>
-          <svg viewBox="0 0 22 22" aria-hidden className="h-3.5 w-3.5 shrink-0 fill-[#1d9bf0]">
-            <path d="M20.396 11c-.018-.646-.215-1.275-.57-1.816-.354-.54-.852-.972-1.438-1.246.223-.607.27-1.264.14-1.897-.131-.634-.437-1.218-.882-1.687-.47-.445-1.053-.75-1.687-.882-.633-.13-1.29-.083-1.897.14-.273-.587-.704-1.086-1.245-1.44S11.647 1.62 11 1.604c-.646.017-1.273.213-1.813.568s-.973.851-1.25 1.435c-.606-.223-1.263-.27-1.897-.14-.633.131-1.216.437-1.686.882-.445.47-.75 1.053-.882 1.687-.13.633-.083 1.29.14 1.897-.587.274-1.086.705-1.44 1.246-.354.54-.551 1.17-.569 1.816.018.646.215 1.275.57 1.816.353.54.852.972 1.438 1.246-.223.607-.27 1.264-.14 1.897.131.634.437 1.218.882 1.687.47.445 1.053.75 1.687.882.633.13 1.29.083 1.897-.14.274.587.705 1.086 1.245 1.44.541.354 1.17.551 1.816.569.646-.018 1.275-.215 1.816-.57.54-.353.972-.852 1.246-1.438.606.235 1.269.291 1.907.164.638-.128 1.226-.436 1.692-.888.452-.466.76-1.054.888-1.692.127-.638.071-1.301-.164-1.907.586-.274 1.085-.705 1.439-1.246.355-.54.552-1.17.57-1.816zM9.662 14.85l-3.429-3.428 1.293-1.302 2.072 2.072 4.4-4.794 1.347 1.246z" />
-          </svg>
+          {post.verified && (
+            <svg viewBox="0 0 22 22" aria-hidden className="h-3.5 w-3.5 shrink-0 fill-[#1d9bf0]">
+              <path d="M20.396 11c-.018-.646-.215-1.275-.57-1.816-.354-.54-.852-.972-1.438-1.246.223-.607.27-1.264.14-1.897-.131-.634-.437-1.218-.882-1.687-.47-.445-1.053-.75-1.687-.882-.633-.13-1.29-.083-1.897.14-.273-.587-.704-1.086-1.245-1.44S11.647 1.62 11 1.604c-.646.017-1.273.213-1.813.568s-.973.851-1.25 1.435c-.606-.223-1.263-.27-1.897-.14-.633.131-1.216.437-1.686.882-.445.47-.75 1.053-.882 1.687-.13.633-.083 1.29.14 1.897-.587.274-1.086.705-1.44 1.246-.354.54-.551 1.17-.569 1.816.018.646.215 1.275.57 1.816.353.54.852.972 1.438 1.246-.223.607-.27 1.264-.14 1.897.131.634.437 1.218.882 1.687.47.445 1.053.75 1.687.882.633.13 1.29.083 1.897-.14.274.587.705 1.086 1.245 1.44.541.354 1.17.551 1.816.569.646-.018 1.275-.215 1.816-.57.54-.353.972-.852 1.246-1.438.606.235 1.269.291 1.907.164.638-.128 1.226-.436 1.692-.888.452-.466.76-1.054.888-1.692.127-.638.071-1.301-.164-1.907.586-.274 1.085-.705 1.439-1.246.355-.54.552-1.17.57-1.816zM9.662 14.85l-3.429-3.428 1.293-1.302 2.072 2.072 4.4-4.794 1.347 1.246z" />
+            </svg>
+          )}
         </div>
         <span className="block truncate text-sm text-muted-foreground">{post.handle}</span>
       </div>
