@@ -1,7 +1,7 @@
 const COMPANIES: { name: string; slug: string }[] = [
   { name: "Google", slug: "google" },
   { name: "Apple", slug: "apple" },
-  { name: "Amazon", slug: "amazon" },
+  { name: "Nvidia", slug: "nvidia" },
   { name: "Netflix", slug: "netflix" },
   { name: "Spotify", slug: "spotify" },
   { name: "Airbnb", slug: "airbnb" },
@@ -9,7 +9,7 @@ const COMPANIES: { name: string; slug: string }[] = [
   { name: "Stripe", slug: "stripe" },
   { name: "Notion", slug: "notion" },
   { name: "Figma", slug: "figma" },
-  { name: "Slack", slug: "slack" },
+  { name: "GitHub", slug: "github" },
   { name: "Dropbox", slug: "dropbox" },
   { name: "Revolut", slug: "revolut" },
   { name: "Shopify", slug: "shopify" },
