@@ -9,26 +9,19 @@ const COMPANIES: { name: string; src: string; scale?: number }[] = [
   { name: "Netflix", src: `${W}0/08/Netflix_2015_logo.svg`, scale: 0.9 },
   { name: "Nvidia", src: `${W}2/21/Nvidia_logo.svg`, scale: 1.1 },
   { name: "Spotify", src: `${W}2/26/Spotify_logo_with_text.svg` },
-  { name: "Uber", src: `${W}5/58/Uber_logo_2018.svg`, scale: 0.8 },
-  { name: "Stripe", src: `${W}b/ba/Stripe_Logo%2C_revised_2016.svg`, scale: 0.9 },
-  { name: "GitHub", src: `${W}2/29/GitHub_logo_2013.svg`, scale: 1.1 },
-  { name: "Dropbox", src: `${W}c/cb/Dropbox_logo_2017.svg` },
-  { name: "Shopify", src: `${W}0/0e/Shopify_logo_2018.svg`, scale: 1.1 },
-  { name: "Slack", src: `${W}b/b9/Slack_Technologies_Logo.svg`, scale: 1.2 },
-  { name: "Tesla", src: `${W}b/bd/Tesla_Motors.svg`, scale: 0.75 },
 ];
 
 const Logo = ({ name, src, scale = 1 }: { name: string; src: string; scale?: number }) => (
-  <div className="flex h-14 shrink-0 items-center justify-center">
+  <div className="flex h-10 items-center justify-center sm:h-12">
     <img
       src={src}
       alt={`${name} logo`}
-      className="w-auto object-contain"
+      className="w-auto max-w-full object-contain"
       style={{
-        height: `${1.75 * scale}rem`,
-        maxWidth: "170px",
-        filter: "brightness(0) saturate(0)",
-        opacity: 0.85,
+        height: `${1.5 * scale}rem`,
+        maxHeight: "2.25rem",
+        filter: "grayscale(100%) brightness(0.45)",
+        opacity: 0.9,
       }}
       loading="lazy"
     />
@@ -36,36 +29,19 @@ const Logo = ({ name, src, scale = 1 }: { name: string; src: string; scale?: num
 );
 
 const HiredAt = () => {
-  const loop = [...COMPANIES, ...COMPANIES];
-
   return (
     <section className="bg-[#ece7da] px-5 py-14 sm:px-8 sm:py-16 md:px-16 lg:px-24 2xl:px-32">
-      <div className="mx-auto max-w-7xl">
-        <h2 className="text-center text-3xl font-medium tracking-tight text-foreground sm:text-4xl md:text-5xl">
+      <div className="mx-auto flex max-w-7xl flex-col items-start gap-12 lg:flex-row lg:items-center lg:justify-between lg:gap-20">
+        <h2 className="max-w-sm text-3xl font-medium tracking-tight text-foreground sm:text-4xl md:text-5xl lg:max-w-md">
           Where Else users have been hired
         </h2>
 
-        <div className="relative mt-16 overflow-hidden py-4 sm:mt-20">
-          <div
-            className="flex w-max items-center gap-16 sm:gap-24 lg:gap-28"
-            style={{ animation: "hired-scroll 55s linear infinite" }}
-          >
-            {loop.map((c, i) => (
-              <Logo key={`${c.name}-${i}`} name={c.name} src={c.src} scale={c.scale} />
-            ))}
-          </div>
-
-          <div className="pointer-events-none absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-[#ece7da] to-transparent sm:w-24" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-[#ece7da] to-transparent sm:w-24" />
+        <div className="grid w-full grid-cols-2 gap-x-8 gap-y-8 sm:gap-x-12 sm:gap-y-10 md:grid-cols-4 md:gap-x-14 lg:w-auto lg:gap-x-16 lg:gap-y-10">
+          {COMPANIES.map((c) => (
+            <Logo key={c.name} name={c.name} src={c.src} scale={c.scale} />
+          ))}
         </div>
       </div>
-
-      <style>{`
-        @keyframes hired-scroll {
-          from { transform: translateX(0); }
-          to { transform: translateX(-50%); }
-        }
-      `}</style>
     </section>
   );
 };
