@@ -75,8 +75,8 @@ const Pricing = () => {
           className={`mt-6 max-w-4xl text-4xl font-medium leading-[1.05] text-foreground transition-all duration-700 ease-out sm:text-5xl md:text-6xl lg:text-[64px] xl:text-[68px] ${inView ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-3"}`}
           style={{ transitionDelay: inView ? "120ms" : "0ms" }}
         >
-          A plan for every{" "}
-          <span className="whitespace-nowrap">kind of search.</span>
+          A plan for{" "}
+          <span className="whitespace-nowrap">every kind of search.</span>
         </h2>
 
         <p
