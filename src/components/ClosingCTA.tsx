@@ -10,11 +10,7 @@ const ClosingCTA = () => {
       style={{ backgroundColor: "#f3f1e9" }}
     >
       <div className="mx-auto max-w-4xl">
-        <div
-          className={`relative flex flex-col items-center justify-center gap-6 overflow-hidden rounded-3xl bg-white p-8 text-center shadow-[0_4px_24px_-12px_rgba(32,28,27,0.12)] transition-all duration-700 ease-out sm:p-12 md:p-16 lg:gap-8 ${
-            inView ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-3"
-          }`}
-        >
+        <div className="relative flex flex-col items-center justify-center gap-6 overflow-hidden rounded-3xl bg-white p-8 text-center shadow-[0_4px_24px_-12px_rgba(32,28,27,0.12)] sm:p-12 md:p-16 lg:gap-8">
           <div
             className="pointer-events-none absolute inset-0 opacity-60"
             aria-hidden
@@ -24,10 +20,20 @@ const ClosingCTA = () => {
             }}
           />
           <div className="relative z-10 w-full rounded-2xl bg-white px-6 py-4 sm:px-8 sm:py-6">
-            <h2 className="mx-auto max-w-2xl text-[clamp(2rem,5vw,3.5rem)] font-medium leading-[1.1] tracking-tight text-foreground">
+            <h2
+              className={`mx-auto max-w-2xl text-[clamp(2rem,5vw,3.5rem)] font-medium leading-[1.1] tracking-tight text-foreground ${
+                inView ? "animate-fade-in" : "opacity-0"
+              }`}
+              style={{ animationDelay: "0ms", animationFillMode: "backwards" }}
+            >
               Start auto applying today.
             </h2>
-            <p className="mx-auto mt-4 max-w-xl text-base text-muted-foreground sm:text-lg">
+            <p
+              className={`mx-auto mt-4 max-w-xl text-base text-muted-foreground sm:text-lg ${
+                inView ? "animate-fade-in" : "opacity-0"
+              }`}
+              style={{ animationDelay: "150ms", animationFillMode: "backwards" }}
+            >
               Upload your resume, review your matches, and approve tailored applications in minutes.
             </p>
           </div>
@@ -35,7 +41,10 @@ const ClosingCTA = () => {
             href="https://app.tryelse.xyz/register"
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative mt-2 inline-flex items-center gap-2 overflow-hidden rounded-full bg-black px-6 py-3.5 text-sm text-white transition-colors sm:text-base"
+            className={`group relative z-10 mt-2 inline-flex items-center gap-2 overflow-hidden rounded-full bg-black px-6 py-3.5 text-sm text-white transition-colors sm:text-base ${
+              inView ? "animate-fade-in" : "opacity-0"
+            }`}
+            style={{ animationDelay: "300ms", animationFillMode: "backwards" }}
           >
             <span
               className="absolute inset-y-0 left-0 w-0 bg-[#ff6b1a] transition-[width] duration-500 ease-out group-hover:w-full"
