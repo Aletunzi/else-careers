@@ -17,18 +17,16 @@ const COMPANIES: { name: string; src: string }[] = [
   { name: "Slack", src: `${W}b/b9/Slack_Technologies_Logo.svg` },
 ];
 
-const Logo = ({ name, src, scale = 1 }: { name: string; src: string; scale?: number }) => (
-  <div className="flex h-8 items-center justify-center sm:h-10 md:h-12">
+const Logo = ({ name, src }: { name: string; src: string }) => (
+  <div className="flex h-10 w-28 items-center justify-center sm:h-12 sm:w-32 md:h-14 md:w-36">
     <img
       src={src}
       alt={`${name} logo`}
-      className="w-auto max-w-full object-contain"
-        style={{
-          height: `${1.35 * scale}rem`,
-          maxHeight: "2rem",
-          filter: "grayscale(100%) brightness(0.55)",
-          opacity: 0.75,
-        }}
+      className="h-full w-full object-contain"
+      style={{
+        filter: "grayscale(100%) brightness(0.55)",
+        opacity: 0.75,
+      }}
       loading="lazy"
     />
   </div>
