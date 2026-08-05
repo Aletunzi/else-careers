@@ -37,7 +37,10 @@ const HiredAt = () => {
     <section className="bg-[#ece7da] px-5 py-20 sm:py-24 md:py-32 lg:px-24 2xl:px-32">
       <div className="mx-auto flex max-w-7xl flex-col items-start gap-12 lg:flex-row lg:items-center lg:justify-between lg:gap-16">
         <div className="flex flex-col gap-8 lg:max-w-md">
-          <h2 className="max-w-sm text-3xl font-medium tracking-tight text-foreground sm:text-4xl md:text-5xl lg:max-w-md">
+          <h2
+            className="max-w-sm animate-fade-in text-3xl font-medium tracking-tight text-foreground sm:text-4xl md:text-5xl lg:max-w-md"
+            style={{ animationFillMode: "backwards" }}
+          >
             Where our users have been hired
           </h2>
 
