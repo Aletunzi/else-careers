@@ -12,10 +12,10 @@ const ClosingCTA = () => {
       <div className="mx-auto max-w-4xl">
         <div className="relative flex flex-col items-center justify-center gap-6 overflow-hidden rounded-3xl bg-white p-8 text-center shadow-[0_4px_24px_-12px_rgba(32,28,27,0.12)] sm:p-12 md:p-16 lg:gap-8">
           <div
-            className="pointer-events-none absolute inset-0 opacity-75"
+            className="pointer-events-none absolute inset-0 opacity-[0.68]"
             aria-hidden
             style={{
-              backgroundImage: "radial-gradient(circle, #f3f1e9 3px, transparent 3px)",
+              backgroundImage: "radial-gradient(circle, #f3f1e9 2.5px, transparent 2.5px)",
               backgroundSize: "24px 24px",
             }}
           />
