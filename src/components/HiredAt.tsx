@@ -47,11 +47,16 @@ const HiredAt = () => {
         </div>
 
         <div
-          className="grid w-full grid-cols-2 gap-x-6 gap-y-7 animate-fade-in sm:grid-cols-4 sm:gap-x-8 sm:gap-y-10 lg:w-auto lg:gap-x-12 lg:gap-y-14"
-          style={{ animationDelay: "150ms", animationFillMode: "backwards" }}
+          className="grid w-full grid-cols-2 gap-x-6 gap-y-7 sm:grid-cols-4 sm:gap-x-8 sm:gap-y-10 lg:w-auto lg:gap-x-12 lg:gap-y-14"
         >
-          {COMPANIES.map((c) => (
-            <Logo key={c.name} name={c.name} src={c.src} scale={c.scale} />
+          {COMPANIES.map((c, i) => (
+            <div
+              key={c.name}
+              className="animate-fade-in"
+              style={{ animationDelay: `${150 + i * 60}ms`, animationFillMode: "backwards" }}
+            >
+              <Logo name={c.name} src={c.src} scale={c.scale} />
+            </div>
           ))}
         </div>
       </div>
