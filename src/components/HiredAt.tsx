@@ -2,33 +2,31 @@ import { useInView } from "@/hooks/useInView";
 
 const W = "https://upload.wikimedia.org/wikipedia/commons/";
 
-const COMPANIES: { name: string; src: string; scale?: number }[] = [
+const COMPANIES: { name: string; src: string }[] = [
   { name: "Google", src: `${W}2/2f/Google_2015_logo.svg` },
   { name: "Microsoft", src: `${W}9/96/Microsoft_logo_%282012%29.svg` },
-  { name: "Amazon", src: `${W}a/a9/Amazon_logo.svg`, scale: 0.85 },
-  { name: "Apple", src: `${W}f/fa/Apple_logo_black.svg`, scale: 1.2 },
+  { name: "Amazon", src: `${W}a/a9/Amazon_logo.svg` },
+  { name: "Apple", src: `${W}f/fa/Apple_logo_black.svg` },
   { name: "Meta", src: `${W}7/7b/Meta_Platforms_Inc._logo.svg` },
-  { name: "Netflix", src: `${W}0/08/Netflix_2015_logo.svg`, scale: 0.9 },
-  { name: "Nvidia", src: `${W}2/21/Nvidia_logo.svg`, scale: 1.1 },
+  { name: "Netflix", src: `${W}0/08/Netflix_2015_logo.svg` },
+  { name: "Nvidia", src: `${W}2/21/Nvidia_logo.svg` },
   { name: "Spotify", src: `${W}2/26/Spotify_logo_with_text.svg` },
-  { name: "GitHub", src: `${W}2/29/GitHub_logo_2013.svg`, scale: 1.1 },
+  { name: "GitHub", src: `${W}2/29/GitHub_logo_2013.svg` },
   { name: "Dropbox", src: `${W}c/cb/Dropbox_logo_2017.svg` },
-  { name: "Shopify", src: `${W}0/0e/Shopify_logo_2018.svg`, scale: 1.1 },
-  { name: "Slack", src: `${W}b/b9/Slack_Technologies_Logo.svg`, scale: 1.2 },
+  { name: "Shopify", src: `${W}0/0e/Shopify_logo_2018.svg` },
+  { name: "Slack", src: `${W}b/b9/Slack_Technologies_Logo.svg` },
 ];
 
-const Logo = ({ name, src, scale = 1 }: { name: string; src: string; scale?: number }) => (
-  <div className="flex h-8 items-center justify-center sm:h-10 md:h-12">
+const Logo = ({ name, src }: { name: string; src: string }) => (
+  <div className="flex h-10 w-28 items-center justify-center sm:h-12 sm:w-32 md:h-14 md:w-36">
     <img
       src={src}
       alt={`${name} logo`}
-      className="w-auto max-w-full object-contain"
-        style={{
-          height: `${1.35 * scale}rem`,
-          maxHeight: "2rem",
-          filter: "grayscale(100%) brightness(0.55)",
-          opacity: 0.75,
-        }}
+      className="h-full w-full object-contain"
+      style={{
+        filter: "grayscale(100%) brightness(0.55)",
+        opacity: 0.75,
+      }}
       loading="lazy"
     />
   </div>
@@ -58,7 +56,7 @@ const HiredAt = () => {
               className={inView ? "animate-fade-in" : "opacity-0"}
               style={{ animationDelay: `${150 + i * 60}ms`, animationFillMode: "both" }}
             >
-              <Logo name={c.name} src={c.src} scale={c.scale} />
+              <Logo name={c.name} src={c.src} />
             </div>
           ))}
         </div>
