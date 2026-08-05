@@ -4,6 +4,7 @@ import ProblemTwo from "@/components/ProblemTwo";
 import Solution from "@/components/Solution";
 import Screening from "@/components/Screening";
 import AutoApply from "@/components/AutoApply";
+import Reviews from "@/components/Reviews";
 import Pricing from "@/components/Pricing";
 import FAQ from "@/components/FAQ";
 import ClosingCTA from "@/components/ClosingCTA";
@@ -22,6 +23,7 @@ const Index = () => {
       <Solution />
       <Screening />
       <AutoApply />
+      <Reviews />
       <Pricing />
       <FAQ />
       <ClosingCTA />
