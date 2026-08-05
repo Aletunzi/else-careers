@@ -30,28 +30,12 @@ const Cursor = ({ className, style }: { className?: string; style?: React.CSSPro
 );
 
 const AutoApply = () => {
-  const ref = useRef<HTMLElement>(null);
-  const [inView, setInView] = useState(false);
+  const { ref, inView } = useInView<HTMLElement>();
   const [buttonPressed, setButtonPressed] = useState(false);
   const [buttonHover, setButtonHover] = useState(false);
   const [started, setStarted] = useState(false);
   const [phase, setPhase] = useState(0);
   const [cursorPhase, setCursorPhase] = useState<"hidden" | "entering" | "hovering" | "clicking" | "leaving">("hidden");
-
-  useEffect(() => {
-    if (!ref.current) return;
-    const obs = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setInView(true);
-          obs.disconnect();
-        }
-      },
-      { threshold: 0.2 }
-    );
-    obs.observe(ref.current);
-    return () => obs.disconnect();
-  }, []);
 
   useEffect(() => {
     if (!inView) return;
