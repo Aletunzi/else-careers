@@ -149,31 +149,15 @@ const scoreBadgeClasses = (score: number) => {
 };
 
 const Screening = () => {
-  const ref = useRef<HTMLElement>(null);
+  const { ref, inView } = useInView<HTMLElement>();
   const listRef = useRef<HTMLDivElement>(null);
   const [listHeight, setListHeight] = useState<number | null>(null);
   const [firstCardHeight, setFirstCardHeight] = useState<number>(0);
   const [gap, setGap] = useState<number>(0);
-  const [inView, setInView] = useState(false);
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [cursorStage, setCursorStage] = useState<
     "hidden" | "moving" | "clicking" | "done"
   >("hidden");
-
-  useEffect(() => {
-    if (!ref.current) return;
-    const obs = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setInView(true);
-          obs.disconnect();
-        }
-      },
-      { threshold: 0.2 }
-    );
-    obs.observe(ref.current);
-    return () => obs.disconnect();
-  }, []);
 
   useEffect(() => {
     if (!inView) return;
