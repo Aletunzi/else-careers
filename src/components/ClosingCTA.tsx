@@ -27,10 +27,18 @@ const ClosingCTA = () => {
     >
       <div className="mx-auto max-w-4xl">
         <div
-          className={`flex flex-col items-center justify-center gap-6 rounded-3xl bg-white p-8 text-center shadow-[0_4px_24px_-12px_rgba(32,28,27,0.12)] transition-all duration-700 ease-out sm:p-12 md:p-16 lg:gap-8 ${
+          className={`relative flex flex-col items-center justify-center gap-6 overflow-hidden rounded-3xl bg-white p-8 text-center shadow-[0_4px_24px_-12px_rgba(32,28,27,0.12)] transition-all duration-700 ease-out sm:p-12 md:p-16 lg:gap-8 ${
             inView ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-3"
           }`}
         >
+          <div
+            className="pointer-events-none absolute inset-0 opacity-30"
+            aria-hidden
+            style={{
+              backgroundImage: "radial-gradient(circle, #f3f1e9 1.5px, transparent 1.5px)",
+              backgroundSize: "28px 28px",
+            }}
+          />
           <h2 className="max-w-2xl text-[clamp(2rem,5vw,3.5rem)] font-medium leading-[1.1] tracking-tight text-foreground">
             Start auto applying today.
           </h2>
