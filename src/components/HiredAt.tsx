@@ -48,7 +48,7 @@ const HiredAt = () => {
         </div>
 
         <div
-          className="mx-auto grid w-auto grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-4 sm:gap-x-8 sm:gap-y-12 lg:mx-0 lg:w-auto lg:gap-x-28 lg:gap-y-14"
+          className="mx-auto grid w-auto grid-cols-2 gap-x-8 gap-y-14 sm:grid-cols-4 sm:gap-x-10 sm:gap-y-16 lg:mx-0 lg:w-auto lg:gap-x-28 lg:gap-y-14"
         >
           {COMPANIES.map((c, i) => (
             <div
