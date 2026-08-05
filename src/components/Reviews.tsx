@@ -130,7 +130,8 @@ const Reviews = () => {
   return (
     <section
       ref={sectionRef}
-      className="overflow-hidden bg-background py-20 sm:py-24 md:py-28 lg:py-32"
+      className="overflow-hidden bg-background pt-20 pb-28 sm:pt-24 sm:pb-32 md:pt-28 md:pb-36 lg:pt-32 lg:pb-40"
+
     >
       <style>{`
         @keyframes reviews-marquee {
