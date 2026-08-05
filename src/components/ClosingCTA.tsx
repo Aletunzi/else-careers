@@ -32,11 +32,11 @@ const ClosingCTA = () => {
           }`}
         >
           <div
-            className="pointer-events-none absolute inset-0 opacity-30"
+            className="pointer-events-none absolute inset-0 opacity-50"
             aria-hidden
             style={{
-              backgroundImage: "radial-gradient(circle, #f3f1e9 1.5px, transparent 1.5px)",
-              backgroundSize: "28px 28px",
+              backgroundImage: "radial-gradient(circle, #f3f1e9 2px, transparent 2px)",
+              backgroundSize: "26px 26px",
             }}
           />
           <h2 className="max-w-2xl text-[clamp(2rem,5vw,3.5rem)] font-medium leading-[1.1] tracking-tight text-foreground">
