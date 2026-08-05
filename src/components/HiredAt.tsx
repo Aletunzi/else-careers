@@ -21,12 +21,12 @@ const Logo = ({ name, src, scale = 1 }: { name: string; src: string; scale?: num
       src={src}
       alt={`${name} logo`}
       className="w-auto max-w-full object-contain"
-      style={{
-        height: `${1.35 * scale}rem`,
-        maxHeight: "2rem",
-        filter: "grayscale(100%) brightness(0.45)",
-        opacity: 0.9,
-      }}
+        style={{
+          height: `${1.35 * scale}rem`,
+          maxHeight: "2rem",
+          filter: "grayscale(100%) brightness(0.55)",
+          opacity: 0.75,
+        }}
       loading="lazy"
     />
   </div>
@@ -41,23 +41,23 @@ const HiredAt = () => {
             Where our users have been hired
           </h2>
 
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-3">
             <div className="flex items-baseline gap-2">
-              <span className="text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">+2000</span>
-              <span className="text-base text-foreground/70 sm:text-lg">jobs added daily</span>
+              <span className="text-lg font-medium tracking-tight text-foreground/60 sm:text-xl">+2000</span>
+              <span className="text-sm text-foreground/50">jobs added daily</span>
             </div>
             <div className="flex items-baseline gap-2">
-              <span className="text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">40000</span>
-              <span className="text-base text-foreground/70 sm:text-lg">verified job listings</span>
+              <span className="text-lg font-medium tracking-tight text-foreground/60 sm:text-xl">40000</span>
+              <span className="text-sm text-foreground/50">verified job listings</span>
             </div>
             <div className="flex items-baseline gap-2">
-              <span className="text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">50000</span>
-              <span className="text-base text-foreground/70 sm:text-lg">tailored applications submitted</span>
+              <span className="text-lg font-medium tracking-tight text-foreground/60 sm:text-xl">50000</span>
+              <span className="text-sm text-foreground/50">tailored applications submitted</span>
             </div>
           </div>
         </div>
 
-        <div className="grid w-full grid-cols-2 gap-x-6 gap-y-6 sm:grid-cols-4 sm:gap-x-8 sm:gap-y-8 lg:w-auto lg:gap-x-12 lg:gap-y-10">
+        <div className="grid w-full grid-cols-2 gap-x-6 gap-y-7 sm:grid-cols-4 sm:gap-x-8 sm:gap-y-10 lg:w-auto lg:gap-x-12 lg:gap-y-14">
           {COMPANIES.map((c) => (
             <Logo key={c.name} name={c.name} src={c.src} scale={c.scale} />
           ))}
