@@ -38,7 +38,7 @@ const HiredAt = () => {
       <div className="mx-auto flex max-w-7xl flex-col items-start gap-12 lg:flex-row lg:items-start lg:justify-between lg:gap-16">
         <div className="flex flex-col gap-8 lg:max-w-md">
           <h2
-            className="max-w-md animate-fade-in text-4xl font-medium tracking-tight text-foreground sm:text-5xl md:text-6xl lg:max-w-lg"
+            className="max-w-md animate-fade-in text-[2.125rem] font-medium leading-tight tracking-tight text-foreground sm:text-[2.75rem] md:text-[3.5rem] lg:max-w-lg"
             style={{ animationFillMode: "backwards" }}
           >
             Where our users have been hired:
