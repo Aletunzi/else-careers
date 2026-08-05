@@ -2,19 +2,19 @@ import { useInView } from "@/hooks/useInView";
 
 const W = "https://upload.wikimedia.org/wikipedia/commons/";
 
-const COMPANIES: { name: string; src: string; scale?: number }[] = [
+const COMPANIES: { name: string; src: string }[] = [
   { name: "Google", src: `${W}2/2f/Google_2015_logo.svg` },
   { name: "Microsoft", src: `${W}9/96/Microsoft_logo_%282012%29.svg` },
-  { name: "Amazon", src: `${W}a/a9/Amazon_logo.svg`, scale: 0.85 },
-  { name: "Apple", src: `${W}f/fa/Apple_logo_black.svg`, scale: 1.2 },
+  { name: "Amazon", src: `${W}a/a9/Amazon_logo.svg` },
+  { name: "Apple", src: `${W}f/fa/Apple_logo_black.svg` },
   { name: "Meta", src: `${W}7/7b/Meta_Platforms_Inc._logo.svg` },
-  { name: "Netflix", src: `${W}0/08/Netflix_2015_logo.svg`, scale: 0.9 },
-  { name: "Nvidia", src: `${W}2/21/Nvidia_logo.svg`, scale: 1.1 },
+  { name: "Netflix", src: `${W}0/08/Netflix_2015_logo.svg` },
+  { name: "Nvidia", src: `${W}2/21/Nvidia_logo.svg` },
   { name: "Spotify", src: `${W}2/26/Spotify_logo_with_text.svg` },
-  { name: "GitHub", src: `${W}2/29/GitHub_logo_2013.svg`, scale: 1.1 },
+  { name: "GitHub", src: `${W}2/29/GitHub_logo_2013.svg` },
   { name: "Dropbox", src: `${W}c/cb/Dropbox_logo_2017.svg` },
-  { name: "Shopify", src: `${W}0/0e/Shopify_logo_2018.svg`, scale: 1.1 },
-  { name: "Slack", src: `${W}b/b9/Slack_Technologies_Logo.svg`, scale: 1.2 },
+  { name: "Shopify", src: `${W}0/0e/Shopify_logo_2018.svg` },
+  { name: "Slack", src: `${W}b/b9/Slack_Technologies_Logo.svg` },
 ];
 
 const Logo = ({ name, src, scale = 1 }: { name: string; src: string; scale?: number }) => (
