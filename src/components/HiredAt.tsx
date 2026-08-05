@@ -21,12 +21,12 @@ const Logo = ({ name, src, scale = 1 }: { name: string; src: string; scale?: num
       src={src}
       alt={`${name} logo`}
       className="w-auto max-w-full object-contain"
-      style={{
-        height: `${1.35 * scale}rem`,
-        maxHeight: "2rem",
-        filter: "grayscale(100%) brightness(0.45)",
-        opacity: 0.9,
-      }}
+        style={{
+          height: `${1.35 * scale}rem`,
+          maxHeight: "2rem",
+          filter: "grayscale(100%) brightness(0.55)",
+          opacity: 0.75,
+        }}
       loading="lazy"
     />
   </div>
