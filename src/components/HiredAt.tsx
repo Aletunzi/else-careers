@@ -36,10 +36,10 @@ const HiredAt = () => {
   const { ref, inView } = useInView<HTMLElement>();
   return (
     <section ref={ref} className="bg-[#ece7da] px-5 py-16 sm:py-20 md:py-28 lg:px-24 2xl:px-32">
-      <div className="mx-auto flex max-w-7xl flex-col items-start gap-12 lg:flex-row lg:items-start lg:justify-between lg:gap-16">
-        <div className="flex flex-col gap-8 lg:max-w-md">
+      <div className="mx-auto flex max-w-7xl flex-col items-center gap-12 lg:flex-row lg:items-start lg:justify-between lg:gap-16">
+        <div className="mx-auto flex flex-col items-center gap-8 lg:mx-0 lg:max-w-md lg:items-start">
           <h2
-            className={`max-w-md text-[2rem] font-medium leading-tight tracking-tight text-foreground sm:text-[2.5rem] md:text-[3.25rem] lg:max-w-lg ${inView ? "animate-fade-in" : "opacity-0"}`}
+            className={`max-w-md text-center text-[2rem] font-medium leading-tight tracking-tight text-foreground sm:text-[2.5rem] md:text-[3.25rem] lg:text-left lg:max-w-lg ${inView ? "animate-fade-in" : "opacity-0"}`}
             style={{ animationFillMode: "both" }}
           >
             Where our users have been hired:
@@ -48,7 +48,7 @@ const HiredAt = () => {
         </div>
 
         <div
-          className="grid w-full grid-cols-2 gap-x-6 gap-y-7 sm:grid-cols-4 sm:gap-x-8 sm:gap-y-10 lg:w-auto lg:gap-x-28 lg:gap-y-14"
+          className="mx-auto grid w-auto grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-4 sm:gap-x-8 sm:gap-y-12 lg:mx-0 lg:w-auto lg:gap-x-28 lg:gap-y-14"
         >
           {COMPANIES.map((c, i) => (
             <div
