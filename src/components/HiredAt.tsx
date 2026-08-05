@@ -44,23 +44,6 @@ const HiredAt = () => {
             Where our users have been hired
           </h2>
 
-          <div
-            className="flex flex-col gap-3 animate-fade-in"
-            style={{ animationDelay: "150ms", animationFillMode: "backwards" }}
-          >
-            <div className="flex items-baseline gap-2">
-              <span className="text-lg font-medium tracking-tight text-foreground/60 sm:text-xl">2.000+</span>
-              <span className="text-sm text-foreground/50">jobs added daily</span>
-            </div>
-            <div className="flex items-baseline gap-2">
-              <span className="text-lg font-medium tracking-tight text-foreground/60 sm:text-xl">40.000+</span>
-              <span className="text-sm text-foreground/50">verified job listings</span>
-            </div>
-            <div className="flex items-baseline gap-2">
-              <span className="text-lg font-medium tracking-tight text-foreground/60 sm:text-xl">50.000+</span>
-              <span className="text-sm text-foreground/50">tailored applications submitted</span>
-            </div>
-          </div>
         </div>
 
         <div
