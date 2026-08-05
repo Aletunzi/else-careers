@@ -18,7 +18,7 @@ const COMPANIES: { name: string; src: string }[] = [
 ];
 
 const Logo = ({ name, src }: { name: string; src: string }) => (
-  <div className="flex h-10 w-28 items-center justify-center sm:h-12 sm:w-32 md:h-14 md:w-36">
+  <div className="flex h-8 w-20 items-center justify-center sm:h-9 sm:w-24 md:h-10 md:w-28">
     <img
       src={src}
       alt={`${name} logo`}
