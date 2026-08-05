@@ -34,14 +34,20 @@ const Logo = ({ name, src, scale = 1 }: { name: string; src: string; scale?: num
 
 const HiredAt = () => {
   return (
-    <section className="bg-[#ece7da] px-5 py-14 sm:px-8 sm:py-16 md:px-16 lg:px-24 2xl:px-32">
+    <section className="bg-[#ece7da] px-5 py-20 sm:py-24 md:py-32 lg:px-24 2xl:px-32">
       <div className="mx-auto flex max-w-7xl flex-col items-start gap-12 lg:flex-row lg:items-center lg:justify-between lg:gap-16">
         <div className="flex flex-col gap-8 lg:max-w-md">
-          <h2 className="max-w-sm text-3xl font-medium tracking-tight text-foreground sm:text-4xl md:text-5xl lg:max-w-md">
+          <h2
+            className="max-w-sm animate-fade-in text-3xl font-medium tracking-tight text-foreground sm:text-4xl md:text-5xl lg:max-w-md"
+            style={{ animationFillMode: "backwards" }}
+          >
             Where our users have been hired
           </h2>
 
-          <div className="flex flex-col gap-3">
+          <div
+            className="flex flex-col gap-3 animate-fade-in"
+            style={{ animationDelay: "150ms", animationFillMode: "backwards" }}
+          >
             <div className="flex items-baseline gap-2">
               <span className="text-lg font-medium tracking-tight text-foreground/60 sm:text-xl">2.000+</span>
               <span className="text-sm text-foreground/50">jobs added daily</span>
@@ -57,7 +63,10 @@ const HiredAt = () => {
           </div>
         </div>
 
-        <div className="grid w-full grid-cols-2 gap-x-6 gap-y-7 sm:grid-cols-4 sm:gap-x-8 sm:gap-y-10 lg:w-auto lg:gap-x-12 lg:gap-y-14">
+        <div
+          className="grid w-full grid-cols-2 gap-x-6 gap-y-7 animate-fade-in sm:grid-cols-4 sm:gap-x-8 sm:gap-y-10 lg:w-auto lg:gap-x-12 lg:gap-y-14"
+          style={{ animationDelay: "300ms", animationFillMode: "backwards" }}
+        >
           {COMPANIES.map((c) => (
             <Logo key={c.name} name={c.name} src={c.src} scale={c.scale} />
           ))}
