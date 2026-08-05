@@ -1,3 +1,5 @@
+import { useInView } from "@/hooks/useInView";
+
 const W = "https://upload.wikimedia.org/wikipedia/commons/";
 
 const COMPANIES: { name: string; src: string; scale?: number }[] = [
@@ -33,13 +35,14 @@ const Logo = ({ name, src, scale = 1 }: { name: string; src: string; scale?: num
 );
 
 const HiredAt = () => {
+  const { ref, inView } = useInView<HTMLElement>();
   return (
-    <section className="bg-[#ece7da] px-5 py-16 sm:py-20 md:py-28 lg:px-24 2xl:px-32">
+    <section ref={ref} className="bg-[#ece7da] px-5 py-16 sm:py-20 md:py-28 lg:px-24 2xl:px-32">
       <div className="mx-auto flex max-w-7xl flex-col items-start gap-12 lg:flex-row lg:items-start lg:justify-between lg:gap-16">
         <div className="flex flex-col gap-8 lg:max-w-md">
           <h2
-            className="max-w-md animate-fade-in text-[2rem] font-medium leading-tight tracking-tight text-foreground sm:text-[2.5rem] md:text-[3.25rem] lg:max-w-lg"
-            style={{ animationFillMode: "backwards" }}
+            className={`max-w-md text-[2rem] font-medium leading-tight tracking-tight text-foreground sm:text-[2.5rem] md:text-[3.25rem] lg:max-w-lg ${inView ? "animate-fade-in" : "opacity-0"}`}
+            style={{ animationFillMode: "both" }}
           >
             Where our users have been hired:
           </h2>
@@ -52,8 +55,8 @@ const HiredAt = () => {
           {COMPANIES.map((c, i) => (
             <div
               key={c.name}
-              className="animate-fade-in"
-              style={{ animationDelay: `${150 + i * 60}ms`, animationFillMode: "backwards" }}
+              className={inView ? "animate-fade-in" : "opacity-0"}
+              style={{ animationDelay: `${150 + i * 60}ms`, animationFillMode: "both" }}
             >
               <Logo name={c.name} src={c.src} scale={c.scale} />
             </div>
