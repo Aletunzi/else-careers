@@ -56,7 +56,7 @@ const HiredAt = () => {
               className={inView ? "animate-fade-in" : "opacity-0"}
               style={{ animationDelay: `${150 + i * 60}ms`, animationFillMode: "both" }}
             >
-              <Logo name={c.name} src={c.src} scale={c.scale} />
+              <Logo name={c.name} src={c.src} />
             </div>
           ))}
         </div>
