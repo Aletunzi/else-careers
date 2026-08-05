@@ -117,11 +117,11 @@ const Pricing = () => {
                   {p.tagline}
                 </p>
 
-                <div className="mt-6 flex items-baseline justify-center gap-2">
+                <div className="mt-6 flex flex-wrap items-baseline justify-center gap-2">
                   <span className="text-4xl font-semibold tracking-tight sm:text-5xl">{p.price}</span>
                   {p.price === "Free" && (
-                    <span className="rounded-full bg-[#ff6b1a]/10 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-[#ff6b1a]">
-                      No credit card
+                    <span className="text-xs text-muted-foreground">
+                      No credit card required
                     </span>
                   )}
                   <span
