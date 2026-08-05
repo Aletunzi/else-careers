@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import ProblemTwo from "@/components/ProblemTwo";
+import HiredAt from "@/components/HiredAt";
 import Solution from "@/components/Solution";
 import Screening from "@/components/Screening";
 import AutoApply from "@/components/AutoApply";
@@ -20,6 +21,7 @@ const Index = () => {
         </main>
       </div>
       <ProblemTwo />
+      <HiredAt />
       <Solution />
       <Screening />
       <AutoApply />
