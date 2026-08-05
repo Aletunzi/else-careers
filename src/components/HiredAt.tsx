@@ -57,7 +57,7 @@ const HiredAt = () => {
           </div>
         </div>
 
-        <div className="grid w-full grid-cols-2 gap-x-6 gap-y-6 sm:grid-cols-4 sm:gap-x-8 sm:gap-y-8 lg:w-auto lg:gap-x-12 lg:gap-y-10">
+        <div className="grid w-full grid-cols-2 gap-x-6 gap-y-7 sm:grid-cols-4 sm:gap-x-8 sm:gap-y-10 lg:w-auto lg:gap-x-12 lg:gap-y-14">
           {COMPANIES.map((c) => (
             <Logo key={c.name} name={c.name} src={c.src} scale={c.scale} />
           ))}
