@@ -1,3 +1,4 @@
+import { useInView } from "@/hooks/useInView";
 import { useEffect, useRef, useState } from "react";
 import { EyeOff, Filter, Ghost } from "lucide-react";
 

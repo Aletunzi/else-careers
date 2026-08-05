@@ -1,3 +1,4 @@
+import { useInView } from "@/hooks/useInView";
 import { useEffect, useRef, useState } from "react";
 import avatar1 from "@/assets/reviews/avatar-1.jpg";
 import avatar2 from "@/assets/reviews/avatar-2.jpg";

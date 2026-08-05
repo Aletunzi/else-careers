@@ -1,3 +1,4 @@
+import { useInView } from "@/hooks/useInView";
 import { useEffect, useRef, useState } from "react";
 import { Check, Minus, ChevronDown, ChevronRight } from "lucide-react";
 

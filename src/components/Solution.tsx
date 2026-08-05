@@ -1,3 +1,4 @@
+import { useInView } from "@/hooks/useInView";
 import { useEffect, useRef, useState } from "react";
 import { Globe } from "lucide-react";
 import stealthIcon from "@/assets/stealth-icon.jpeg.asset.json";

@@ -1,3 +1,4 @@
+import { useInView } from "@/hooks/useInView";
 import { useEffect, useRef, useState } from "react";
 import { ArrowRight, Check, FileText, Send, Sparkles } from "lucide-react";
 
