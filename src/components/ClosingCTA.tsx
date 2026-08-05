@@ -22,34 +22,25 @@ const ClosingCTA = () => {
   return (
     <section
       ref={sectionRef}
-      className="bg-closing px-5 py-20 sm:px-8 sm:py-24 md:px-16 md:py-28 lg:px-24 lg:py-32 2xl:px-32"
+      className="bg-background px-5 py-20 sm:px-8 sm:py-24 md:px-16 md:py-28 lg:px-24 lg:py-32 2xl:px-32"
     >
-      <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-10 md:flex-row md:items-center md:gap-16">
+      <div className="mx-auto max-w-4xl">
         <div
-          className={`max-w-2xl transition-all duration-700 ease-out ${
+          className={`flex flex-col items-center justify-center gap-6 rounded-3xl bg-white p-8 text-center shadow-[0_12px_40px_-12px_rgba(32,28,27,0.1)] ring-1 ring-border/50 transition-all duration-700 ease-out sm:p-12 md:p-16 lg:gap-8 ${
             inView ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-3"
           }`}
-          style={{ transitionDelay: inView ? "0ms" : "0ms" }}
         >
-          <h2 className="text-[clamp(2.25rem,7vw,5rem)] font-medium leading-[1.05] tracking-tight text-foreground md:text-6xl">
+          <h2 className="max-w-2xl text-[clamp(2rem,5vw,3.5rem)] font-medium leading-[1.1] tracking-tight text-foreground">
             Start Auto Applying today.
           </h2>
-          <p className="mt-5 max-w-xl text-base text-muted-foreground sm:text-lg">
+          <p className="max-w-xl text-base text-muted-foreground sm:text-lg">
             Upload your resume, review your matches, and approve tailored applications in minutes.
           </p>
-        </div>
-
-        <div
-          className={`transition-all duration-700 ease-out ${
-            inView ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-3"
-          }`}
-          style={{ transitionDelay: inView ? "160ms" : "0ms" }}
-        >
           <a
             href="https://app.tryelse.xyz/register"
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-black px-6 py-3.5 text-sm text-white transition-colors sm:text-base"
+            className="group relative mt-2 inline-flex items-center gap-2 overflow-hidden rounded-full bg-black px-6 py-3.5 text-sm text-white transition-colors sm:text-base"
           >
             <span
               className="absolute inset-y-0 left-0 w-0 bg-[#ff6b1a] transition-[width] duration-500 ease-out group-hover:w-full"
