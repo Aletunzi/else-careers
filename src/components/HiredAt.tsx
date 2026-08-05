@@ -34,7 +34,7 @@ const Logo = ({ name, src, scale = 1 }: { name: string; src: string; scale?: num
 
 const HiredAt = () => {
   return (
-    <section className="bg-[#ece7da] px-5 py-20 sm:py-24 md:py-32 lg:px-24 2xl:px-32">
+    <section className="bg-[#ece7da] px-5 py-16 sm:py-20 md:py-28 lg:px-24 2xl:px-32">
       <div className="mx-auto flex max-w-7xl flex-col items-start gap-12 lg:flex-row lg:items-start lg:justify-between lg:gap-16">
         <div className="flex flex-col gap-8 lg:max-w-md">
           <h2
