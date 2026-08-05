@@ -32,19 +32,21 @@ const ClosingCTA = () => {
           }`}
         >
           <div
-            className="pointer-events-none absolute inset-0 opacity-50"
+            className="pointer-events-none absolute inset-0 opacity-60"
             aria-hidden
             style={{
               backgroundImage: "radial-gradient(circle, #f3f1e9 2px, transparent 2px)",
-              backgroundSize: "26px 26px",
+              backgroundSize: "24px 24px",
             }}
           />
-          <h2 className="max-w-2xl text-[clamp(2rem,5vw,3.5rem)] font-medium leading-[1.1] tracking-tight text-foreground">
-            Start auto applying today.
-          </h2>
-          <p className="max-w-xl text-base text-muted-foreground sm:text-lg">
-            Upload your resume, review your matches, and approve tailored applications in minutes.
-          </p>
+          <div className="relative z-10 w-full rounded-2xl bg-white px-6 py-4 sm:px-8 sm:py-6">
+            <h2 className="mx-auto max-w-2xl text-[clamp(2rem,5vw,3.5rem)] font-medium leading-[1.1] tracking-tight text-foreground">
+              Start auto applying today.
+            </h2>
+            <p className="mx-auto mt-4 max-w-xl text-base text-muted-foreground sm:text-lg">
+              Upload your resume, review your matches, and approve tailored applications in minutes.
+            </p>
+          </div>
           <a
             href="https://app.tryelse.xyz/register"
             target="_blank"
