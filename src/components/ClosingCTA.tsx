@@ -27,7 +27,7 @@ const ClosingCTA = () => {
     >
       <div className="mx-auto max-w-4xl">
         <div
-          className={`flex flex-col items-center justify-center gap-6 rounded-3xl bg-white p-8 text-center shadow-[0_12px_40px_-12px_rgba(32,28,27,0.1)] ring-1 ring-border/50 transition-all duration-700 ease-out sm:p-12 md:p-16 lg:gap-8 ${
+          className={`flex flex-col items-center justify-center gap-6 rounded-3xl bg-white p-8 text-center shadow-[0_4px_24px_-12px_rgba(32,28,27,0.12)] transition-all duration-700 ease-out sm:p-12 md:p-16 lg:gap-8 ${
             inView ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-3"
           }`}
         >
