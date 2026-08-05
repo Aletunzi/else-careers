@@ -118,32 +118,6 @@ const PostCard = ({ post }: { post: Post }) => (
     </div>
 
     <p className="mt-3 text-[15px] leading-relaxed text-foreground">{post.text}</p>
-
-    <div className="mt-4 border-t border-foreground/10 pt-3">
-      <div className="flex items-center gap-4 text-xs text-muted-foreground">
-        <span>{post.date}</span>
-        <span className="ml-auto flex items-center gap-3.5">
-          <span className="flex items-center gap-1">
-            <svg viewBox="0 0 24 24" aria-hidden className="h-3.5 w-3.5 fill-current">
-              <path d="M1.751 10c0-4.42 3.584-8 8.005-8h4.366c4.49 0 8.129 3.64 8.129 8.13 0 2.96-1.607 5.68-4.196 7.11l-8.054 4.46v-3.69h-.067c-4.49.1-8.183-3.51-8.183-8.01zm8.005-6c-3.317 0-6.005 2.69-6.005 6 0 3.37 2.77 6.08 6.14 6.01l.72-.01h1.19v2.3l5.12-2.84c1.95-1.08 3.16-3.13 3.16-5.36 0-3.39-2.74-6.13-6.13-6.13z" />
-            </svg>
-            {post.replies}
-          </span>
-          <span className="flex items-center gap-1">
-            <svg viewBox="0 0 24 24" aria-hidden className="h-3.5 w-3.5 fill-current">
-              <path d="M4.5 3.88l4.432 4.14-1.364 1.46L5.5 7.55V16c0 1.1.896 2 2 2H13v2H7.5c-2.209 0-4-1.79-4-4V7.55L1.432 9.48.068 8.02zM16.5 6H11V4h5.5c2.209 0 4 1.79 4 4v8.45l2.068-1.93 1.364 1.46-4.432 4.14-4.432-4.14 1.364-1.46 2.068 1.93V8c0-1.1-.896-2-2-2z" />
-            </svg>
-            {post.reposts}
-          </span>
-          <span className="flex items-center gap-1">
-            <svg viewBox="0 0 24 24" aria-hidden className="h-3.5 w-3.5 fill-current">
-              <path d="M16.697 5.5c-1.222-.06-2.679.51-3.89 2.16l-.805 1.09-.806-1.09C9.984 6.01 8.526 5.44 7.304 5.5c-1.243.07-2.349.78-2.91 1.91-.552 1.12-.633 2.78.479 4.82 1.074 1.97 3.257 4.27 7.129 6.61 3.87-2.34 6.052-4.64 7.126-6.61 1.111-2.04 1.03-3.7.477-4.82-.561-1.13-1.666-1.84-2.908-1.91z" />
-            </svg>
-            {post.likes}
-          </span>
-        </span>
-      </div>
-    </div>
   </article>
 );
 
