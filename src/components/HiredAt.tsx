@@ -45,7 +45,7 @@ const HiredAt = () => {
           Where Else users have been hired
         </h2>
 
-        <div className="relative mt-10 overflow-hidden">
+        <div className="relative mt-16 overflow-hidden py-4 sm:mt-20">
           <div
             className="flex w-max items-center gap-16 sm:gap-24 lg:gap-28"
             style={{ animation: "hired-scroll 55s linear infinite" }}
