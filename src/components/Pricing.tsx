@@ -148,12 +148,6 @@ const Pricing = () => {
                 >
                   {p.cta}
                 </a>
-
-                {p.price === "Free" && (
-                  <p className="mt-3 text-xs text-muted-foreground">
-                    No credit card required
-                  </p>
-                )}
               </div>
             );
           })}
