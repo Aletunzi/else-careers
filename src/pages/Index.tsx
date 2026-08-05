@@ -6,6 +6,7 @@ import Screening from "@/components/Screening";
 import AutoApply from "@/components/AutoApply";
 import Pricing from "@/components/Pricing";
 import FAQ from "@/components/FAQ";
+import ClosingCTA from "@/components/ClosingCTA";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -23,6 +24,7 @@ const Index = () => {
       <AutoApply />
       <Pricing />
       <FAQ />
+      <ClosingCTA />
       <Footer />
     </>
   );
