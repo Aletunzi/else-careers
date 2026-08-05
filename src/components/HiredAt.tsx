@@ -41,7 +41,7 @@ const HiredAt = () => {
             className="max-w-sm animate-fade-in text-3xl font-medium tracking-tight text-foreground sm:text-4xl md:text-5xl lg:max-w-md"
             style={{ animationFillMode: "backwards" }}
           >
-            Where our users have been hired
+            Where our users have been hired:
           </h2>
 
         </div>
