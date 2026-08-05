@@ -1,3 +1,4 @@
+import { useInView } from "@/hooks/useInView";
 import { useEffect, useRef, useState } from "react";
 import avatar1 from "@/assets/reviews/avatar-1.jpg";
 import avatar2 from "@/assets/reviews/avatar-2.jpg";
@@ -107,23 +108,7 @@ const PostCard = ({ post }: { post: Post }) => (
 );
 
 const Reviews = () => {
-  const sectionRef = useRef<HTMLElement>(null);
-  const [inView, setInView] = useState(false);
-
-  useEffect(() => {
-    if (!sectionRef.current) return;
-    const obs = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setInView(true);
-          obs.disconnect();
-        }
-      },
-      { threshold: 0, rootMargin: "-15% 0px -10% 0px" }
-    );
-    obs.observe(sectionRef.current);
-    return () => obs.disconnect();
-  }, []);
+  const { ref: sectionRef, inView } = useInView<HTMLElement>();
 
   const row = [...posts, ...posts];
 

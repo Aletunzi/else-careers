@@ -1,5 +1,6 @@
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import { Plus } from "lucide-react";
+import { useInView } from "@/hooks/useInView";
 
 const faqs = [
   {
@@ -30,23 +31,7 @@ const faqs = [
 
 const FAQ = () => {
   const [open, setOpen] = useState<number | null>(null);
-  const sectionRef = useRef<HTMLElement>(null);
-  const [inView, setInView] = useState(false);
-
-  useEffect(() => {
-    if (!sectionRef.current) return;
-    const obs = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setInView(true);
-          obs.disconnect();
-        }
-      },
-      { threshold: 0, rootMargin: '-25% 0px -15% 0px' }
-    );
-    obs.observe(sectionRef.current);
-    return () => obs.disconnect();
-  }, []);
+  const { ref: sectionRef, inView } = useInView<HTMLElement>();
 
   return (
     <section ref={sectionRef} className="bg-background px-5 py-20 sm:px-8 sm:py-24 md:px-16 md:py-28 lg:px-24 lg:py-32 2xl:px-32">
