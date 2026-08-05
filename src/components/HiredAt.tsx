@@ -36,7 +36,7 @@ const HiredAt = () => {
   const { ref, inView } = useInView<HTMLElement>();
   return (
     <section ref={ref} className="bg-[#ece7da] px-5 py-16 sm:py-20 md:py-28 lg:px-24 2xl:px-32">
-      <div className="mx-auto flex max-w-7xl flex-col items-center gap-12 lg:flex-row lg:items-start lg:justify-between lg:gap-16">
+      <div className="mx-auto flex max-w-7xl flex-col items-center gap-12 sm:gap-16 md:gap-20 lg:flex-row lg:items-start lg:justify-between lg:gap-16">
         <div className="mx-auto flex flex-col items-center gap-8 lg:mx-0 lg:max-w-md lg:items-start">
           <h2
             className={`max-w-md text-center text-[2rem] font-medium leading-tight tracking-tight text-foreground sm:text-[2.5rem] md:text-[3.25rem] lg:text-left lg:max-w-lg ${inView ? "animate-fade-in" : "opacity-0"}`}
