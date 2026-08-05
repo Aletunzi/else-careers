@@ -15,7 +15,7 @@ const plans: Plan[] = [
     name: "Starter",
     tagline: "Explore with 3 free applications.",
     price: "Free",
-    period: "\n",
+    period: "No credit card required",
     cta: "Start free",
     href: "https://app.tryelse.xyz/register",
   },
@@ -117,15 +117,20 @@ const Pricing = () => {
                   {p.tagline}
                 </p>
 
-                <div className="mt-6 flex flex-wrap items-baseline justify-center gap-2">
-                  <span className="text-4xl font-semibold tracking-tight sm:text-5xl">{p.price}</span>
-                  {p.price === "Free" && (
-                    <span className="text-xs text-muted-foreground">
-                      No credit card required
-                    </span>
-                  )}
+                <div
+                  className={`mt-6 flex gap-2 ${
+                    p.price === "Free"
+                      ? "flex-col items-center"
+                      : "flex-wrap items-baseline justify-center"
+                  }`}
+                >
+                  <span className="text-4xl font-semibold tracking-tight sm:text-5xl">
+                    {p.price}
+                  </span>
                   <span
-                    className={`text-[10px] uppercase tracking-wider sm:text-xs ${isFeatured ? "text-white/60" : "text-muted-foreground"}`}
+                    className={`text-[10px] uppercase tracking-wider sm:text-xs ${
+                      isFeatured ? "text-white/60" : "text-muted-foreground"
+                    }`}
                   >
                     {p.period}
                   </span>
