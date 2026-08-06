@@ -1,7 +1,6 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import ProductIntro from "@/components/ProductIntro";
-import ProblemTwo from "@/components/ProblemTwo";
 import HiredAt from "@/components/HiredAt";
 import Solution from "@/components/Solution";
 import Screening from "@/components/Screening";
@@ -22,7 +21,6 @@ const Index = () => {
         </main>
       </div>
       <ProductIntro />
-      <ProblemTwo />
       <HiredAt />
       <Solution />
       <Screening />

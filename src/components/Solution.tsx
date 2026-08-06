@@ -111,7 +111,7 @@ const Solution = () => {
           style={{ animationFillMode: "both" }}
         >
           <span className="h-px w-8 bg-muted-foreground/50" />
-          <span>The Solution</span>
+          <span>How it works</span>
         </div>
 
         <h2
