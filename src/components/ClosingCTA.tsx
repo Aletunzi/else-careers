@@ -41,7 +41,7 @@ const ClosingCTA = () => {
             href="https://app.tryelse.xyz/register"
             target="_blank"
             rel="noopener noreferrer"
-            className={`group relative z-10 mt-2 inline-flex items-center gap-2 overflow-hidden rounded-full bg-black px-6 py-3.5 text-sm text-white transition-colors sm:text-base ${
+            className={`group relative z-10 mt-2 inline-flex items-center gap-2 overflow-hidden rounded-2xl bg-black px-6 py-3.5 text-sm text-white transition-colors sm:text-base ${
               inView ? "animate-fade-in" : "opacity-0"
             }`}
             style={{ animationDelay: "300ms", animationFillMode: "backwards" }}
