@@ -86,6 +86,7 @@ const ProductIntro = () => {
     if (!inView) return;
     const timers: ReturnType<typeof setTimeout>[] = [];
     let cancelled = false;
+    let cursor = 0;
 
     const schedule = (fn: () => void, ms: number) => {
       timers.push(setTimeout(() => !cancelled && fn(), ms));
@@ -111,8 +112,6 @@ const ProductIntro = () => {
         schedule(advance, 3000);
       }
     };
-
-    let cursor = 0;
 
     schedule(runCycle, 300);
 
