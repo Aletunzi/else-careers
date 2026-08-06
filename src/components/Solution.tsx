@@ -86,11 +86,11 @@ const Column = ({ items, direction }: { items: Source[]; direction: "up" | "down
       </div>
       <div
         className="pointer-events-none absolute inset-x-0 top-0 h-24"
-        style={{ background: "linear-gradient(to bottom, #f3f1e9, transparent)" }}
+        style={{ background: "linear-gradient(to bottom, #FAF9F5, transparent)" }}
       />
       <div
         className="pointer-events-none absolute inset-x-0 bottom-0 h-24"
-        style={{ background: "linear-gradient(to top, #f3f1e9, transparent)" }}
+        style={{ background: "linear-gradient(to top, #FAF9F5, transparent)" }}
       />
     </div>
   );
@@ -103,7 +103,7 @@ const Solution = () => {
     <section
       ref={ref}
       className="px-5 py-20 sm:px-8 sm:py-24 md:px-16 md:py-28 lg:px-24 lg:py-32 2xl:px-32"
-      style={{ backgroundColor: "#f3f1e9" }}
+      style={{ backgroundColor: "#FAF9F5" }}
     >
       <div className="mx-auto max-w-7xl">
         <div
