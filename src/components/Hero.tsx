@@ -74,7 +74,15 @@ const Hero = () => {
 
   return (
     <>
-      <section className="flex flex-1 flex-col items-center justify-center px-5 py-10 text-center sm:justify-start sm:px-8 sm:pt-20 sm:pb-16 md:pt-28">
+      <section className="relative flex flex-1 flex-col items-center justify-center px-5 py-10 text-center sm:justify-start sm:px-8 sm:pt-20 sm:pb-16 md:pt-28">
+        <div
+          className="pointer-events-none absolute inset-0 -z-10 opacity-[0.68]"
+          aria-hidden
+          style={{
+            backgroundImage: "radial-gradient(circle, #f3f1e9 2.5px, transparent 2.5px)",
+            backgroundSize: "24px 24px",
+          }}
+        />
         <h1 className="animate-fade-in text-[clamp(2.25rem,7vw,5rem)] font-medium leading-[1.05] text-foreground sm:whitespace-nowrap sm:text-4xl md:text-6xl md:font-medium md:leading-[1.05] lg:text-6xl xl:text-6xl 2xl:text-6xl" style={{ animationDelay: '150ms', animationFillMode: 'both' }}>
           Your next product role starts here
         </h1>
