@@ -183,7 +183,7 @@ const ProductIntro = () => {
             return (
               <div
                 key={role.title}
-                className={`absolute inset-x-0 top-0 h-[440px] overflow-hidden rounded-2xl p-5 shadow-[0_12px_40px_-16px_rgba(0,0,0,0.22)] transition-colors duration-[900ms] ease-in-out sm:h-[480px] sm:p-6 ${isMatch ? "bg-[#201C1B]" : "bg-card"}`}
+                className={`absolute inset-x-0 top-0 h-[400px] overflow-hidden rounded-2xl p-4 shadow-[0_12px_40px_-16px_rgba(0,0,0,0.22)] transition-colors duration-[900ms] ease-in-out sm:h-[440px] sm:p-5 ${isMatch ? "bg-[#201C1B]" : "bg-card"}`}
                 style={{
                   zIndex: DECK.length - pos,
                   transform: isTop && swiping
