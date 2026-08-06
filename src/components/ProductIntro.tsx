@@ -138,7 +138,7 @@ const ProductIntro = () => {
   return (
     <section
       ref={ref}
-      className="relative bg-white px-5 py-20 sm:px-8 sm:py-24 md:px-16 md:py-28 lg:px-24 lg:py-32 2xl:px-32"
+      className="relative isolate bg-white px-5 py-20 sm:px-8 sm:py-24 md:px-16 md:py-28 lg:px-24 lg:py-32 2xl:px-32"
     >
       <div
         className="pointer-events-none absolute inset-0 -z-10 opacity-[0.68]"
