@@ -183,7 +183,7 @@ const ProductIntro = () => {
             return (
               <div
                 key={role.title}
-                className={`absolute inset-x-0 top-0 flex h-[440px] flex-col overflow-hidden rounded-2xl p-5 shadow-[0_12px_40px_-16px_rgba(0,0,0,0.22)] transition-colors duration-500 sm:h-[480px] sm:p-6 ${isMatch ? "bg-[#201C1B]" : "bg-card"}`}
+                className={`absolute inset-x-0 top-0 h-[440px] overflow-hidden rounded-2xl p-5 shadow-[0_12px_40px_-16px_rgba(0,0,0,0.22)] transition-colors duration-[900ms] ease-in-out sm:h-[480px] sm:p-6 ${isMatch ? "bg-[#201C1B]" : "bg-card"}`}
                 style={{
                   zIndex: DECK.length - pos,
                   transform: isTop && swiping
@@ -194,8 +194,17 @@ const ProductIntro = () => {
                   pointerEvents: "none",
                 }}
               >
-                {isMatch ? (
-                  <div className="flex h-full animate-scale-in flex-col items-center justify-center text-center">
+                <div className="relative h-full">
+                  <div
+                    className="absolute inset-0 flex flex-col items-center justify-center text-center"
+                    style={{
+                      opacity: isMatch ? 1 : 0,
+                      transform: isMatch ? "scale(1)" : "scale(0.94)",
+                      transition: "opacity 800ms ease-in-out, transform 800ms cubic-bezier(0.22,1,0.36,1)",
+                      pointerEvents: "none",
+                    }}
+                    aria-hidden={!isMatch}
+                  >
                     <div className="flex items-center gap-3 sm:gap-4">
                       <img
                         src={userAvatar}
@@ -224,8 +233,17 @@ const ProductIntro = () => {
                       Interview prep is ready. Else briefs you live before the call.
                     </p>
                   </div>
-                ) : (
-                  <>
+
+                  <div
+                    className="absolute inset-0 flex flex-col"
+                    style={{
+                      opacity: isMatch ? 0 : 1,
+                      transform: isMatch ? "scale(1.04)" : "scale(1)",
+                      transition: "opacity 700ms ease-in-out, transform 800ms cubic-bezier(0.22,1,0.36,1)",
+                      pointerEvents: "none",
+                    }}
+                    aria-hidden={isMatch}
+                  >
                     <div className="flex items-start justify-between gap-4">
                       <div className="flex items-center gap-2.5">
                         <div className="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-[#f3f1e9]">
@@ -245,11 +263,11 @@ const ProductIntro = () => {
                       </span>
                     </div>
 
-                    <h3 className="mt-5 text-[1.35rem] font-semibold leading-tight text-foreground sm:text-[1.5rem]">
+                    <h3 className="mt-4 text-[1.35rem] font-semibold leading-tight text-foreground sm:text-[1.5rem]">
                       {role.title}
                     </h3>
 
-                    <div className="mt-4 flex flex-wrap gap-2">
+                    <div className="mt-3 flex flex-wrap gap-2">
                       {role.tags.map((t) => (
                         <span
                           key={t}
@@ -260,7 +278,18 @@ const ProductIntro = () => {
                       ))}
                     </div>
 
-                    <div className="mt-5 rounded-xl bg-[#f3f1e9] p-4">
+                    <div className="mt-4 grid grid-cols-2 gap-2">
+                      <div className="rounded-xl bg-secondary/60 px-3 py-2">
+                        <div className="text-[0.6rem] uppercase tracking-[0.14em] text-muted-foreground">Salary</div>
+                        <div className="mt-0.5 text-xs font-semibold text-foreground sm:text-sm">{role.salary}</div>
+                      </div>
+                      <div className="rounded-xl bg-secondary/60 px-3 py-2">
+                        <div className="text-[0.6rem] uppercase tracking-[0.14em] text-muted-foreground">Freshness</div>
+                        <div className="mt-0.5 text-xs font-semibold text-foreground sm:text-sm">{role.posted}</div>
+                      </div>
+                    </div>
+
+                    <div className="mt-3 flex flex-1 flex-col rounded-xl bg-[#f3f1e9] p-4">
                       <div className="flex items-center gap-1.5 text-[0.65rem] font-semibold uppercase tracking-[0.16em] text-foreground/70">
                         <Sparkles className="h-3 w-3" style={{ color: "#ff6b1a" }} strokeWidth={2} />
                         Why it's a good fit
@@ -270,7 +299,7 @@ const ProductIntro = () => {
                       </p>
                     </div>
 
-                    <div className="mt-auto flex items-center gap-2 pt-5">
+                    <div className="mt-3 flex items-center gap-2">
                       <span className="flex-1 rounded-full bg-primary py-2.5 text-center text-xs text-primary-foreground sm:text-sm">
                         Apply
                       </span>
@@ -278,8 +307,8 @@ const ProductIntro = () => {
                         Skip
                       </span>
                     </div>
-                  </>
-                )}
+                  </div>
+                </div>
               </div>
             );
           })}
