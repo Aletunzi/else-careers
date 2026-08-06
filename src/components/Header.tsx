@@ -13,9 +13,7 @@ const Header = () => {
         }}
       />
       <Link to="/" className="hover:opacity-80 transition-opacity">
-        <div className="rounded-xl bg-white p-2 shadow-sm">
-          <img src={logo} alt="else" className="h-10 w-10 sm:h-12 sm:w-12" />
-        </div>
+        <img src={logo} alt="else" className="h-10 w-10 sm:h-12 sm:w-12" />
       </Link>
       <div className="flex items-center gap-2 sm:gap-3">
         <a href="https://app.tryelse.xyz/login" target="_blank" rel="noopener noreferrer" className="rounded-lg px-5 py-2.5 text-sm font-normal text-foreground transition-opacity hover:opacity-70 sm:px-6 sm:py-2.5 sm:text-sm">
