@@ -183,54 +183,54 @@ const ProductIntro = () => {
                 ) : (
                   <>
                     <div className="flex items-start justify-between gap-4">
-                      <div className="flex items-center gap-3">
-                        <div className="flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-[#f3f1e9]">
-                          <Logo domain={role.domain} company={role.company} className="h-8 w-8 object-contain" />
+                      <div className="flex items-center gap-2.5">
+                        <div className="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-[#f3f1e9]">
+                          <Logo domain={role.domain} company={role.company} className="h-7 w-7 object-contain" />
                         </div>
                         <div className="min-w-0">
-                          <div className="text-base font-semibold text-foreground sm:text-lg">{role.company}</div>
-                          <div className="mt-0.5 inline-flex items-center gap-1.5 text-sm text-muted-foreground">
-                            <MapPin className="h-4 w-4" strokeWidth={1.8} />
+                          <div className="text-sm font-semibold text-foreground sm:text-base">{role.company}</div>
+                          <div className="mt-0.5 inline-flex items-center gap-1 text-xs text-muted-foreground">
+                            <MapPin className="h-3.5 w-3.5" strokeWidth={1.8} />
                             {role.location}
                           </div>
                         </div>
                       </div>
-                      <span className="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-[#f3f1e9] px-3 py-1.5 text-xs font-medium text-foreground">
-                        <Sparkles className="h-3.5 w-3.5" strokeWidth={2} />
+                      <span className="inline-flex shrink-0 items-center gap-1 rounded-full bg-[#f3f1e9] px-2.5 py-1 text-[0.65rem] font-medium text-foreground">
+                        <Sparkles className="h-3 w-3" strokeWidth={2} />
                         {role.fit}
                       </span>
                     </div>
 
-                    <h3 className="mt-7 text-[1.75rem] font-semibold leading-tight text-foreground sm:text-3xl">
+                    <h3 className="mt-5 text-[1.35rem] font-semibold leading-tight text-foreground sm:text-[1.5rem]">
                       {role.title}
                     </h3>
 
-                    <div className="mt-5 flex flex-wrap gap-2">
+                    <div className="mt-4 flex flex-wrap gap-2">
                       {role.tags.map((t) => (
                         <span
                           key={t}
-                          className="rounded-full bg-secondary px-3 py-1.5 text-xs text-foreground/80 sm:text-sm"
+                          className="rounded-full bg-secondary px-2.5 py-1 text-[0.65rem] text-foreground/80 sm:text-xs"
                         >
                           {t}
                         </span>
                       ))}
                     </div>
 
-                    <div className="mt-7 rounded-2xl bg-[#f3f1e9] p-5">
-                      <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-foreground/70">
-                        <Sparkles className="h-3.5 w-3.5" style={{ color: "#ff6b1a" }} strokeWidth={2} />
+                    <div className="mt-5 rounded-xl bg-[#f3f1e9] p-4">
+                      <div className="flex items-center gap-1.5 text-[0.65rem] font-semibold uppercase tracking-[0.16em] text-foreground/70">
+                        <Sparkles className="h-3 w-3" style={{ color: "#ff6b1a" }} strokeWidth={2} />
                         Why it's a good fit
                       </div>
-                      <p className="mt-3 text-sm leading-relaxed text-muted-foreground sm:text-[0.95rem]">
+                      <p className="mt-2 text-xs leading-relaxed text-muted-foreground sm:text-sm">
                         {role.why}
                       </p>
                     </div>
 
-                    <div className="mt-auto flex items-center gap-3 pt-7">
-                      <span className="flex-1 rounded-full bg-primary py-3.5 text-center text-sm text-primary-foreground sm:text-base">
+                    <div className="mt-auto flex items-center gap-2 pt-5">
+                      <span className="flex-1 rounded-full bg-primary py-2.5 text-center text-xs text-primary-foreground sm:text-sm">
                         Apply
                       </span>
-                      <span className="rounded-full bg-secondary px-6 py-3.5 text-center text-sm text-foreground/70 sm:text-base">
+                      <span className="rounded-full bg-secondary px-5 py-2.5 text-center text-xs text-foreground/70 sm:text-sm">
                         Skip
                       </span>
                     </div>
