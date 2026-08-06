@@ -144,7 +144,7 @@ const AutoApply = () => {
                   </div>
                   <button
                     type="button"
-                    className="group relative inline-flex h-10 w-[6rem] shrink-0 items-center justify-center gap-2 overflow-hidden rounded-lg bg-primary px-5 text-sm font-normal text-white transition-all duration-200"
+                    className="group relative inline-flex h-10 w-[6rem] shrink-0 items-center justify-center gap-2 overflow-hidden rounded-2xl bg-primary px-5 text-sm font-normal text-white transition-all duration-200"
                     style={{ transform: buttonPressed ? "scale(0.95)" : "scale(1)" }}
                     onMouseEnter={() => setButtonHover(true)}
                     onMouseLeave={() => setButtonHover(false)}
@@ -238,7 +238,7 @@ const AutoApply = () => {
             href="https://app.tryelse.xyz/register"
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-black px-6 py-3.5 text-sm text-white sm:text-base"
+            className="group relative inline-flex items-center gap-2 overflow-hidden rounded-2xl bg-black px-6 py-3.5 text-sm text-white sm:text-base"
           >
             <span className="absolute inset-y-0 left-0 w-0 bg-[#ff6b1a] transition-[width] duration-500 ease-out group-hover:w-full" aria-hidden />
             <span className="relative z-10">Try for free</span>
