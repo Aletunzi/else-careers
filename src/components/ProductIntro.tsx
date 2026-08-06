@@ -172,7 +172,7 @@ const ProductIntro = () => {
         </div>
 
         <div
-          className={`relative mx-auto h-[480px] w-full max-w-[340px] sm:h-[520px] sm:max-w-[390px] lg:max-w-[420px] ${inView ? "animate-fade-in" : "opacity-0"}`}
+          className={`relative mx-auto h-[440px] w-full max-w-[340px] sm:h-[480px] sm:max-w-[390px] lg:max-w-[420px] ${inView ? "animate-fade-in" : "opacity-0"}`}
           style={{ animationDelay: "450ms", animationFillMode: "both" }}
         >
           {order.map((deckIndex, pos) => {
