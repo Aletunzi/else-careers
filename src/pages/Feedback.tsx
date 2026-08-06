@@ -119,7 +119,7 @@ const Feedback = () => {
                 </p>
                 <button
                   onClick={handleReset}
-                  className="group relative mt-8 inline-flex items-center justify-center overflow-hidden rounded-lg bg-primary px-6 py-3 text-sm text-white transition"
+                  className="group relative mt-8 inline-flex items-center justify-center overflow-hidden rounded-2xl bg-primary px-6 py-3 text-sm text-white transition"
                 >
                   <span
                     aria-hidden
@@ -182,7 +182,7 @@ const Feedback = () => {
               <button
                 type="submit"
                 disabled={submitting}
-                className="group relative inline-flex items-center justify-center overflow-hidden rounded-lg bg-primary px-6 py-3 text-sm text-white transition disabled:opacity-60"
+                className="group relative inline-flex items-center justify-center overflow-hidden rounded-2xl bg-primary px-6 py-3 text-sm text-white transition disabled:opacity-60"
               >
                 <span
                   aria-hidden
