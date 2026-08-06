@@ -291,12 +291,12 @@ const ProductIntro = () => {
                       </div>
                     </div>
 
-                    <div className="my-2 flex flex-1 flex-col justify-start rounded-xl bg-[#f3f1e9] p-2.5">
+                    <div className="my-2 flex flex-1 flex-col justify-start rounded-xl bg-[#f3f1e9] px-4 pb-3 pt-5">
                       <div className="flex items-center gap-1.5 text-[0.65rem] font-semibold uppercase tracking-[0.16em] text-foreground/70">
                         <Sparkles className="h-3 w-3" style={{ color: "#ff6b1a" }} strokeWidth={2} />
                         Why it's a good fit
                       </div>
-                      <p className="mt-1.5 text-xs leading-relaxed text-muted-foreground sm:text-sm">
+                      <p className="mt-2 text-xs leading-relaxed text-muted-foreground sm:text-sm">
                         {role.why}
                       </p>
                     </div>
