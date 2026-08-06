@@ -15,8 +15,8 @@ const ClosingCTA = () => {
             className="pointer-events-none absolute inset-0 opacity-[0.68]"
             aria-hidden
             style={{
-              backgroundImage: "radial-gradient(circle, #f3f1e9 2.5px, transparent 2.5px)",
-              backgroundSize: "24px 24px",
+              backgroundImage: "radial-gradient(circle, #f3f1e9 1.5px, transparent 1.5px)",
+              backgroundSize: "20px 20px",
             }}
           />
           <div className="relative z-10 w-full rounded-2xl bg-white px-6 py-4 sm:px-8 sm:py-6">

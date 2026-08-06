@@ -3,7 +3,15 @@ import logo from "@/assets/logo.png";
 
 const Header = () => {
   return (
-    <header className="animate-fade-in flex items-center justify-between px-5 py-5 sm:px-8 sm:py-6 md:px-16 lg:px-24">
+    <header className="animate-fade-in relative isolate flex items-center justify-between bg-white px-5 py-5 sm:px-8 sm:py-6 md:px-16 lg:px-24">
+      <div
+        className="pointer-events-none absolute inset-0 -z-10 opacity-[0.68]"
+        aria-hidden
+        style={{
+          backgroundImage: "radial-gradient(circle, #f3f1e9 1.5px, transparent 1.5px)",
+          backgroundSize: "20px 20px",
+        }}
+      />
       <Link to="/" className="hover:opacity-80 transition-opacity">
         <img src={logo} alt="else" className="h-10 w-10 sm:h-12 sm:w-12" />
       </Link>

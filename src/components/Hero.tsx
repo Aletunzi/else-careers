@@ -79,8 +79,8 @@ const Hero = () => {
           className="pointer-events-none absolute inset-0 -z-10 opacity-[0.68]"
           aria-hidden
           style={{
-            backgroundImage: "radial-gradient(circle, #f3f1e9 2.5px, transparent 2.5px)",
-            backgroundSize: "24px 24px",
+            backgroundImage: "radial-gradient(circle, #f3f1e9 1.5px, transparent 1.5px)",
+            backgroundSize: "20px 20px",
           }}
         />
         <h1 className="animate-fade-in text-[clamp(2.25rem,7vw,5rem)] font-medium leading-[1.05] text-foreground sm:whitespace-nowrap sm:text-4xl md:text-6xl md:font-medium md:leading-[1.05] lg:text-6xl xl:text-6xl 2xl:text-6xl" style={{ animationDelay: '150ms', animationFillMode: 'both' }}>
