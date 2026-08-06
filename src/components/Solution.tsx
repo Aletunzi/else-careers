@@ -86,11 +86,11 @@ const Column = ({ items, direction }: { items: Source[]; direction: "up" | "down
       </div>
       <div
         className="pointer-events-none absolute inset-x-0 top-0 h-24"
-        style={{ background: "linear-gradient(to bottom, #f3f1e9, transparent)" }}
+        style={{ background: "linear-gradient(to bottom, #FAF9F5, transparent)" }}
       />
       <div
         className="pointer-events-none absolute inset-x-0 bottom-0 h-24"
-        style={{ background: "linear-gradient(to top, #f3f1e9, transparent)" }}
+        style={{ background: "linear-gradient(to top, #FAF9F5, transparent)" }}
       />
     </div>
   );
