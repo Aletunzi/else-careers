@@ -89,7 +89,7 @@ const Hero = () => {
         <p className="animate-fade-in mt-4 text-base text-muted-foreground sm:mt-5 sm:text-lg md:text-xl lg:whitespace-nowrap" style={{ animationDelay: '300ms', animationFillMode: 'both' }}>
           Search for your next product role at the top tech companies in Europe.
         </p>
-        <div className="animate-fade-in mt-6 flex w-full max-w-4xl flex-row items-center gap-2 rounded-2xl bg-card px-4 py-2.5 shadow-sm sm:mt-12 sm:gap-3 sm:px-10 sm:py-8 2xl:max-w-5xl 2xl:px-12 2xl:py-9" style={{ animationDelay: '450ms', animationFillMode: 'both' }}>
+        <div className="animate-fade-in mt-6 flex w-full max-w-4xl flex-row items-center gap-2 rounded-2xl bg-[#FAF9F5] px-4 py-2.5 shadow-sm sm:mt-12 sm:gap-3 sm:px-10 sm:py-8 2xl:max-w-5xl 2xl:px-12 2xl:py-9" style={{ animationDelay: '450ms', animationFillMode: 'both' }}>
           <div className="relative min-w-0 flex-1">
             <input
               type="text"
@@ -137,7 +137,7 @@ const Hero = () => {
                 setInputValue(pill);
                 handleSearch(pill);
               }}
-              className="rounded-full bg-card shadow-sm px-4 py-2 text-sm text-foreground/80 transition-colors hover:bg-secondary hover:text-foreground sm:px-5 sm:py-2.5"
+              className="rounded-full bg-[#FAF9F5] shadow-sm px-4 py-2 text-sm text-foreground/80 transition-colors hover:bg-secondary hover:text-foreground sm:px-5 sm:py-2.5"
             >
               {pill}
             </button>
