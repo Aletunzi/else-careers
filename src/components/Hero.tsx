@@ -137,7 +137,7 @@ const Hero = () => {
                 setInputValue(pill);
                 handleSearch(pill);
               }}
-              className="rounded-full bg-card shadow-sm px-4 py-2 text-sm text-foreground/80 transition-colors hover:bg-secondary hover:text-foreground sm:px-5 sm:py-2.5"
+              className="rounded-full bg-[#FAF9F5] shadow-sm px-4 py-2 text-sm text-foreground/80 transition-colors hover:bg-secondary hover:text-foreground sm:px-5 sm:py-2.5"
             >
               {pill}
             </button>
