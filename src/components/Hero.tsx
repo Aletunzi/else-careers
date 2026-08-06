@@ -194,7 +194,7 @@ const Hero = () => {
               />
               <button
                 type="submit"
-                className="w-full rounded-lg bg-primary py-3 text-sm font-medium text-primary-foreground transition-colors hover:opacity-90"
+                className="w-full rounded-2xl bg-primary py-3 text-sm font-medium text-primary-foreground transition-colors hover:opacity-90"
               >
                 Sign up
               </button>
@@ -237,7 +237,7 @@ const Hero = () => {
               href="https://app.tryelse.xyz/register"
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative mt-7 block w-full overflow-hidden rounded-lg bg-primary py-3.5 text-sm font-medium text-primary-foreground"
+              className="group relative mt-7 block w-full overflow-hidden rounded-2xl bg-primary py-3.5 text-sm font-medium text-primary-foreground"
             >
               <span className="absolute inset-y-0 left-0 w-0 bg-[#ff6b1a] transition-[width] duration-500 ease-out group-hover:w-full" aria-hidden />
               <span className="relative z-10">Get Started</span>
