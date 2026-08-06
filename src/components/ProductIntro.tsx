@@ -97,23 +97,22 @@ const ProductIntro = () => {
         setOrder((prev) => [...prev.slice(1), prev[0]]);
         setSwiping(false);
         setMatchRevealed(false);
+        cursor = (cursor + 1) % DECK.length;
         schedule(runCycle, 60);
       }, 520);
     };
 
     const runCycle = () => {
-      setOrder((current) => {
-        const isMatchCard = DECK[current[0]].kind === "match";
-        if (isMatchCard) {
-          // show the vacancy card first, then flip it into the match card
-          schedule(() => setMatchRevealed(true), 2200);
-          schedule(advance, 2200 + 2500);
-        } else {
-          schedule(advance, 3000);
-        }
-        return current;
-      });
+      if (DECK[cursor].kind === "match") {
+        // show the vacancy card first, then flip it into the match card
+        schedule(() => setMatchRevealed(true), 2200);
+        schedule(advance, 2200 + 2500);
+      } else {
+        schedule(advance, 3000);
+      }
     };
+
+    let cursor = 0;
 
     schedule(runCycle, 300);
 
