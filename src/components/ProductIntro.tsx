@@ -157,26 +157,26 @@ const ProductIntro = () => {
               >
                 {isMatch ? (
                   <div className="flex h-full flex-col items-center justify-center text-center">
-                    <div className="flex items-center gap-4 sm:gap-5">
-                      <div className="flex h-20 w-20 items-center justify-center rounded-full bg-card text-lg font-semibold text-foreground sm:h-24 sm:w-24 sm:text-xl">
+                    <div className="flex items-center gap-3 sm:gap-4">
+                      <div className="flex h-16 w-16 items-center justify-center rounded-full bg-card text-sm font-semibold text-foreground sm:h-20 sm:w-20 sm:text-base">
                         You
                       </div>
-                      <Zap className="h-8 w-8 shrink-0 sm:h-9 sm:w-9" style={{ color: "#ff6b1a" }} fill="#ff6b1a" strokeWidth={1.5} />
-                      <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-card sm:h-24 sm:w-24">
-                        <Logo domain={role.domain} company={role.company} className="h-11 w-11 object-contain sm:h-12 sm:w-12" />
+                      <Zap className="h-7 w-7 shrink-0 sm:h-8 sm:w-8" style={{ color: "#ff6b1a" }} fill="#ff6b1a" strokeWidth={1.5} />
+                      <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-card sm:h-20 sm:w-20">
+                        <Logo domain={role.domain} company={role.company} className="h-9 w-9 object-contain sm:h-10 sm:w-10" />
                       </div>
                     </div>
 
-                    <h3 className="mt-10 text-[2rem] font-medium leading-tight text-primary-foreground sm:text-4xl">
+                    <h3 className="mt-8 text-[1.65rem] font-medium leading-tight text-primary-foreground sm:text-3xl">
                       It's a Match!
                     </h3>
-                    <p className="mt-3 text-base text-primary-foreground/70 sm:text-lg">
+                    <p className="mt-2 text-sm text-primary-foreground/70 sm:text-base">
                       <span className="font-semibold text-primary-foreground">{role.company}</span> wants to meet you.
                     </p>
-                    <div className="mt-8 rounded-full bg-white/10 px-5 py-3 text-sm text-primary-foreground sm:text-base">
+                    <div className="mt-6 rounded-full bg-white/10 px-4 py-2 text-xs text-primary-foreground sm:text-sm">
                       {role.title} · {role.location}
                     </div>
-                    <p className="mt-8 max-w-xs text-sm text-primary-foreground/60">
+                    <p className="mt-6 max-w-[14rem] text-xs text-primary-foreground/60">
                       Interview prep is ready. Else briefs you live before the call.
                     </p>
                   </div>
