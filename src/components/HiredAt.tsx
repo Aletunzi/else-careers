@@ -23,10 +23,6 @@ const Logo = ({ name, src }: { name: string; src: string }) => (
       src={src}
       alt={`${name} logo`}
       className="h-full w-full object-contain"
-      style={{
-        filter: "grayscale(100%) brightness(0.55)",
-        opacity: 0.75,
-      }}
       loading="lazy"
     />
   </div>
