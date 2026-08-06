@@ -21,7 +21,6 @@ const Index = () => {
         </main>
       </div>
       <ProductIntro />
-      <ProblemTwo />
       <HiredAt />
       <Solution />
       <Screening />
