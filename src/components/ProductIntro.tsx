@@ -302,10 +302,10 @@ const ProductIntro = () => {
                     </div>
 
                     <div className="flex items-center gap-2">
-                      <span className="flex-1 rounded-full bg-primary py-2.5 text-center text-xs text-primary-foreground sm:text-sm">
+                      <span className="flex-1 rounded-2xl bg-primary py-2.5 text-center text-xs text-primary-foreground sm:text-sm">
                         Apply
                       </span>
-                      <span className="rounded-full bg-secondary px-5 py-2.5 text-center text-xs text-foreground/70 sm:text-sm">
+                      <span className="rounded-2xl bg-secondary px-5 py-2.5 text-center text-xs text-foreground/70 sm:text-sm">
                         Skip
                       </span>
                     </div>

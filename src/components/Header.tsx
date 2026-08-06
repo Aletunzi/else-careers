@@ -15,7 +15,7 @@ const Header = () => {
           href="https://app.tryelse.xyz/register"
           target="_blank"
           rel="noopener noreferrer"
-          className="group relative overflow-hidden rounded-lg bg-primary px-5 py-2.5 text-sm font-normal text-white sm:px-6 sm:py-2.5 sm:text-sm"
+          className="group relative overflow-hidden rounded-2xl bg-primary px-5 py-2.5 text-sm font-normal text-white sm:px-6 sm:py-2.5 sm:text-sm"
         >
           <span className="absolute inset-y-0 left-0 w-0 bg-[#ff6b1a] transition-[width] duration-500 ease-out group-hover:w-full" aria-hidden />
           <span className="relative z-10">Try for free</span>
