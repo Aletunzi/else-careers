@@ -133,7 +133,7 @@ const ProductIntro = () => {
         </div>
 
         <div
-          className={`relative mx-auto h-[560px] w-full max-w-md sm:h-[600px] lg:max-w-lg ${inView ? "animate-fade-in" : "opacity-0"}`}
+          className={`relative mx-auto h-[480px] w-full max-w-[300px] sm:h-[520px] sm:max-w-[340px] lg:max-w-sm ${inView ? "animate-fade-in" : "opacity-0"}`}
           style={{ animationDelay: "450ms", animationFillMode: "both" }}
         >
           {order.map((deckIndex, pos) => {
@@ -144,12 +144,12 @@ const ProductIntro = () => {
             return (
               <div
                 key={role.title}
-                className={`absolute inset-x-0 top-0 flex h-[520px] flex-col overflow-hidden rounded-3xl p-7 shadow-[0_16px_50px_-20px_rgba(0,0,0,0.25)] sm:h-[560px] sm:p-9 ${isMatch ? "bg-[#201C1B]" : "bg-card"}`}
+                className={`absolute inset-x-0 top-0 flex h-[440px] flex-col overflow-hidden rounded-2xl p-5 shadow-[0_12px_40px_-16px_rgba(0,0,0,0.22)] sm:h-[480px] sm:p-6 ${isMatch ? "bg-[#201C1B]" : "bg-card"}`}
                 style={{
                   zIndex: DECK.length - pos,
                   transform: isTop && swiping
                     ? "translateX(125%) rotate(14deg)"
-                    : `translateY(${depth * 18}px) scale(${1 - depth * 0.04}) rotate(${depth === 0 ? 0 : depth % 2 === 0 ? 1.5 : -1.5}deg)`,
+                    : `translateY(${depth * 12}px) scale(${1 - depth * 0.04}) rotate(${depth === 0 ? 0 : depth % 2 === 0 ? 1.5 : -1.5}deg)`,
                   opacity: isTop && swiping ? 0 : depth >= 3 ? 0 : 1,
                   transition: "transform 500ms cubic-bezier(0.4,0,0.2,1), opacity 500ms ease-out",
                   pointerEvents: "none",
