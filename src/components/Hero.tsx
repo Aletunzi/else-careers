@@ -74,7 +74,7 @@ const Hero = () => {
 
   return (
     <>
-      <section className="relative flex flex-1 flex-col items-center justify-center bg-white px-5 py-10 text-center sm:justify-start sm:px-8 sm:pt-20 sm:pb-16 md:pt-28">
+      <section className="relative isolate flex flex-1 flex-col items-center justify-center bg-white px-5 py-10 text-center sm:justify-start sm:px-8 sm:pt-20 sm:pb-16 md:pt-28">
         <div
           className="pointer-events-none absolute inset-0 -z-10 opacity-[0.68]"
           aria-hidden
