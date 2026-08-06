@@ -235,7 +235,7 @@ const ProductIntro = () => {
                   </div>
 
                   <div
-                    className="absolute inset-0 flex flex-col"
+                    className="absolute inset-0 flex flex-col justify-between"
                     style={{
                       opacity: isMatch ? 0 : 1,
                       transform: isMatch ? "scale(1.04)" : "scale(1)",
@@ -244,52 +244,54 @@ const ProductIntro = () => {
                     }}
                     aria-hidden={isMatch}
                   >
-                    <div className="flex items-start justify-between gap-4">
-                      <div className="flex items-center gap-2.5">
-                        <div className="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-[#f3f1e9]">
-                          <Logo domain={role.domain} company={role.company} className="h-7 w-7 object-contain" />
-                        </div>
-                        <div className="min-w-0">
-                          <div className="text-sm font-semibold text-foreground sm:text-base">{role.company}</div>
-                          <div className="mt-0.5 inline-flex items-center gap-1 text-xs text-muted-foreground">
-                            <MapPin className="h-3.5 w-3.5" strokeWidth={1.8} />
-                            {role.location}
+                    <div className="flex flex-col">
+                      <div className="flex items-start justify-between gap-4">
+                        <div className="flex items-center gap-2.5">
+                          <div className="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-[#f3f1e9]">
+                            <Logo domain={role.domain} company={role.company} className="h-7 w-7 object-contain" />
+                          </div>
+                          <div className="min-w-0">
+                            <div className="text-sm font-semibold text-foreground sm:text-base">{role.company}</div>
+                            <div className="mt-0.5 inline-flex items-center gap-1 text-xs text-muted-foreground">
+                              <MapPin className="h-3.5 w-3.5" strokeWidth={1.8} />
+                              {role.location}
+                            </div>
                           </div>
                         </div>
-                      </div>
-                      <span className="inline-flex shrink-0 items-center gap-1 rounded-full bg-[#f3f1e9] px-2.5 py-1 text-[0.65rem] font-medium text-foreground">
-                        <Sparkles className="h-3 w-3" strokeWidth={2} />
-                        {role.fit}
-                      </span>
-                    </div>
-
-                    <h3 className="mt-4 text-[1.35rem] font-semibold leading-tight text-foreground sm:text-[1.5rem]">
-                      {role.title}
-                    </h3>
-
-                    <div className="mt-3 flex flex-wrap gap-2">
-                      {role.tags.map((t) => (
-                        <span
-                          key={t}
-                          className="rounded-full bg-secondary px-2.5 py-1 text-[0.65rem] text-foreground/80 sm:text-xs"
-                        >
-                          {t}
+                        <span className="inline-flex shrink-0 items-center gap-1 rounded-full bg-[#f3f1e9] px-2.5 py-1 text-[0.65rem] font-medium text-foreground">
+                          <Sparkles className="h-3 w-3" strokeWidth={2} />
+                          {role.fit}
                         </span>
-                      ))}
+                      </div>
+
+                      <h3 className="mt-4 text-[1.35rem] font-semibold leading-tight text-foreground sm:text-[1.5rem]">
+                        {role.title}
+                      </h3>
+
+                      <div className="mt-3 flex flex-wrap gap-2">
+                        {role.tags.map((t) => (
+                          <span
+                            key={t}
+                            className="rounded-full bg-secondary px-2.5 py-1 text-[0.65rem] text-foreground/80 sm:text-xs"
+                          >
+                            {t}
+                          </span>
+                        ))}
+                      </div>
+
+                      <div className="mt-4 grid grid-cols-2 gap-2">
+                        <div className="rounded-xl bg-secondary/60 px-3 py-2">
+                          <div className="text-[0.6rem] uppercase tracking-[0.14em] text-muted-foreground">Salary</div>
+                          <div className="mt-0.5 text-xs font-semibold text-foreground sm:text-sm">{role.salary}</div>
+                        </div>
+                        <div className="rounded-xl bg-secondary/60 px-3 py-2">
+                          <div className="text-[0.6rem] uppercase tracking-[0.14em] text-muted-foreground">Freshness</div>
+                          <div className="mt-0.5 text-xs font-semibold text-foreground sm:text-sm">{role.posted}</div>
+                        </div>
+                      </div>
                     </div>
 
-                    <div className="mt-4 grid grid-cols-2 gap-2">
-                      <div className="rounded-xl bg-secondary/60 px-3 py-2">
-                        <div className="text-[0.6rem] uppercase tracking-[0.14em] text-muted-foreground">Salary</div>
-                        <div className="mt-0.5 text-xs font-semibold text-foreground sm:text-sm">{role.salary}</div>
-                      </div>
-                      <div className="rounded-xl bg-secondary/60 px-3 py-2">
-                        <div className="text-[0.6rem] uppercase tracking-[0.14em] text-muted-foreground">Freshness</div>
-                        <div className="mt-0.5 text-xs font-semibold text-foreground sm:text-sm">{role.posted}</div>
-                      </div>
-                    </div>
-
-                    <div className="mt-3 rounded-xl bg-[#f3f1e9] p-3">
+                    <div className="my-3 flex flex-1 flex-col justify-center rounded-xl bg-[#f3f1e9] p-3">
                       <div className="flex items-center gap-1.5 text-[0.65rem] font-semibold uppercase tracking-[0.16em] text-foreground/70">
                         <Sparkles className="h-3 w-3" style={{ color: "#ff6b1a" }} strokeWidth={2} />
                         Why it's a good fit
@@ -299,7 +301,7 @@ const ProductIntro = () => {
                       </p>
                     </div>
 
-                    <div className="mt-3 flex items-center gap-2">
+                    <div className="flex items-center gap-2">
                       <span className="flex-1 rounded-full bg-primary py-2.5 text-center text-xs text-primary-foreground sm:text-sm">
                         Apply
                       </span>
