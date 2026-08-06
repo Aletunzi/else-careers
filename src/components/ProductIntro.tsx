@@ -166,7 +166,7 @@ const ProductIntro = () => {
               className="absolute inset-y-0 left-0 w-0 bg-[#ff6b1a] transition-[width] duration-500 ease-out group-hover:w-full"
               aria-hidden
             />
-            <span className="relative z-10">Start for free</span>
+            <span className="relative z-10">Try for free</span>
             <span className="relative z-10" aria-hidden>→</span>
           </a>
         </div>
