@@ -321,7 +321,7 @@ const VacancyRow = ({
         </div>
         <div
           data-arrow
-          className={`flex shrink-0 items-center justify-center rounded-full p-2 transition-all ${
+          className={`flex shrink-0 items-center justify-center rounded-2xl p-2 transition-all ${
             selected ? "bg-foreground text-white rotate-90" : "bg-foreground text-background"
           }`}
         >
