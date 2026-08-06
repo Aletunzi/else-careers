@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { MapPin, Sparkles, Zap } from "lucide-react";
 import { useInView } from "@/hooks/useInView";
+import userAvatar from "@/assets/user-avatar.jpg";
 
 type Role = {
   kind: "role" | "match";
@@ -79,20 +80,48 @@ const ProductIntro = () => {
   const { ref, inView } = useInView<HTMLElement>();
   const [order, setOrder] = useState(DECK.map((_, i) => i));
   const [swiping, setSwiping] = useState(false);
+  const [matchRevealed, setMatchRevealed] = useState(false);
 
   useEffect(() => {
     if (!inView) return;
-    let timeout: ReturnType<typeof setTimeout>;
-    const interval = setInterval(() => {
+    const timers: ReturnType<typeof setTimeout>[] = [];
+    let cancelled = false;
+
+    const schedule = (fn: () => void, ms: number) => {
+      timers.push(setTimeout(() => !cancelled && fn(), ms));
+    };
+
+    const advance = () => {
       setSwiping(true);
-      timeout = setTimeout(() => {
+      schedule(() => {
         setOrder((prev) => [...prev.slice(1), prev[0]]);
         setSwiping(false);
+        setMatchRevealed(false);
+        schedule(runCycle, 60);
       }, 520);
-    }, 3000);
+    };
+
+    const runCycle = () => {
+      setOrder((current) => {
+        const isMatchCard = DECK[current[0]].kind === "match";
+        if (isMatchCard) {
+          // show the vacancy card first, then flip it into the match card
+          schedule(() => setMatchRevealed(true), 2200);
+          schedule(advance, 2200 + 2500);
+        } else {
+          schedule(advance, 3000);
+        }
+        return current;
+      });
+    };
+
+    schedule(runCycle, 300);
+
     return () => {
-      clearInterval(interval);
-      clearTimeout(timeout);
+      cancelled = true;
+      timers.forEach(clearTimeout);
+      setSwiping(false);
+      setMatchRevealed(false);
     };
   }, [inView]);
 
@@ -133,18 +162,18 @@ const ProductIntro = () => {
         </div>
 
         <div
-          className={`relative mx-auto h-[480px] w-full max-w-[300px] sm:h-[520px] sm:max-w-[340px] lg:max-w-sm ${inView ? "animate-fade-in" : "opacity-0"}`}
+          className={`relative mx-auto h-[480px] w-full max-w-[340px] sm:h-[520px] sm:max-w-[390px] lg:max-w-[420px] ${inView ? "animate-fade-in" : "opacity-0"}`}
           style={{ animationDelay: "450ms", animationFillMode: "both" }}
         >
           {order.map((deckIndex, pos) => {
             const role = DECK[deckIndex];
             const isTop = pos === 0;
             const depth = Math.min(pos, 3);
-            const isMatch = role.kind === "match";
+            const isMatch = role.kind === "match" && isTop && matchRevealed;
             return (
               <div
                 key={role.title}
-                className={`absolute inset-x-0 top-0 flex h-[440px] flex-col overflow-hidden rounded-2xl p-5 shadow-[0_12px_40px_-16px_rgba(0,0,0,0.22)] sm:h-[480px] sm:p-6 ${isMatch ? "bg-[#201C1B]" : "bg-card"}`}
+                className={`absolute inset-x-0 top-0 flex h-[440px] flex-col overflow-hidden rounded-2xl p-5 shadow-[0_12px_40px_-16px_rgba(0,0,0,0.22)] transition-colors duration-500 sm:h-[480px] sm:p-6 ${isMatch ? "bg-[#201C1B]" : "bg-card"}`}
                 style={{
                   zIndex: DECK.length - pos,
                   transform: isTop && swiping
@@ -156,11 +185,16 @@ const ProductIntro = () => {
                 }}
               >
                 {isMatch ? (
-                  <div className="flex h-full flex-col items-center justify-center text-center">
+                  <div className="flex h-full animate-scale-in flex-col items-center justify-center text-center">
                     <div className="flex items-center gap-3 sm:gap-4">
-                      <div className="flex h-16 w-16 items-center justify-center rounded-full bg-card text-sm font-semibold text-foreground sm:h-20 sm:w-20 sm:text-base">
-                        You
-                      </div>
+                      <img
+                        src={userAvatar}
+                        alt="Else user portrait"
+                        width={816}
+                        height={816}
+                        loading="lazy"
+                        className="h-16 w-16 rounded-full object-cover sm:h-20 sm:w-20"
+                      />
                       <Zap className="h-7 w-7 shrink-0 sm:h-8 sm:w-8" style={{ color: "#ff6b1a" }} fill="#ff6b1a" strokeWidth={1.5} />
                       <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-card sm:h-20 sm:w-20">
                         <Logo domain={role.domain} company={role.company} className="h-9 w-9 object-contain sm:h-10 sm:w-10" />
