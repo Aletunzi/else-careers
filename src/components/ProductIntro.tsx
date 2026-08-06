@@ -1,18 +1,83 @@
 import { useEffect, useState } from "react";
-import { MapPin, Building2, Sparkles } from "lucide-react";
+import { MapPin, Sparkles, Zap } from "lucide-react";
 import { useInView } from "@/hooks/useInView";
 
-const ROLES = [
-  { title: "Senior Product Manager", company: "Revolut", location: "London, UK", tags: ["Fintech", "Hybrid"], fit: "94% fit" },
-  { title: "Head of Product", company: "Personio", location: "Munich, DE", tags: ["HR Tech", "On-site"], fit: "91% fit" },
-  { title: "Product Lead, Growth", company: "Spotify", location: "Stockholm, SE", tags: ["Consumer", "Hybrid"], fit: "89% fit" },
-  { title: "Group Product Manager", company: "Doctolib", location: "Paris, FR", tags: ["Health", "Remote"], fit: "87% fit" },
-  { title: "Principal PM, Payments", company: "Adyen", location: "Amsterdam, NL", tags: ["Payments", "Hybrid"], fit: "85% fit" },
+type Role = {
+  kind: "role" | "match";
+  title: string;
+  company: string;
+  domain: string;
+  location: string;
+  tags: string[];
+  fit: string;
+  why: string;
+};
+
+const DECK: Role[] = [
+  {
+    kind: "role",
+    title: "Senior Product Manager",
+    company: "Revolut",
+    domain: "revolut.com",
+    location: "London, UK",
+    tags: ["Fintech", "Hybrid"],
+    fit: "94% fit",
+    why: "5 years in fintech PM roles, payments experience and B2C growth ownership match 9 of 11 requirements.",
+  },
+  {
+    kind: "role",
+    title: "Head of Product",
+    company: "Personio",
+    domain: "personio.com",
+    location: "Munich, DE",
+    tags: ["HR Tech", "On-site"],
+    fit: "91% fit",
+    why: "You've scaled a product team from 3 to 12 and led B2B SaaS roadmaps — exactly the seniority they ask for.",
+  },
+  {
+    kind: "match",
+    title: "Product Lead, Growth",
+    company: "Spotify",
+    domain: "spotify.com",
+    location: "Remote",
+    tags: ["Consumer", "Remote"],
+    fit: "89% fit",
+    why: "Growth experimentation and consumer subscription metrics are core to your last two roles.",
+  },
+  {
+    kind: "role",
+    title: "Group Product Manager",
+    company: "Doctolib",
+    domain: "doctolib.fr",
+    location: "Paris, FR",
+    tags: ["Health", "Remote"],
+    fit: "87% fit",
+    why: "Marketplace background plus regulated-industry exposure covers their top three must-haves.",
+  },
+  {
+    kind: "role",
+    title: "Principal PM, Payments",
+    company: "Adyen",
+    domain: "adyen.com",
+    location: "Amsterdam, NL",
+    tags: ["Payments", "Hybrid"],
+    fit: "85% fit",
+    why: "Deep payments infrastructure knowledge and stakeholder work with enterprise merchants.",
+  },
 ];
+
+const Logo = ({ domain, company, className }: { domain: string; company: string; className?: string }) => (
+  <img
+    src={`https://www.google.com/s2/favicons?domain=${domain}&sz=128`}
+    alt={`${company} logo`}
+    className={className}
+    loading="lazy"
+  />
+);
 
 const ProductIntro = () => {
   const { ref, inView } = useInView<HTMLElement>();
-  const [order, setOrder] = useState(ROLES.map((_, i) => i));
+  const [order, setOrder] = useState(DECK.map((_, i) => i));
   const [swiping, setSwiping] = useState(false);
 
   useEffect(() => {
@@ -24,7 +89,7 @@ const ProductIntro = () => {
         setOrder((prev) => [...prev.slice(1), prev[0]]);
         setSwiping(false);
       }, 520);
-    }, 2600);
+    }, 3000);
     return () => {
       clearInterval(interval);
       clearTimeout(timeout);
@@ -36,7 +101,7 @@ const ProductIntro = () => {
       ref={ref}
       className="bg-background px-5 py-20 sm:px-8 sm:py-24 md:px-16 md:py-28 lg:px-24 lg:py-32 2xl:px-32"
     >
-      <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-14 lg:grid-cols-2 lg:gap-20">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-16 lg:grid-cols-2 lg:gap-20">
         <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
           <h2
             className={`max-w-2xl text-[clamp(2rem,6vw,3.75rem)] font-medium leading-[1.06] tracking-tight text-foreground ${inView ? "animate-fade-down" : "opacity-0"}`}
@@ -68,69 +133,109 @@ const ProductIntro = () => {
         </div>
 
         <div
-          className={`relative mx-auto h-[380px] w-full max-w-sm sm:h-[420px] ${inView ? "animate-fade-in" : "opacity-0"}`}
+          className={`relative mx-auto h-[560px] w-full max-w-md sm:h-[600px] lg:max-w-lg ${inView ? "animate-fade-in" : "opacity-0"}`}
           style={{ animationDelay: "450ms", animationFillMode: "both" }}
         >
-          {order.map((roleIndex, pos) => {
-            const role = ROLES[roleIndex];
+          {order.map((deckIndex, pos) => {
+            const role = DECK[deckIndex];
             const isTop = pos === 0;
             const depth = Math.min(pos, 3);
+            const isMatch = role.kind === "match";
             return (
               <div
                 key={role.title}
-                className="absolute inset-x-0 top-0 rounded-3xl bg-card p-6 shadow-[0_10px_40px_-16px_rgba(0,0,0,0.18)] sm:p-8"
+                className={`absolute inset-x-0 top-0 flex h-[520px] flex-col overflow-hidden rounded-3xl p-7 shadow-[0_16px_50px_-20px_rgba(0,0,0,0.25)] sm:h-[560px] sm:p-9 ${isMatch ? "bg-[#201C1B]" : "bg-card"}`}
                 style={{
-                  zIndex: ROLES.length - pos,
+                  zIndex: DECK.length - pos,
                   transform: isTop && swiping
-                    ? "translateX(120%) rotate(14deg)"
-                    : `translateY(${depth * 16}px) scale(${1 - depth * 0.04}) rotate(${depth === 0 ? 0 : depth % 2 === 0 ? 1.5 : -1.5}deg)`,
+                    ? "translateX(125%) rotate(14deg)"
+                    : `translateY(${depth * 18}px) scale(${1 - depth * 0.04}) rotate(${depth === 0 ? 0 : depth % 2 === 0 ? 1.5 : -1.5}deg)`,
                   opacity: isTop && swiping ? 0 : depth >= 3 ? 0 : 1,
                   transition: "transform 500ms cubic-bezier(0.4,0,0.2,1), opacity 500ms ease-out",
                   pointerEvents: "none",
                 }}
               >
-                <div className="flex items-center justify-between gap-3">
-                  <span className="inline-flex items-center gap-1.5 rounded-full bg-[#f3f1e9] px-3 py-1 text-xs font-medium text-foreground">
-                    <Sparkles className="h-3.5 w-3.5" strokeWidth={2} />
-                    {role.fit}
-                  </span>
-                  <span className="text-xs uppercase tracking-[0.18em] text-muted-foreground">New</span>
-                </div>
+                {isMatch ? (
+                  <div className="flex h-full flex-col items-center justify-center text-center">
+                    <div className="flex items-center gap-4 sm:gap-5">
+                      <div className="flex h-20 w-20 items-center justify-center rounded-full bg-card text-lg font-semibold text-foreground sm:h-24 sm:w-24 sm:text-xl">
+                        You
+                      </div>
+                      <Zap className="h-8 w-8 shrink-0 sm:h-9 sm:w-9" style={{ color: "#ff6b1a" }} fill="#ff6b1a" strokeWidth={1.5} />
+                      <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-card sm:h-24 sm:w-24">
+                        <Logo domain={role.domain} company={role.company} className="h-11 w-11 object-contain sm:h-12 sm:w-12" />
+                      </div>
+                    </div>
 
-                <h3 className="mt-6 text-2xl font-semibold leading-tight text-foreground sm:text-[1.75rem]">
-                  {role.title}
-                </h3>
+                    <h3 className="mt-10 text-[2rem] font-medium leading-tight text-primary-foreground sm:text-4xl">
+                      It's a Match!
+                    </h3>
+                    <p className="mt-3 text-base text-primary-foreground/70 sm:text-lg">
+                      <span className="font-semibold text-primary-foreground">{role.company}</span> wants to meet you.
+                    </p>
+                    <div className="mt-8 rounded-full bg-white/10 px-5 py-3 text-sm text-primary-foreground sm:text-base">
+                      {role.title} · {role.location}
+                    </div>
+                    <p className="mt-8 max-w-xs text-sm text-primary-foreground/60">
+                      Interview prep is ready. Else briefs you live before the call.
+                    </p>
+                  </div>
+                ) : (
+                  <>
+                    <div className="flex items-start justify-between gap-4">
+                      <div className="flex items-center gap-3">
+                        <div className="flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-[#f3f1e9]">
+                          <Logo domain={role.domain} company={role.company} className="h-8 w-8 object-contain" />
+                        </div>
+                        <div className="min-w-0">
+                          <div className="text-base font-semibold text-foreground sm:text-lg">{role.company}</div>
+                          <div className="mt-0.5 inline-flex items-center gap-1.5 text-sm text-muted-foreground">
+                            <MapPin className="h-4 w-4" strokeWidth={1.8} />
+                            {role.location}
+                          </div>
+                        </div>
+                      </div>
+                      <span className="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-[#f3f1e9] px-3 py-1.5 text-xs font-medium text-foreground">
+                        <Sparkles className="h-3.5 w-3.5" strokeWidth={2} />
+                        {role.fit}
+                      </span>
+                    </div>
 
-                <div className="mt-4 flex flex-col gap-2 text-sm text-muted-foreground">
-                  <span className="inline-flex items-center gap-2">
-                    <Building2 className="h-4 w-4" strokeWidth={1.8} />
-                    {role.company}
-                  </span>
-                  <span className="inline-flex items-center gap-2">
-                    <MapPin className="h-4 w-4" strokeWidth={1.8} />
-                    {role.location}
-                  </span>
-                </div>
+                    <h3 className="mt-7 text-[1.75rem] font-semibold leading-tight text-foreground sm:text-3xl">
+                      {role.title}
+                    </h3>
 
-                <div className="mt-6 flex flex-wrap gap-2">
-                  {role.tags.map((t) => (
-                    <span
-                      key={t}
-                      className="rounded-full bg-secondary px-3 py-1.5 text-xs text-foreground/80"
-                    >
-                      {t}
-                    </span>
-                  ))}
-                </div>
+                    <div className="mt-5 flex flex-wrap gap-2">
+                      {role.tags.map((t) => (
+                        <span
+                          key={t}
+                          className="rounded-full bg-secondary px-3 py-1.5 text-xs text-foreground/80 sm:text-sm"
+                        >
+                          {t}
+                        </span>
+                      ))}
+                    </div>
 
-                <div className="mt-7 flex items-center gap-3">
-                  <span className="flex-1 rounded-full bg-primary py-3 text-center text-sm text-primary-foreground">
-                    Apply
-                  </span>
-                  <span className="rounded-full bg-secondary px-5 py-3 text-center text-sm text-foreground/70">
-                    Skip
-                  </span>
-                </div>
+                    <div className="mt-7 rounded-2xl bg-[#f3f1e9] p-5">
+                      <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-foreground/70">
+                        <Sparkles className="h-3.5 w-3.5" style={{ color: "#ff6b1a" }} strokeWidth={2} />
+                        Why it's a good fit
+                      </div>
+                      <p className="mt-3 text-sm leading-relaxed text-muted-foreground sm:text-[0.95rem]">
+                        {role.why}
+                      </p>
+                    </div>
+
+                    <div className="mt-auto flex items-center gap-3 pt-7">
+                      <span className="flex-1 rounded-full bg-primary py-3.5 text-center text-sm text-primary-foreground sm:text-base">
+                        Apply
+                      </span>
+                      <span className="rounded-full bg-secondary px-6 py-3.5 text-center text-sm text-foreground/70 sm:text-base">
+                        Skip
+                      </span>
+                    </div>
+                  </>
+                )}
               </div>
             );
           })}
