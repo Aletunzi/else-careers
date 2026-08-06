@@ -103,7 +103,7 @@ const Solution = () => {
     <section
       ref={ref}
       className="px-5 py-20 sm:px-8 sm:py-24 md:px-16 md:py-28 lg:px-24 lg:py-32 2xl:px-32"
-      style={{ backgroundColor: "#f3f1e9" }}
+      style={{ backgroundColor: "#FAF9F5" }}
     >
       <div className="mx-auto max-w-7xl">
         <div
