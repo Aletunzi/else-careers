@@ -12,6 +12,8 @@ type Role = {
   tags: string[];
   fit: string;
   why: string;
+  salary: string;
+  posted: string;
 };
 
 const DECK: Role[] = [
@@ -24,6 +26,8 @@ const DECK: Role[] = [
     tags: ["Fintech", "Hybrid"],
     fit: "94% fit",
     why: "5 years in fintech PM roles, payments experience and B2C growth ownership match 9 of 11 requirements.",
+    salary: "£95k – £120k",
+    posted: "Posted 2 days ago",
   },
   {
     kind: "role",
@@ -34,6 +38,8 @@ const DECK: Role[] = [
     tags: ["HR Tech", "On-site"],
     fit: "91% fit",
     why: "You've scaled a product team from 3 to 12 and led B2B SaaS roadmaps — exactly the seniority they ask for.",
+    salary: "€110k – €135k",
+    posted: "Posted 4 days ago",
   },
   {
     kind: "match",
@@ -44,6 +50,8 @@ const DECK: Role[] = [
     tags: ["Consumer", "Remote"],
     fit: "89% fit",
     why: "Growth experimentation and consumer subscription metrics are core to your last two roles.",
+    salary: "€100k – €125k",
+    posted: "Posted today",
   },
   {
     kind: "role",
@@ -54,6 +62,8 @@ const DECK: Role[] = [
     tags: ["Health", "Remote"],
     fit: "87% fit",
     why: "Marketplace background plus regulated-industry exposure covers their top three must-haves.",
+    salary: "€90k – €110k",
+    posted: "Posted 1 day ago",
   },
   {
     kind: "role",
@@ -64,6 +74,8 @@ const DECK: Role[] = [
     tags: ["Payments", "Hybrid"],
     fit: "85% fit",
     why: "Deep payments infrastructure knowledge and stakeholder work with enterprise merchants.",
+    salary: "€105k – €130k",
+    posted: "Posted 3 days ago",
   },
 ];
 
