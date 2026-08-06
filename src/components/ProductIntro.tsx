@@ -159,7 +159,7 @@ const ProductIntro = () => {
             href="https://app.tryelse.xyz/register"
             target="_blank"
             rel="noopener noreferrer"
-            className={`group relative mt-8 inline-flex items-center gap-2 overflow-hidden rounded-full bg-primary px-6 py-3.5 text-sm text-primary-foreground sm:text-base ${inView ? "animate-fade-down" : "opacity-0"}`}
+            className={`group relative mt-8 inline-flex items-center gap-2 overflow-hidden rounded-2xl bg-primary px-6 py-3.5 text-sm text-primary-foreground sm:text-base ${inView ? "animate-fade-down" : "opacity-0"}`}
             style={{ animationDelay: "300ms", animationFillMode: "both" }}
           >
             <span
