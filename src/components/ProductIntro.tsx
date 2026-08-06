@@ -25,7 +25,7 @@ const DECK: Role[] = [
     location: "London, UK",
     tags: ["Fintech", "Hybrid"],
     fit: "94% fit",
-    why: "5 years in fintech PM roles, payments experience and B2C growth ownership match 9 of 11 requirements.",
+    why: "5 years in fintech PM roles, payments experience and B2C growth ownership match 9 of 11 requirements. Else has already highlighted these in your tailored CV.",
     salary: "£95k – £120k",
     posted: "Posted 2 days ago",
   },
@@ -37,7 +37,7 @@ const DECK: Role[] = [
     location: "Munich, DE",
     tags: ["HR Tech", "On-site"],
     fit: "91% fit",
-    why: "You've scaled a product team from 3 to 12 and led B2B SaaS roadmaps — exactly the seniority they ask for.",
+    why: "You've scaled a product team from 3 to 12 and led B2B SaaS roadmaps — exactly the seniority they ask for. Your cover letter is pre-written to prove it.",
     salary: "€110k – €135k",
     posted: "Posted 4 days ago",
   },
@@ -49,7 +49,7 @@ const DECK: Role[] = [
     location: "Remote",
     tags: ["Consumer", "Remote"],
     fit: "89% fit",
-    why: "Growth experimentation and consumer subscription metrics are core to your last two roles.",
+    why: "Growth experimentation and consumer subscription metrics are core to your last two roles. This match is the kind of high-fit opportunity Else prioritizes first.",
     salary: "€100k – €125k",
     posted: "Posted today",
   },
@@ -61,7 +61,7 @@ const DECK: Role[] = [
     location: "Paris, FR",
     tags: ["Health", "Remote"],
     fit: "87% fit",
-    why: "Marketplace background plus regulated-industry exposure covers their top three must-haves.",
+    why: "Marketplace background plus regulated-industry exposure covers their top three must-haves. The application is ready to send with one click.",
     salary: "€90k – €110k",
     posted: "Posted 1 day ago",
   },
@@ -73,7 +73,7 @@ const DECK: Role[] = [
     location: "Amsterdam, NL",
     tags: ["Payments", "Hybrid"],
     fit: "85% fit",
-    why: "Deep payments infrastructure knowledge and stakeholder work with enterprise merchants.",
+    why: "Deep payments infrastructure knowledge and stakeholder work with enterprise merchants. Else will apply on your behalf with a customized cover letter.",
     salary: "€105k – €130k",
     posted: "Posted 3 days ago",
   },
@@ -291,12 +291,12 @@ const ProductIntro = () => {
                       </div>
                     </div>
 
-                    <div className="my-2 flex flex-1 flex-col justify-start rounded-xl bg-[#f3f1e9] p-2.5">
+                    <div className="my-2 flex flex-1 flex-col justify-start rounded-xl bg-[#f3f1e9] px-4 pb-3 pt-5">
                       <div className="flex items-center gap-1.5 text-[0.65rem] font-semibold uppercase tracking-[0.16em] text-foreground/70">
                         <Sparkles className="h-3 w-3" style={{ color: "#ff6b1a" }} strokeWidth={2} />
                         Why it's a good fit
                       </div>
-                      <p className="mt-1.5 text-xs leading-relaxed text-muted-foreground sm:text-sm">
+                      <p className="mt-2 text-xs leading-relaxed text-muted-foreground sm:text-sm">
                         {role.why}
                       </p>
                     </div>
