@@ -172,7 +172,7 @@ const ProductIntro = () => {
         </div>
 
         <div
-          className={`relative mx-auto h-[480px] w-full max-w-[340px] sm:h-[520px] sm:max-w-[390px] lg:max-w-[420px] ${inView ? "animate-fade-in" : "opacity-0"}`}
+          className={`relative mx-auto h-[440px] w-full max-w-[340px] sm:h-[480px] sm:max-w-[390px] lg:max-w-[420px] ${inView ? "animate-fade-in" : "opacity-0"}`}
           style={{ animationDelay: "450ms", animationFillMode: "both" }}
         >
           {order.map((deckIndex, pos) => {
@@ -183,7 +183,7 @@ const ProductIntro = () => {
             return (
               <div
                 key={role.title}
-                className={`absolute inset-x-0 top-0 h-[440px] overflow-hidden rounded-2xl p-5 shadow-[0_12px_40px_-16px_rgba(0,0,0,0.22)] transition-colors duration-[900ms] ease-in-out sm:h-[480px] sm:p-6 ${isMatch ? "bg-[#201C1B]" : "bg-card"}`}
+                className={`absolute inset-x-0 top-0 h-[400px] overflow-hidden rounded-2xl p-4 shadow-[0_12px_40px_-16px_rgba(0,0,0,0.22)] transition-colors duration-[900ms] ease-in-out sm:h-[440px] sm:p-5 ${isMatch ? "bg-[#201C1B]" : "bg-card"}`}
                 style={{
                   zIndex: DECK.length - pos,
                   transform: isTop && swiping
@@ -291,7 +291,7 @@ const ProductIntro = () => {
                       </div>
                     </div>
 
-                    <div className="my-3 flex flex-1 flex-col justify-center rounded-xl bg-[#f3f1e9] p-3">
+                    <div className="my-2 flex flex-1 flex-col justify-start rounded-xl bg-[#f3f1e9] p-2.5">
                       <div className="flex items-center gap-1.5 text-[0.65rem] font-semibold uppercase tracking-[0.16em] text-foreground/70">
                         <Sparkles className="h-3 w-3" style={{ color: "#ff6b1a" }} strokeWidth={2} />
                         Why it's a good fit
