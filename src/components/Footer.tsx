@@ -9,7 +9,7 @@ const Footer = forwardRef<HTMLElement>((_, ref) => {
         {/* Mobile layout */}
         <div className="md:hidden">
           <img src={logoWhite} alt="else" className="h-7 w-7" />
-          <p className="mt-4 text-lg text-white/80">Your next job is elsewhere</p>
+          <p className="mt-4 text-lg text-white/80">Land your next job, faster</p>
           <div className="mt-10 flex gap-16">
             <div>
               <h4 className="mb-4 text-lg font-normal text-white/60">Company</h4>
@@ -47,7 +47,7 @@ const Footer = forwardRef<HTMLElement>((_, ref) => {
           <div className="flex flex-row justify-between gap-12">
             <div>
               <img src={logoWhite} alt="else" className="h-6 w-6 2xl:h-7 2xl:w-7" />
-              <p className="mt-3 text-base text-white/80 2xl:text-lg">Your next job is elsewhere</p>
+              <p className="mt-3 text-base text-white/80 2xl:text-lg">Land your next job, faster</p>
               <div className="mt-6 flex items-center gap-3">
                 <span className="text-base text-white/60 2xl:text-lg">More on</span>
                 <a href="https://x.com/elsecareers" target="_blank" rel="noopener noreferrer" className="inline-block text-white hover:text-white/80 transition-colors" aria-label="X (Twitter)">
