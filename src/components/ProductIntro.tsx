@@ -144,8 +144,8 @@ const ProductIntro = () => {
         className="pointer-events-none absolute inset-0 -z-10 opacity-[0.68]"
         aria-hidden
         style={{
-          backgroundImage: "radial-gradient(circle, #f3f1e9 2.5px, transparent 2.5px)",
-          backgroundSize: "24px 24px",
+          backgroundImage: "radial-gradient(circle, #f3f1e9 1.5px, transparent 1.5px)",
+          backgroundSize: "20px 20px",
         }}
       />
       <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-16 lg:grid-cols-2 lg:gap-20">
